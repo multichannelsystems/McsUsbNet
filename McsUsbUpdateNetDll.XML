@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>McsUsbUpdateNetDll</name>
+    </assembly>
+    <members>
+        <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
+            <summary>
+            
+            </summary>
+            <param name="prepare">if set to <c>true</c> [prepare].</param>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.Update">
+            <summary>
+            Update.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.IUpdateHandler">
+            <summary>
+            The UpdateHandler.
+            </summary>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.GetPath">
+            <summary>
+            Gets the path.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.GetDevice">
+            <summary>
+            Gets the device.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.GetFirmwareListDictionary">
+            <summary>
+            Gets the firmware list dictionary.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareUpdateHandler(System.Boolean)">
+            <summary>
+            Prepares the update handler.
+            </summary>
+            <param name="prepare">if set to <c>true</c> [prepare].</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.UpdateDictionary">
+            <summary>
+            Updates the dictionary.
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareForFirmwareUpdateEvent">
+            <summary>
+            Occurs when [prepare for firmware update event].
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.UpdateEvent">
+            <summary>
+            Occurs when [update event].
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate">
+            <summary>
+            Class that checks if a firmware update is needed and calls the dialogs
+            </summary>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+            Class to handle Firmware updates.
+            </summary>
+            <param name="device">handle to the device.</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwarePath(System.String)">
+            <summary>
+            Set the path where the firmware files or the file McsUsbUpdate.ini are located.
+            </summary>
+            <param name="path">Path to the files</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwareFile(System.String,System.String)">
+            <summary>
+            Set the firmware file names for the different processors, fpgas, ...
+            </summary>
+            <param name="dest">Firmware destination code</param>
+            <param name="filename">File name without path</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.CheckFirmwareUpdateNeeded">
+            <summary> 
+            Returns if a Firmware update is needed for the device.
+            Device must be connected. Firmware filenames must be somehow published to the class
+            </summary>
+        </member>
+    </members>
+</doc>

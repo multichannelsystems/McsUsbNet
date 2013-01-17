@@ -673,6 +673,82 @@ Get the number of analog channels the device supports.
 Class to provide hardware information about the device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint16_t frame arrays.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32[],System.Int32,System.Int32,System.Int32@)">
             <summary>
 Read data from a FIFO queue in uint32_t data format
