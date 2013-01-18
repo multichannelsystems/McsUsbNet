@@ -1415,9 +1415,14 @@ Initialize/Update the list of devices which are currently connected to the compu
 </summary>
             <param name="McsUsbDevice">Specifies the type of devices to look for.</param>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbListNet.Finalize">
+            <summary>
+Finalizer: called by GC before collecting
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.Dispose">
             <summary>
-Destructor.
+Destructor: called by Dispose()
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.OnDeviceArrivalRemoval,Mcs.Usb.OnDeviceArrivalRemoval)">
