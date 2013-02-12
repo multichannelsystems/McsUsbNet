@@ -246,6 +246,50 @@ Puts an electrode in either automatic or manual mode.
             <param name="mode">0 for automatic and 3 for manual mode.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.Dispose">
+            <summary>
+The destructor.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CStg200xBasicNet">
+            <summary>
+    CStg200xBasicNet is the base class to control MCS STG device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
             <summary>
     Initialize a new instance of the CGilsonDeviceNet class.
@@ -1535,5 +1579,6 @@ Enumerates the bus to use, either USB, PCI or any
 Enumerates the group of MCS devices to connect to.
 </summary>
         </member>
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xBasicNet.GetAnalogResolution(System.Int32,System.Int32@,System.Int32@)'. -->
     </members>
 </doc>
