@@ -170,16 +170,104 @@ Flashes a firmware file to the device.
 Retrives version info from a Firmware update file.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableMultiFileMode(System.UInt32)">
+            <summary>
+Enable the Multi-File mode of the STG.
+<para>
+In Multi-File mode, the trigger inputs switch between segments.
+To use this mode, define four segments (number 0 to 3) and
+fill each segment with a stimulus pattern.
+</para><para>
+Now a trigger on trigger input 1 switches the STG to the first 
+segment and starts all triggers in this segment.
+Likewise, a trigger on trigger input 2, 3 and 4 selects
+the respective segment and start all triggers in this segment
+So the Multi-File Mode can be used to predefine up to four
+different stimuli which can be selected without the
+need for a computer connection.
+</para></summary>
+            <param name="submode">The submode.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentSelect(System.UInt32,System.UInt32)">
+            <summary>
+Switchs segment.
+</summary>
+            <param name="segment">The number of the segment to select.</param>
+            <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentStart(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Switchs segment and starts trigger.
+</summary>
+            <param name="triggermap">A bitmap of triggers that will be started.</param>
+            <param name="segment">The number of the segment to select.</param>
+            <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentDefine(System.UInt32[])">
+            <summary>
+Defines the segment memory layout of the STG.
+<para>
+On reset, the STG has one segment containing all available memory.
+</para><para>
+ With this command, the STG memory can be devided into several segments.
+ Each segment can be filled with stimulus data.
+</para></summary>
+            <param name="segment_list">The List of memory sizes (one per segment).</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and send data to a given channel on the STG.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</summary>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="Amplitude">A list of datapoints as int32.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
+            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStg200xPollStatus)">
             <summary>
 Use this constructor if you want to use the status callback
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.GetTrigger(System.UInt32[]@,System.UInt32[]@,System.UInt32[]@)">
+            <summary>
+Queries the trigger settings for the STG. Note that all memory segments have their own trigger setting.
+</summary>
+            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
+            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
+            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
+            <summary>
+Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
+</summary>
+            <param name="first_trigger">The number of the first trigger to change.</param>
+            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
+            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
+            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32,System.Boolean*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
             <summary>
 Get weather an electrode is enabled or disabled for stimulation.
 </summary>
             <param name="electrode">The electrode number.</param>
+            <param name="index">The index for listmode.</param>
             <param name="enable">1 if the electrode is enabled, 0 if it is disabled.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
@@ -188,6 +276,7 @@ Get weather an electrode is enabled or disabled for stimulation.
 Enabled or disables the stimulation switch for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
+            <param name="index">The index for listmode.</param>
             <param name="enable">1 to enable the electrode, 0 to disable.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
@@ -196,6 +285,7 @@ Enabled or disables the stimulation switch for an electrode.
 Gets the DAC which is used for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
+            <param name="index">The index for listmode.</param>
             <param name="dac">The DAC in use, can be 1, 2 or 3. If the electrode is grounded 0 is returned.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
@@ -222,6 +312,69 @@ Puts an electrode in either automatic or manual mode.
             <param name="electrode">The electrode number.</param>
             <param name="mode">0 for automatic and 3 for manual mode.</param>
             <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetMeasurementMode(System.UInt32)">
+            <summary>
+Sets a channel to measurement mode (STG3008-FA).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode">
+            <summary>
+Sets all channels to current mode (STG3008-FA and STG400x only).
+</summary>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetVoltageMode">
+            <summary>
+Sets all channels to voltage mode (STG3008-FA and STG400x only).
+</summary>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode(System.UInt32)">
+            <summary>
+Sets a channel to current mode (STG3008-FA and STG400x only).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetVoltageMode(System.UInt32)">
+            <summary>
+Sets a channel to voltage mode (STG3008-FA and STG400x only).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfTriggerInputs">
+            <summary>
+Gets the Number of trigger inputs of the device.
+</summary>
+            <returns>The number of trigger inputs.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfSyncoutChannels">
+            <summary>
+Gets the Number of available syncout channels of the device.
+</summary>
+            <returns>The number of analog channels.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels">
+            <summary>
+Gets the Number of available analog channels of the device.
+</summary>
+            <returns>The number of analog channels.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetTotalMemory">
+            <summary>
+Gets the total amount of memory available on the STG (all segments).
+</summary>
+            <returns>The total memory available on the STG in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetMemory">
+            <summary>
+Gets the amount of memory available in the currently selected segment of the STG.
+</summary>
+            <returns>The memory available in the currently selected segment in bytes.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
             <summary>
@@ -256,6 +409,61 @@ Gets the Voltage Range of the specified channel in Microvolts.
 Gets number of bits of the DAC resolution.
 </summary>
             <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetAnalogRanges(System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+Gets the range of the analog outputs.
+</summary>
+            <param name="channel">The channel which is queried.</param>
+            <param name="URange">The Voltage range in mV.</param>
+            <param name="IRange">The Current range in uA.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetStgVersionInfo(System.String@,System.String@)">
+            <summary>
+Queries software and hardware version.
+</summary>
+            <param name="SwVersion">The current Software Version of the STG.</param>
+            <param name="HwVersion">The Hardware Revision of the STG.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SendStop(System.UInt32,System.Int32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+            <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetOutputRate">
+            <summary>
+Queries the output rate of the STG.
+Valid rates are from 1000 Hz to 50000 Hz.
+</summary>
+            <returns>Returns the current output rate in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetOutputRate(System.UInt32)">
+            <summary>
+Change the output rate of the STG.
+Valid rates are from 1000 Hz to 50000 Hz.
+</summary>
+            <param name="rate">The new output rate in Hz.</param>
+            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.Dispose">
             <summary>
@@ -735,6 +943,16 @@ each populates an entry in the dictionary by hardware channel number
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
             <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int32_t frame arrays.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32@)">
             <summary>
 Read data from a FIFO queue as array of uint16_t data frame arrays
@@ -743,6 +961,16 @@ Read data from a FIFO queue as array of uint16_t data frame arrays
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
             <returns>Array of int32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint32_t frame arrays.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -753,6 +981,16 @@ Read data from a FIFO queue as array of uint16_t data frame arrays
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
             <returns>Array of uint32_t frame arrays.</returns>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int16_t frame arrays.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32@)">
             <summary>
 Read data from a FIFO queue as array of uint16_t data frame arrays
@@ -761,6 +999,16 @@ Read data from a FIFO queue as array of uint16_t data frame arrays
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
             <returns>Array of int16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint16_t frame arrays.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -948,44 +1196,113 @@ the number of sample frames in its own data format.
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq(System.UInt32)">
+            <summary>
+Stop the data acquisition thread and sampling.
+</summary>
+            <param name="VirtualDevice">Virtual Device to start.</param>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq">
             <summary>
-Stop the data acquisition thread.
+Stop the data acquisition thread and sampling.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
             <summary>
-Start the data acquisition thread.
+Start the data acquisition thread and sampling.
 </summary>
-            <param name="samples_per_callback">Obsolete, do not use.</param>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
             <param name="timeout">Timeout in ms.</param>
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
             <param name="packetsInUrb">Packets in each URB.</param>
+            <param name="VirtualDevice">Virtual Device to start.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
             <summary>
-Start the data acquisition thread.
+Start the data acquisition thread and sampling.
 </summary>
-            <param name="samples_per_callback">Obsolete, do not use.</param>
             <param name="timeout">Timeout in ms.</param>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32)">
-            <summary>
-Start the data acquisition thread.
-</summary>
-            <param name="samples_per_callback">Obsolete, do not use.</param>
-            <param name="timeout">Timeout in ms.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32)">
             <summary>
-Start the data acquisition thread.
+Start the data acquisition thread and sampling.
 </summary>
-            <param name="samples_per_callback">Obsolete, do not use.</param>
+            <param name="timeout">Timeout in ms.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq">
             <summary>
+Start the data acquisition thread and sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
 Start the data acquisition thread.
+</summary>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+            <param name="VirtualDevice">Virtual Device to start.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Start the data acquisition thread.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32)">
+            <summary>
+Start the data acquisition thread.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop">
+            <summary>
+Start the data acquisition thread.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32,System.Int32,System.Int32)">
+            <summary>
+Stop sampling.
+</summary>
+            <param name="trigger_map" />
+            <param name="options" />
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32,System.Int32)">
+            <summary>
+Stop sampling.
+</summary>
+            <param name="trigger_map" />
+            <param name="options" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32)">
+            <summary>
+Stop sampling.
+</summary>
+            <param name="trigger_map" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop">
+            <summary>
+Stop sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStart(System.Int32,System.Int32)">
+            <summary>
+Start sampling.
+</summary>
+            <param name="trigger_map" />
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStart">
+            <summary>
+Start sampling.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelsInBlock(System.Int32@)">
@@ -1313,74 +1630,6 @@ Sets .
 </summary>
             <returns>true if the device is connected.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceEnumNet,Mcs.Usb.DeviceIdNet,System.UInt32)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="McsUsbDevice">The Mcs Device type.</param>
-            <param name="myDeviceId">The device ID.</param>
-            <param name="LockMask">The Lock Mask for this connection.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceEnumNet,Mcs.Usb.DeviceIdNet)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="McsUsbDevice">The Mcs Device type.</param>
-            <param name="myDeviceId">The device ID.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceIdNet,System.UInt32)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="myDeviceId">The device ID.</param>
-            <param name="LockMask">The Lock Mask for this connection.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceIdNet)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="myDeviceId">The device ID.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceEnumNet,System.UInt32)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="McsUsbDevice">The Mcs Device type.</param>
-            <param name="LockMask">The Lock Mask for this connection.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,Mcs.Usb.DeviceEnumNet)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="McsUsbDevice">The Mcs Device type.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String,System.UInt32)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <param name="LockMask">The Lock Mask for this connection.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.String)">
-            <summary>
-  Opens a connection to the device.
-</summary>
-            <param name="serNo">The Serial Number of the device to connect.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.Connect(Mcs.Usb.CMcsUsbListEntryNet,System.UInt32)">
             <summary>
   Opens a connection to the device.
@@ -1394,12 +1643,6 @@ Sets .
   Opens a connection to the device.
 </summary>
             <param name="entry">The Device List Entry for the device to be connected.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbNet.Connect">
-            <summary>
-  Opens a connection to the device.
-</summary>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
@@ -1539,6 +1782,16 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.STG_DestinationEnumNet">
+            <summary>
+Enumerates the destination for STG downloads.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.TcxDeviceTypeEnumNet">
+            <summary>
+Enumerates the type of TCX devices.
+</summary>
+        </member>
         <member name="T:Mcs.Usb.DataModeEnumNet">
             <summary>
 Enumerates the data mode of the device, either 16, 24 or 32 bit, can be signed or unsigned.
@@ -1572,6 +1825,16 @@ Enumerates the destination processor for the firmware.
         <member name="T:Mcs.Usb.McsBusTypeEnumNet">
             <summary>
 Enumerates the bus to use, either USB, PCI or any
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.ProductIdEnumNet">
+            <summary>
+Enumerates the group of MCS devices to connect to.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.VendorIdEnumNet">
+            <summary>
+Enumerates the group of MCS devices to connect to.
 </summary>
         </member>
         <member name="T:Mcs.Usb.DeviceEnumNet">
