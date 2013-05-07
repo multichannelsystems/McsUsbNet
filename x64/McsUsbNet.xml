@@ -1103,7 +1103,7 @@ Get the number of sample frames already available in the FIFO.
             <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
             <returns>Number of sample frames available in the FIFO.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
 </summary>
@@ -1118,7 +1118,7 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
 </summary>
@@ -1136,7 +1136,7 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
 </summary>
@@ -1151,7 +1151,7 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Int32,System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
 </summary>
@@ -1166,7 +1166,7 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
 </summary>
@@ -1181,7 +1181,7 @@ the number of sample frames in its own data format.
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Int32,System.Int32,System.Int32,Mcs.Usb.CMcsUsbDacqNet.SampleSize,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
 Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
 </summary>
@@ -1790,6 +1790,11 @@ Enumerates the destination for STG downloads.
         <member name="T:Mcs.Usb.TcxDeviceTypeEnumNet">
             <summary>
 Enumerates the type of TCX devices.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.SampleSizeNet">
+            <summary>
+Enumerates the data format for ChannelBlock functions.
 </summary>
         </member>
         <member name="T:Mcs.Usb.DataModeEnumNet">
