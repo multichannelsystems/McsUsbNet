@@ -23,13 +23,18 @@
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
             <summary>
-            
+            PrepareForFirmwareUpdate
             </summary>
             <param name="prepare">if set to <c>true</c> [prepare].</param>
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.Update">
             <summary>
             Update.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareDialog">
+            <summary>
+            PrepareDialog.
             </summary>
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.IUpdateHandler">
@@ -74,6 +79,11 @@
         <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.UpdateEvent">
             <summary>
             Occurs when [update event].
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareDialogEvent">
+            <summary>
+            Occurs when [prepare dialog event].
             </summary>
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate">
