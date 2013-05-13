@@ -4,81 +4,6 @@
         "McsUsbNet"
     </assembly>
     <members>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
-        </member>
         <member name="P:Mcs.Usb.CSafeISDeviceNet.DacqDevice">
             <summary>
 Gets the <see cref="T:Mcs.Usb.CMcsUsbDacqNet" />. Use this to control the data aquisition.
@@ -143,6 +68,253 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         </member>
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+            <summary>
+ Gets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
+            <summary>
+Gets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
+            <summary>
+Gets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
+            <summary>
+Gets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
+            <summary>
+Gets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
+            <summary>
+Gets if the specified channel is on or off.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
+            <summary>
+Gets the target temperate of specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
+            <summary>
+Sets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
+            <summary>
+Sets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
+            <summary>
+Sets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
+            <summary>
+Sets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Int32)">
+            <summary>
+Switches the specified channel on or off.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
+            <summary>
+Sets the target temperate of specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
+            <summary>
+Gets the temperate of the mainboard in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
+            <summary>
+Gets weather the device supports a thermocouple.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
+            <summary>
+Gets the temperate limit of the specified heater in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
+            <summary>
+Gets the temperate of the specified heater in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.01°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
+            <summary>
+Gets the number of channels the device can measure.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
+            <summary>
+Gets the number of channels the device can control/regulate.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CTcxDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CTcxDeviceNet">
+            <summary>
+Class to control a Temperature Controller (TCX)
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+            <summary>
+ Reads the proportional constant for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleCalibration(System.UInt32)">
+            <summary>
+ Gets the calibration constant for the Thermocouple ADC.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The calibration constant for the Thermocouple ADC.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetReferenceTemperature(System.UInt32)">
+            <summary>
+ Reads the reference temperature for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The temperature from the Thermocouple in 1/100 °C.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleTemperature(System.UInt32)">
+            <summary>
+Reads the temperature from Thermocouple. The functions gives the temperature difference
+between both Thermocouple junctions. To get the absolute temperature, add the reference
+temperature.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The temperature difference between both Thermocouple junctions in 1/100 °C.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigin">
+            <summary>
+ Reads the digital input.
+</summary>
+            <returns>The bit pattern of the state of the digital inputs.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetAdc(System.UInt32)">
+            <summary>
+ Reads an ADC Value.
+</summary>
+            <param name="channel">The ADC channel number to query.</param>
+            <returns>The current ADC value.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetPWM(System.UInt32)">
+            <summary>
+ Gets the state of the PWM output.
+</summary>
+            <returns>The current state of the PWM outputs duty cycle in permille.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigout">
+            <summary>
+ Gets the state of the digital output.
+</summary>
+            <returns>The current state of the digital outputs as a bit pattern.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetSingleValve(System.UInt16)">
+            <summary>
+Gets the state of a valve.
+</summary>
+            <param name="valve">number of valve</param>
+            <returns>state of the valve</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetValve">
+            <summary>
+ Gets the state of the valves.
+</summary>
+            <returns>The current state of the valves as a bit pattern.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the proportinal constant for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <param name="value">proportinal constant for the Thermocouple in Nanovolt per Kelvin.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.CalibrateThermocouple(System.UInt32)">
+            <summary>
+Calibrates the ADC which is used for the Thermocouple. For the calibration,
+Short circuit the Thermocouple and use this function to correct a possible offset of the ADC which measures the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetPWM(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the duty cycle of the PWM output.
+</summary>
+            <param name="channel">PWM channel number.</param>
+            <param name="value">duty cycle of the PWM output in permille.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetDigout(System.UInt32)">
+            <summary>
+ Define the pattern on the Digital Output.
+</summary>
+            <param name="value">bit pattern on the digital output.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetSingleValve(System.UInt16,System.UInt16)">
+            <summary>
+  Opens or Closes a valve.
+</summary>
+            <param name="valve">number of valve to be changed.</param>
+            <param name="onoff">open or close the valve.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetValve(System.UInt32)">
+            <summary>
+  Open or Close valves.
+</summary>
+            <param name="value">bit pattern of valves which should be open.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.Dispose">
+            <summary>
+    Default destructor.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CFluidControlDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CFluidControlDeviceNet">
+            <summary>
+    CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
+</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableMultiFileMode(System.UInt32)">
             <summary>
@@ -449,140 +621,6 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
-            <summary>
- Sets the proportional constant for the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
-            <summary>
- Gets the proportional constant for the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
-            <summary>
-Gets the maximum heater power of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
-            <summary>
-Gets the D-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
-            <summary>
-Gets the I-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
-            <summary>
-Gets the P-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
-            <summary>
-Gets if the specified channel is on or off.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
-            <summary>
-Gets the target temperate of specified channel in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
-            <summary>
-Sets the maximum heater power of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
-            <summary>
-Sets the D-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
-            <summary>
-Sets the I-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
-            <summary>
-Sets the P-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Int32)">
-            <summary>
-Switches the specified channel on or off.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
-            <summary>
-Sets the target temperate of specified channel in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
-            <summary>
-Gets the temperate of the mainboard in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
-            <summary>
-Gets weather the device supports a thermocouple.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
-            <summary>
-Gets the temperate limit of the specified heater in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
-            <summary>
-Gets the temperate of the specified heater in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.01°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
-            <summary>
-Gets the number of channels the device can measure.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
-            <summary>
-Gets the number of channels the device can control/regulate.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CTcxDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CTcxDeviceNet">
-            <summary>
-Class to control a Temperature Controller (TCX)
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CPeristalticPumpDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
-            <summary>
-    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
             <summary>
     Initialize a new instance of the CGilsonDeviceNet class.
@@ -625,127 +663,199 @@ Flashes a firmware file to the device.
 Retrives version info from a Firmware update file.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
             <summary>
- Reads the proportional constant for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleCalibration(System.UInt32)">
-            <summary>
- Gets the calibration constant for the Thermocouple ADC.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The calibration constant for the Thermocouple ADC.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetReferenceTemperature(System.UInt32)">
-            <summary>
- Reads the reference temperature for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The temperature from the Thermocouple in 1/100 °C.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleTemperature(System.UInt32)">
-            <summary>
-Reads the temperature from Thermocouple. The functions gives the temperature difference
-between both Thermocouple junctions. To get the absolute temperature, add the reference
-temperature.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The temperature difference between both Thermocouple junctions in 1/100 °C.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigin">
-            <summary>
- Reads the digital input.
-</summary>
-            <returns>The bit pattern of the state of the digital inputs.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetAdc(System.UInt32)">
-            <summary>
- Reads an ADC Value.
-</summary>
-            <param name="channel">The ADC channel number to query.</param>
-            <returns>The current ADC value.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetPWM(System.UInt32)">
-            <summary>
- Gets the state of the PWM output.
-</summary>
-            <returns>The current state of the PWM outputs duty cycle in permille.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigout">
-            <summary>
- Gets the state of the digital output.
-</summary>
-            <returns>The current state of the digital outputs as a bit pattern.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetSingleValve(System.UInt16)">
-            <summary>
-Gets the state of a valve.
-</summary>
-            <param name="valve">number of valve</param>
-            <returns>state of the valve</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetValve">
-            <summary>
- Gets the state of the valves.
-</summary>
-            <returns>The current state of the valves as a bit pattern.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
-            <summary>
- Sets the proportinal constant for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <param name="value">proportinal constant for the Thermocouple in Nanovolt per Kelvin.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.CalibrateThermocouple(System.UInt32)">
-            <summary>
-Calibrates the ADC which is used for the Thermocouple. For the calibration,
-Short circuit the Thermocouple and use this function to correct a possible offset of the ADC which measures the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetPWM(System.UInt32,System.UInt32)">
-            <summary>
- Sets the duty cycle of the PWM output.
-</summary>
-            <param name="channel">PWM channel number.</param>
-            <param name="value">duty cycle of the PWM output in permille.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetDigout(System.UInt32)">
-            <summary>
- Define the pattern on the Digital Output.
-</summary>
-            <param name="value">bit pattern on the digital output.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetSingleValve(System.UInt16,System.UInt16)">
-            <summary>
-  Opens or Closes a valve.
-</summary>
-            <param name="valve">number of valve to be changed.</param>
-            <param name="onoff">open or close the valve.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetValve(System.UInt32)">
-            <summary>
-  Open or Close valves.
-</summary>
-            <param name="value">bit pattern of valves which should be open.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.Dispose">
-            <summary>
-    Default destructor.
+CMeasureTableDeviceNet is the to control the MCS HLA device
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.#ctor">
+        <member name="T:Mcs.Usb.CPPSDeviceNet">
             <summary>
-    Initialize a new instance of the CFluidControlDeviceNet class.
+CPPS4plus1DeviceNet is the to control the MCS HLA device
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CFluidControlDeviceNet">
+        <member name="T:Mcs.Usb.CHLADeviceNet">
             <summary>
-    CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
+CHLADeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
+            <summary>
+CEncapsulatorDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHiClampDeviceNet">
+            <summary>
+CHiClampDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
+            <summary>
+CRoboInjectDeviceNet is the to control the MCS RoboInject device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
+            <summary>
+CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
+            <summary>
+Gets the current position of motors
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Current position of first axis if pattern in axes is set </param>
+            <param name="y"> Current position of second axis if pattern in axes is set </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Stops the current movement
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Searches the reference position of the motor
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
+            <summary>
+Low level command, gets the error of the last movement end
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
+            <summary>
+Low level command, gets the internal state "In Movement"
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
+            <summary>
+Low level command, sets the internal state to "In Movement" 
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
+            <summary> Bit pattern for i axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
+            <summary> Bit pattern for z axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
+            <summary> Bit pattern for y axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
+            <summary> Bit pattern for x axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
+            <summary> Axis number of i for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
+            <summary> Axis number of z for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
+            <summary> Axis number of y for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
+            <summary> Axis number of x for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
+            <summary> McsBus address for the z and i axes </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
+            <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboDeviceNet">
+            <summary>
+CRoboDeviceNet is the base class for all Robo platform based devices
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
+            <summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
+            <summary>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
+            <summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
+            <summary>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
+            <summary>
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
@@ -918,126 +1028,6 @@ which contructs the correct underlying C++ class for the USB-MEA device on the o
 on the other hand.
 Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
 </remarks>
-        </member>
-        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPSDeviceNet">
-            <summary>
-CPPS4plus1DeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHLADeviceNet">
-            <summary>
-CHLADeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
-            <summary>
-CEncapsulatorDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHiClampDeviceNet">
-            <summary>
-CHiClampDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
-            <summary>
-CRoboInjectDeviceNet is the to control the MCS RoboInject device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
-            <summary>
-CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
-            <summary>
-Gets the current position of motors
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Current position of first axis if pattern in axes is set </param>
-            <param name="y"> Current position of second axis if pattern in axes is set </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Stops the current movement
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Moves the motor to the new absolute position
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Position of first axis, if pattern in axes is set </param>
-            <param name="y"> Position of second axis if pattern in axes is set </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Searches the reference position of the motor
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
-            <summary>
-Low level command, gets the error of the last movement end
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
-            <summary>
-Low level command, gets the internal state "In Movement"
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
-            <summary>
-Low level command, sets the internal state to "In Movement" 
-</summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
-            <summary> Bit pattern for i axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
-            <summary> Bit pattern for z axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
-            <summary> Bit pattern for y axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
-            <summary> Bit pattern for x axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
-            <summary> Axis number of i for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
-            <summary> Axis number of z for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
-            <summary> Axis number of y for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
-            <summary> Axis number of x for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
-            <summary> McsBus address for the z and i axes </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
-            <summary> McsBus address for the xy-plane </summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboDeviceNet">
-            <summary>
-CRoboDeviceNet is the base class for all Robo platform based devices
-</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -1317,9 +1307,6 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <summary>
 Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
 </summary>
-            <summary>
-Create a common queue for all channels.
-</summary>
             <remarks>
 When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
 from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
@@ -1330,6 +1317,38 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
             <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
+            <summary>
+Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nOffset">Number of channel to start with (counted in samplesize bytes).</param>
+            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <returns>The handle to the Queue.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
+            <summary>
+Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nOffset">Number of channel to start with (counted in samplesize bytes).</param>
+            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <returns>The handle to the Queue.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
             <summary>
@@ -1606,6 +1625,16 @@ Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
             <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CPeristalticPumpDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
+            <summary>
+    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
+</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetDeviceSpeed">
             <summary>
