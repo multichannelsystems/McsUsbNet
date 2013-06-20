@@ -288,6 +288,297 @@ Sets .
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+            <param name="channelData">Handler to call when new data is available.</param>
+            <param name="error">Handler to call when an error occurs.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMeaUSBDeviceNet">
+            <summary>
+Class for data acquisition via ME and MEA USB amplifiers
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CMC_CardDeviceNet class.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
+            <summary>
+Initializes a new instance of CMC_CardDeviceNet class.
+</summary>
+            <param name="channelData">Handler to call when new data is available.</param>
+            <param name="error">Handler to call when an error occurs.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMC_CardDeviceNet">
+            <summary>
+Class for data acquisition via MC_Card
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32)">
+            <summary>
+Defines a pattern on the digital dataword which will start a trigger when found.
+</summary>
+            <param name="mask">Bits in the digital dataword which are monitored for a match with value.</param>
+            <param name="value">Pattern which must match for the trigger to start.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32)">
+            <summary>
+Sets the maximum number of samples per trigger.
+</summary>
+            <param name="samples">Number of samples to acquire after the trigger condition is met.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[]@,System.UInt32)">
+            <summary>
+Gets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
+            <param name="VirtualDevice">Virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[]@)">
+            <summary>
+Gets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[],System.UInt32)">
+            <summary>
+Sets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
+            <param name="VirtualDevice">Virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[])">
+            <summary>
+Sets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetNumberOfAudioChannels">
+            <summary>
+Gets the number of available audio channels.
+</summary>
+            <returns>The number of audio channels available, 0 when there are none.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfAnalogChannels(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Sets the number of analog channels in the datastream for the MEA2100 device.
+</summary>
+            <param name="NumberOfChannels_HS1">Number of analog channels from the Headstage 1.</param>
+            <param name="NumberOfChannels_HS2">Number of analog channels from the Headstage 2.</param>
+            <param name="NumberOfChannels_DSP">Number of data words from the DSP.</param>
+            <param name="NumberOfChannels_IF">Number of analog channels from the Interfaceboard.</param>
+            <param name="VirtualDevice">VirtualDevice to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32)">
+            <summary>
+Sets the number of analog channels in the datastream.
+</summary>
+            <param name="NumberOfChannels">Number of analog channels.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetDigitalOut(System.UInt32,System.Int32,System.Int32)">
+            <summary>
+Generate a pulse on the digital output.
+</summary>
+            <param name="digout_value">Bitmask to set on the digital out.</param>
+            <param name="pulselength">Pulselength in ms.</param>
+            <param name="counter_index">Counter to use for MEA2100.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean)">
+            <summary>
+Enable the checksum data word in the datastream. The checksum is a 32 bit counter and 2x16 bit magic numbers.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean)">
+            <summary>
+Enable the timestamp data word in the datastream. The timestamp is a 64 bit counter.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean)">
+            <summary>
+Enable the digital data word in the datastream.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="P:Mcs.Usb.CMeaDeviceNet.Gain">
+            <summary>
+The amplifier gain of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetGain(System.Int32@)">
+            <summary>
+Gets the amplifier gain of the device.
+</summary>
+            <param name="gain">Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet,Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+            <param name="bustype">Type of device to use, either USB or PCI.</param>
+            <param name="channelData">Callback to call when new data is available.</param>
+            <param name="error">Callback to call when an error occurred.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+            <param name="bustype">Type of device to use, either USB or PCI.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMeaDeviceNet">
+            <summary>
+Base class for MEA data acquisition devices.
+</summary>
+            <remarks>
+There are two different device types for MEA data aquistion devices. There are the USB-MEA devices
+and the MC_Card. In .NET both classes can be accessed by the contructor of the base class CMeaDeviceNet,
+which contructs the correct underlying C++ class for the USB-MEA device on the one hand or the MC_Card device 
+on the other hand.
+Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
+</remarks>
+        </member>
+        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
+            <summary>
+CMeasureTableDeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPPSDeviceNet">
+            <summary>
+CPPS4plus1DeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHLADeviceNet">
+            <summary>
+CHLADeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
+            <summary>
+CEncapsulatorDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHiClampDeviceNet">
+            <summary>
+CHiClampDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
+            <summary>
+CRoboInjectDeviceNet is the to control the MCS RoboInject device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
+            <summary>
+CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
+            <summary>
+Gets the current position of motors
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Current position of first axis if pattern in axes is set </param>
+            <param name="y"> Current position of second axis if pattern in axes is set </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Stops the current movement
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Searches the reference position of the motor
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
+            <summary>
+Low level command, gets the error of the last movement end
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
+            <summary>
+Low level command, gets the internal state "In Movement"
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
+            <summary>
+Low level command, sets the internal state to "In Movement" 
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
+            <summary> Bit pattern for i axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
+            <summary> Bit pattern for z axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
+            <summary> Bit pattern for y axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
+            <summary> Bit pattern for x axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
+            <summary> Axis number of i for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
+            <summary> Axis number of z for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
+            <summary> Axis number of y for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
+            <summary> Axis number of x for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
+            <summary> McsBus address for the z and i axes </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
+            <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboDeviceNet">
+            <summary>
+CRoboDeviceNet is the base class for all Robo platform based devices
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
             <summary>
  Reads the proportional constant for the Thermocouple.
@@ -442,141 +733,6 @@ Flashes a firmware file to the device.
             <summary>
 Retrives version info from a Firmware update file.
 </summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.StopLoop">
-            <summary>
-Stops the streaming mode.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.StartLoop">
-            <summary>
-Starts the streaming mode.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetSyncoutQueueSpace(System.UInt32)">
-            <summary>
-Queries the space availabe in the PC memory for a given syncout channel.
-</summary>
-            <param name="channel">The channel number to query.</param>
-            <returns>Returns number of data points for which there is space.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.EnqueueSyncout(System.UInt32,System.UInt16[])">
-            <summary>
-Sends syncout data to the STG for a given channel.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="data">A pointer to the data.</param>
-            <returns>Returns 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetDataQueueSpace(System.UInt32)">
-            <summary>
-Queries the space availabe in the PC memory for a given data channel.
-</summary>
-            <param name="channel">The channel number to query.</param>
-            <returns>Returns number of data points for which there is space.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.EnqueueData(System.UInt32,System.Int16[])">
-            <summary>
-Sends data to the STG for a given channel.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="data">A pointer to the data.</param>
-            <returns>Returns 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetCapacity(System.UInt32[]@)">
-            <summary>
-Queries the memory layout for the streaming mode of the STG.
-<para>
-In streaming mode, each trigger can be given an individual amount of memory space
-as needed by the application.
-</para></summary>
-            <param name="dwTriggerCapacity">A list of memory sizes in bytes, one with entry for each trigger.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.SetCapacity(System.UInt32[])">
-            <summary>
-Configures the memory layout for the streaming mode of the STG.
-<para>
-In streaming mode, each trigger can be given an individual amount of memory space
-as needed by the application.
-Make sure the sum does not exceed the total memory available.
-</para></summary>
-            <param name="dwTriggerCapacity">A list of memory sizes in bytes, one with entry for each trigger.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetTrigger(System.UInt32[]@,System.UInt32[]@,System.UInt32[]@,System.UInt32[]@)">
-            <summary>
-Queries the trigger settings for the STG.
-</summary>
-            <param name="channelmap">For each trigger, a bitmap of channels which belong to this trigger.</param>
-            <param name="syncoutmap">For each trigger, a bitmap of syncout which belong to this trigger.</param>
-            <param name="digoutmap">For each trigger, a bitmap of digout which belong to this trigger.</param>
-            <param name="autostart">For each trigger, define whether this trigger should autostart.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.SetupTrigger(System.UInt32[],System.UInt32[],System.UInt32[],System.UInt32[],System.UInt32[])">
-            <summary>
-Configures the trigger settings for the STG. 
-</summary>
-            <param name="channelmap">For each trigger, a bitmap of channels which belong to this trigger.</param>
-            <param name="syncoutmap">For each trigger, a bitmap of syncout which belong to this trigger</param>
-            <param name="digoutmap">For each trigger, a bitmap of digout which belong to this trigger.</param>
-            <param name="autostart">For each trigger, define whether this trigger should autostart.</param>
-            <param name="callback_threshold">The callback_threshold for each trigger, when the data handler should be called in precent of the buffer level.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetCurrentRate(System.UInt32)">
-            <summary>
-Queries the rate at which frames are currently sent to the STG.
-</summary>
-            <param name="trigger">The trigger number to query.</param>
-            <returns>Returns the rate at which frames are sent in frames 1/8 ms times 2^14.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetFramesBuffered(System.UInt32)">
-            <summary>
-Queries the number of frames currently buffered in STG Memory.
-</summary>
-            <param name="trigger">The trigger number to query.</param>
-            <returns>Returns the number of frames currently buffered in STG memory.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.GetFramesDone">
-            <summary>
-Queries the number of frames sent to the STG.
-</summary>
-            <returns>Returns the number of frames already sent to the STG.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.DisableContinousMode">
-            <summary>
-Disable the continous mode of the STG.
-<para>
-Defines how the STG handles buffer underruns.
-If continous mode is switched off, the triggers are stopped 
-automatically when a buffer runs empty.
-</para></summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.EnableContinousMode">
-            <summary>
-Enable the continous mode of the STG.
-<para>
-Defines how the STG handles buffer underruns.
-If continous mode is switched off, the triggers are stopped 
-automatically when a buffer runs empty.
-</para></summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.Dispose">
-            <summary>
-Destructor.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.#ctor(System.UInt32,Mcs.Usb.OnStg200xDataHandler,Mcs.Usb.OnStg200xErrorHandler)">
-            <summary>
-Constructor.
-</summary>
-            <param name="ringbuffer_size">The ringbuffer_size size of the ringbuffer in PC memory.</param>
-            <param name="dataHandler">The data Handler callback.</param>
-            <param name="errorHandler">The error Handler callback.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xStreamingNet.#ctor(System.UInt32)">
-            <summary>
-Constructor.
-</summary>
-            <param name="ringbuffer_size">The ringbuffer_size size of the ringbuffer in PC memory.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableMultiFileMode(System.UInt32)">
             <summary>
@@ -882,177 +1038,6 @@ The destructor.
             <summary>
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="channelData">Handler to call when new data is available.</param>
-            <param name="error">Handler to call when an error occurs.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMeaUSBDeviceNet">
-            <summary>
-Class for data acquisition via ME and MEA USB amplifiers
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CMC_CardDeviceNet class.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMC_CardDeviceNet class.
-</summary>
-            <param name="channelData">Handler to call when new data is available.</param>
-            <param name="error">Handler to call when an error occurs.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMC_CardDeviceNet">
-            <summary>
-Class for data acquisition via MC_Card
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32)">
-            <summary>
-Defines a pattern on the digital dataword which will start a trigger when found.
-</summary>
-            <param name="mask">Bits in the digital dataword which are monitored for a match with value.</param>
-            <param name="value">Pattern which must match for the trigger to start.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32)">
-            <summary>
-Sets the maximum number of samples per trigger.
-</summary>
-            <param name="samples">Number of samples to acquire after the trigger condition is met.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[]@,System.UInt32)">
-            <summary>
-Gets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
-            <param name="VirtualDevice">Virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[]@)">
-            <summary>
-Gets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[],System.UInt32)">
-            <summary>
-Sets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
-            <param name="VirtualDevice">Virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetAudioChannels(Mcs.Usb.CMeaDeviceNet.s_setaudionet[])">
-            <summary>
-Sets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetNumberOfAudioChannels">
-            <summary>
-Gets the number of available audio channels.
-</summary>
-            <returns>The number of audio channels available, 0 when there are none.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfAnalogChannels(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
-            <summary>
-Sets the number of analog channels in the datastream for the MEA2100 device.
-</summary>
-            <param name="NumberOfChannels_HS1">Number of analog channels from the Headstage 1.</param>
-            <param name="NumberOfChannels_HS2">Number of analog channels from the Headstage 2.</param>
-            <param name="NumberOfChannels_DSP">Number of data words from the DSP.</param>
-            <param name="NumberOfChannels_IF">Number of analog channels from the Interfaceboard.</param>
-            <param name="VirtualDevice">VirtualDevice to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32)">
-            <summary>
-Sets the number of analog channels in the datastream.
-</summary>
-            <param name="NumberOfChannels">Number of analog channels.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetDigitalOut(System.UInt32,System.Int32,System.Int32)">
-            <summary>
-Generate a pulse on the digital output.
-</summary>
-            <param name="digout_value">Bitmask to set on the digital out.</param>
-            <param name="pulselength">Pulselength in ms.</param>
-            <param name="counter_index">Counter to use for MEA2100.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean)">
-            <summary>
-Enable the checksum data word in the datastream. The checksum is a 32 bit counter and 2x16 bit magic numbers.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean)">
-            <summary>
-Enable the timestamp data word in the datastream. The timestamp is a 64 bit counter.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean)">
-            <summary>
-Enable the digital data word in the datastream.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="P:Mcs.Usb.CMeaDeviceNet.Gain">
-            <summary>
-The amplifier gain of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetGain(System.Int32@)">
-            <summary>
-Gets the amplifier gain of the device.
-</summary>
-            <param name="gain">Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet,Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="bustype">Type of device to use, either USB or PCI.</param>
-            <param name="channelData">Callback to call when new data is available.</param>
-            <param name="error">Callback to call when an error occurred.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="bustype">Type of device to use, either USB or PCI.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMeaDeviceNet">
-            <summary>
-Base class for MEA data acquisition devices.
-</summary>
-            <remarks>
-There are two different device types for MEA data aquistion devices. There are the USB-MEA devices
-and the MC_Card. In .NET both classes can be accessed by the contructor of the base class CMeaDeviceNet,
-which contructs the correct underlying C++ class for the USB-MEA device on the one hand or the MC_Card device 
-on the other hand.
-Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
-</remarks>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -1650,131 +1635,6 @@ Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
             <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="T:Mcs.Usb.CFYIDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPSDeviceNet">
-            <summary>
-CPPS4plus1DeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHLADeviceNet">
-            <summary>
-CHLADeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
-            <summary>
-CEncapsulatorDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHiClampDeviceNet">
-            <summary>
-CHiClampDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
-            <summary>
-CRoboInjectDeviceNet is the to control the MCS RoboInject device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
-            <summary>
-CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
-            <summary>
-Gets the current position of motors
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Current position of first axis if pattern in axes is set </param>
-            <param name="y"> Current position of second axis if pattern in axes is set </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Stops the current movement
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Moves the motor to the new absolute position
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Position of first axis, if pattern in axes is set </param>
-            <param name="y"> Position of second axis if pattern in axes is set </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Searches the reference position of the motor
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
-            <summary>
-Low level command, gets the error of the last movement end
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
-            <summary>
-Low level command, gets the internal state "In Movement"
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
-            <summary>
-Low level command, sets the internal state to "In Movement" 
-</summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
-            <summary> Bit pattern for i axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
-            <summary> Bit pattern for z axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
-            <summary> Bit pattern for y axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
-            <summary> Bit pattern for x axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
-            <summary> Axis number of i for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
-            <summary> Axis number of z for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
-            <summary> Axis number of y for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
-            <summary> Axis number of x for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
-            <summary> McsBus address for the z and i axes </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
-            <summary> McsBus address for the xy-plane </summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboDeviceNet">
-            <summary>
-CRoboDeviceNet is the base class for all Robo platform based devices
-</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetDeviceSpeed">
             <summary>
