@@ -2061,6 +2061,11 @@ Enumerates the destination for STG downloads.
 Enumerates the type of TCX devices.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.SampleDstSizeNet">
+            <summary>
+Enumerates the destination data format for ChannelBlock functions.
+</summary>
+        </member>
         <member name="T:Mcs.Usb.SampleSizeNet">
             <summary>
 Enumerates the data format for ChannelBlock functions.
@@ -2116,9 +2121,9 @@ Enumerates the group of MCS devices to connect to.
 Enumerates the group of MCS devices to connect to.
 </summary>
         </member>
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.UInt32)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)'. -->
         <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xBasicNet.GetAnalogResolution(System.Int32,System.Int32@,System.Int32@)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.UInt32)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.UInt32)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)'. -->
     </members>
 </doc>
