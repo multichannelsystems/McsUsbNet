@@ -14,6 +14,142 @@
     CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
+            <summary>
+Gets the upper current level.
+</summary>
+            <returns>The upper current level in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
+            <summary>
+Gets the duration of a MEA Coat run.
+</summary>
+            <returns>The duration in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetSlope">
+            <summary>
+Gets the current slope.
+</summary>
+            <returns>The current slope in pA/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>1 when a run is in progress, otherwise 0.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.Int16)">
+            <summary>
+Sets the upper current level.
+</summary>
+            <param name="currentMax">The upper current level in pA (0 .. 18 nA).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt16)">
+            <summary>
+Sets the duration of a MEA Coat run.
+</summary>
+            <param name="duration">The duration in ms (range 0 .. 65 s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.UInt16)">
+            <summary>
+Sets the current slope.
+</summary>
+            <param name="currentSlope">The current slope in pA/s (range 0 .. 65 nA/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
+            <summary>
+Stops a MEA Coat run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Start">
+            <summary>
+Starts a MEA Coat run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCoatDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
+            <summary>
+CMeaCoatDeviceNet is the class to access the MEA Coat device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
+            <summary>
+Gets the upper voltage level
+</summary>
+            <returns>The upper voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
+            <summary>
+Gets the lower voltage level.
+</summary>
+            <returns>The lower voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
+            <summary>
+Gets the number of cycles.
+</summary>
+            <returns>The number of cycles to run for.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
+            <summary>
+Gets the voltage slope.
+</summary>
+            <returns>The voltage slope in mV/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>1 when a run is in progress, otherwise 0.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int16)">
+            <summary>
+Sets the upper voltage level.
+</summary>
+            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int16)">
+            <summary>
+Sets the lower voltage level.
+</summary>
+            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt16)">
+            <summary>
+Sets the number of cycles.
+</summary>
+            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt16)">
+            <summary>
+Sets the voltage slope.
+</summary>
+            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
+            <summary>
+Stops a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+            <summary>
+Starts a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCleanDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+            <summary>
+CMeaCleanDeviceNet is the class to access the MEA Clean device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
             <summary>
  Sets the proportional constant for the thermocouple.
@@ -208,7 +344,7 @@ Sends data to the STG for a given channel.
 </summary>
             <param name="channel">The channel number to send data to.</param>
             <param name="data">A pointer to the data.</param>
-            <returns>Returns 0 on success.</returns>
+            <returns>Returns the number of enqueued bytes.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.GetCapacity(System.UInt32[]@)">
             <summary>

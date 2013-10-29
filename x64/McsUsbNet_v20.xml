@@ -1379,7 +1379,7 @@ Sends data to the STG for a given channel.
 </summary>
             <param name="channel">The channel number to send data to.</param>
             <param name="data">A pointer to the data.</param>
-            <returns>Returns 0 on success.</returns>
+            <returns>Returns the number of enqueued bytes.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.GetCapacity(System.UInt32[]@)">
             <summary>
