@@ -69,6 +69,18 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
+            <summary>
+Gets the output current.
+</summary>
+            <returns>The output current in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOffsetCurrent">
+            <summary>
+Gets the offset of the current.
+</summary>
+            <returns>The offset of the current in pA.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
             <summary>
 Gets the upper current level.
@@ -91,7 +103,13 @@ Gets the current slope.
             <summary>
 Gets if the MEA Clean device is running.
 </summary>
-            <returns>1 when a run is in progress, otherwise 0.</returns>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int16)">
+            <summary>
+Sets the offset of the current.
+</summary>
+            <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.Int16)">
             <summary>
@@ -378,6 +396,18 @@ Short circuit the Thermocouple and use this function to correct a possible offse
     CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+            <summary>
+Gets the current cycle.
+</summary>
+            <returns>The cycle number.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
+            <summary>
+Gets the output voltage.
+</summary>
+            <returns>The output voltage in mV.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
             <summary>
 Gets the upper voltage level
@@ -406,7 +436,7 @@ Gets the voltage slope.
             <summary>
 Gets if the MEA Clean device is running.
 </summary>
-            <returns>1 when a run is in progress, otherwise 0.</returns>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
         </member>
         <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int16)">
             <summary>
