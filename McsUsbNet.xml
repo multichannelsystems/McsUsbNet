@@ -105,25 +105,25 @@ Gets if the MEA Clean device is running.
 </summary>
             <returns>"true" when a run is in progress, otherwise "false".</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int16)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int32)">
             <summary>
 Sets the offset of the current.
 </summary>
             <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.Int16)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.Int32)">
             <summary>
 Sets the upper current level.
 </summary>
             <param name="currentMax">The upper current level in pA (0 .. 18 nA).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
             <summary>
 Sets the duration of a MEA Coat run.
 </summary>
             <param name="duration">The duration in ms (range 0 .. 65 s).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.UInt32)">
             <summary>
 Sets the current slope.
 </summary>
@@ -438,25 +438,25 @@ Gets if the MEA Clean device is running.
 </summary>
             <returns>"true" when a run is in progress, otherwise "false".</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
             <summary>
 Sets the upper voltage level.
 </summary>
             <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
             <summary>
 Sets the lower voltage level.
 </summary>
             <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
             <summary>
 Sets the number of cycles.
 </summary>
             <param name="cycles">The number of cycles to run for (0 .. 99).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
             <summary>
 Sets the voltage slope.
 </summary>
