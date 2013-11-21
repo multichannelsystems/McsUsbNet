@@ -395,6 +395,12 @@ Sets .
     CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPlateau">
+            <summary>
+Gets the time in the plateau.
+</summary>
+            <returns>The time in the plateau in ms.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
             <summary>
 Gets the output current.
@@ -1276,6 +1282,12 @@ Get the number of 16 bit datawords which will be collected per sample frame, use
 </summary>
             <param name="ChannelsInBlock">Number of 16 bit datawords per sample frame.</param>
             <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMinSamplingFrequencyStepsize">
+            <summary>
+Gets the minimal sampling frequency step size increment value of the device.
+</summary>
+            <returns>Sampling frequency step size in Hz.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMaxSamplingFrequency">
             <summary>
@@ -2215,6 +2227,21 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
         <member name="P:Mcs.Usb.CMcsUsbListEntryNet.Manufacturer">
             <summary>
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaDigitalGroupEnumNet">
+            <summary>
+Enumerates the CMOS MEA Digital Groups
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaAnalogGroupEnumNet">
+            <summary>
+Enumerates the CMOS MEA Analog Groups
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaDigitalInEnumNet">
+            <summary>
+Enumerates the CMOS MEA Digital Channels
 </summary>
         </member>
         <member name="T:Mcs.Usb.STG_DestinationEnumNet">
