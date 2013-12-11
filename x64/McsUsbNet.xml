@@ -2229,19 +2229,19 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMOSMeaDigitalGroupEnumNet">
+        <member name="T:Mcs.Usb.CMOSMeaValueUnitEnumNet">
             <summary>
-Enumerates the CMOS MEA Digital Groups
+Enumerations of CMOS MEA Units of Values in Data stream
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMOSMeaAnalogGroupEnumNet">
+        <member name="T:Mcs.Usb.CMOSMeaGroupTypeEnumNet">
             <summary>
-Enumerates the CMOS MEA Analog Groups
+Enumerations of CMOS MEA Groups to detect wether it is an Analog, Digital or Frame Context Group
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMOSMeaDigitalInEnumNet">
+        <member name="T:Mcs.Usb.CMOSMeaChannelGroupEnumNet">
             <summary>
-Enumerates the CMOS MEA Digital Channels
+Enumerates the CMOS MEA Channel Groups of Datastream
 </summary>
         </member>
         <member name="T:Mcs.Usb.STG_DestinationEnumNet">
@@ -2277,6 +2277,11 @@ Enumerates the MEA layout of the MEA2100 device.
         <member name="T:Mcs.Usb.AdapterTypeEnumNet">
             <summary>
 Enumerates the adapter type of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.RetriggerActionEnumNet">
+            <summary>
+Enumerates possible retrigger actions for STG200x devices.
 </summary>
         </member>
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
