@@ -89,9 +89,9 @@ Gets the offset of the current.
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
             <summary>
-Gets the upper current level.
+Gets the limit of the current ramp (absolute value).
 </summary>
-            <returns>The upper current level in pA.</returns>
+            <returns>The limit of the current ramp in pA (absolute value).</returns>
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
             <summary>
@@ -117,11 +117,11 @@ Sets the offset of the current.
 </summary>
             <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.Int32)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.UInt32)">
             <summary>
-Sets the upper current level.
+Sets the limit of the current ramp (absolute value).
 </summary>
-            <param name="currentMax">The upper current level in pA (0 .. 18 nA).</param>
+            <param name="currentMax">The limit of the current ramp in pA (absolute value, 0 .. 18 nA).</param>
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
             <summary>
@@ -129,11 +129,11 @@ Sets the duration of a MEA Coat run.
 </summary>
             <param name="duration">The duration in ms (range 0 .. 65 s).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.UInt32)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.Int32)">
             <summary>
 Sets the current slope.
 </summary>
-            <param name="currentSlope">The current slope in pA/s (range 0 .. 65 nA/s).</param>
+            <param name="currentSlope">The current slope in pA/s (range -65 .. 65 nA/s).</param>
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
             <summary>
