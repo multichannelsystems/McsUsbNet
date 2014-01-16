@@ -90,6 +90,41 @@ Starts a MEA Coat run.
 CMeaCoatDeviceNet is the class to access the MEA Coat device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length" />
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
             <summary>
 Gets the current cycle.

@@ -69,6 +69,41 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length" />
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
             <summary>
  Reads the proportional constant for the Thermocouple.
