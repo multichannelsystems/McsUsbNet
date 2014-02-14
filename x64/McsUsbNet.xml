@@ -2264,6 +2264,51 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.CMOSMeaBathModeEnumNet">
+            <summary>
+Enumerations of CMOS MEA Bath Mode
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaPacketFrameContextGroupEnumNet">
+            <summary>
+Enumerations of CMOS MEA HS STG Trigger Status Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaHS1TriggerStatusEnumNet">
+            <summary>
+Enumerations of CMOS MEA HS STG Trigger Status Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaHS1SidebandEnumNet">
+            <summary>
+Enumerations of CMOS MEA HS STG Sideband Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaIFDigChannelEnumNet">
+            <summary>
+Enumerations of CMOS MEA IF Digital Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaSTG1DACSignalEnumNet">
+            <summary>
+Enumerations of CMOS MEA DAC Stimulation Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaHeadstage1NCTempInfoEnumNet">
+            <summary>
+Enumerations of CMOS MEA HS Temperature Monitoring Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaHeadstage1NCCurrentInfoEnumNet">
+            <summary>
+Enumerations of CMOS MEA HS Current Monitoring Channels Group Bitmask
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMOSMeaInterfaceADCEnumNet">
+            <summary>
+Enumerations of CMOS MEA IF Analog Channels Group Bitmask
+</summary>
+        </member>
         <member name="T:Mcs.Usb.CMOSMeaValueUnitEnumNet">
             <summary>
 Enumerations of CMOS MEA Units of Values in Data stream
