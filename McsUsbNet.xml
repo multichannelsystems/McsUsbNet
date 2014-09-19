@@ -69,6 +69,51 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CPeristalticPumpDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
+            <summary>
+    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length" />
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
             <summary>
  Reads the proportional constant for the Thermocouple.
@@ -192,126 +237,241 @@ Short circuit the Thermocouple and use this function to correct a possible offse
     CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the current cycle.
-</summary>
-            <returns>The cycle number.</returns>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCycles">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the number of cycles.
-</summary>
-            <returns>The number of cycles to run for.</returns>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetCycles(System.UInt32)">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Sets the number of cycles.
-</summary>
-            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPause">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the time in the pause.
-</summary>
-            <returns>The time in the pause in ms.</returns>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetPauseDuration">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the duration of the pause between MEA Coat pulses.
-</summary>
-            <returns>The duration in ms.</returns>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetPauseDuration(System.UInt32)">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Sets the duration of the pause between MEA Coat pulses.
-</summary>
-            <param name="pauseDuration">The duration in ms (range 0 .. 65 s).</param>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPlateau">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
             <summary>
-Gets the time in the plateau.
-</summary>
-            <returns>The time in the plateau in ms.</returns>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
             <summary>
-Gets the output current.
-</summary>
-            <returns>The output current in pA.</returns>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOffsetCurrent">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
             <summary>
-Gets the offset of the current.
-</summary>
-            <returns>The offset of the current in pA.</returns>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
             <summary>
-Gets the limit of the current ramp (absolute value).
-</summary>
-            <returns>The limit of the current ramp in pA (absolute value).</returns>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
             <summary>
-Gets the duration of a MEA Coat run.
-</summary>
-            <returns>The duration in ms.</returns>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetSlope">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
             <summary>
-Gets the current slope.
-</summary>
-            <returns>The current slope in pA/s.</returns>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.IsRunning">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
             <summary>
-Gets if the MEA Clean device is running.
-</summary>
-            <returns>"true" when a run is in progress, otherwise "false".</returns>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int32)">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
             <summary>
-Sets the offset of the current.
-</summary>
-            <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.UInt32)">
-            <summary>
-Sets the limit of the current ramp (absolute value).
-</summary>
-            <param name="currentMax">The limit of the current ramp in pA (absolute value, 0 .. 18 nA).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
-            <summary>
-Sets the duration of a MEA Coat run.
-</summary>
-            <param name="duration">The duration in ms (range 0 .. 65 s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.Int32)">
-            <summary>
-Sets the current slope.
-</summary>
-            <param name="currentSlope">The current slope in pA/s (range -65 .. 65 nA/s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
-            <summary>
-Stops a MEA Coat run.
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Start">
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
             <summary>
-Starts a MEA Coat run.
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
             <summary>
-    Initializes a new instance of the CMeaCoatDeviceNet class.
+Flashes a firmware file to the device.
+</summary>
+            <param name="FirmwareFile">Filename of the Firmware file.</param>
+            <param name="listEntry">Device to use for the connection.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet)">
+            <summary>
+Flashes a firmware file to the device.
+</summary>
+            <param name="FirmwareFile">Filename of the Firmware file.</param>
+            <param name="listEntry">Device to use for the connection.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,Mcs.Usb.OnUpdateFirmwareStatusChange,Mcs.Usb.OnUpdateFirmwareProgress,System.Boolean)">
+            <summary>
+Flashes a firmware file to the device.
+</summary>
+            <param name="FirmwareFile">Filename of the Firmware file.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.LoadUserFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet)">
+            <summary>
+  Send the DSP Firmware to the MEA21 device.
+</summary>
+            <param name="FirmwareFile">Filename of the DSP Firmware (*.bin) file.</param>
+            <param name="listEntry">Device to use for the connection. See CMcsUsbListNet.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.GetFirmwareVersionFromFile(System.String,System.UInt32@)">
+            <summary>
+Retrives version info from a Firmware update file.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
+        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
             <summary>
-CMeaCoatDeviceNet is the class to access the MEA Coat device.
+CPatchServerDeviceNet is the class to control the MCS PatchServer device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CFYIDeviceNet">
+            <summary>
+CFYIDeviceNet is the class to control the MCS FYI device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
+            <summary>
+CMeasureTableDeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPPSDeviceNet">
+            <summary>
+CPPS4plus1DeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHLADeviceNet">
+            <summary>
+CHLADeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
+            <summary>
+CEncapsulatorDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHiClampDeviceNet">
+            <summary>
+CHiClampDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
+            <summary>
+CRoboInjectDeviceNet is the to control the MCS RoboInject device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
+            <summary>
+CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
+            <summary>
+Gets the current position of motors
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Current position of first axis if pattern in axes is set </param>
+            <param name="y"> Current position of second axis if pattern in axes is set </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Stops the current movement
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Searches the reference position of the motor
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
+            <summary>
+Low level command, gets the error of the last movement end
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
+            <summary>
+Low level command, gets the internal state "In Movement"
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
+            <summary>
+Low level command, sets the internal state to "In Movement" 
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
+            <summary> Bit pattern for i axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
+            <summary> Bit pattern for z axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
+            <summary> Bit pattern for y axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
+            <summary> Bit pattern for x axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
+            <summary> Axis number of i for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
+            <summary> Axis number of z for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
+            <summary> Axis number of y for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
+            <summary> Axis number of x for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
+            <summary> McsBus address for the z and i axes </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
+            <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboDeviceNet">
+            <summary>
+CRoboDeviceNet is the base class for all Robo platform based devices
 </summary>
         </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
@@ -438,90 +598,126 @@ Initializes a new instance of CTcxDeviceNet class.
 Class to control a Temperature Controller (TCX)
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
             <summary>
 Gets the current cycle.
 </summary>
             <returns>The cycle number.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
-            <summary>
-Gets the output voltage.
-</summary>
-            <returns>The output voltage in mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
-            <summary>
-Gets the upper voltage level
-</summary>
-            <returns>The upper voltage level in mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
-            <summary>
-Gets the lower voltage level.
-</summary>
-            <returns>The lower voltage level in mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCycles">
             <summary>
 Gets the number of cycles.
 </summary>
             <returns>The number of cycles to run for.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
-            <summary>
-Gets the voltage slope.
-</summary>
-            <returns>The voltage slope in mV/s.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
-            <summary>
-Gets if the MEA Clean device is running.
-</summary>
-            <returns>"true" when a run is in progress, otherwise "false".</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
-            <summary>
-Sets the upper voltage level.
-</summary>
-            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
-            <summary>
-Sets the lower voltage level.
-</summary>
-            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetCycles(System.UInt32)">
             <summary>
 Sets the number of cycles.
 </summary>
             <param name="cycles">The number of cycles to run for (0 .. 99).</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPause">
             <summary>
-Sets the voltage slope.
+Gets the time in the pause.
 </summary>
-            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
+            <returns>The time in the pause in ms.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetPauseDuration">
             <summary>
-Stops a MEA Clean run.
+Gets the duration of the pause between MEA Coat pulses.
+</summary>
+            <returns>The duration in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetPauseDuration(System.UInt32)">
+            <summary>
+Sets the duration of the pause between MEA Coat pulses.
+</summary>
+            <param name="pauseDuration">The duration in ms (range 0 .. 65 s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPlateau">
+            <summary>
+Gets the time in the plateau.
+</summary>
+            <returns>The time in the plateau in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
+            <summary>
+Gets the output current.
+</summary>
+            <returns>The output current in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOffsetCurrent">
+            <summary>
+Gets the offset of the current.
+</summary>
+            <returns>The offset of the current in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
+            <summary>
+Gets the limit of the current ramp (absolute value).
+</summary>
+            <returns>The limit of the current ramp in pA (absolute value).</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
+            <summary>
+Gets the duration of a MEA Coat run.
+</summary>
+            <returns>The duration in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetSlope">
+            <summary>
+Gets the current slope.
+</summary>
+            <returns>The current slope in pA/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int32)">
+            <summary>
+Sets the offset of the current.
+</summary>
+            <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.UInt32)">
+            <summary>
+Sets the limit of the current ramp (absolute value).
+</summary>
+            <param name="currentMax">The limit of the current ramp in pA (absolute value, 0 .. 18 nA).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
+            <summary>
+Sets the duration of a MEA Coat run.
+</summary>
+            <param name="duration">The duration in ms (range 0 .. 65 s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.Int32)">
+            <summary>
+Sets the current slope.
+</summary>
+            <param name="currentSlope">The current slope in pA/s (range -65 .. 65 nA/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
+            <summary>
+Stops a MEA Coat run.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Start">
             <summary>
-Starts a MEA Clean run.
+Starts a MEA Coat run.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.#ctor">
             <summary>
-    Initializes a new instance of the CMeaCleanDeviceNet class.
+    Initializes a new instance of the CMeaCoatDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+        <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
             <summary>
-CMeaCleanDeviceNet is the class to access the MEA Clean device.
+CMeaCoatDeviceNet is the class to access the MEA Coat device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.StopLoop">
@@ -964,6 +1160,101 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+            <summary>
+Gets the current cycle.
+</summary>
+            <returns>The cycle number.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
+            <summary>
+Gets the output voltage.
+</summary>
+            <returns>The output voltage in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
+            <summary>
+Gets the upper voltage level
+</summary>
+            <returns>The upper voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
+            <summary>
+Gets the lower voltage level.
+</summary>
+            <returns>The lower voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
+            <summary>
+Gets the number of cycles.
+</summary>
+            <returns>The number of cycles to run for.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
+            <summary>
+Gets the voltage slope.
+</summary>
+            <returns>The voltage slope in mV/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
+            <summary>
+Sets the upper voltage level.
+</summary>
+            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
+            <summary>
+Sets the lower voltage level.
+</summary>
+            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
+            <summary>
+Sets the number of cycles.
+</summary>
+            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
+            <summary>
+Sets the voltage slope.
+</summary>
+            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
+            <summary>
+Stops a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+            <summary>
+Starts a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCleanDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+            <summary>
+CMeaCleanDeviceNet is the class to access the MEA Clean device.
+</summary>
+        </member>
+        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+        </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
             <summary>
 Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
@@ -1117,92 +1408,6 @@ Finalizer: called by GC before collecting
             <summary>
 Destructor: called by Dispose()
 </summary>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString_Length" />
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CExternDTesterDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
-            <summary>
-CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGilsonDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGilsonDeviceNet">
-            <summary>
-    CGilsonDeviceNet is the class to control a Gilson device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
-            <summary>
-Flashes a firmware file to the device.
-</summary>
-            <param name="FirmwareFile">Filename of the Firmware file.</param>
-            <param name="listEntry">Device to use for the connection.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet)">
-            <summary>
-Flashes a firmware file to the device.
-</summary>
-            <param name="FirmwareFile">Filename of the Firmware file.</param>
-            <param name="listEntry">Device to use for the connection.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,Mcs.Usb.OnUpdateFirmwareStatusChange,Mcs.Usb.OnUpdateFirmwareProgress,System.Boolean)">
-            <summary>
-Flashes a firmware file to the device.
-</summary>
-            <param name="FirmwareFile">Filename of the Firmware file.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.LoadUserFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet)">
-            <summary>
-  Send the DSP Firmware to the MEA21 device.
-</summary>
-            <param name="FirmwareFile">Filename of the DSP Firmware (*.bin) file.</param>
-            <param name="listEntry">Device to use for the connection. See CMcsUsbListNet.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbFactoryNet.GetFirmwareVersionFromFile(System.String,System.UInt32@)">
-            <summary>
-Retrives version info from a Firmware update file.
-</summary>
-        </member>
-        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
-            <summary>
-Get the real number of data bits.
-</summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
         </member>
         <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
             <summary>
@@ -1386,211 +1591,6 @@ which contructs the correct underlying C++ class for the USB-MEA device on the o
 on the other hand.
 Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
 </remarks>
-        </member>
-        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
-            <summary>
-CPatchServerDeviceNet is the class to control the MCS PatchServer device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CFYIDeviceNet">
-            <summary>
-CFYIDeviceNet is the class to control the MCS FYI device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPSDeviceNet">
-            <summary>
-CPPS4plus1DeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHLADeviceNet">
-            <summary>
-CHLADeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
-            <summary>
-CEncapsulatorDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHiClampDeviceNet">
-            <summary>
-CHiClampDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
-            <summary>
-CRoboInjectDeviceNet is the to control the MCS RoboInject device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
-            <summary>
-CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
-            <summary>
-Gets the current position of motors
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Current position of first axis if pattern in axes is set </param>
-            <param name="y"> Current position of second axis if pattern in axes is set </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Stops the current movement
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Moves the motor to the new absolute position
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Position of first axis, if pattern in axes is set </param>
-            <param name="y"> Position of second axis if pattern in axes is set </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Searches the reference position of the motor
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
-            <summary>
-Low level command, gets the error of the last movement end
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
-            <summary>
-Low level command, gets the internal state "In Movement"
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
-            <summary>
-Low level command, sets the internal state to "In Movement" 
-</summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
-            <summary> Bit pattern for i axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
-            <summary> Bit pattern for z axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
-            <summary> Bit pattern for y axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
-            <summary> Bit pattern for x axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
-            <summary> Axis number of i for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
-            <summary> Axis number of z for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
-            <summary> Axis number of y for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
-            <summary> Axis number of x for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
-            <summary> McsBus address for the z and i axes </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
-            <summary> McsBus address for the xy-plane </summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboDeviceNet">
-            <summary>
-CRoboDeviceNet is the base class for all Robo platform based devices
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -2204,14 +2204,14 @@ Sets the voltage range on devices which support multiple voltage ranges.
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
             <summary>
-    Initialize a new instance of the CPeristalticPumpDeviceNet class.
+    Initialize a new instance of the CGilsonDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
+        <member name="T:Mcs.Usb.CGilsonDeviceNet">
             <summary>
-    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
+    CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetDeviceSpeed">
