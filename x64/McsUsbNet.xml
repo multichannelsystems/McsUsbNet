@@ -640,32 +640,29 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32,System.Boolean*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32)">
             <summary>
 Get weather an electrode is enabled or disabled for stimulation.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="index">The index for listmode.</param>
-            <param name="enable">1 if the electrode is enabled, 0 if it is disabled.</param>
-            <returns>Error Status. 0 on success.</returns>
+            <returns>true if the electrode is enabled, false if it is disabled.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeEnable(System.UInt32,System.UInt32,System.UInt32[])">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
             <summary>
 Enabled or disables the stimulation switch for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="index">The index for listmode.</param>
             <param name="enable">1 to enable the electrode, 0 to disable.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeDacMux(System.UInt32,System.UInt32,System.UInt32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeDacMux(System.UInt32,System.UInt32)">
             <summary>
 Gets the DAC which is used for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="index">The index for listmode.</param>
-            <param name="dac">The DAC in use, can be 1, 2 or 3. If the electrode is grounded 0 is returned.</param>
-            <returns>Error Status. 0 on success.</returns>
+            <returns>The DAC in use, can be 1, 2 or 3. If the electrode is grounded 0 is returned.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeDacMux(System.UInt32,System.UInt32,System.UInt32[])">
             <summary>
@@ -673,23 +670,20 @@ Defines the DAC to use for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="dac">The DAC to use, can be 1, 2 or 3. To ground an electrode, use 0.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeMode(System.UInt32,System.UInt32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeMode(System.UInt32)">
             <summary>
 Gets the mode an electrode is in.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="mode">0 for automatic and 3 for manual mode.</param>
-            <returns>Error Status. 0 on success.</returns>
+            <returns>0 for automatic and 3 for manual mode.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,System.UInt32[])">
             <summary>
 Puts an electrode in either automatic or manual mode.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="mode">0 for automatic and 3 for manual mode.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetMeasurementMode(System.UInt32)">
             <summary>
