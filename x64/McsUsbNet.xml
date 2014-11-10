@@ -887,6 +887,12 @@ Gets number of bits of the DAC resolution.
 </summary>
             <returns>The DAC resolution in bits.</returns>
         </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
         <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
             <summary>
 Prepare and send data to a given channel on the STG.
