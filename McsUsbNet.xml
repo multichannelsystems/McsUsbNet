@@ -755,7 +755,6 @@ different stimuli which can be selected without the
 need for a computer connection.
 </para></summary>
             <param name="submode">The submode.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentSelect(System.UInt32,System.UInt32)">
             <summary>
@@ -763,7 +762,6 @@ Switchs segment.
 </summary>
             <param name="segment">The number of the segment to select.</param>
             <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentStart(System.UInt32,System.UInt32,System.UInt32)">
             <summary>
@@ -772,7 +770,6 @@ Switchs segment and starts trigger.
             <param name="triggermap">A bitmap of triggers that will be started.</param>
             <param name="segment">The number of the segment to select.</param>
             <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentDefine(System.UInt32[])">
             <summary>
@@ -784,7 +781,6 @@ On reset, the STG has one segment containing all available memory.
  Each segment can be filled with stimulus data.
 </para></summary>
             <param name="segment_list">The List of memory sizes (one per segment).</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
             <summary>
@@ -804,7 +800,6 @@ are given in units of µs. The STG has a resolution of 20 µs.
             <param name="Amplitude">A list of datapoints as int32.</param>
             <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
             <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStg200xPollStatus)">
             <summary>
@@ -818,7 +813,6 @@ Queries the trigger settings for the STG. Note that all memory segments have the
             <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
             <summary>
@@ -828,7 +822,20 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
-            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetDacAmplificationFactor(System.UInt32)">
+            <summary>
+Get the amplification factor for a DAC.
+</summary>
+            <param name="DacNumber">The number of the DAC.</param>
+            <returns>the amplifcation factor for the DAC queried, range is from -1.99999 to +1.99999.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetDacAmplificationFactor(System.UInt32,System.Double)">
+            <summary>
+Set the amplification factor for a DAC.
+</summary>
+            <param name="DacNumber">The number of the DAC.</param>
+            <param name="Factor">the amplifcation factor for that DAC, range is from -1.99999 to +1.99999.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32)">
             <summary>
@@ -868,7 +875,7 @@ Gets the mode an electrode is in.
             <param name="electrode">The electrode number.</param>
             <returns>0 for automatic and 3 for manual mode.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,System.UInt32[])">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,Mcs.Usb.ElectrodeModeEnumNet[])">
             <summary>
 Puts an electrode in either automatic or manual mode.
 </summary>
@@ -880,33 +887,34 @@ Puts an electrode in either automatic or manual mode.
 Sets a channel to measurement mode (STG3008-FA).
 </summary>
             <param name="channel">The channel to change.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode">
             <summary>
 Sets all channels to current mode (STG3008-FA and STG400x only).
 </summary>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetVoltageMode">
             <summary>
 Sets all channels to voltage mode (STG3008-FA and STG400x only).
 </summary>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode(System.UInt32)">
             <summary>
 Sets a channel to current mode (STG3008-FA and STG400x only).
 </summary>
             <param name="channel">The channel to change.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetVoltageMode(System.UInt32)">
             <summary>
 Sets a channel to voltage mode (STG3008-FA and STG400x only).
 </summary>
             <param name="channel">The channel to change.</param>
-            <returns>Returns 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfHWDACPaths">
+            <summary>
+Gets the Number of HW Stimulation DACs of the device.
+</summary>
+            <returns>The number of independent HW Stimulation outputs.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfTriggerInputs">
             <summary>
@@ -979,7 +987,6 @@ Gets the range of the analog outputs.
             <param name="channel">The channel which is queried.</param>
             <param name="URange">The Voltage range in mV.</param>
             <param name="IRange">The Current range in uA.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetStgVersionInfo(System.String@,System.String@)">
             <summary>
@@ -987,7 +994,6 @@ Queries software and hardware version.
 </summary>
             <param name="SwVersion">The current Software Version of the STG.</param>
             <param name="HwVersion">The Hardware Revision of the STG.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SendStop(System.UInt32,System.Int32)">
             <summary>
@@ -995,14 +1001,12 @@ Stop some or all triggers of the STG.
 </summary>
             <param name="triggermap">A bitmap of triggers which will be stopped.</param>
             <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SendStop(System.UInt32)">
             <summary>
 Stop some or all triggers of the STG.
 </summary>
             <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SendStart(System.UInt32)">
             <summary>
@@ -1010,7 +1014,6 @@ Start (Trigger) the STG.
 The startup delay is in the range of a few ms.
 </summary>
             <param name="triggermap">A bitmap of triggers which will be started.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetOutputRate">
             <summary>
@@ -1025,7 +1028,6 @@ Change the output rate of the STG.
 Valid rates are from 1000 Hz to 50000 Hz.
 </summary>
             <param name="rate">The new output rate in Hz.</param>
-            <returns>Returns 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.Dispose">
             <summary>
@@ -2525,6 +2527,11 @@ Enumerations of CMOS MEA Groups to detect wether it is an Analog, Digital or Fra
         <member name="T:Mcs.Usb.CMOSMeaChannelGroupEnumNet">
             <summary>
 Enumerates the CMOS MEA Channel Groups of Datastream
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.ElectrodeModeEnumNet">
+            <summary>
+Enumerates the mode of each electrode, can be automatic or manual. In automatic mode, the blanking of the electrode is controlled by the sideband signal, in manual mode, the stimulation configuration is independant of the sideband signal.
 </summary>
         </member>
         <member name="T:Mcs.Usb.STG_DestinationEnumNet">
