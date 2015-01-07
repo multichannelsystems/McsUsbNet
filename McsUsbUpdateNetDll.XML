@@ -4,37 +4,9 @@
         <name>McsUsbUpdateNetDll</name>
     </assembly>
     <members>
-        <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
+        <member name="T:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate">
             <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
-            <summary>
-            PrepareForFirmwareUpdate
-            </summary>
-            <param name="prepare">if set to <c>true</c> [prepare].</param>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.Update">
-            <summary>
-            Update.
-            </summary>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.PrepareDialog">
-            <summary>
-            PrepareDialog.
+            Class that checks if a firmware update is needed and calls the dialogs
             </summary>
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.IUpdateHandler">
@@ -86,11 +58,6 @@
             Occurs when [prepare dialog event].
             </summary>
         </member>
-        <member name="T:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate">
-            <summary>
-            Class that checks if a firmware update is needed and calls the dialogs
-            </summary>
-        </member>
         <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
             Class to handle Firmware updates.
@@ -114,6 +81,39 @@
             <summary> 
             Returns if a Firmware update is needed for the device.
             Device must be connected. Firmware filenames must be somehow published to the class
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
+            <summary>
+            PrepareForFirmwareUpdate
+            </summary>
+            <param name="prepare">if set to <c>true</c> [prepare].</param>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.Update">
+            <summary>
+            Update.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareDialog">
+            <summary>
+            PrepareDialog.
+            </summary>
+        </member>
+        <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
     </members>
