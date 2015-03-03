@@ -58,6 +58,11 @@
             Occurs when [prepare dialog event].
             </summary>
         </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.OverwriteFirmwareEntryEvent">
+            <summary>
+            Occurs when [overwrite firmware entry event].
+            </summary>
+        </member>
         <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
             Class to handle Firmware updates.
@@ -98,6 +103,12 @@
             <summary>
             PrepareDialog.
             </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.OverwriteFirmwareEntry">
+            <summary>
+            OverwriteFirmwareEntry.
+            </summary>
+            <param name="entry">Current firmware entry to change</param>
         </member>
         <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
             <summary>
