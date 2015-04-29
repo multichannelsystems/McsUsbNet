@@ -207,6 +207,71 @@ The startup delay is in the range of a few ms.
 </summary>
             <param name="triggermap">A bitmap of triggers which will be started.</param>
         </member>
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.DacqDevice">
+            <summary>
+Gets the <see cref="T:Mcs.Usb.CMcsUsbDacqNet" />. Use this to control the data aquisition.
+</summary>
+        </member>
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.FluidControlDevice">
+            <summary>
+Gets the <see cref="T:Mcs.Usb.CFluidControlDeviceNet" />. Use this to control the valves. Only SetSingleValve is implemented for <see cref="T:Mcs.Usb.CSafeISDeviceNet" />.
+</summary>
+        </member>
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.RoboDevice">
+            <summary>
+Gets the <see cref="T:Mcs.Usb.CRoboDeviceNet" />. Use this to control the syringe.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPeriode(System.UInt32)">
+            <summary>
+Sets the DAC periode.
+</summary>
+            <param name="periode">The periode in units of 10µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPulseform(System.Int16[])">
+            <summary>
+Sets the DAC pulseform.
+</summary>
+            <param name="pulseform">The pulseform.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacMode(System.Byte)">
+            <summary>
+Sets the DAC mode.
+</summary>
+            <param name="mode">The mode: 0 = Impedance ; 1 = Amperometry</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcSamplePos(System.UInt16[])">
+            <summary>
+Sets the sample position of the ADC.
+</summary>
+            <param name="positions">The positions in units of 0.1µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcChannels(System.Byte)">
+            <summary>
+Sets the ADC channels you want to be sampled
+</summary>
+            <param name="channels">The bitmap of the 8 channels. Set bit to 1 for the channels you want measure</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetSwitches(System.UInt16)">
+            <summary>
+Sets the switches for all electrodes on the device. Do not use during measurement
+</summary>
+            <param name="switches">The switches: See Schematics for the meaning</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.Dispose">
+            <summary>
+Releases unmanaged resources and performs other cleanup operations before the
+<see cref="T:Mcs.Usb.CSafeISDeviceNet" /> is reclaimed by garbage collection.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CSafeISDeviceNet">
+            <summary />
+        </member>
         <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
             <summary>
     Initialize a new instance of the CPeristalticPumpDeviceNet class.
@@ -348,129 +413,6 @@ CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Devi
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
-            <summary>
- Reads the proportional constant for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleCalibration(System.UInt32)">
-            <summary>
- Gets the calibration constant for the Thermocouple ADC.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The calibration constant for the Thermocouple ADC.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetReferenceTemperature(System.UInt32)">
-            <summary>
- Reads the reference temperature for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The temperature from the Thermocouple in 1/100 °C.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleTemperature(System.UInt32)">
-            <summary>
-Reads the temperature from Thermocouple. The functions gives the temperature difference
-between both Thermocouple junctions. To get the absolute temperature, add the reference
-temperature.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The temperature difference between both Thermocouple junctions in 1/100 °C.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigin">
-            <summary>
- Reads the digital input.
-</summary>
-            <returns>The bit pattern of the state of the digital inputs.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetAdc(System.UInt32)">
-            <summary>
- Reads an ADC Value.
-</summary>
-            <param name="channel">The ADC channel number to query.</param>
-            <returns>The current ADC value.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetPWM(System.UInt32)">
-            <summary>
- Gets the state of the PWM output.
-</summary>
-            <returns>The current state of the PWM outputs duty cycle in permille.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigout">
-            <summary>
- Gets the state of the digital output.
-</summary>
-            <returns>The current state of the digital outputs as a bit pattern.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetSingleValve(System.UInt16)">
-            <summary>
-Gets the state of a valve.
-</summary>
-            <param name="valve">number of valve</param>
-            <returns>state of the valve</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetValve">
-            <summary>
- Gets the state of the valves.
-</summary>
-            <returns>The current state of the valves as a bit pattern.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
-            <summary>
- Sets the proportinal constant for the Thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <param name="value">proportinal constant for the Thermocouple in Nanovolt per Kelvin.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.CalibrateThermocouple(System.UInt32)">
-            <summary>
-Calibrates the ADC which is used for the Thermocouple. For the calibration,
-Short circuit the Thermocouple and use this function to correct a possible offset of the ADC which measures the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetPWM(System.UInt32,System.UInt32)">
-            <summary>
- Sets the duty cycle of the PWM output.
-</summary>
-            <param name="channel">PWM channel number.</param>
-            <param name="value">duty cycle of the PWM output in permille.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetDigout(System.UInt32)">
-            <summary>
- Define the pattern on the Digital Output.
-</summary>
-            <param name="value">bit pattern on the digital output.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetSingleValve(System.UInt16,System.UInt16)">
-            <summary>
-  Opens or Closes a valve.
-</summary>
-            <param name="valve">number of valve to be changed.</param>
-            <param name="onoff">open or close the valve.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetValve(System.UInt32)">
-            <summary>
-  Open or Close valves.
-</summary>
-            <param name="value">bit pattern of valves which should be open.</param>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.Dispose">
-            <summary>
-    Default destructor.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CFluidControlDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CFluidControlDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CFluidControlDeviceNet">
-            <summary>
-    CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
-</summary>
-        </member>
         <member name="T:Mcs.Usb.CPatchServerDeviceNet">
             <summary>
 CPatchServerDeviceNet is the class to control the MCS PatchServer device
@@ -601,70 +543,128 @@ Low level command, sets the internal state to "In Movement"
 CRoboDeviceNet is the base class for all Robo platform based devices
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.DacqDevice">
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CMcsUsbDacqNet" />. Use this to control the data aquisition.
+ Reads the proportional constant for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleCalibration(System.UInt32)">
+            <summary>
+ Gets the calibration constant for the Thermocouple ADC.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The calibration constant for the Thermocouple ADC.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetReferenceTemperature(System.UInt32)">
+            <summary>
+ Reads the reference temperature for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The temperature from the Thermocouple in 1/100 °C.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleTemperature(System.UInt32)">
+            <summary>
+Reads the temperature from Thermocouple. The functions gives the temperature difference
+between both Thermocouple junctions. To get the absolute temperature, add the reference
+temperature.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The temperature difference between both Thermocouple junctions in 1/100 °C.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigin">
+            <summary>
+ Reads the digital input.
+</summary>
+            <returns>The bit pattern of the state of the digital inputs.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetAdc(System.UInt32)">
+            <summary>
+ Reads an ADC Value.
+</summary>
+            <param name="channel">The ADC channel number to query.</param>
+            <returns>The current ADC value.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetPWM(System.UInt32)">
+            <summary>
+ Gets the state of the PWM output.
+</summary>
+            <returns>The current state of the PWM outputs duty cycle in permille.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetDigout">
+            <summary>
+ Gets the state of the digital output.
+</summary>
+            <returns>The current state of the digital outputs as a bit pattern.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetSingleValve(System.UInt16)">
+            <summary>
+Gets the state of a valve.
+</summary>
+            <param name="valve">number of valve</param>
+            <returns>state of the valve</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetValve">
+            <summary>
+ Gets the state of the valves.
+</summary>
+            <returns>The current state of the valves as a bit pattern.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the proportinal constant for the Thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <param name="value">proportinal constant for the Thermocouple in Nanovolt per Kelvin.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.CalibrateThermocouple(System.UInt32)">
+            <summary>
+Calibrates the ADC which is used for the Thermocouple. For the calibration,
+Short circuit the Thermocouple and use this function to correct a possible offset of the ADC which measures the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetPWM(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the duty cycle of the PWM output.
+</summary>
+            <param name="channel">PWM channel number.</param>
+            <param name="value">duty cycle of the PWM output in permille.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetDigout(System.UInt32)">
+            <summary>
+ Define the pattern on the Digital Output.
+</summary>
+            <param name="value">bit pattern on the digital output.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetSingleValve(System.UInt16,System.UInt16)">
+            <summary>
+  Opens or Closes a valve.
+</summary>
+            <param name="valve">number of valve to be changed.</param>
+            <param name="onoff">open or close the valve.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.SetValve(System.UInt32)">
+            <summary>
+  Open or Close valves.
+</summary>
+            <param name="value">bit pattern of valves which should be open.</param>
+        </member>
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.Dispose">
+            <summary>
+    Default destructor.
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.FluidControlDevice">
+        <member name="M:Mcs.Usb.CFluidControlDeviceNet.#ctor">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CFluidControlDeviceNet" />. Use this to control the valves. Only SetSingleValve is implemented for <see cref="T:Mcs.Usb.CSafeISDeviceNet" />.
+    Initialize a new instance of the CFluidControlDeviceNet class.
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.RoboDevice">
+        <member name="T:Mcs.Usb.CFluidControlDeviceNet">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CRoboDeviceNet" />. Use this to control the syringe.
+    CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
 </summary>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPeriode(System.UInt32)">
-            <summary>
-Sets the DAC periode.
-</summary>
-            <param name="periode">The periode in units of 10µs.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPulseform(System.Int16[])">
-            <summary>
-Sets the DAC pulseform.
-</summary>
-            <param name="pulseform">The pulseform.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacMode(System.Byte)">
-            <summary>
-Sets the DAC mode.
-</summary>
-            <param name="mode">The mode: 0 = Impedance ; 1 = Amperometry</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcSamplePos(System.UInt16[])">
-            <summary>
-Sets the sample position of the ADC.
-</summary>
-            <param name="positions">The positions in units of 0.1µs.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcChannels(System.Byte)">
-            <summary>
-Sets the ADC channels you want to be sampled
-</summary>
-            <param name="channels">The bitmap of the 8 channels. Set bit to 1 for the channels you want measure</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetSwitches(System.UInt16)">
-            <summary>
-Sets the switches for all electrodes on the device. Do not use during measurement
-</summary>
-            <param name="switches">The switches: See Schematics for the meaning</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.Dispose">
-            <summary>
-Releases unmanaged resources and performs other cleanup operations before the
-<see cref="T:Mcs.Usb.CSafeISDeviceNet" /> is reclaimed by garbage collection.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CSafeISDeviceNet">
-            <summary />
         </member>
         <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
             <summary>

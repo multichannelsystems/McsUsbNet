@@ -677,6 +677,16 @@ Initializes a new instance of CTcxDeviceNet class.
 Class to control a Temperature Controller (TCX)
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGilsonDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGilsonDeviceNet">
+            <summary>
+    CGilsonDeviceNet is the class to control a Gilson device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
             <summary>
 Gets the current cycle.
@@ -2295,16 +2305,6 @@ Sets the voltage range on devices which support multiple voltage ranges.
 Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
-        </member>
-        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGilsonDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGilsonDeviceNet">
-            <summary>
-    CGilsonDeviceNet is the class to control a Gilson device.
-</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetStatusOfLastCommand">
             <summary>
