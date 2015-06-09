@@ -366,6 +366,16 @@ Gets the temperate of the mainboard in units of 0.1°C.
 Gets weather the device supports a thermocouple.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxHeaterPowerMultiwell(System.Double)">
+            <summary>
+sets the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxHeaterPowerMultiwell">
+            <summary>
+queries the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
             <summary>
 Gets the temperate limit of the specified heater in units of 0.1°C.
