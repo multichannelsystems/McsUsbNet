@@ -2105,7 +2105,7 @@ Stop the data acquisition thread and sampling.
 Stop the data acquisition thread and sampling.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
             <summary>
 Start the data acquisition thread and sampling.
 </summary>
@@ -2115,7 +2115,7 @@ Start the data acquisition thread and sampling.
             <param name="packetsInUrb">Packets in each URB.</param>
             <param name="VirtualDevice">Virtual Device to start.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
 Start the data acquisition thread and sampling.
 </summary>
@@ -2124,7 +2124,7 @@ Start the data acquisition thread and sampling.
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
             <param name="packetsInUrb">Packets in each URB.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32)">
             <summary>
 Start the data acquisition thread and sampling.
 </summary>
@@ -2135,7 +2135,7 @@ Start the data acquisition thread and sampling.
 Start the data acquisition thread and sampling.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
             <summary>
 Start the data acquisition thread.
 </summary>
@@ -2145,7 +2145,7 @@ Start the data acquisition thread.
             <param name="packetsInUrb">Packets in each URB.</param>
             <param name="VirtualDevice">Virtual Device to start.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
 Start the data acquisition thread.
 </summary>
@@ -2154,7 +2154,7 @@ Start the data acquisition thread.
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
             <param name="packetsInUrb">Packets in each URB.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32)">
             <summary>
 Start the data acquisition thread.
 </summary>
