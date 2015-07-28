@@ -1642,6 +1642,46 @@ Get the number of analog channels the device supports.
 Class to provide hardware information about the device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI32(System.Int32,System.Int32,System.Int32@)">
             <summary>
 Read data from a FIFO queue in int32_t data format, that contains subqueues,
@@ -2372,6 +2412,24 @@ CRoboDeviceNet is the base class for all Robo platform based devices
   Query the Connection Speed of the device.
 </summary>
             <returns>0 for Low-Speed, 1 for Full-Speed, 2 for High-Speed and 3 for SuperSpeed.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.MultibootGetSelectedImage">
+            <summary>
+  Gets sector index of selected FPGA boot image on IFB
+</summary>
+            <returns>Sector index of image; range: 1..3</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.MultibootGetImageId(System.UInt32)">
+            <summary>
+  Query the multiboot image id of the device located in specified sector (range: 1..3) of IFB FPGA.
+</summary>
+            <returns>The magic ident code of the image.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.MultibootSelectImage(System.UInt32)">
+            <summary>
+  Select the multiboot image specified by "sector" (range: 1..3) for IFB FPGA.
+</summary>
+            <returns>Throws exception on error.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetSerialNumber">
             <summary>
