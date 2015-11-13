@@ -2413,6 +2413,12 @@ CRoboDeviceNet is the base class for all Robo platform based devices
 </summary>
             <returns>0 for Low-Speed, 1 for Full-Speed, 2 for High-Speed and 3 for SuperSpeed.</returns>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.GetMea21UsbPort">
+            <summary>
+Gets the USB port if an IFB that is used by this connection
+</summary>
+            <returns>number of used port; range: 0..1</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.MultibootGetSelectedImage">
             <summary>
   Gets sector index of selected FPGA boot image on IFB
