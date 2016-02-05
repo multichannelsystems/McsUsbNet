@@ -9,9 +9,76 @@
             Class that checks if a firmware update is needed and calls the dialogs
             </summary>
         </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+            Class to handle Firmware updates.
+            </summary>
+            <param name="device">handle to the device.</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwarePath(System.String)">
+            <summary>
+            Set the path where the firmware files or the file McsUsbUpdate.ini are located.
+            </summary>
+            <param name="path">Path to the files</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwareFile(System.String,System.String)">
+            <summary>
+            Set the firmware file names for the different processors, fpgas, ...
+            </summary>
+            <param name="dest">Firmware destination code</param>
+            <param name="filename">File name without path</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.CheckFirmwareUpdateNeeded">
+            <summary> 
+            Returns if a Firmware update is needed for the device.
+            Device must be connected. Firmware filenames must be somehow published to the class
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
+            <summary>
+            PrepareForFirmwareUpdate
+            </summary>
+            <param name="prepare">if set to <c>true</c> [prepare].</param>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.Update">
+            <summary>
+            Update.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.PrepareDialog">
+            <summary>
+            PrepareDialog.
+            </summary>
+        </member>
+        <member name="T:Mcs.UsbUpdateNetDll.OverwriteFirmwareEntry">
+            <summary>
+            OverwriteFirmwareEntry.
+            </summary>
+            <param name="entry">Current firmware entry to change</param>
+        </member>
         <member name="T:Mcs.UsbUpdateNetDll.IUpdateHandler">
             <summary>
             The UpdateHandler.
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareForFirmwareUpdateEvent">
+            <summary>
+            Occurs when [prepare for firmware update event].
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.UpdateEvent">
+            <summary>
+            Occurs when [update event].
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareDialogEvent">
+            <summary>
+            Occurs when [prepare dialog event].
+            </summary>
+        </member>
+        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.OverwriteFirmwareEntryEvent">
+            <summary>
+            Occurs when [overwrite firmware entry event].
             </summary>
         </member>
         <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.GetPath">
@@ -43,54 +110,36 @@
             Updates the dictionary.
             </summary>
         </member>
-        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareForFirmwareUpdateEvent">
+        <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
             <summary>
-            Occurs when [prepare for firmware update event].
+            Required designer variable.
             </summary>
         </member>
-        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.UpdateEvent">
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.Dispose(System.Boolean)">
             <summary>
-            Occurs when [update event].
+            Clean up any resources being used.
             </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareDialogEvent">
+        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.InitializeComponent">
             <summary>
-            Occurs when [prepare dialog event].
-            </summary>
-        </member>
-        <member name="E:Mcs.UsbUpdateNetDll.IUpdateHandler.OverwriteFirmwareEntryEvent">
-            <summary>
-            Occurs when [overwrite firmware entry event].
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-            Class to handle Firmware updates.
-            </summary>
-            <param name="device">handle to the device.</param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwarePath(System.String)">
-            <summary>
-            Set the path where the firmware files or the file McsUsbUpdate.ini are located.
-            </summary>
-            <param name="path">Path to the files</param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.SetFirmwareFile(System.String,System.String)">
-            <summary>
-            Set the firmware file names for the different processors, fpgas, ...
-            </summary>
-            <param name="dest">Firmware destination code</param>
-            <param name="filename">File name without path</param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.CheckForFirmwareUpdate.CheckFirmwareUpdateNeeded">
-            <summary> 
-            Returns if a Firmware update is needed for the device.
-            Device must be connected. Firmware filenames must be somehow published to the class
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:Mcs.Tools.IniFileHandler">
             <summary>
             Class to handle ini files
+            </summary>
+        </member>
+        <member name="P:Mcs.Tools.IniFileHandler.IsSectionNameCaseSensitive">
+            <summary>
+            Gets or sets a value indicating whether the section name is case sensitive.
+            </summary>
+        </member>
+        <member name="P:Mcs.Tools.IniFileHandler.WriteWithBlanks">
+            <summary>
+            Gets or sets a value indicating whether entries are written with blanks around the '='
             </summary>
         </member>
         <member name="M:Mcs.Tools.IniFileHandler.#ctor">
@@ -114,6 +163,22 @@
             <param name="stream">
             The stream.
             </param>
+        </member>
+        <member name="P:Mcs.Tools.IniFileHandler.Item(System.String)">
+            <summary>
+            The indexer for a section. Gets all entries of the section
+            </summary>
+            <param name="section">
+            The section name.
+            </param>
+            <returns>
+            The entries of the section <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
+            </returns>
+        </member>
+        <member name="P:Mcs.Tools.IniFileHandler.SectionNames">
+            <summary>
+            Gets the section names.
+            </summary>
         </member>
         <member name="M:Mcs.Tools.IniFileHandler.KeyNames(System.String)">
             <summary>
@@ -253,71 +318,6 @@
             <param name="stream">
             The stream to save to, must not be null
             </param>
-        </member>
-        <member name="P:Mcs.Tools.IniFileHandler.IsSectionNameCaseSensitive">
-            <summary>
-            Gets or sets a value indicating whether the section name is case sensitive.
-            </summary>
-        </member>
-        <member name="P:Mcs.Tools.IniFileHandler.WriteWithBlanks">
-            <summary>
-            Gets or sets a value indicating whether entries are written with blanks around the '='
-            </summary>
-        </member>
-        <member name="P:Mcs.Tools.IniFileHandler.Item(System.String)">
-            <summary>
-            The indexer for a section. Gets all entries of the section
-            </summary>
-            <param name="section">
-            The section name.
-            </param>
-            <returns>
-            The entries of the section <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
-            </returns>
-        </member>
-        <member name="P:Mcs.Tools.IniFileHandler.SectionNames">
-            <summary>
-            Gets the section names.
-            </summary>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
-            <summary>
-            PrepareForFirmwareUpdate
-            </summary>
-            <param name="prepare">if set to <c>true</c> [prepare].</param>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.Update">
-            <summary>
-            Update.
-            </summary>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.PrepareDialog">
-            <summary>
-            PrepareDialog.
-            </summary>
-        </member>
-        <member name="T:Mcs.UsbUpdateNetDll.OverwriteFirmwareEntry">
-            <summary>
-            OverwriteFirmwareEntry.
-            </summary>
-            <param name="entry">Current firmware entry to change</param>
-        </member>
-        <member name="F:Mcs.UsbUpdateNetDll.UpdateDialog.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.UpdateDialog.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
         </member>
     </members>
 </doc>
