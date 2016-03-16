@@ -1372,6 +1372,302 @@ Low level command, sets the internal state to "In Movement"
 CRoboDeviceNet is the base class for all Robo platform based devices
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
+            <summary>
+gets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
+            <summary>
+sets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <param name="pCoefficient" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
+            <summary>
+cancel charging and capacity test functions; check if battery is connected
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
+            <summary>
+start capacity test on channel
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
+            <summary>
+gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
+            <summary>
+gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+            <summary>
+sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <param name="NewOperatingMode" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
+            <summary>
+gets number of channels
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
+            <summary>
+gets the battery voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
+            <summary>
+gets the charge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
+            <summary>
+gets the discharge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
+            <summary>
+gets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
+            <summary>
+sets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <param name="FinalDischargeVoltage_mV" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
+            <summary>
+gets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
+            <summary>
+sets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <param name="DischargeCurrent_mA" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
+            <summary>
+gets the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
+            <summary>
+gets the charge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
+            <summary>
+CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
+            <summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
+            <summary>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
+            <summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
+            <summary>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
+            <summary>
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
+            <summary>
+Gets the selected quarter of the electrodes on a high density Multiwell plate
+</summary>
+            <returns>the selected quarter</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
+            <summary>
+Selects a one quarter of the electrodes on a high density Multiwell plate
+</summary>
+            <param name="muxSelection">the selected quarter</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
+            <summary>
+Gets the plate type
+</summary>
+            <returns>the plate type</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
+            <summary>
+Unlocks the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
+            <summary>
+Locks the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
+            <summary>
+Gets the state of the plate clamp lock
+</summary>
+            <returns>the state of the plate lock (unlocked/locked)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+            <summary>
+Stops the plate clamp movement
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
+            <summary>
+Closes the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
+            <summary>
+Opens the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
+            <summary>
+Gets the state of the Multiwell plate clamp
+</summary>
+            <returns>the state of the plate clamp (open/closed)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiwellDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
+            <summary>
+CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+</summary>
+        </member>
+        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
+            <summary>
+Reads one EEprom byte from the EPC10 bus
+</summary>
+            <param name="epc10bus">The EPC10 bus number</param>
+            <returns>The byte read from the EEprom</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
+            <summary>
+Dummy command to show how to use the DLL.
+</summary>
+            <param name="dummyParameter">parameter to send to the device</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CLIH3DeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CLIH3DeviceNet">
+            <summary>
+CLIH3DeviceNet is the class to access the HEKA LIH3 device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
             <summary>
 Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
@@ -1524,218 +1820,6 @@ Finalizer: called by GC before collecting
         <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Dispose">
             <summary>
 Destructor: called by Dispose()
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischarge">
-            <summary>
-sets all channels to discharge mode
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetOperatingMode(System.UInt32)">
-            <summary>
-gets operating mode: Hotel, SlowCharge and FastCharge
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetOperatingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
-            <summary>
-sets operating mode: Hotel, SlowCharge and FastCharge
-</summary>
-            <param name="NrChannel" />
-            <param name="NewOperatingMode" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
-            <summary>
-gets number of channels
-</summary>
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.IsBatteryEmpty(System.UInt32)">
-            <summary>
-gets whether or not battery is empty (0 - battery not empty; 1 - battery empty)
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
-            <summary>
-gets the battery voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetCapacity(System.UInt32)">
-            <summary>
-gets the capacity; unit: mAh
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetCapacity(System.UInt32,System.UInt32)">
-            <summary>
-sets the capacity
-</summary>
-            <param name="NrChannel" />
-            <param name="Capacity_mAh" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
-            <summary>
-gets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
-            <summary>
-sets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <param name="FinalDischargeVoltage_mV" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
-            <summary>
-gets the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the discharge current
-</summary>
-            <param name="NrChannel" />
-            <param name="DischargeCurrent_mA" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
-            <summary>
-gets the charge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the charge current
-</summary>
-            <param name="NrChannel" />
-            <param name="ChargeCurrent_mA" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
-            <summary>
-CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
-        </member>
-        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
-            <summary>
-Get the real number of data bits.
-</summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
-            <summary>
-Reads one EEprom byte from the EPC10 bus
-</summary>
-            <param name="epc10bus">The EPC10 bus number</param>
-            <returns>The byte read from the EEprom</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
-            <summary>
-Dummy command to show how to use the DLL.
-</summary>
-            <param name="dummyParameter">parameter to send to the device</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CLIH3DeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CLIH3DeviceNet">
-            <summary>
-CLIH3DeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
@@ -2930,6 +3014,11 @@ Enumerates the analog source of the MEA2100 device.
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
             <summary>
 Enumerates the trigger source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.W2100DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the W2100 device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.DigitalSourceEnumNet">

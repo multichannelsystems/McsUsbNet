@@ -4,21 +4,47 @@
         "McsUsbNet_v20"
     </assembly>
     <members>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischarge">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
             <summary>
-sets all channels to discharge mode
+gets the pCoefficient for charging in mA/V / nominal charging current
 </summary>
+            <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetOperatingMode(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
             <summary>
-gets operating mode: Hotel, SlowCharge and FastCharge
+sets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <param name="pCoefficient" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
+            <summary>
+cancel charging and capacity test functions; check if battery is connected
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
+            <summary>
+start capacity test on channel
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
+            <summary>
+gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
 </summary>
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetOperatingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
             <summary>
-sets operating mode: Hotel, SlowCharge and FastCharge
+gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+            <summary>
+sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
 </summary>
             <param name="NrChannel" />
             <param name="NewOperatingMode" />
@@ -29,13 +55,6 @@ gets number of channels
 </summary>
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.IsBatteryEmpty(System.UInt32)">
-            <summary>
-gets whether or not battery is empty (0 - battery not empty; 1 - battery empty)
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
             <summary>
 gets the battery voltage; unit: mV
@@ -43,19 +62,19 @@ gets the battery voltage; unit: mV
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetCapacity(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
             <summary>
-gets the capacity; unit: mAh
+gets the charge capacity; unit: ?Ah
 </summary>
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetCapacity(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
             <summary>
-sets the capacity
+gets the discharge capacity; unit: ?Ah
 </summary>
             <param name="NrChannel" />
-            <param name="Capacity_mAh" />
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
             <summary>
@@ -71,6 +90,20 @@ sets the final discharge voltage; unit: mV
             <param name="NrChannel" />
             <param name="FinalDischargeVoltage_mV" />
         </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
+            <summary>
+gets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
+            <summary>
+sets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <param name="DischargeCurrent_mA" />
+        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
             <summary>
 gets the discharge current; unit: mA
@@ -78,26 +111,12 @@ gets the discharge current; unit: mA
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the discharge current
-</summary>
-            <param name="NrChannel" />
-            <param name="DischargeCurrent_mA" />
-        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
             <summary>
 gets the charge current; unit: mA
 </summary>
             <param name="NrChannel" />
             <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the charge current
-</summary>
-            <param name="NrChannel" />
-            <param name="ChargeCurrent_mA" />
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
             <summary>
@@ -973,6 +992,136 @@ Class to control a Temperature Controller (TCX)
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
+            <summary>
+CPatchServerDeviceNet is the class to control the MCS PatchServer device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CFYIDeviceNet">
+            <summary>
+CFYIDeviceNet is the class to control the MCS FYI device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
+            <summary>
+CMeasureTableDeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPPSDeviceNet">
+            <summary>
+CPPS4plus1DeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHLADeviceNet">
+            <summary>
+CHLADeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
+            <summary>
+CEncapsulatorDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHiClampDeviceNet">
+            <summary>
+CHiClampDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
+            <summary>
+CRoboInjectDeviceNet is the to control the MCS RoboInject device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
+            <summary>
+CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
+            <summary>
+Gets the current position of motors
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Current position of first axis if pattern in axes is set </param>
+            <param name="y"> Current position of second axis if pattern in axes is set </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Stops the current movement
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Searches the reference position of the motor
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
+            <summary>
+Low level command, gets the error of the last movement end
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
+            <summary>
+Low level command, gets the internal state "In Movement"
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
+            <summary>
+Low level command, sets the internal state to "In Movement" 
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
+            <summary> Bit pattern for i axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
+            <summary> Bit pattern for z axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
+            <summary> Bit pattern for y axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
+            <summary> Bit pattern for x axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
+            <summary> Axis number of i for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
+            <summary> Axis number of z for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
+            <summary> Axis number of y for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
+            <summary> Axis number of x for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
+            <summary> McsBus address for the z and i axes </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
+            <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboDeviceNet">
+            <summary>
+CRoboDeviceNet is the base class for all Robo platform based devices
+</summary>
+        </member>
         <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
             <summary>
 Get the real number of data bits.
@@ -981,6 +1130,71 @@ Get the real number of data bits.
 This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
 so the real number is 14 while the data format is 16 bits
 </remarks>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
+            <summary>
+Gets the selected quarter of the electrodes on a high density Multiwell plate
+</summary>
+            <returns>the selected quarter</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
+            <summary>
+Selects a one quarter of the electrodes on a high density Multiwell plate
+</summary>
+            <param name="muxSelection">the selected quarter</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
+            <summary>
+Gets the plate type
+</summary>
+            <returns>the plate type</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
+            <summary>
+Unlocks the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
+            <summary>
+Locks the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
+            <summary>
+Gets the state of the plate clamp lock
+</summary>
+            <returns>the state of the plate lock (unlocked/locked)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+            <summary>
+Stops the plate clamp movement
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
+            <summary>
+Closes the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
+            <summary>
+Opens the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
+            <summary>
+Gets the state of the Multiwell plate clamp
+</summary>
+            <returns>the state of the plate clamp (open/closed)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiwellDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
+            <summary>
+CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+</summary>
         </member>
         <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
             <summary>
@@ -1805,136 +2019,6 @@ Sets the voltage range on devices which support multiple voltage ranges.
 Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
-        </member>
-        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
-            <summary>
-CPatchServerDeviceNet is the class to control the MCS PatchServer device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CFYIDeviceNet">
-            <summary>
-CFYIDeviceNet is the class to control the MCS FYI device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPSDeviceNet">
-            <summary>
-CPPS4plus1DeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHLADeviceNet">
-            <summary>
-CHLADeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
-            <summary>
-CEncapsulatorDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHiClampDeviceNet">
-            <summary>
-CHiClampDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
-            <summary>
-CRoboInjectDeviceNet is the to control the MCS RoboInject device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
-            <summary>
-CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
-            <summary>
-Gets the current position of motors
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Current position of first axis if pattern in axes is set </param>
-            <param name="y"> Current position of second axis if pattern in axes is set </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Stops the current movement
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Moves the motor to the new absolute position
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Position of first axis, if pattern in axes is set </param>
-            <param name="y"> Position of second axis if pattern in axes is set </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Searches the reference position of the motor
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
-            <summary>
-Low level command, gets the error of the last movement end
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
-            <summary>
-Low level command, gets the internal state "In Movement"
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
-            <summary>
-Low level command, sets the internal state to "In Movement" 
-</summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
-            <summary> Bit pattern for i axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
-            <summary> Bit pattern for z axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
-            <summary> Bit pattern for y axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
-            <summary> Bit pattern for x axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
-            <summary> Axis number of i for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
-            <summary> Axis number of z for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
-            <summary> Axis number of y for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
-            <summary> Axis number of x for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
-            <summary> McsBus address for the z and i axes </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
-            <summary> McsBus address for the xy-plane </summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboDeviceNet">
-            <summary>
-CRoboDeviceNet is the base class for all Robo platform based devices
-</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.StopLoop">
             <summary>
@@ -2930,6 +3014,11 @@ Enumerates the analog source of the MEA2100 device.
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
             <summary>
 Enumerates the trigger source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.W2100DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the W2100 device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.DigitalSourceEnumNet">

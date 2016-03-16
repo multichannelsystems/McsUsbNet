@@ -853,6 +853,104 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
+            <summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
+            <summary>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
+            <summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
+            <summary>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
+            <summary>
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
+            <summary>
+Reads one EEprom byte from the EPC10 bus
+</summary>
+            <param name="epc10bus">The EPC10 bus number</param>
+            <returns>The byte read from the EEprom</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
+            <summary>
+Dummy command to show how to use the DLL.
+</summary>
+            <param name="dummyParameter">parameter to send to the device</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CLIH3DeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CLIH3DeviceNet">
+            <summary>
+CLIH3DeviceNet is the class to access the HEKA LIH3 device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
             <summary>
 Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
@@ -1007,236 +1105,94 @@ Finalizer: called by GC before collecting
 Destructor: called by Dispose()
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
             <summary>
- Sets the proportional constant for the thermocouple.
+Reads the digital input state
 </summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
+            <param name="channel">The Channel Number</param>
+            <returns>The Digital State</returns>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltage(System.UInt16)">
             <summary>
- Gets the proportional constant for the thermocouple.
+Reads the current analog voltage
 </summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+            <param name="channel">The Channel Number</param>
+            <returns>The Analog Voltage</returns>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetSupplyVoltage">
             <summary>
-Gets the maximum heater power of the specified device.
+Reads the current supply voltage in mV
 </summary>
+            <returns>The supply voltage</returns>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPressureRange(System.UInt16,System.Int32,System.Int32)">
             <summary>
-Gets the D-coefficient of the specified device.
+Get the pressure range that is used between the analog voltage or the digital states
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="lower_pressure">The lower border of the pressure range</param>
+            <param name="upper_pressure">The upper border of the pressure range</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPressureRange(System.UInt16,System.Int32@,System.Int32@)">
             <summary>
-Gets the I-coefficient of the specified device.
+Get the pressure range that is used between the analog voltage or the digital states
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="lower_pressure">The lower border of the pressure range</param>
+            <param name="upper_pressure">The upper border of the pressure range</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetAnalogVoltageRange(System.UInt16,System.UInt16,System.UInt16)">
             <summary>
-Gets the P-coefficient of the specified device.
+Writes the Analog Input Voltage Range
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
+            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltageRange(System.UInt16,System.UInt16@,System.UInt16@)">
             <summary>
-Gets if the specified channel is on or off.
+Reads the Analog Input Voltage Range
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
+            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpModeType(System.UInt16,Mcs.Usb.PP_Pump_Mode_Type_EnumNet)">
             <summary>
-Gets the target temperate of specified channel in units of 0.1°C.
+Writes the config string from the device.
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="PumpMode">The Pump Mode Type.</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpModeType(System.UInt16)">
             <summary>
-Sets the maximum heater power of the specified device.
+Reads the Pump Mode Type.
 </summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Pump Mode Type.</returns>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpSpeedUnit(System.UInt16,System.Int32)">
             <summary>
-Sets the D-coefficient of the specified device.
+Writes the Pump Speed Unit
 </summary>
+            <param name="channel">The Channel Number</param>
+            <param name="SpeedUnit">The Speed Unit</param>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpSpeedUnit(System.UInt16)">
             <summary>
-Sets the I-coefficient of the specified device.
+Reads the Pump Speed Unit
 </summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Speed Unit</returns>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
-Sets the P-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Int32)">
-            <summary>
-Switches the specified channel on or off.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
-            <summary>
-Sets the target temperate of specified channel in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
-            <summary>
-Gets the temperate of the mainboard in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
-            <summary>
-Gets weather the device supports a thermocouple.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxHeaterPowerMultiwell(System.Double)">
-            <summary>
-sets the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+    Initializes a new instance of the CPPCFunctionNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxHeaterPowerMultiwell">
+        <member name="T:Mcs.Usb.CPPCFunctionNet">
             <summary>
-queries the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
-            <summary>
-Gets the temperate limit of the specified heater in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
-            <summary>
-Gets the temperate of the specified heater in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.01°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.1°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
-            <summary>
-Gets the number of channels the device can measure.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
-            <summary>
-Gets the number of channels the device can control/regulate.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CTcxDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CTcxDeviceNet">
-            <summary>
-Class to control a Temperature Controller (TCX)
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
-            <summary>
-Reads one EEprom byte from the EPC10 bus
-</summary>
-            <param name="epc10bus">The EPC10 bus number</param>
-            <returns>The byte read from the EEprom</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
-            <summary>
-Dummy command to show how to use the DLL.
-</summary>
-            <param name="dummyParameter">parameter to send to the device</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CLIH3DeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CLIH3DeviceNet">
-            <summary>
-CLIH3DeviceNet is the class to access the HEKA LIH3 device.
+CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump Tester (Handheld Device Tester D)
 </summary>
         </member>
         <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
@@ -1372,21 +1328,47 @@ Short circuit the Thermocouple and use this function to correct a possible offse
     CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischarge">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
             <summary>
-sets all channels to discharge mode
+gets the pCoefficient for charging in mA/V / nominal charging current
 </summary>
+            <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetOperatingMode(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
             <summary>
-gets operating mode: Hotel, SlowCharge and FastCharge
+sets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <param name="pCoefficient" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
+            <summary>
+cancel charging and capacity test functions; check if battery is connected
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
+            <summary>
+start capacity test on channel
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
+            <summary>
+gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
 </summary>
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetOperatingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
             <summary>
-sets operating mode: Hotel, SlowCharge and FastCharge
+gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+            <summary>
+sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
 </summary>
             <param name="NrChannel" />
             <param name="NewOperatingMode" />
@@ -1397,13 +1379,6 @@ gets number of channels
 </summary>
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.IsBatteryEmpty(System.UInt32)">
-            <summary>
-gets whether or not battery is empty (0 - battery not empty; 1 - battery empty)
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
             <summary>
 gets the battery voltage; unit: mV
@@ -1411,19 +1386,19 @@ gets the battery voltage; unit: mV
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetCapacity(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
             <summary>
-gets the capacity; unit: mAh
+gets the charge capacity; unit: ?Ah
 </summary>
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetCapacity(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
             <summary>
-sets the capacity
+gets the discharge capacity; unit: ?Ah
 </summary>
             <param name="NrChannel" />
-            <param name="Capacity_mAh" />
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
             <summary>
@@ -1439,6 +1414,20 @@ sets the final discharge voltage; unit: mV
             <param name="NrChannel" />
             <param name="FinalDischargeVoltage_mV" />
         </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
+            <summary>
+gets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
+            <summary>
+sets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <param name="DischargeCurrent_mA" />
+        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
             <summary>
 gets the discharge current; unit: mA
@@ -1446,26 +1435,12 @@ gets the discharge current; unit: mA
             <param name="NrChannel" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the discharge current
-</summary>
-            <param name="NrChannel" />
-            <param name="DischargeCurrent_mA" />
-        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
             <summary>
 gets the charge current; unit: mA
 </summary>
             <param name="NrChannel" />
             <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargeCurrent(System.UInt32,System.UInt32)">
-            <summary>
-sets the charge current
-</summary>
-            <param name="NrChannel" />
-            <param name="ChargeCurrent_mA" />
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
             <summary>
@@ -1509,94 +1484,203 @@ Flashes a firmware file to the device.
 Retrives version info from a Firmware update file.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
             <summary>
-Reads the digital input state
+Gets the selected quarter of the electrodes on a high density Multiwell plate
 </summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Digital State</returns>
+            <returns>the selected quarter</returns>
         </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltage(System.UInt16)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
             <summary>
-Reads the current analog voltage
+Selects a one quarter of the electrodes on a high density Multiwell plate
 </summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Analog Voltage</returns>
+            <param name="muxSelection">the selected quarter</param>
         </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetSupplyVoltage">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
             <summary>
-Reads the current supply voltage in mV
+Gets the plate type
 </summary>
-            <returns>The supply voltage</returns>
+            <returns>the plate type</returns>
         </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPressureRange(System.UInt16,System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
             <summary>
-Get the pressure range that is used between the analog voltage or the digital states
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="lower_pressure">The lower border of the pressure range</param>
-            <param name="upper_pressure">The upper border of the pressure range</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPressureRange(System.UInt16,System.Int32@,System.Int32@)">
-            <summary>
-Get the pressure range that is used between the analog voltage or the digital states
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="lower_pressure">The lower border of the pressure range</param>
-            <param name="upper_pressure">The upper border of the pressure range</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetAnalogVoltageRange(System.UInt16,System.UInt16,System.UInt16)">
-            <summary>
-Writes the Analog Input Voltage Range
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
-            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltageRange(System.UInt16,System.UInt16@,System.UInt16@)">
-            <summary>
-Reads the Analog Input Voltage Range
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
-            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpModeType(System.UInt16,Mcs.Usb.PP_Pump_Mode_Type_EnumNet)">
-            <summary>
-Writes the config string from the device.
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="PumpMode">The Pump Mode Type.</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpModeType(System.UInt16)">
-            <summary>
-Reads the Pump Mode Type.
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Pump Mode Type.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpSpeedUnit(System.UInt16,System.Int32)">
-            <summary>
-Writes the Pump Speed Unit
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="SpeedUnit">The Speed Unit</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpSpeedUnit(System.UInt16)">
-            <summary>
-Reads the Pump Speed Unit
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Speed Unit</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CPPCFunctionNet class.
+Unlocks the plate clamp
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CPPCFunctionNet">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
             <summary>
-CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump Tester (Handheld Device Tester D)
+Locks the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
+            <summary>
+Gets the state of the plate clamp lock
+</summary>
+            <returns>the state of the plate lock (unlocked/locked)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+            <summary>
+Stops the plate clamp movement
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
+            <summary>
+Closes the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
+            <summary>
+Opens the plate clamp
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
+            <summary>
+Gets the state of the Multiwell plate clamp
+</summary>
+            <returns>the state of the plate clamp (open/closed)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiwellDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
+            <summary>
+CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+            <summary>
+ Gets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
+            <summary>
+Gets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
+            <summary>
+Gets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
+            <summary>
+Gets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
+            <summary>
+Gets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
+            <summary>
+Gets if the specified channel is on or off.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
+            <summary>
+Gets the target temperate of specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
+            <summary>
+Sets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
+            <summary>
+Sets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
+            <summary>
+Sets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
+            <summary>
+Sets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Int32)">
+            <summary>
+Switches the specified channel on or off.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
+            <summary>
+Sets the target temperate of specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
+            <summary>
+Gets the temperate of the mainboard in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
+            <summary>
+Gets weather the device supports a thermocouple.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxHeaterPowerMultiwell(System.Double)">
+            <summary>
+sets the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxHeaterPowerMultiwell">
+            <summary>
+queries the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
+            <summary>
+Gets the temperate limit of the specified heater in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
+            <summary>
+Gets the temperate of the specified heater in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.01°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.1°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
+            <summary>
+Gets the number of channels the device can measure.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
+            <summary>
+Gets the number of channels the device can control/regulate.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CTcxDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CTcxDeviceNet">
+            <summary>
+Class to control a Temperature Controller (TCX)
 </summary>
         </member>
         <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
@@ -2930,6 +3014,11 @@ Enumerates the analog source of the MEA2100 device.
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
             <summary>
 Enumerates the trigger source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.W2100DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the W2100 device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.DigitalSourceEnumNet">
