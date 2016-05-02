@@ -104,6 +104,18 @@ Gets the state of the Multiwell plate clamp
 CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
+            <summary>
+Gets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <returns>Sample Interval configured on the device</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetSampleInterval(System.UInt32)">
+            <summary>
+Sets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <param name="SampleInterval">Sample Interval between the samples, Sample interval is available from 1 to 4194303</param>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
             <summary>
 Reads one EEprom byte from the EPC10 bus
