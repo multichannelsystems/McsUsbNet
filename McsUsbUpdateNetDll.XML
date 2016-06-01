@@ -34,6 +34,23 @@
             Device must be connected. Firmware filenames must be somehow published to the class
             </summary>
         </member>
+        <member name="F:Mcs.UsbUpdateNetDll.W2100HSFirmwareUpdatePrepDlg.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.W2100HSFirmwareUpdatePrepDlg.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Mcs.UsbUpdateNetDll.W2100HSFirmwareUpdatePrepDlg.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
             <summary>
             PrepareForFirmwareUpdate
@@ -99,7 +116,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareUpdateHandler(System.Boolean)">
+        <member name="M:Mcs.UsbUpdateNetDll.IUpdateHandler.PrepareForFirmwareUpdateEventHandler(System.Boolean)">
             <summary>
             Prepares the update handler.
             </summary>
