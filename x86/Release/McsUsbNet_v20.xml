@@ -4,185 +4,125 @@
         "McsUsbNet_v20"
     </assembly>
     <members>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSlope(System.Int32)">
             <summary>
-Gets the Current Resolution of the specified channel in Nanoamps.
+queries stop condition of digital out stimulator
 </summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+            <param name="NrChannel">channel number</param>
+            <returns>stop condition (rising or falling edge)</returns>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSlope(System.Int32,Mcs.Usb.DigitalStimulatorTriggerSlopeEnumNet)">
             <summary>
-Gets the Current Range of the specified channel in Nanoamps.
+sets stop condition of digital out stimulator
 </summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+            <param name="NrChannel">channel number</param>
+            <param name="Condition">stop condition (rising or falling edge)</param>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSlope(System.Int32)">
             <summary>
-Gets the Voltage Resolution of the specified channel in Microvolts.
+queries start condition of digital out stimulator
 </summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+            <param name="NrChannel">channel number</param>
+            <returns>start condition (rising or falling edge)</returns>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSlope(System.Int32,Mcs.Usb.DigitalStimulatorTriggerSlopeEnumNet)">
             <summary>
-Gets the Voltage Range of the specified channel in Microvolts.
+sets start condition of digital out stimulator
 </summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+            <param name="NrChannel">channel number</param>
+            <param name="Condition">start condition (rising or falling edge)</param>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
+            <summary />
+            <param name="NrChannel">channel number</param>
+            <param name="Source">base register address</param>
+            <param name="bitnumber_offset">address offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetGlobalRepeat(System.Int32)">
             <summary>
-Gets number of bits of the DAC resolution.
+get repeat whole stimulation pattern
 </summary>
-            <returns>The time resolution in ns.</returns>
+            <param name="NrChannel">channel number</param>
+            <returns>current value</returns>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetGlobalRepeat(System.Int32,System.Boolean)">
             <summary>
-Gets number of bits of the DAC resolution.
+set repeat whole stimulation pattern
 </summary>
-            <returns>The DAC resolution in bits.</returns>
+            <param name="NrChannel">channel number</param>
+            <param name="value">new value</param>
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetNumberOfChannels">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.AppendChannelData(System.Int32,Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData)">
+            <summary />
+            <param name="NrChannel" />
+            <param name="device_data_and_unrolled" />
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.PrepareChannelData(System.Int32[],System.UInt64[])">
+            <summary />
+            <param name="Amplitude" />
+            <param name="Duration" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.ClearChannel(System.Int32)">
             <summary>
-Delete a Stimulus Pattern from STG memory
+clear stimulation pattern
 </summary>
-            <param name="channel"> specifies the channel to clear.</param>
+            <param name="NrChannel" />
         </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
-            <summary>
-Start (Trigger) the STG.
-The startup delay is in the range of a few ms.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be started.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
-            <summary>
-Gets the current cycle.
-</summary>
-            <returns>The cycle number.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCycles">
-            <summary>
-Gets the number of cycles.
-</summary>
-            <returns>The number of cycles to run for.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetCycles(System.UInt32)">
-            <summary>
-Sets the number of cycles.
-</summary>
-            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPause">
-            <summary>
-Gets the time in the pause.
-</summary>
-            <returns>The time in the pause in ms.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetPauseDuration">
-            <summary>
-Gets the duration of the pause between MEA Coat pulses.
-</summary>
-            <returns>The duration in ms.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetPauseDuration(System.UInt32)">
-            <summary>
-Sets the duration of the pause between MEA Coat pulses.
-</summary>
-            <param name="pauseDuration">The duration in ms (range 0 .. 65 s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPlateau">
-            <summary>
-Gets the time in the plateau.
-</summary>
-            <returns>The time in the plateau in ms.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
-            <summary>
-Gets the output current.
-</summary>
-            <returns>The output current in pA.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOffsetCurrent">
-            <summary>
-Gets the offset of the current.
-</summary>
-            <returns>The offset of the current in pA.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
-            <summary>
-Gets the limit of the current ramp (absolute value).
-</summary>
-            <returns>The limit of the current ramp in pA (absolute value).</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
-            <summary>
-Gets the duration of a MEA Coat run.
-</summary>
-            <returns>The duration in ms.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetSlope">
-            <summary>
-Gets the current slope.
-</summary>
-            <returns>The current slope in pA/s.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.IsRunning">
-            <summary>
-Gets if the MEA Clean device is running.
-</summary>
-            <returns>"true" when a run is in progress, otherwise "false".</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int32)">
-            <summary>
-Sets the offset of the current.
-</summary>
-            <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.UInt32)">
-            <summary>
-Sets the limit of the current ramp (absolute value).
-</summary>
-            <param name="currentMax">The limit of the current ramp in pA (absolute value, 0 .. 18 nA).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
-            <summary>
-Sets the duration of a MEA Coat run.
-</summary>
-            <param name="duration">The duration in ms (range 0 .. 65 s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.Int32)">
-            <summary>
-Sets the current slope.
-</summary>
-            <param name="currentSlope">The current slope in pA/s (range -65 .. 65 nA/s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
-            <summary>
-Stops a MEA Coat run.
+    Initializes a new instance of the CDigOutStimulatorFunctionNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Start">
+        <member name="T:Mcs.Usb.CDigOutStimulatorFunctionNet">
             <summary>
-Starts a MEA Coat run.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CMeaCoatDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
-            <summary>
-CMeaCoatDeviceNet is the class to access the MEA Coat device.
+CDigOutStimulatorFunctionNet is the class of the DigOut stimulator function class.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
@@ -220,214 +160,256 @@ Reads the config string from the device.
 CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
             <summary>
-Gets the current cycle.
+Gets the selected quarter of the electrodes on a high density Multiwell plate
 </summary>
-            <returns>The cycle number.</returns>
+            <returns>the selected quarter</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
             <summary>
-Gets the output voltage.
+Selects a one quarter of the electrodes on a high density Multiwell plate
 </summary>
-            <returns>The output voltage in mV.</returns>
+            <param name="muxSelection">the selected quarter</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
             <summary>
-Gets the upper voltage level
+Gets the plate type
 </summary>
-            <returns>The upper voltage level in mV.</returns>
+            <returns>the plate type</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
             <summary>
-Gets the lower voltage level.
-</summary>
-            <returns>The lower voltage level in mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
-            <summary>
-Gets the number of cycles.
-</summary>
-            <returns>The number of cycles to run for.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
-            <summary>
-Gets the voltage slope.
-</summary>
-            <returns>The voltage slope in mV/s.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
-            <summary>
-Gets if the MEA Clean device is running.
-</summary>
-            <returns>"true" when a run is in progress, otherwise "false".</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
-            <summary>
-Sets the upper voltage level.
-</summary>
-            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
-            <summary>
-Sets the lower voltage level.
-</summary>
-            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
-            <summary>
-Sets the number of cycles.
-</summary>
-            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
-            <summary>
-Sets the voltage slope.
-</summary>
-            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
-            <summary>
-Stops a MEA Clean run.
+Unlocks the plate clamp
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
             <summary>
-Starts a MEA Clean run.
+Locks the plate clamp
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
             <summary>
-    Initializes a new instance of the CMeaCleanDeviceNet class.
+Gets the state of the plate clamp lock
+</summary>
+            <returns>the state of the plate lock (unlocked/locked)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+            <summary>
+Stops the plate clamp movement
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
             <summary>
-CMeaCleanDeviceNet is the class to access the MEA Clean device.
+Closes the plate clamp
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
             <summary>
-Writes the generator mode
-</summary>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
-            <summary>
-Reads the generator mode
-</summary>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32)">
-            <summary>
-Writes the generator pulse length
-</summary>
-            <param name="pulselength_in_10us">The pulse length</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength">
-            <summary>
-Reads the generator pulse length
-</summary>
-            <returns>The pulse length</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32)">
-            <summary>
-Writes the generator period
-</summary>
-            <param name="period_in_samples">The period</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod">
-            <summary>
-Reads the generator period
-</summary>
-            <returns>The period</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+Opens the plate clamp
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
             <summary>
-CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
+Gets the state of the Multiwell plate clamp
+</summary>
+            <returns>the state of the plate clamp (open/closed)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiwellDeviceNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
+        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
             <summary>
-    Initialize a new instance of the CPeristalticPumpDeviceNet class.
+CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
             <summary>
-    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
+Gets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <returns>Sample Interval configured on the device</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetSampleInterval(System.UInt32)">
+            <summary>
+Sets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <param name="SampleInterval">Sample Interval between the samples, Sample interval is available from 1 to 4194303</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
+            <summary>
+Reads one EEprom byte from the EPC10 bus
+</summary>
+            <param name="epc10bus">The EPC10 bus number</param>
+            <returns>The byte read from the EEprom</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
+            <summary>
+Dummy command to show how to use the DLL.
+</summary>
+            <param name="dummyParameter">parameter to send to the device</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CLIH3DeviceNet class.
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.DacqDevice">
+        <member name="T:Mcs.Usb.CLIH3DeviceNet">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CMcsUsbDacqNet" />. Use this to control the data aquisition.
+CLIH3DeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.FluidControlDevice">
+        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CFluidControlDeviceNet" />. Use this to control the valves. Only SetSingleValve is implemented for <see cref="T:Mcs.Usb.CSafeISDeviceNet" />.
+    Initialize a new instance of the CGilsonDeviceNet class.
 </summary>
         </member>
-        <member name="P:Mcs.Usb.CSafeISDeviceNet.RoboDevice">
+        <member name="T:Mcs.Usb.CGilsonDeviceNet">
             <summary>
-Gets the <see cref="T:Mcs.Usb.CRoboDeviceNet" />. Use this to control the syringe.
+    CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPeriode(System.UInt32)">
-            <summary>
-Sets the DAC periode.
-</summary>
-            <param name="periode">The periode in units of 10µs.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPulseform(System.Int16[])">
-            <summary>
-Sets the DAC pulseform.
-</summary>
-            <param name="pulseform">The pulseform.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacMode(System.Byte)">
-            <summary>
-Sets the DAC mode.
-</summary>
-            <param name="mode">The mode: 0 = Impedance ; 1 = Amperometry</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcSamplePos(System.UInt16[])">
-            <summary>
-Sets the sample position of the ADC.
-</summary>
-            <param name="positions">The positions in units of 0.1µs.</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcChannels(System.Byte)">
-            <summary>
-Sets the ADC channels you want to be sampled
-</summary>
-            <param name="channels">The bitmap of the 8 channels. Set bit to 1 for the channels you want measure</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetSwitches(System.UInt16)">
-            <summary>
-Sets the switches for all electrodes on the device. Do not use during measurement
-</summary>
-            <param name="switches">The switches: See Schematics for the meaning</param>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.Dispose">
-            <summary>
-Releases unmanaged resources and performs other cleanup operations before the
-<see cref="T:Mcs.Usb.CSafeISDeviceNet" /> is reclaimed by garbage collection.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CSafeISDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CSafeISDeviceNet">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
             <summary />
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacity(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
+            <summary />
+            <param name="NrChannel" />
+            <param name="NewRatedCapacity" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
+            <summary>
+gets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
+            <summary>
+sets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <param name="pCoefficient" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
+            <summary>
+cancel charging and capacity test functions; check if battery is connected
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
+            <summary>
+start capacity test on channel
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
+            <summary>
+gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
+            <summary>
+gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+            <summary>
+sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <param name="NewOperatingMode" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacityVolatile(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
+            <summary>
+sets the rated capacity (i.e. charge current) without storing it persistently
+</summary>
+            <param name="NrChannel" />
+            <param name="NewRatedCapacity" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
+            <summary>
+gets number of channels
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
+            <summary>
+gets the battery voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
+            <summary>
+gets the charge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
+            <summary>
+gets the discharge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
+            <summary>
+gets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
+            <summary>
+sets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <param name="FinalDischargeVoltage_mV" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
+            <summary>
+gets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
+            <summary>
+sets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <param name="DischargeCurrent_mA" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
+            <summary>
+gets the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
+            <summary>
+gets the charge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
+            <summary>
+CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
+</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.StopLoop">
             <summary>
@@ -920,521 +902,70 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.DacqDevice">
             <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
+Gets the <see cref="T:Mcs.Usb.CMcsUsbDacqNet" />. Use this to control the data aquisition.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.FluidControlDevice">
             <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
+Gets the <see cref="T:Mcs.Usb.CFluidControlDeviceNet" />. Use this to control the valves. Only SetSingleValve is implemented for <see cref="T:Mcs.Usb.CSafeISDeviceNet" />.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
+        <member name="P:Mcs.Usb.CSafeISDeviceNet.RoboDevice">
             <summary>
-Gets the Sample Interval for the DACQ and Stimulation
-</summary>
-            <returns>Sample Interval configured on the device</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetSampleInterval(System.UInt32)">
-            <summary>
-Sets the Sample Interval for the DACQ and Stimulation
-</summary>
-            <param name="SampleInterval">Sample Interval between the samples, Sample interval is available from 1 to 4194303</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
-            <summary>
-Reads one EEprom byte from the EPC10 bus
-</summary>
-            <param name="epc10bus">The EPC10 bus number</param>
-            <returns>The byte read from the EEprom</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
-            <summary>
-Dummy command to show how to use the DLL.
-</summary>
-            <param name="dummyParameter">parameter to send to the device</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CLIH3DeviceNet class.
+Gets the <see cref="T:Mcs.Usb.CRoboDeviceNet" />. Use this to control the syringe.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CLIH3DeviceNet">
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPeriode(System.UInt32)">
             <summary>
-CLIH3DeviceNet is the class to access the HEKA LIH3 device.
+Sets the DAC periode.
+</summary>
+            <param name="periode">The periode in units of 10µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPulseform(System.Int16[])">
+            <summary>
+Sets the DAC pulseform.
+</summary>
+            <param name="pulseform">The pulseform.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacMode(System.Byte)">
+            <summary>
+Sets the DAC mode.
+</summary>
+            <param name="mode">The mode: 0 = Impedance ; 1 = Amperometry</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcSamplePos(System.UInt16[])">
+            <summary>
+Sets the sample position of the ADC.
+</summary>
+            <param name="positions">The positions in units of 0.1µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcChannels(System.Byte)">
+            <summary>
+Sets the ADC channels you want to be sampled
+</summary>
+            <param name="channels">The bitmap of the 8 channels. Set bit to 1 for the channels you want measure</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.SetSwitches(System.UInt16)">
+            <summary>
+Sets the switches for all electrodes on the device. Do not use during measurement
+</summary>
+            <param name="switches">The switches: See Schematics for the meaning</param>
+        </member>
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.Dispose">
+            <summary>
+Releases unmanaged resources and performs other cleanup operations before the
+<see cref="T:Mcs.Usb.CSafeISDeviceNet" /> is reclaimed by garbage collection.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSlope(System.Int32)">
+        <member name="M:Mcs.Usb.CSafeISDeviceNet.#ctor">
             <summary>
-queries stop condition of digital out stimulator
+Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> class.
 </summary>
-            <param name="NrChannel">channel number</param>
-            <returns>stop condition (rising or falling edge)</returns>
         </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSlope(System.Int32,Mcs.Usb.DigitalStimulatorTriggerSlopeEnumNet)">
-            <summary>
-sets stop condition of digital out stimulator
-</summary>
-            <param name="NrChannel">channel number</param>
-            <param name="Condition">stop condition (rising or falling edge)</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSlope(System.Int32)">
-            <summary>
-queries start condition of digital out stimulator
-</summary>
-            <param name="NrChannel">channel number</param>
-            <returns>start condition (rising or falling edge)</returns>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSlope(System.Int32,Mcs.Usb.DigitalStimulatorTriggerSlopeEnumNet)">
-            <summary>
-sets start condition of digital out stimulator
-</summary>
-            <param name="NrChannel">channel number</param>
-            <param name="Condition">start condition (rising or falling edge)</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
+        <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetGlobalRepeat(System.Int32)">
-            <summary>
-get repeat whole stimulation pattern
-</summary>
-            <param name="NrChannel">channel number</param>
-            <returns>current value</returns>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetGlobalRepeat(System.Int32,System.Boolean)">
-            <summary>
-set repeat whole stimulation pattern
-</summary>
-            <param name="NrChannel">channel number</param>
-            <param name="value">new value</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetNumberOfChannels">
-            <summary />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.AppendChannelData(System.Int32,Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData)">
-            <summary />
-            <param name="NrChannel" />
-            <param name="device_data_and_unrolled" />
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.PrepareChannelData(System.Int32[],System.UInt64[])">
-            <summary />
-            <param name="Amplitude" />
-            <param name="Duration" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.ClearChannel(System.Int32)">
-            <summary>
-clear stimulation pattern
-</summary>
-            <param name="NrChannel" />
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CDigOutStimulatorFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CDigOutStimulatorFunctionNet">
-            <summary>
-CDigOutStimulatorFunctionNet is the class of the DigOut stimulator function class.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetMemory">
-            <summary>
-Get the amount of memory available in the currently selected segment of the STG.
-</summary>
-            <returns>The total memory available on the STG in bytes.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetTotalMemory">
-            <summary>
-Get the total amount of memory available on the STG (all segments).
-</summary>
-            <returns>The total memory available on the STG in bytes.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
-            <summary>
-Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
-</summary>
-            <param name="first_trigger">The number of the first trigger to change.</param>
-            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
-            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
-            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The DAC resolution in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.CreateSideband(System.Int32[],System.Int32[],System.UInt64[],System.UInt32!System.Runtime.CompilerServices.IsConst,System.UInt32!System.Runtime.CompilerServices.IsConst,System.UInt32!System.Runtime.CompilerServices.IsConst)">
-            <summary>
-Creates the Sideband Channel for the MEA2100 device.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-A value 0 means that the stimulation is active during that time.
-A value 1 means that the stimulation is not active during that time.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="StimulusActive">A list of datapoints which define weather the Stimulus is active or idle at that time as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="Bit0Time">Time in µs for which Bit 0 (Blanking) is to be extended.</param>
-            <param name="Bit3Time">Time in µs for which Bit 3 (Stimulus Enable) is to be extended.</param>
-            <param name="Bit4Time">Time in µs for which Bit 4 (Stimulus Selector) is to be extended.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and append data to a given channel on the STG.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
-            <summary>
-Delete a Syncout Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)">
-            <summary>
-Delete a Stimulus Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32,System.Int32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-            <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStart(System.UInt32)">
-            <summary>
-Start (Trigger) the STG.
-The startup delay is in the range of a few ms.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be started.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ForceStatusEvent">
-            <summary>
-Force a status event.
-Force the DLL to create a PollMessage event and to call the
-pPollCallback function, even if no new status information is available.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StopPoll">
-            <summary>
-Stops the interrupt fetching thread and delivers events
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StartPoll">
-            <summary>
-Starts the interrupt fetching thread and delivers events
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Finalize">
-            <summary>
-Finalizer: called by GC before collecting
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Dispose">
-            <summary>
-Destructor: called by Dispose()
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Finalize">
-            <summary>
-Finalizer: called by GC before collecting
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Dispose">
-            <summary>
-Destructor: called by Dispose()
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
-            <summary>
-Reads the digital input state
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Digital State</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltage(System.UInt16)">
-            <summary>
-Reads the current analog voltage
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Analog Voltage</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetSupplyVoltage">
-            <summary>
-Reads the current supply voltage in mV
-</summary>
-            <returns>The supply voltage</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPressureRange(System.UInt16,System.Int32,System.Int32)">
-            <summary>
-Get the pressure range that is used between the analog voltage or the digital states
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="lower_pressure">The lower border of the pressure range</param>
-            <param name="upper_pressure">The upper border of the pressure range</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPressureRange(System.UInt16,System.Int32@,System.Int32@)">
-            <summary>
-Get the pressure range that is used between the analog voltage or the digital states
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="lower_pressure">The lower border of the pressure range</param>
-            <param name="upper_pressure">The upper border of the pressure range</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetAnalogVoltageRange(System.UInt16,System.UInt16,System.UInt16)">
-            <summary>
-Writes the Analog Input Voltage Range
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
-            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltageRange(System.UInt16,System.UInt16@,System.UInt16@)">
-            <summary>
-Reads the Analog Input Voltage Range
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
-            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpModeType(System.UInt16,Mcs.Usb.PP_Pump_Mode_Type_EnumNet)">
-            <summary>
-Writes the config string from the device.
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="PumpMode">The Pump Mode Type.</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpModeType(System.UInt16)">
-            <summary>
-Reads the Pump Mode Type.
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Pump Mode Type.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpSpeedUnit(System.UInt16,System.Int32)">
-            <summary>
-Writes the Pump Speed Unit
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="SpeedUnit">The Speed Unit</param>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpSpeedUnit(System.UInt16)">
-            <summary>
-Reads the Pump Speed Unit
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Speed Unit</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CPPCFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPCFunctionNet">
-            <summary>
-CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGilsonDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGilsonDeviceNet">
-            <summary>
-    CGilsonDeviceNet is the class to control a Gilson device.
-</summary>
         </member>
         <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
             <summary>
@@ -1559,147 +1090,6 @@ Short circuit the Thermocouple and use this function to correct a possible offse
     CFluidControlDeviceNet is the class to control MCS FluidControl (FCB and FCX) device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
-            <summary />
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacity(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
-            <summary />
-            <param name="NrChannel" />
-            <param name="NewRatedCapacity" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
-            <summary>
-gets the pCoefficient for charging in mA/V / nominal charging current
-</summary>
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
-            <summary>
-sets the pCoefficient for charging in mA/V / nominal charging current
-</summary>
-            <param name="pCoefficient" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
-            <summary>
-cancel charging and capacity test functions; check if battery is connected
-</summary>
-            <param name="NrChannel" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
-            <summary>
-start capacity test on channel
-</summary>
-            <param name="NrChannel" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
-            <summary>
-gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
-            <summary>
-gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
-            <summary>
-sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <param name="NewOperatingMode" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacityVolatile(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
-            <summary>
-sets the rated capacity (i.e. charge current) without storing it persistently
-</summary>
-            <param name="NrChannel" />
-            <param name="NewRatedCapacity" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
-            <summary>
-gets number of channels
-</summary>
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
-            <summary>
-gets the battery voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
-            <summary>
-gets the charge capacity; unit: ?Ah
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
-            <summary>
-gets the discharge capacity; unit: ?Ah
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
-            <summary>
-gets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
-            <summary>
-sets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <param name="FinalDischargeVoltage_mV" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
-            <summary>
-gets the setpoint for the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
-            <summary>
-sets the setpoint for the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <param name="DischargeCurrent_mA" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
-            <summary>
-gets the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
-            <summary>
-gets the charge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
-            <summary>
-CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
             <summary>
 Flashes a firmware file to the device.
@@ -1730,71 +1120,6 @@ Flashes a firmware file to the device.
         <member name="M:Mcs.Usb.CMcsUsbFactoryNet.GetFirmwareVersionFromFile(System.String,System.UInt32@)">
             <summary>
 Retrives version info from a Firmware update file.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
-            <summary>
-Gets the selected quarter of the electrodes on a high density Multiwell plate
-</summary>
-            <returns>the selected quarter</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
-            <summary>
-Selects a one quarter of the electrodes on a high density Multiwell plate
-</summary>
-            <param name="muxSelection">the selected quarter</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
-            <summary>
-Gets the plate type
-</summary>
-            <returns>the plate type</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
-            <summary>
-Unlocks the plate clamp
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
-            <summary>
-Locks the plate clamp
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
-            <summary>
-Gets the state of the plate clamp lock
-</summary>
-            <returns>the state of the plate lock (unlocked/locked)</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
-            <summary>
-Stops the plate clamp movement
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
-            <summary>
-Closes the plate clamp
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
-            <summary>
-Opens the plate clamp
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
-            <summary>
-Gets the state of the Multiwell plate clamp
-</summary>
-            <returns>the state of the plate clamp (open/closed)</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CMultiwellDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
-            <summary>
-CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
@@ -2143,6 +1468,736 @@ which contructs the correct underlying C++ class for the USB-MEA device on the o
 on the other hand.
 Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
 </remarks>
+        </member>
+        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
+            <summary>
+CPatchServerDeviceNet is the class to control the MCS PatchServer device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CFYIDeviceNet">
+            <summary>
+CFYIDeviceNet is the class to control the MCS FYI device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
+            <summary>
+CMeasureTableDeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPPSDeviceNet">
+            <summary>
+CPPS4plus1DeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHLADeviceNet">
+            <summary>
+CHLADeviceNet is the to control the MCS HLA device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
+            <summary>
+CEncapsulatorDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CHiClampDeviceNet">
+            <summary>
+CHiClampDeviceNet is the to control the MCS HiClamp device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
+            <summary>
+CRoboInjectDeviceNet is the to control the MCS RoboInject device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
+            <summary>
+CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
+            <summary>
+Gets the current position of motors
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Current position of first axis if pattern in axes is set </param>
+            <param name="y"> Current position of second axis if pattern in axes is set </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Stops the current movement
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
+            <summary>
+Searches the reference position of the motor
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
+            <summary>
+Low level command, gets the error of the last movement end
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
+            <summary>
+Low level command, gets the internal state "In Movement"
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
+            <summary>
+Low level command, sets the internal state to "In Movement" 
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
+            <summary> Bit pattern for i axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
+            <summary> Bit pattern for z axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
+            <summary> Bit pattern for y axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
+            <summary> Bit pattern for x axis for axes argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
+            <summary> Axis number of i for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
+            <summary> Axis number of z for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
+            <summary> Axis number of y for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
+            <summary> Axis number of x for axis argument </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
+            <summary> McsBus address for the z and i axes </summary>
+        </member>
+        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
+            <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="T:Mcs.Usb.CRoboDeviceNet">
+            <summary>
+CRoboDeviceNet is the base class for all Robo platform based devices
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
+            <summary>
+Gets the current cycle.
+</summary>
+            <returns>The cycle number.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCycles">
+            <summary>
+Gets the number of cycles.
+</summary>
+            <returns>The number of cycles to run for.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetCycles(System.UInt32)">
+            <summary>
+Sets the number of cycles.
+</summary>
+            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPause">
+            <summary>
+Gets the time in the pause.
+</summary>
+            <returns>The time in the pause in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetPauseDuration">
+            <summary>
+Gets the duration of the pause between MEA Coat pulses.
+</summary>
+            <returns>The duration in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetPauseDuration(System.UInt32)">
+            <summary>
+Sets the duration of the pause between MEA Coat pulses.
+</summary>
+            <param name="pauseDuration">The duration in ms (range 0 .. 65 s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetTimeInPlateau">
+            <summary>
+Gets the time in the plateau.
+</summary>
+            <returns>The time in the plateau in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOutputCurrent">
+            <summary>
+Gets the output current.
+</summary>
+            <returns>The output current in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetOffsetCurrent">
+            <summary>
+Gets the offset of the current.
+</summary>
+            <returns>The offset of the current in pA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetMaxCurrent">
+            <summary>
+Gets the limit of the current ramp (absolute value).
+</summary>
+            <returns>The limit of the current ramp in pA (absolute value).</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetDuration">
+            <summary>
+Gets the duration of a MEA Coat run.
+</summary>
+            <returns>The duration in ms.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetSlope">
+            <summary>
+Gets the current slope.
+</summary>
+            <returns>The current slope in pA/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetOffsetCurrent(System.Int32)">
+            <summary>
+Sets the offset of the current.
+</summary>
+            <param name="currentOffset">The offset of the current in pA (-10 .. 10 nA).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetMaxCurrent(System.UInt32)">
+            <summary>
+Sets the limit of the current ramp (absolute value).
+</summary>
+            <param name="currentMax">The limit of the current ramp in pA (absolute value, 0 .. 18 nA).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetDuration(System.UInt32)">
+            <summary>
+Sets the duration of a MEA Coat run.
+</summary>
+            <param name="duration">The duration in ms (range 0 .. 65 s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.SetSlope(System.Int32)">
+            <summary>
+Sets the current slope.
+</summary>
+            <param name="currentSlope">The current slope in pA/s (range -65 .. 65 nA/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Stop">
+            <summary>
+Stops a MEA Coat run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.Start">
+            <summary>
+Starts a MEA Coat run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCoatDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCoatDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
+            <summary>
+CMeaCoatDeviceNet is the class to access the MEA Coat device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+            <summary>
+Gets the current cycle.
+</summary>
+            <returns>The cycle number.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
+            <summary>
+Gets the output voltage.
+</summary>
+            <returns>The output voltage in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
+            <summary>
+Gets the upper voltage level
+</summary>
+            <returns>The upper voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
+            <summary>
+Gets the lower voltage level.
+</summary>
+            <returns>The lower voltage level in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
+            <summary>
+Gets the number of cycles.
+</summary>
+            <returns>The number of cycles to run for.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
+            <summary>
+Gets the voltage slope.
+</summary>
+            <returns>The voltage slope in mV/s.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
+            <summary>
+Gets if the MEA Clean device is running.
+</summary>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
+            <summary>
+Sets the upper voltage level.
+</summary>
+            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
+            <summary>
+Sets the lower voltage level.
+</summary>
+            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
+            <summary>
+Sets the number of cycles.
+</summary>
+            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
+            <summary>
+Sets the voltage slope.
+</summary>
+            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
+            <summary>
+Stops a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+            <summary>
+Starts a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCleanDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+            <summary>
+CMeaCleanDeviceNet is the class to access the MEA Clean device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CPeristalticPumpDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CPeristalticPumpDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPeristalticPumpDeviceNet">
+            <summary>
+    CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The time resolution in ns.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+            <summary>
+Writes the generator mode
+</summary>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
+            <summary>
+Reads the generator mode
+</summary>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32)">
+            <summary>
+Writes the generator pulse length
+</summary>
+            <param name="pulselength_in_10us">The pulse length</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength">
+            <summary>
+Reads the generator pulse length
+</summary>
+            <returns>The pulse length</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32)">
+            <summary>
+Writes the generator period
+</summary>
+            <param name="period_in_samples">The period</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod">
+            <summary>
+Reads the generator period
+</summary>
+            <returns>The period</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
+            <summary>
+CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetMemory">
+            <summary>
+Get the amount of memory available in the currently selected segment of the STG.
+</summary>
+            <returns>The total memory available on the STG in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetTotalMemory">
+            <summary>
+Get the total amount of memory available on the STG (all segments).
+</summary>
+            <returns>The total memory available on the STG in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
+            <summary>
+Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
+</summary>
+            <param name="first_trigger">The number of the first trigger to change.</param>
+            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
+            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
+            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.CreateSideband(System.Int32[],System.Int32[],System.UInt64[],System.UInt32!System.Runtime.CompilerServices.IsConst,System.UInt32!System.Runtime.CompilerServices.IsConst,System.UInt32!System.Runtime.CompilerServices.IsConst)">
+            <summary>
+Creates the Sideband Channel for the MEA2100 device.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+A value 0 means that the stimulation is active during that time.
+A value 1 means that the stimulation is not active during that time.
+</para>
+
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</summary>
+            <param name="StimulusActive">A list of datapoints which define weather the Stimulus is active or idle at that time as int32.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
+            <param name="Bit0Time">Time in µs for which Bit 0 (Blanking) is to be extended.</param>
+            <param name="Bit3Time">Time in µs for which Bit 3 (Stimulus Enable) is to be extended.</param>
+            <param name="Bit4Time">Time in µs for which Bit 4 (Stimulus Selector) is to be extended.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and append data to a given channel on the STG.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</summary>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="Amplitude">A list of datapoints as int32.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
+            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</summary>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="Amplitude">A list of datapoints as int32.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
+            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
+            <summary>
+Delete a Syncout Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32,System.Int32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+            <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ForceStatusEvent">
+            <summary>
+Force a status event.
+Force the DLL to create a PollMessage event and to call the
+pPollCallback function, even if no new status information is available.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StopPoll">
+            <summary>
+Stops the interrupt fetching thread and delivers events
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StartPoll">
+            <summary>
+Starts the interrupt fetching thread and delivers events
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Finalize">
+            <summary>
+Finalizer: called by GC before collecting
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Dispose">
+            <summary>
+Destructor: called by Dispose()
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Finalize">
+            <summary>
+Finalizer: called by GC before collecting
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Dispose">
+            <summary>
+Destructor: called by Dispose()
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
+            <summary>
+Reads the digital input state
+</summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Digital State</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltage(System.UInt16)">
+            <summary>
+Reads the current analog voltage
+</summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Analog Voltage</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetSupplyVoltage">
+            <summary>
+Reads the current supply voltage in mV
+</summary>
+            <returns>The supply voltage</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPressureRange(System.UInt16,System.Int32,System.Int32)">
+            <summary>
+Get the pressure range that is used between the analog voltage or the digital states
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="lower_pressure">The lower border of the pressure range</param>
+            <param name="upper_pressure">The upper border of the pressure range</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPressureRange(System.UInt16,System.Int32@,System.Int32@)">
+            <summary>
+Get the pressure range that is used between the analog voltage or the digital states
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="lower_pressure">The lower border of the pressure range</param>
+            <param name="upper_pressure">The upper border of the pressure range</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetAnalogVoltageRange(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+Writes the Analog Input Voltage Range
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
+            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetAnalogVoltageRange(System.UInt16,System.UInt16@,System.UInt16@)">
+            <summary>
+Reads the Analog Input Voltage Range
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="min_voltage">The voltage that should be seen as the minimum voltage</param>
+            <param name="max_voltage">The voltage that should be seen as the maximum voltage</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpModeType(System.UInt16,Mcs.Usb.PP_Pump_Mode_Type_EnumNet)">
+            <summary>
+Writes the config string from the device.
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="PumpMode">The Pump Mode Type.</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpModeType(System.UInt16)">
+            <summary>
+Reads the Pump Mode Type.
+</summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Pump Mode Type.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.SetPumpSpeedUnit(System.UInt16,System.Int32)">
+            <summary>
+Writes the Pump Speed Unit
+</summary>
+            <param name="channel">The Channel Number</param>
+            <param name="SpeedUnit">The Speed Unit</param>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.GetPumpSpeedUnit(System.UInt16)">
+            <summary>
+Reads the Pump Speed Unit
+</summary>
+            <param name="channel">The Channel Number</param>
+            <returns>The Speed Unit</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CPPCFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPPCFunctionNet">
+            <summary>
+CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
+</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -2787,134 +2842,79 @@ Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
         </member>
-        <member name="T:Mcs.Usb.CPatchServerDeviceNet">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-CPatchServerDeviceNet is the class to control the MCS PatchServer device
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
+            <summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
+            <summary>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
+            <summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
+            <summary>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CFYIDeviceNet">
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
             <summary>
-CFYIDeviceNet is the class to control the MCS FYI device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeasureTableDeviceNet">
-            <summary>
-CMeasureTableDeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPPSDeviceNet">
-            <summary>
-CPPS4plus1DeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHLADeviceNet">
-            <summary>
-CHLADeviceNet is the to control the MCS HLA device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CEncapsulatorDeviceNet">
-            <summary>
-CEncapsulatorDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CHiClampDeviceNet">
-            <summary>
-CHiClampDeviceNet is the to control the MCS HiClamp device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboInjectDeviceNet">
-            <summary>
-CRoboInjectDeviceNet is the to control the MCS RoboInject device
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboocyte2DeviceNet">
-            <summary>
-CRoboocyte2DeviceNet is the class to control the MCS Roboocyte2 device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetCurrentPosition(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32@,System.Int32@)">
-            <summary>
-Gets the current position of motors
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Current position of first axis if pattern in axes is set </param>
-            <param name="y"> Current position of second axis if pattern in axes is set </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.StopMovement(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Stops the current movement
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Moves the motor to the new absolute position
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="x"> Position of first axis, if pattern in axes is set </param>
-            <param name="y"> Position of second axis if pattern in axes is set </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
-            <summary>
-Searches the reference position of the motor
-</summary>
-            <param name="busaddress"> Address of the McsBus </param>
-            <param name="axes"> Bit pattern of axes to drive </param>
-            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetMovementError">
-            <summary>
-Low level command, gets the error of the last movement end
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.GetInMovement">
-            <summary>
-Low level command, gets the internal state "In Movement"
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CRoboDeviceNet.SetInMovement">
-            <summary>
-Low level command, sets the internal state to "In Movement" 
-</summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_I">
-            <summary> Bit pattern for i axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Z">
-            <summary> Bit pattern for z axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_Y">
-            <summary> Bit pattern for y axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axes_X">
-            <summary> Bit pattern for x axis for axes argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_I">
-            <summary> Axis number of i for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Z">
-            <summary> Axis number of z for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_Y">
-            <summary> Axis number of y for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.Axis_X">
-            <summary> Axis number of x for axis argument </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_ZI">
-            <summary> McsBus address for the z and i axes </summary>
-        </member>
-        <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
-            <summary> McsBus address for the xy-plane </summary>
-        </member>
-        <member name="T:Mcs.Usb.CRoboDeviceNet">
-            <summary>
-CRoboDeviceNet is the base class for all Robo platform based devices
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetStatusOfLastCommand">
