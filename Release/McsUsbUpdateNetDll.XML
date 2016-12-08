@@ -263,6 +263,7 @@
             <summary>
             OverwriteFirmwareEntry.
             </summary>
+            <param name="handler">reference to the update handler class</param>
             <param name="entry">Current firmware entry to change</param>
         </member>
         <member name="T:Mcs.UsbUpdateNetDll.IUpdateHandler">

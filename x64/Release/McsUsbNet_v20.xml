@@ -766,6 +766,52 @@ Reads the Pump Speed Unit
 CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacqRunStatus">
+            <summary>
+Gets the data acquisition running status
+</summary>
+            <returns>The status (1: running / 0: stopped)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SendCommand(Mcs.Usb.LIH30_EPC10_Bus_EnumNet,System.UInt16)">
+            <summary>
+Send command to the EPC10
+</summary>
+            <param name="epc10bus">The EPC10 bus</param>
+            <param name="Command">The command</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDigInState">
+            <summary>
+Reads from the LIH30 digital input
+</summary>
+            <returns>The bit mask defining the digital input state</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDigOutState(System.UInt16)">
+            <summary>
+Writes to the LIH30 digital output
+</summary>
+            <param name="DigOutState">The bit mask defining the digital output state</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.ReadClipping(Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
+            <summary>
+Gets the clipping information
+</summary>
+            <param name="epc10bus">The EPC10 bus</param>
+            <returns>The clipping value</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+            <summary>
+Gets the ADC offset of the DACQ for a single channel
+</summary>
+            <param name="AdcChannel">The ADC channel</param>
+            <returns>The offset for the given channel number</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet,System.UInt32)">
+            <summary>
+Sets the ADC offset of the DACQ for a single channel
+</summary>
+            <param name="AdcChannel">The ADC channel</param>
+            <param name="Offset">The offset for the given channel number</param>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
             <summary>
 Gets the Sample Interval for the DACQ and Stimulation
@@ -776,14 +822,24 @@ Gets the Sample Interval for the DACQ and Stimulation
             <summary>
 Sets the Sample Interval for the DACQ and Stimulation
 </summary>
-            <param name="SampleInterval">Sample Interval between the samples, Sample interval is available from 1 to 4194303</param>
+            <param name="SampleInterval">between the samples, Sample interval is available from 1 to 4194303</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromByte(System.UInt32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromPage(System.UInt32,System.Int32,Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
             <summary>
-Reads one EEprom byte from the EPC10 bus
+Reads the requested amount of EEprom byte from the EPC10 EEPROM
 </summary>
-            <param name="epc10bus">The EPC10 bus number</param>
-            <returns>The byte read from the EEprom</returns>
+            <param name="EEpromStartAddress">start address of memory area to read from</param>
+            <param name="EEpromData_Length" />
+            <param name="epc10bus">The EPC10 bus</param>
+            <returns>pointer to internal memory for the requested amount of data</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetEEpromPage(System.UInt32,System.SByte[],Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
+            <summary>
+Writes into EEprom on the EPC10 EEPROM
+</summary>
+            <param name="EEpromStartAddress">start address of memory area to write to</param>
+            <param name="EEpromData">pointer to internal memory for the supported amount of data</param>
+            <param name="epc10bus">The EPC10 bus</param>
         </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
             <summary>
@@ -1281,58 +1337,70 @@ This value may be different from the value returned by GetDataFormat, e.g. in MC
 so the real number is 14 while the data format is 16 bits
 </remarks>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.getPlateMux">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid">
             <summary>
-Gets the selected quarter of the electrodes on a high density Multiwell plate
+Checks whether the plate type is valid, meaning all pins have contact.
+</summary>
+            <returns>"true" when all pins have contact, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateMux">
+            <summary>
+Gets the selected quarter of the electrodes on a high density Multiwell plate.
 </summary>
             <returns>the selected quarter</returns>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
             <summary>
-Selects a one quarter of the electrodes on a high density Multiwell plate
+Selects a one quarter of the electrodes on a high density Multiwell plate.
 </summary>
             <param name="muxSelection">the selected quarter</param>
         </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(Mcs.Usb.MultiwellPlateTypeEnumNet)">
+            <summary>
+Sets the plate type.
+</summary>
+            <param name="plateType">the plate type</param>
+        </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
             <summary>
-Gets the plate type
+Gets the plate type.
 </summary>
             <returns>the plate type</returns>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
             <summary>
-Unlocks the plate clamp
+Unlocks the plate clamp.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
             <summary>
-Locks the plate clamp
+Locks the plate clamp.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
             <summary>
-Gets the state of the plate clamp lock
+Gets the state of the plate clamp lock.
 </summary>
             <returns>the state of the plate lock (unlocked/locked)</returns>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
             <summary>
-Stops the plate clamp movement
+Stops the plate clamp movement.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
             <summary>
-Closes the plate clamp
+Closes the plate clamp.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
             <summary>
-Opens the plate clamp
+Opens the plate clamp.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
             <summary>
-Gets the state of the Multiwell plate clamp
+Gets the state of the Multiwell plate clamp.
 </summary>
             <returns>the state of the plate clamp (open/closed)</returns>
         </member>
@@ -1549,6 +1617,54 @@ which contructs the correct underlying C++ class for the USB-MEA device on the o
 on the other hand.
 Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
 </remarks>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+            <summary>
+Writes the generator mode
+</summary>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
+            <summary>
+Reads the generator mode
+</summary>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32)">
+            <summary>
+Writes the generator pulse length
+</summary>
+            <param name="pulselength_in_10us">The pulse length</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength">
+            <summary>
+Reads the generator pulse length
+</summary>
+            <returns>The pulse length</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32)">
+            <summary>
+Writes the generator period
+</summary>
+            <param name="period_in_samples">The period</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod">
+            <summary>
+Reads the generator period
+</summary>
+            <returns>The period</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
+            <summary>
+CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
+</summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -2193,54 +2309,6 @@ Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
             <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
-            <summary>
-Writes the generator mode
-</summary>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
-            <summary>
-Reads the generator mode
-</summary>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32)">
-            <summary>
-Writes the generator pulse length
-</summary>
-            <param name="pulselength_in_10us">The pulse length</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength">
-            <summary>
-Reads the generator pulse length
-</summary>
-            <returns>The pulse length</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32)">
-            <summary>
-Writes the generator period
-</summary>
-            <param name="period_in_samples">The period</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod">
-            <summary>
-Reads the generator period
-</summary>
-            <returns>The period</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CPulseGeneratorFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
-            <summary>
-CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CStg200xStreamingNet.StopLoop">
             <summary>
 Stops the streaming mode.
@@ -2731,6 +2799,12 @@ The destructor.
             <summary>
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetNumberOfAnalogChannels">
+            <summary>
+Get the number of STG channels.
+</summary>
+            <returns>The number of STG channels.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetMemory">
             <summary>
@@ -3227,9 +3301,14 @@ Enumerations of CMOS MEA Units of Values in Data stream
 Enumerations of CMOS MEA Groups to detect wether it is an Analog, Digital or Frame Context Group
 </summary>
         </member>
+        <member name="T:Mcs.Usb.W2100DacqGroupChannelEnumNet">
+            <summary>
+Enumerates the W2100 Channel Groups of Datastream
+</summary>
+        </member>
         <member name="T:Mcs.Usb.DacqGroupChannelEnumNet">
             <summary>
-Enumerates the CMOS MEA Channel Groups of Datastream
+Enumerates the Channel Groups of Datastream
 </summary>
         </member>
         <member name="T:Mcs.Usb.ElectrodeModeEnumNet">
@@ -3332,6 +3411,5 @@ Enumerates the group of MCS devices to connect to.
 Enumerates the group of MCS devices to connect to.
 </summary>
         </member>
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(Mcs.Usb.MultiwellPlateTypeEnumNet)'. -->
     </members>
 </doc>
