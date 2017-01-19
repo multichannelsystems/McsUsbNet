@@ -429,6 +429,18 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSamplingIntervalStepsize">
+            <summary>
+Gets the Sampling Interval increase time in ns
+</summary>
+            <returns>The Sampling Interval increase in ns</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetMinimumSamplingInterval">
+            <summary>
+Gets the minimum Sampling Interval time between two samples
+</summary>
+            <returns>The Sampling Interval in ns</returns>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacqRunStatus">
             <summary>
 Gets the data acquisition running status
