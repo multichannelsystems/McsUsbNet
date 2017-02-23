@@ -226,6 +226,62 @@ The startup delay is in the range of a few ms.
 </summary>
             <param name="triggermap">A bitmap of triggers which will be started.</param>
         </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageNumberOfStimulationChannels(System.UInt32)">
+            <summary>
+Gets the number of stimulation channels for a given headstage
+</summary>
+            <param name="Headstage">The headstage to query</param>
+            <returns>The number of stimulus channels the headstage has</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageNumberOfAnalogChannels(System.UInt32)">
+            <summary>
+Gets the number of analog channels for a given headstage
+</summary>
+            <param name="Headstage">The headstage to query</param>
+            <returns>The number of analog channels the headstage has</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageSerialNumber(System.UInt32)">
+            <summary>
+Gets the serial number of a given headstage
+</summary>
+            <param name="Headstage">The headstage to query</param>
+            <returns>The serial number of the headstage</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.IsHeadstageAvailable(System.UInt32)">
+            <summary>
+Checks whether the given headstage is available
+</summary>
+            <param name="Headstage">The headstage to query</param>
+            <returns>'true' if the headstage is connected</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetMaxNumberOfHeadstages">
+            <summary>
+Gets the maximal number of headstages
+</summary>
+            <returns>The maximal number of headstages</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetMaxChannelsPerHeadstage">
+            <summary>
+Gets the maximal number of channels a headstage can have
+</summary>
+            <returns>The maximal number of channels a headstage can have</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetAvailableHeadstages">
+            <summary>
+Gets a bitmap of available headstages
+</summary>
+            <returns>The bitmap of available headstages</returns>
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CME2100FunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CME2100FunctionNet">
+            <summary>
+CME2100FunctionNet is the class to control the pulse generator for video tracking
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
             <summary />
             <param name="NrChannel" />
@@ -890,42 +946,48 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
             <summary>
 Writes the generator mode
 </summary>
+            <param name="generator_number">The generator number</param>
             <param name="mode">The generator mode</param>
             <param name="digitalchannel">The digital in channel used as gate</param>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
             <summary>
 Reads the generator mode
 </summary>
+            <param name="generator_number">The generator number</param>
             <param name="mode">The generator mode</param>
             <param name="digitalchannel">The digital in channel used as gate</param>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32)">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32,System.Int32)">
             <summary>
 Writes the generator pulse length
 </summary>
+            <param name="generator_number">The generator number</param>
             <param name="pulselength_in_10us">The pulse length</param>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength(System.Int32)">
             <summary>
 Reads the generator pulse length
 </summary>
+            <param name="generator_number">The generator number</param>
             <returns>The pulse length</returns>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32)">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32,System.Int32)">
             <summary>
 Writes the generator period
 </summary>
+            <param name="generator_number">The generator number</param>
             <param name="period_in_samples">The period</param>
         </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod">
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod(System.Int32)">
             <summary>
 Reads the generator period
 </summary>
+            <param name="generator_number">The generator number</param>
             <returns>The period</returns>
         </member>
         <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
