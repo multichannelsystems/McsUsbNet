@@ -2741,40 +2741,44 @@ Start the data acquisition thread.
 Start the data acquisition thread.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32,System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacqWithOptions(System.UInt32,System.Int32,System.Int32)">
             <summary>
-Stop sampling.
+Stop sampling together with the STG and options.
 </summary>
             <param name="trigger_map" />
             <param name="options" />
             <param name="VirtualDacqMap" />
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacq(System.UInt32,System.Int32)">
             <summary>
-Stop sampling.
-</summary>
-            <param name="trigger_map" />
-            <param name="options" />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop(System.Int32)">
-            <summary>
-Stop sampling.
+Stop sampling together with the STG.
 </summary>
             <param name="trigger_map" />
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStop">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq(System.Int32)">
+            <summary>
+Stop sampling.
+<param name="VirtualDacqMap" /></summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq">
             <summary>
 Stop sampling.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStart(System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartStgAndDacq(System.UInt32,System.Int32)">
+            <summary>
+Start sampling together with the STG.
+</summary>
+            <param name="trigger_map" />
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq(System.Int32)">
             <summary>
 Start sampling.
 </summary>
-            <param name="trigger_map" />
             <param name="VirtualDacqMap" />
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStart">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq">
             <summary>
 Start sampling.
 </summary>
