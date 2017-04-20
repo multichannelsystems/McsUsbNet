@@ -1829,54 +1829,6 @@ sets start condition of digital out stimulator
             <param name="NrChannel">channel number</param>
             <param name="Condition">start condition (rising or falling edge)</param>
         </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStopTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SetStartTriggerSource(System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
-            <summary />
-            <param name="NrChannel">channel number</param>
-            <param name="Source">base register address</param>
-            <param name="bitnumber_offset">address offset</param>
-        </member>
         <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetGlobalRepeat(System.Int32)">
             <summary>
 get repeat whole stimulation pattern
@@ -3462,6 +3414,12 @@ Enumerates start/stop conditions for DigOut/DigStim trigger.
 Enumerates possible retrigger actions for STG200x devices.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.Stg200xTriggerStatusEnumNet">
+            <summary>
+Enumerates the STG download mode trigger status
+</summary>
+The STG maintains the status for each of the STG200x_NUM_TRIGGER triggers
+</member>
         <member name="T:Mcs.Usb.AnalogSourceEnumNet">
             <summary>
 Enumerates the analog source of the MEA2100 device.
@@ -3480,6 +3438,11 @@ Enumerates the digital source of the W2100 device.
         <member name="T:Mcs.Usb.DigitalSourceEnumNet">
             <summary>
 Enumerates the digital source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.DigitalTargetEnumNet">
+            <summary>
+Enumerates the Digital Targets for Digital Sources
 </summary>
         </member>
         <member name="T:Mcs.Usb.CFirmwareDestinationNet">
