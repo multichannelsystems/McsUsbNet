@@ -3369,6 +3369,11 @@ Enumerates the mode of each electrode, can be automatic or manual. In automatic 
 Enumerates the destination for STG downloads.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.TcxSensorTypeEnumNet">
+            <summary>
+Enumerates the sensor types for TCX devices
+</summary>
+        </member>
         <member name="T:Mcs.Usb.TcxDeviceTypeEnumNet">
             <summary>
 Enumerates the type of TCX devices.
@@ -3428,6 +3433,11 @@ Enumerates the analog source of the MEA2100 device.
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
             <summary>
 Enumerates the trigger source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.ME2100DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the ME2100 device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.W2100DigitalSourceEnumNet">
