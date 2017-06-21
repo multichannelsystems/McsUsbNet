@@ -194,7 +194,7 @@ set repeat whole stimulation pattern
             <summary />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.AppendChannelData(System.Int32,Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData)">
+        <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.SendChannelData(System.Int32,Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData)">
             <summary />
             <param name="NrChannel" />
             <param name="device_data_and_unrolled" />
@@ -499,6 +499,16 @@ gets the charge current; unit: mA
         <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
             <summary>
 CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CProgramPressureCurveNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CProgramPressureCurveNet">
+            <summary>
+CProgramPressureCurveNet is the class to program pressure curves
 </summary>
         </member>
         <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
@@ -1592,7 +1602,7 @@ are given in units of µs. The STG has a resolution of 20 µs.
             <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
             <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStg200xPollStatus)">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStgPollStatus)">
             <summary>
 Use this constructor if you want to use the status callback
 </summary>
@@ -1655,6 +1665,22 @@ Defines whether an electrode should be blanked while stimulation is in progress.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="enable">True if the switch is to be opened, false if it is to remain closed while stimulation is in progress.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetExternalElectrodeEnable(System.UInt32,System.UInt32)">
+            <summary>
+Gets weather an electrode is enabled or disabled for stimulation.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="index">The index for listmode.</param>
+            <returns>true if the electrode is enabled, false if it is disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetExternalElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
+            <summary>
+Enables or disables the stimulation switch for an external electrode.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="index">The index for listmode.</param>
+            <param name="enable">1 to enable the electrode, 0 to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32)">
             <summary>
@@ -1728,6 +1754,28 @@ Sets a channel to current mode (STG3008-FA and STG400x only).
 Sets a channel to voltage mode (STG3008-FA and STG400x only).
 </summary>
             <param name="channel">The channel to change.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetStimulationLayoutConfiguration">
+            <summary>
+Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. 
+The number of DAC channels
+available per well is GetNumberOfAnalogChannels() divided by GetNumberOfStimulationSourcesPerElectrode().
+</summary>
+            <returns>The currently active stimulation layout configuration.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetStimulationLayoutConfiguration(Mcs.Usb.StimulationLayoutConfigurationEnumNet)">
+            <summary>
+Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. 
+The number of DAC channels
+available per well is GetNumberOfAnalogChannels() divided by GetNumberOfStimulationSourcesPerElectrode().
+</summary>
+            <param name="StimulationLayoutConfiguration">The new stimulation layout configuration.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode">
+            <summary>
+Gets the number of stimulation sources (DACs) per electrode.
+</summary>
+            <returns>The number of stimulation sources (DACs) per electrode.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfHWDACPaths">
             <summary>
