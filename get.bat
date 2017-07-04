@@ -8,8 +8,6 @@ call :copynet Debug
 exit /B 0
 
 :copynative
-copy \Programming\DllNet\%1\%2\McsUsbNet_v20.xml %1\%2\
-copy \Programming\DllNet\%1\%2\McsUsbNet_v20.dll %1\%2\
 copy \Programming\DllNet\%1\%2\McsUsbNet.xml %1\%2\
 copy \Programming\DllNet\%1\%2\McsUsbNet.dll %1\%2\
 exit /B 0
