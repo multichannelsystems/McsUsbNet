@@ -177,6 +177,26 @@ Starts a MEA Clean run.
 CMeaCleanDeviceNet is the class to access the MEA Clean device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetReferenceElectrodeMode(System.UInt32)">
+            <summary />
+            <param name="Headstage" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.SetReferenceElectrodeMode(System.UInt32,Mcs.Usb.ReferenceElectrodeModeEnumNet)">
+            <summary />
+            <param name="Headstage" />
+            <param name="NewValue" />
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.GetReferenceElectrodeSwitchState(System.UInt32)">
+            <summary />
+            <param name="Headstage" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CME2100FunctionNet.SetReferenceElectrodeSwitchState(System.UInt32,Mcs.Usb.ReferenceElectrodeSwitchPositionEnumNet)">
+            <summary />
+            <param name="Headstage" />
+            <param name="NewSwitchPos" />
+        </member>
         <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageNumberOfStimulationChannels(System.UInt32)">
             <summary>
 Gets the number of stimulation channels for a given headstage
@@ -1256,6 +1276,167 @@ are given in units of µs. The STG has a resolution of 20 µs.
 Use this constructor if you want to use the status callback
 </summary>
         </member>
+        <member name="T:Mcs.Usb.CStg200xDownloadNet">
+            <summary>
+Main class for the STG download mode
+<param>
+This class implements the STG download mode interface.
+</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SetupRetriggerMode(Mcs.Usb.RetriggerActionEnumNet,Mcs.Usb.RetriggerActionEnumNet)">
+            <summary>
+Define the action on triggers while the STG is running.
+<para />
+The STG has three options how to handle a successive trigger while a trigger is active.
+<list type="bullet"><item><description>
+  stop this trigger (default action)
+</description></item><item><description>
+  restart this trigger
+</description></item><item><description>
+  ignore the signal
+</description></item></list></summary>
+            <param name="same_trigger">Action for successive triggers in Normal Mode, and for triggers to the currently selected segment in Multi - File Mode.</param>
+            <param name="other_trigger">Action for successive triggers in Multi-File Mode for a trigger on a segment not currently selected.Not used in Normal Mode.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SetupRetriggerMode(System.SByte,Mcs.Usb.RetriggerActionEnumNet,Mcs.Usb.RetriggerActionEnumNet)">
+            <summary>
+Define the action on triggers while the STG is running.
+<para />
+The STG has three options how to handle a successive trigger while a trigger is active.
+<list type="bullet"><item><description>
+  stop this trigger (default action)
+</description></item><item><description>
+  restart this trigger
+</description></item><item><description>
+  ignore the signal
+</description></item></list></summary>
+            <param name="trigger"> The trigger to change.</param>
+            <param name="same_trigger">Action for successive triggers in Normal Mode, and for triggers to the currently selected segment in Multi - File Mode.</param>
+            <param name="other_trigger">Action for successive triggers in Multi-File Mode for a trigger on a segment not currently selected.Not used in Normal Mode.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.DisableAutoReset">
+            <summary>
+Disable AutoReset of the STG Status.
+<para>
+If autoreset is disabled,
+ the STG status switches to FINISHED after the defined number
+ of sweeps is finished.
+ To switch back to the IDLE status, use CStg200xDownload::ResetStatus()
+</para></summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.EnableAutoReset">
+            <summary>
+Enable AutoReset of the STG Status.
+<para>
+This is the default on power up. If autoreset is enabled,
+ the STG status switches to FINISHED only for one poll cycle
+ after this, it switches to IDLE automatically.
+</para></summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SendChannelData(System.UInt32,System.UInt16[],System.UInt64[])">
+            <summary>
+Uploads analog data (stimulus patterns) to the STG.
+<para />
+Sends datapoints to a given channel on the STG.
+ The list of datapoints will be sent to the selected channel.
+ Data previously sent to the channel is overwritten.
+<para />
+ Each datapoint is
+ represented by an integer value in the range from 0 to 4095 (bit 0 to 11),
+ its sign is taken from bit 12, 0 is for positive amplitude, and 1 for
+ negative amplitude
+ Bits 13 to 15 have to be zero.
+<para />
+ The duration is given as a list of 64 bit integers. Durations
+ are given in units of µs. The STG has a resolution of 20 µs.
+</summary>
+            <param name="channel">Specifies the channel to append the data to.</param>
+            <param name="pData">A list of datapoints.</param>
+            <param name="tData">A list of durations as int64_t. The time is given in units of µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ClearChannelData(System.UInt32)">
+            <summary>
+Delete a stimulus pattern for a channel from STG memory
+</summary>
+            <param name="channel">Specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SendSyncData(System.UInt32,System.UInt16[],System.UInt64[])">
+            <summary>
+Uploads sync output data to the STG.
+<para />
+Sends sync output data to a given channel on the STG.
+The list of datapoints will be sent to the selected sync output channel.
+Sync output data previously sent to the channel is overwritten.
+<para />
+Each datapoint is represented by an integer value and can be either 0 or 1.
+<para />
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+If your application can not handle 64 bit integers, use the
+STG200x_SendSyncData32() call instead.
+</summary>
+            <param name="channel">Specifies the sync output channel to append the data to.</param>
+            <param name="pData">A list of datapoints.</param>
+            <param name="tData">A list of durations as int64_t. The time is given in units of µs.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ClearSyncData(System.UInt32)">
+            <summary>
+Delete a SyncOut pattern for a channel from STG memory.
+</summary>
+            <param name="channel">Specifies the syncout channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.GetCapacity(System.UInt32[]@,System.UInt32[]@)">
+            <summary>
+Queries the memory layout of the current segment in download mode.
+<para>
+For each segment, the memory layout has to  be defined.
+Each channel and sync output can be given an individual amount of memory space
+as needed by the application.
+</para></summary>
+            <param name="channelCapacity">A list of memeory sizes, with one entry per channel, value is in bytes.</param>
+            <param name="syncCapacity">A list of memeory sizes, with one entry per syncout, value is in bytes.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.SetCapacity(System.UInt32[],System.UInt32[])">
+            <summary>
+Configures the memory layout of the current segment in download mode.
+<para>
+For each segment, the memory layout has to be defined.
+Each channel and sync output can be given an individual amount of memory space
+as needed by the application.
+Make sure the sum does not exceed the memory which is assigned to the
+currently selected segement.
+</para></summary>
+            <param name="channelCapacity">A list of memeory sizes, with one entry per channel, value is in bytes.</param>
+            <param name="syncCapacity">A list of memeory sizes, with one entry per syncout, value is in bytes.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ResetStatus(System.UInt32)">
+            <summary>
+Reset the status flag.
+</summary>
+            <param name="triggermap">bitmap of trigger for which to reset the status.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ForceStatusEvent">
+            <summary>
+Force a status event.
+<para>
+Force the DLL to create a PollMessage event and to call the
+pPollCallback function, even if no new status information is available.
+</para></summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.GetSweepCount(System.UInt32[]@,System.UInt32[]@)">
+            <summary>
+Get the sweep and trigger count of the STG.
+<list type="bullet"><item><description>
+The triggercount tells how many times each trigger was active and is
+reset to zero on download of new channel data.
+</description></item><item><description>
+The sweepcount tells how many times each trigger was already repeated.
+This count is set to zero on trigger and counts up to repeat in
+CStg200xDownloadBasicNet::SetupTrigger.
+</description></item></list></summary>
+            <param name="sweeps">on return contains the number of sweeps  for each trigger.</param>
+            <param name="triggers">on return contains the number of trigger events seen for each trigger.</param>
+        </member>
         <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.GetTrigger(System.UInt32[]@,System.UInt32[]@,System.UInt32[]@)">
             <summary>
 Queries the trigger settings for the STG. Note that all memory segments have their own trigger setting.
@@ -1272,6 +1453,11 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+        </member>
+        <member name="T:Mcs.Usb.CStg200xDownloadBasicNet">
+            <summary>
+    CStg200xDownloadBasicNet is the base class to control the download mode of the MCS STG device.
+</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetDacAmplificationFactor(System.UInt32)">
             <summary>
@@ -1408,7 +1594,7 @@ Sets a channel to voltage mode (STG3008-FA and STG400x only).
             <summary>
 Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. 
 The number of DAC channels
-available per well is GetNumberOfAnalogChannels() divided by GetNumberOfStimulationSourcesPerElectrode().
+available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
 </summary>
             <returns>The currently active stimulation layout configuration.</returns>
         </member>
@@ -1416,7 +1602,7 @@ available per well is GetNumberOfAnalogChannels() divided by GetNumberOfStimulat
             <summary>
 Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. 
 The number of DAC channels
-available per well is GetNumberOfAnalogChannels() divided by GetNumberOfStimulationSourcesPerElectrode().
+available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" /> divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
 </summary>
             <param name="StimulationLayoutConfiguration">The new stimulation layout configuration.</param>
         </member>
@@ -1461,6 +1647,36 @@ Gets the total amount of memory available on the STG (all segments).
 Gets the amount of memory available in the currently selected segment of the STG.
 </summary>
             <returns>The memory available in the currently selected segment in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetStgProgramInfo(System.DateTime,System.String,System.Guid)">
+            <summary>
+Store Download information in the STG.
+<param />
+This function can be used to store the filename and timestamp of the last download for later query.
+</summary>
+            <param name="timestamp">The timestamp of last download.</param>
+            <param name="filename">The filename of the downlaoded waveform.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetStgProgramInfo(System.Boolean@,System.DateTime@,System.String@,System.Guid@)">
+            <summary>
+Queries Download information from the STG.
+<param />
+If download information was stored by the use of <see cref="M:Mcs.Usb.CStg200xBasicNet.SetStgProgramInfo(System.DateTime,System.String,System.Guid)" />, this function can be used to retrieve it.
+</summary>
+            <param name="IsProgrammed">Flag wether download information is valid.</param>
+            <param name="timestamp">The timestamp of last download.</param>
+            <param name="filename">The filename of the downlaoded waveform.</param>
+            <param name="guid">A GUID.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetStgProgramInfo(System.Boolean@,System.Runtime.InteropServices.ComTypes.FILETIME@,System.String@,System.Guid@)">
+            <summary>
+Queries Download information from the STG.
+<param />
+If download information was stored by the use of <see cref="M:Mcs.Usb.CStg200xBasicNet.SetStgProgramInfo(System.DateTime,System.String,System.Guid)" />, this function can be used to retrieve it.
+</summary>
+            <param name="IsProgrammed">Flag wether download information is valid.</param>
+            <param name="timestamp">The timestamp of last download.</param>
+            <param name="filename">The filename of the downlaoded waveform.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
             <summary>
@@ -3367,6 +3583,12 @@ enumerates the streams available as digital datastream
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs1Trigger">
             <summary> Headstage 1 trigger signals.</summary>
         </member>
+        <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.DigOutStim">
+            <summary> The 16 bits of the Digital Out Stimulator.</summary>
+        </member>
+        <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.PeriodicPulse">
+            <summary> The 8 bits of the Periodic Pulse Generator (Video-Sync).</summary>
+        </member>
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Aux">
             <summary> The 2 bits of the AUX port.</summary>
         </member>
@@ -3468,6 +3690,16 @@ Enumerations of CMOS MEA Units of Values in Data stream
 Enumerations of CMOS MEA Groups to detect wether it is an Analog, Digital or Frame Context Group
 </summary>
         </member>
+        <member name="T:Mcs.Usb.MEA2100_256DacqGroupChannelEnumNet">
+            <summary>
+Enumerates the MEA2100-256 Channel Groups of Datastream
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.ME2100DacqGroupChannelEnumNet">
+            <summary>
+Enumerates the ME2100 Channel Groups of Datastream
+</summary>
+        </member>
         <member name="T:Mcs.Usb.W2100DacqGroupChannelEnumNet">
             <summary>
 Enumerates the W2100 Channel Groups of Datastream
@@ -3554,6 +3786,11 @@ Enumerates the analog source of the MEA2100 device.
 Enumerates the trigger source of the MEA2100 device.
 </summary>
         </member>
+        <member name="T:Mcs.Usb.MEA2100_256DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the MEA2100-256 device.
+</summary>
+        </member>
         <member name="T:Mcs.Usb.ME2100DigitalSourceEnumNet">
             <summary>
 Enumerates the digital source of the ME2100 device.
@@ -3597,6 +3834,16 @@ Enumerates the group of MCS devices to connect to.
         <member name="T:Mcs.Usb.DeviceEnumNet">
             <summary>
 Enumerates the group of MCS devices to connect to.
+</summary>
+        </member>
+        <member name="T:ReferenceElectrodeModeEnum">
+            <summary>
+enumerates the electrode subtraction modes
+</summary>
+        </member>
+        <member name="T:ReferenceElectrodeSwitchPositionEnum">
+            <summary>
+enumerates the possible positions of the referemce electrode switch of the ME2100 device
 </summary>
         </member>
         <member name="T:W2100_Accel_Gyro_Select_Enum">
