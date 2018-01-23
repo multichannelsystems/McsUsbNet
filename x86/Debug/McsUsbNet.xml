@@ -2900,7 +2900,7 @@ This value may be different from the value returned by GetDataFormat, e.g. in MC
 so the real number is 14 while the data format is 16 bits
 </remarks>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdcDataFormat">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdcDataFormat(System.UInt32)">
             <summary>
 Gets the ADC data format, 16 means 16 bits, 24 means 24 bits, 32 means 32 bits.
 </summary>
@@ -3058,7 +3058,7 @@ Gets the currently selected voltage range on devices which support multiple volt
 </summary>
             <returns>The rounded Voltage Range in mV.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMicroVolt">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMicroVolt(System.UInt32)">
             <summary>
 Gets the currently selected voltage range on devices which support multiple voltage ranges.
 </summary>
