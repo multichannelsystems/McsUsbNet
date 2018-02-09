@@ -1274,44 +1274,6 @@ On reset, the STG has one segment containing all available memory.
 </para></summary>
             <param name="segment_list">The List of memory sizes (one per segment).</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and append data to a given channel on the STG.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-        </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableStatusEndpoint">
             <summary>
 Enable the thread which polls the status endpoint.
@@ -2058,46 +2020,6 @@ are given in units of µs. The STG has a resolution of 20 µs.
             <param name="Bit0Time">Time in µs for which Bit 0 (Blanking) is to be extended.</param>
             <param name="Bit3Time">Time in µs for which Bit 3 (Stimulus Enable) is to be extended.</param>
             <param name="Bit4Time">Time in µs for which Bit 4 (Stimulus Selector) is to be extended.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and append data to a given channel on the STG.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of µs. The STG has a resolution of 20 µs.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="Amplitude">A list of datapoints as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
-            <param name="dest_type">specifies wheather the data is for syncout, current or voltage stimulation.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
@@ -4093,5 +4015,25 @@ enumerates the possible positions of the referemce electrode switch of the ME210
 enumerates the accelerometer configuration on the W2100 device
 </summary>
         </member>
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
+        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
     </members>
 </doc>
