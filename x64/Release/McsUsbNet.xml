@@ -18,6 +18,41 @@
             <param name="channel">Thermocouple channel number.</param>
             <returns>The proportional constant in Nanovolt per Kelvin.</returns>
         </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetPOut(System.UInt32)">
+            <summary>
+Gets the output power of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The resistance in units of mW.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetROut(System.UInt32)">
+            <summary>
+Gets the resistance of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The resistance in units of 0.1 Ohm.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetIOut(System.UInt32)">
+            <summary>
+Gets the current through the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The current in units of mA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetUOut(System.UInt32)">
+            <summary>
+Gets the voltage on the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The voltage in units of mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetDuty(System.UInt32)">
+            <summary>
+Gets the duty cycle of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The duty cycle in percent, the value of 320 * 64 corresponds to 100 %.</returns>
+        </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
             <summary>
 Gets the maximum heater power of the specified device.
@@ -68,10 +103,11 @@ Sets the I-coefficient of the specified device.
 Sets the P-coefficient of the specified device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Boolean)">
             <summary>
 Switches the specified channel on or off.
 </summary>
+            <param name="channel">The channel number.</param>
         </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
             <summary>
@@ -201,8 +237,8 @@ set repeat whole stimulation pattern
         </member>
         <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.PrepareChannelData(System.Int32[],System.UInt64[])">
             <summary />
-            <param name="Amplitude" />
-            <param name="Duration" />
+            <param name="amplitude" />
+            <param name="duration" />
             <returns />
         </member>
         <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.ClearChannel(System.Int32)">
@@ -1625,17 +1661,80 @@ On reset, the STG has one segment containing all available memory.
 </para></summary>
             <param name="segment_list">The List of memory sizes (one per segment).</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableStatusEndpoint">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.ClearChannel_PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet,System.Boolean)">
             <summary>
-Enable the thread which polls the status endpoint.
-Must be called before <see cref="M:Mcs.Usb.CMcsUsbNet.Connect(Mcs.Usb.CMcsUsbListEntryNet)" />.
+Prepare and append data to a given channel on the STG.
 </summary>
+            <para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+            <para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</para>
+            <para>
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</para>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.DisableStatusEndpoint">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
             <summary>
-Disable the thread which polls the status endpoint.
-Must be called before <see cref="M:Mcs.Usb.CMcsUsbNet.Connect(Mcs.Usb.CMcsUsbListEntryNet)" />.
+Prepare and append data to a given channel on the STG.
 </summary>
+            <para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+            <para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</para>
+            <para>
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</para>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
+</summary>
+            <para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+            <para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</para>
+            <para>
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</para>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStgPollStatus)">
             <summary>
@@ -1881,6 +1980,13 @@ Gets whether the Amplifier Protection Switch is openend while stimulation is in 
             <param name="electrode">The electrode number.</param>
             <returns>true if the switch is to be opened, false if it is closed while stimulation is in progress.</returns>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetEnableAmplifierProtectionSwitch(System.UInt32,System.Boolean[])">
+            <summary>
+Defines whether the Amplifier Protection Switch is openend while stimulation is in progress.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="enable">True if the switch is to be opened, false if it is to remain closed while stimulation is in progress.</param>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetEnableAmplifierProtectionSwitch(System.UInt32,System.Boolean)">
             <summary>
 Defines whether the Amplifier Protection Switch is openend while stimulation is in progress.
@@ -1895,6 +2001,13 @@ Gets whether an electrode should be blanked while stimulation is in progress.
             <param name="electrode">The electrode number.</param>
             <returns>true if blanking is enabled while stimulation is in progress.</returns>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetBlankingEnable(System.UInt32,System.Boolean[])">
+            <summary>
+Defines whether an electrode should be blanked while stimulation is in progress.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="enable">True if the switch is to be opened, false if it is to remain closed while stimulation is in progress.</param>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetBlankingEnable(System.UInt32,System.Boolean)">
             <summary>
 Defines whether an electrode should be blanked while stimulation is in progress.
@@ -1907,15 +2020,23 @@ Defines whether an electrode should be blanked while stimulation is in progress.
 Gets weather an electrode is enabled or disabled for stimulation.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="index">The index for listmode.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
             <returns>true if the electrode is enabled, false if it is disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetExternalElectrodeEnable(System.UInt32,System.UInt32,System.Boolean)">
+            <summary>
+Enables or disables the stimulation switch for an external electrode.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
+            <param name="enable">1 to enable the electrode, 0 to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetExternalElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
             <summary>
 Enables or disables the stimulation switch for an external electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="index">The index for listmode.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
             <param name="enable">1 to enable the electrode, 0 to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32)">
@@ -1923,15 +2044,23 @@ Enables or disables the stimulation switch for an external electrode.
 Gets weather an electrode is enabled or disabled for stimulation.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="index">The index for listmode.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
             <returns>true if the electrode is enabled, false if it is disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeEnable(System.UInt32,System.UInt32,System.Boolean)">
+            <summary>
+Enables or disables the stimulation switch for an electrode.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
+            <param name="enable">1 to enable the electrode, 0 to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
             <summary>
 Enables or disables the stimulation switch for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="index">The index for listmode.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
             <param name="enable">1 to enable the electrode, 0 to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeDacMux(System.UInt32,System.UInt32)">
@@ -1939,15 +2068,24 @@ Enables or disables the stimulation switch for an electrode.
 Gets the DAC which is used for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="index">The index for listmode.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
             <returns>The DAC in use, can be 1, 2 or 3. If the electrode is grounded 0 is returned.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeDacMux(System.UInt32,System.UInt32,System.UInt32[])">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeDacMux(System.UInt32,System.UInt32,Mcs.Usb.ElectrodeDacMuxEnumNet)">
             <summary>
 Defines the DAC to use for an electrode.
 </summary>
             <param name="electrode">The electrode number.</param>
-            <param name="dac">The DAC to use, can be 1, 2 or 3. To ground an electrode, use 0.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
+            <param name="dacMux">The DAC to use, can be ElectrodeDacMuxEnumNet.Stg1 (1), ElectrodeDacMuxEnumNet.Stg2 (2) or ElectrodeDacMuxEnumNet.Stg3 (3). To ground an electrode, use ElectrodeDacMuxEnumNet.Ground (0).</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeDacMux(System.UInt32,System.UInt32,Mcs.Usb.ElectrodeDacMuxEnumNet[])">
+            <summary>
+Defines the DAC to use for an electrode.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <param name="listmodeIndex">The index for listmode.</param>
+            <param name="dacMux">The DAC to use, can be ElectrodeDacMuxEnumNet.Stg1 (1), ElectrodeDacMuxEnumNet.Stg2 (2) or ElectrodeDacMuxEnumNet.Stg3 (3). To ground an electrode, use ElectrodeDacMuxEnumNet.Ground (0).</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeMode(System.UInt32)">
             <summary>
@@ -1956,12 +2094,35 @@ Gets the mode an electrode is in.
             <param name="electrode">The electrode number.</param>
             <returns>0 for automatic and 3 for manual mode.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,Mcs.Usb.ElectrodeModeEnumNet[])">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,Mcs.Usb.ElectrodeModeEnumNet)">
             <summary>
 Puts an electrode in either automatic or manual mode.
 </summary>
             <param name="electrode">The electrode number.</param>
             <param name="mode">0 for automatic and 3 for manual mode.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetElectrodeMode(System.UInt32,Mcs.Usb.ElectrodeModeEnumNet[])">
+            <summary>
+Puts an electrode in either automatic or manual mode.
+</summary>
+            <param name="electrode">The electrode number.</param>
+            <returns>0 for automatic and 3 for manual mode.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetAutocalibrationDisabled(System.UInt32)">
+            <summary>
+Gets the autocalibration configuration.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>
+                <c>true</c> if autocalibration is disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetAutocalibrationDisabled(System.UInt32,System.Boolean)">
+            <summary>
+Sets the autocalibration configuration.
+</summary>
+            <param name="channel">The channel number.</param>
+            <param name="disable">
+                <c>true</c> if autocalibration is to be disabled.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetMeasurementMode(System.UInt32)">
             <summary>
@@ -2375,6 +2536,57 @@ are given in units of µs. The STG has a resolution of 20 µs.
             <param name="Bit0Time">Time in µs for which Bit 0 (Blanking) is to be extended.</param>
             <param name="Bit3Time">Time in µs for which Bit 3 (Stimulus Enable) is to be extended.</param>
             <param name="Bit4Time">Time in µs for which Bit 4 (Stimulus Selector) is to be extended.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and append data to a given channel on the STG.
+</summary>
+            <para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+            <para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</para>
+            <para>
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</para>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para><para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of µs. The STG has a resolution of 20 µs.
+</para>
+
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</summary>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
@@ -3532,6 +3744,19 @@ Gets the USB port if an IFB that is used by this connection
             <param name="entry">The Device List Entry for the device to be connected.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.Connect(System.UInt32)">
+            <summary>
+  Opens a connection to the device.
+</summary>
+            <param name="LockMask">The Lock Mask for this connection.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.Connect">
+            <summary>
+  Opens a connection to the device.
+</summary>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
             <summary>
 Initializes a new instance of the base class to handle MCS USB devices.
@@ -3569,6 +3794,7 @@ Gets the number of devices currently in the list.
             <summary>
 Gets the number of devices currently in the list.
 </summary>
+            <returns>The number of devices currently in the list.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.SetStringFormat(System.String)">
             <summary>
@@ -3620,6 +3846,40 @@ Class to handle a list of connected MCS USB devices.
             <summary>
 Delegate to show a device arrival or removal.
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListEntryNet.GetEntryCount(Mcs.Usb.DeviceEnumNet)">
+            <summary>
+Returns the number of devices connected to the computer.
+</summary>
+            <param name="McsUsbDevice">Specifies the type of devices to look for.</param>
+            <returns>The number of devices.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListEntryNet.GetEntryCount">
+            <summary>
+Returns the number of devices connected to the computer.
+</summary>
+            <returns>The number of devices.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListEntryNet.GetEntry(Mcs.Usb.DeviceEnumNet,System.UInt32)">
+            <summary>
+Returns one CMcsUsbListEntryNet from the list of USB Devices connected to the computer.
+</summary>
+            <param name="McsUsbDevice">Specifies the type of devices to look for.</param>
+            <param name="index">number of the entry to use.</param>
+            <returns>A CMcsUsbListEntryNet to be used to connect to the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListEntryNet.GetEntry(Mcs.Usb.DeviceEnumNet)">
+            <summary>
+Returns one CMcsUsbListEntryNet from the list of USB Devices connected to the computer.
+</summary>
+            <param name="McsUsbDevice">Specifies the type of devices to look for.</param>
+            <returns>A CMcsUsbListEntryNet to be used to connect to the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListEntryNet.GetEntry">
+            <summary>
+Returns one CMcsUsbListEntryNet from the list of USB Devices connected to the computer.
+</summary>
+            <returns>A CMcsUsbListEntryNet to be used to connect to the device.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbListEntryNet.SetStringFormat(System.String)">
             <summary>
@@ -3819,6 +4079,23 @@ Enumerates the W2100 Channel Groups of Datastream
 Enumerates the Channel Groups of Datastream
 </summary>
         </member>
+        <member name="T:Mcs.Usb.ElectrodeDacMuxEnumNet">
+            <summary>
+Enumerates the setting of the Stimulation DAC Multiplexer.
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.ElectrodeDacMuxEnumNet.Stg3">
+            <summary>Connect the electrode tp STG 3 while stimulation is active.</summary>
+        </member>
+        <member name="F:Mcs.Usb.ElectrodeDacMuxEnumNet.Stg2">
+            <summary>Connect the electrode tp STG 2 while stimulation is active.</summary>
+        </member>
+        <member name="F:Mcs.Usb.ElectrodeDacMuxEnumNet.Stg1">
+            <summary>Connect the electrode tp STG 1 while stimulation is active.</summary>
+        </member>
+        <member name="F:Mcs.Usb.ElectrodeDacMuxEnumNet.Ground">
+            <summary>Connect the electrode to Ground while stimulation is active.</summary>
+        </member>
         <member name="T:Mcs.Usb.ElectrodeModeEnumNet">
             <summary>
 Enumerates the mode of each electrode, can be automatic or manual. In automatic mode, the blanking of the electrode is controlled by the sideband signal, in manual mode, the stimulation configuration is independant of the sideband signal.
@@ -4015,25 +4292,5 @@ enumerates the possible positions of the referemce electrode switch of the ME210
 enumerates the accelerometer configuration on the W2100 device
 </summary>
         </member>
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
-        <!-- Discarding badly formed XML document comment for member 'M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)'. -->
     </members>
 </doc>
