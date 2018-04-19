@@ -361,6 +361,119 @@ Starts a MEA Clean run.
 CMeaCleanDeviceNet is the class to access the MEA Clean device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The time resolution in ns.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+            <summary>
+Writes the generator mode
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
+            <summary>
+Reads the generator mode
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32,System.Int32)">
+            <summary>
+Writes the generator pulse length
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="pulselength_in_10us">The pulse length</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength(System.Int32)">
+            <summary>
+Reads the generator pulse length
+</summary>
+            <param name="generator_number">The generator number</param>
+            <returns>The pulse length</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32,System.Int32)">
+            <summary>
+Writes the generator period
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="period_in_samples">The period</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod(System.Int32)">
+            <summary>
+Reads the generator period
+</summary>
+            <param name="generator_number">The generator number</param>
+            <returns>The period</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
+            <summary>
+CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
             <summary>
 Reads the config string from the device.
@@ -645,194 +758,6 @@ Reads the Pump Speed Unit
         <member name="T:Mcs.Usb.CPPCFunctionNet">
             <summary>
 CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The time resolution in ns.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The DAC resolution in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
-            <summary>
-Delete a Stimulus Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
-            <summary>
-Start (Trigger) the STG.
-The startup delay is in the range of a few ms.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be started.</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
-            <summary>
-Writes the generator mode
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
-            <summary>
-Reads the generator mode
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32,System.Int32)">
-            <summary>
-Writes the generator pulse length
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="pulselength_in_10us">The pulse length</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength(System.Int32)">
-            <summary>
-Reads the generator pulse length
-</summary>
-            <param name="generator_number">The generator number</param>
-            <returns>The pulse length</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32,System.Int32)">
-            <summary>
-Writes the generator period
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="period_in_samples">The period</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod(System.Int32)">
-            <summary>
-Reads the generator period
-</summary>
-            <param name="generator_number">The generator number</param>
-            <returns>The period</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CPulseGeneratorFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
-            <summary>
-CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid">
@@ -2324,6 +2249,109 @@ The destructor.
             <summary>
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
+            <summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
+            <summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
+            <summary>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
+            <summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
+            <summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
+            <summary>
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
+            <summary>
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.BurnDacOffset(System.UInt16)">
+            <summary>
+Writes the offset of a DAC channel to permanent memory.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.GetDacOffset(System.UInt16)">
+            <summary>
+Gets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <returns>The offset in digits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.UInt32)">
+            <summary>
+Sets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <param name="offset">The offset in digits.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CDacCalibrationFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CDacCalibrationFunctionNet">
+            <summary />
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
             <summary>

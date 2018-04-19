@@ -119,6 +119,111 @@ Retrives version info from a Firmware update file.
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
         </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid">
+            <summary>
+Checks whether the plate type is valid, meaning all pins have contact.
+</summary>
+            <returns>"true" when all pins have contact, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateMux">
+            <summary>
+Gets the selected quarter of the electrodes on a high density Multiwell plate.
+</summary>
+            <returns>the selected quarter</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
+            <summary>
+Selects a one quarter of the electrodes on a high density Multiwell plate.
+</summary>
+            <param name="muxSelection">the selected quarter</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(Mcs.Usb.MultiwellPlateTypeEnumNet)">
+            <summary>
+Sets the plate type.
+</summary>
+            <param name="plateType">the plate type</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
+            <summary>
+Gets the plate type.
+</summary>
+            <returns>the plate type</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
+            <summary>
+Unlocks the plate clamp.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
+            <summary>
+Locks the plate clamp.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
+            <summary>
+Gets the state of the plate clamp lock.
+</summary>
+            <returns>the state of the plate lock (unlocked/locked)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+            <summary>
+Stops the plate clamp movement.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
+            <summary>
+Closes the plate clamp.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
+            <summary>
+Opens the plate clamp.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
+            <summary>
+Gets the state of the Multiwell plate clamp.
+</summary>
+            <returns>the state of the plate clamp (open/closed)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiwellDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
+            <summary>
+CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.BurnDacOffset(System.UInt16)">
+            <summary>
+Writes the offset of a DAC channel to permanent memory.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.GetDacOffset(System.UInt16)">
+            <summary>
+Gets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <returns>The offset in digits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.UInt32)">
+            <summary>
+Sets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <param name="offset">The offset in digits.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CDacCalibrationFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CDacCalibrationFunctionNet">
+            <summary />
+        </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
             <summary>
  Sets the proportional constant for the thermocouple.
@@ -595,81 +700,6 @@ Reads the generator period
 CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned int from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned short from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
-            <summary>
-Gets an array of type unsigned char from the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
-            <summary>
-Sends an array of type int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
-            <summary>
-Sends an array of unsigned int to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
-            <summary>
-Sends an array of type short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
-            <summary>
-Sends an array of type unsigned short to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
-            <summary>
-Sends an array of type char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-Sends an array of type unsigned char to the device.
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
-            <summary>
-Sets .
-<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
-        </member>
-        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
-            <summary>
-    Initialize a new instance of the CGenericDevelopDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
-            <summary>
-    CGenericDevelopDeviceNet is the class to use during development of a new device.
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
             <summary>
 Gets the current cycle.
@@ -897,81 +927,79 @@ gets the charge current; unit: mA
 CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetIntBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Checks whether the plate type is valid, meaning all pins have contact.
-</summary>
-            <returns>"true" when all pins have contact, otherwise "false".</returns>
+Gets an array of type int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateMux">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUIntBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the selected quarter of the electrodes on a high density Multiwell plate.
-</summary>
-            <returns>the selected quarter</returns>
+Gets an array of type unsigned int from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32)">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetShortBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Selects a one quarter of the electrodes on a high density Multiwell plate.
-</summary>
-            <param name="muxSelection">the selected quarter</param>
+Gets an array of type short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(Mcs.Usb.MultiwellPlateTypeEnumNet)">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUShortBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Sets the plate type.
-</summary>
-            <param name="plateType">the plate type</param>
+Gets an array of type unsigned short from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetByteBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Gets the plate type.
-</summary>
-            <returns>the plate type</returns>
+Gets an array of type char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.UnlockPlateClamp">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.GetUByteBuffer(System.UInt16,System.UInt16,System.Int32)">
             <summary>
-Unlocks the plate clamp.
-</summary>
+Gets an array of type unsigned char from the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="Size">The size of the array.</param><returns>The array of data from the device.</returns></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.LockPlateClamp">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetIntBuffer(System.UInt16,System.UInt16,System.Int32[])">
             <summary>
-Locks the plate clamp.
-</summary>
+Sends an array of type int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampLockState">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUIntBuffer(System.UInt16,System.UInt16,System.UInt32[])">
             <summary>
-Gets the state of the plate clamp lock.
-</summary>
-            <returns>the state of the plate lock (unlocked/locked)</returns>
+Sends an array of unsigned int to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.StopPlateClamp">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetShortBuffer(System.UInt16,System.UInt16,System.Int16[])">
             <summary>
-Stops the plate clamp movement.
-</summary>
+Sends an array of type short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.ClosePlateClamp">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUShortBuffer(System.UInt16,System.UInt16,System.UInt16[])">
             <summary>
-Closes the plate clamp.
-</summary>
+Sends an array of type unsigned short to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.OpenPlateClamp">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetByteBuffer(System.UInt16,System.UInt16,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte[])">
             <summary>
-Opens the plate clamp.
-</summary>
+Sends an array of type char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetUByteBuffer(System.UInt16,System.UInt16,System.Byte[])">
             <summary>
-Gets the state of the Multiwell plate clamp.
-</summary>
-            <returns>the state of the plate clamp (open/closed)</returns>
+Sends an array of type unsigned char to the device.
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param><param name="buffer">The buffer to send.</param></summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.SetValue(System.UInt16,System.UInt16)">
             <summary>
-    Initializes a new instance of the CMultiwellDeviceNet class.
+Sets .
+<param name="Value">The value of the request.</param><param name="Index">The index of the request.</param></summary>
+        </member>
+        <member name="M:Mcs.Usb.CGenericDevelopDeviceNet.#ctor">
+            <summary>
+    Initialize a new instance of the CGenericDevelopDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMultiwellDeviceNet">
+        <member name="T:Mcs.Usb.CGenericDevelopDeviceNet">
             <summary>
-CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+    CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSlope(System.Int32)">

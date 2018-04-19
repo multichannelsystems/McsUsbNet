@@ -2419,6 +2419,34 @@ gets the charge current; unit: mA
 CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.BurnDacOffset(System.UInt16)">
+            <summary>
+Writes the offset of a DAC channel to permanent memory.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.GetDacOffset(System.UInt16)">
+            <summary>
+Gets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <returns>The offset in digits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.UInt32)">
+            <summary>
+Sets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <param name="offset">The offset in digits.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CDacCalibrationFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CDacCalibrationFunctionNet">
+            <summary />
+        </member>
         <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
             <summary>
 Get the real number of data bits.

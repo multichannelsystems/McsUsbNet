@@ -91,6 +91,41 @@ CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 CProgramPressureCurveNet is the class to program pressure curves
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length" />
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
             <summary>
 Gets the current cycle.
@@ -443,29 +478,6 @@ Retrives version info from a Firmware update file.
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.SetLayoutConfiguration(Mcs.Usb.StimulationLayoutConfigurationEnumNet)">
-            <summary>
-Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
-</summary>
-            <param name="LayoutConfiguration">The new stimulation layout configuration.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.GetLayoutConfiguration">
-            <summary>
-Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
-</summary>
-            <returns>The currently active stimulation layout configuration.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CMEA2100x256FunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMEA2100x256FunctionNet">
-            <summary>
-CMEA2100x256FunctionNet is the class to control the MEA2100-256 device
-needs #include "Stg200xNet.h" to resolve documentation reference
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
             <summary>
  Sets the proportional constant for the thermocouple.
@@ -814,39 +826,27 @@ Dummy command to show how to use the DLL.
 CLIH3DeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.SetLayoutConfiguration(Mcs.Usb.StimulationLayoutConfigurationEnumNet)">
             <summary>
-Reads the config string from the device.
+Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
 </summary>
-            <param name="configString">The config string.</param>
+            <param name="LayoutConfiguration">The new stimulation layout configuration.</param>
         </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.GetLayoutConfiguration">
             <summary>
-Reads the config string from the device.
+Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
 </summary>
-            <param name="configString">The config string.</param>
+            <returns>The currently active stimulation layout configuration.</returns>
         </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
-Reads the config string from the device.
-</summary>
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString_Length" />
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CExternDTesterDeviceNet class.
+    Initializes a new instance of the CMEA2100x256FunctionNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+        <member name="T:Mcs.Usb.CMEA2100x256FunctionNet">
             <summary>
-CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+CMEA2100x256FunctionNet is the class to control the MEA2100-256 device
+needs #include "Stg200xNet.h" to resolve documentation reference
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
@@ -938,6 +938,34 @@ Reads the Pump Speed Unit
             <summary>
 CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.BurnDacOffset(System.UInt16)">
+            <summary>
+Writes the offset of a DAC channel to permanent memory.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.GetDacOffset(System.UInt16)">
+            <summary>
+Gets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <returns>The offset in digits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.UInt32)">
+            <summary>
+Sets the offset of a DAC channel.
+</summary>
+            <param name="dacChannel">The DAC channel number.</param>
+            <param name="offset">The offset in digits.</param>
+        </member>
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CDacCalibrationFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CDacCalibrationFunctionNet">
+            <summary />
         </member>
         <member name="M:Mcs.Usb.CMeaCoatDeviceNet.GetCurrentCycle">
             <summary>
