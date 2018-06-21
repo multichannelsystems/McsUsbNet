@@ -1566,6 +1566,20 @@ Configures the trigger settings for the STG. Note that all memory segments have 
     CStg200xDownloadBasicNet is the base class to control the download mode of the MCS STG device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetSyncoutMap(System.UInt32)">
+            <summary>
+Gets the mapping between internal syncout and external outputs for a given syncout output.
+</summary>
+            <param name="channel">The syncout channel number.</param>
+            <returns>The current mapping.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetSyncoutMap(System.UInt32,System.UInt32)">
+            <summary>
+Sets the mapping between internal syncout and external outputs for a given syncout output.
+</summary>
+            <param name="channel">The syncout channel number.</param>
+            <param name="digoutValue">The new value on the digital outputs.</param>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetDiginValue">
             <summary>
 Gets the Value on the digital input port.
