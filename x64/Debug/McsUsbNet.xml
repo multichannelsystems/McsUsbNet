@@ -212,82 +212,6 @@ Starts a MEA Clean run.
 CMeaCleanDeviceNet is the class to access the MEA Clean device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetReferenceElectrodeMode(System.UInt32)">
-            <summary />
-            <param name="Headstage" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.SetReferenceElectrodeMode(System.UInt32,Mcs.Usb.ReferenceElectrodeModeEnumNet)">
-            <summary />
-            <param name="Headstage" />
-            <param name="NewValue" />
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetReferenceElectrodeSwitchState(System.UInt32)">
-            <summary />
-            <param name="Headstage" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.SetReferenceElectrodeSwitchState(System.UInt32,Mcs.Usb.ReferenceElectrodeSwitchPositionEnumNet)">
-            <summary />
-            <param name="Headstage" />
-            <param name="NewSwitchPos" />
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageNumberOfStimulationChannels(System.UInt32)">
-            <summary>
-Gets the number of stimulation channels for a given headstage
-</summary>
-            <param name="Headstage">The headstage to query</param>
-            <returns>The number of stimulus channels the headstage has</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageNumberOfAnalogChannels(System.UInt32)">
-            <summary>
-Gets the number of analog channels for a given headstage
-</summary>
-            <param name="Headstage">The headstage to query</param>
-            <returns>The number of analog channels the headstage has</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetHeadstageSerialNumber(System.UInt32)">
-            <summary>
-Gets the serial number of a given headstage
-</summary>
-            <param name="Headstage">The headstage to query</param>
-            <returns>The serial number of the headstage</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.IsHeadstageAvailable(System.UInt32)">
-            <summary>
-Checks whether the given headstage is available
-</summary>
-            <param name="Headstage">The headstage to query</param>
-            <returns>'true' if the headstage is connected</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetMaxNumberOfHeadstages">
-            <summary>
-Gets the maximal number of headstages
-</summary>
-            <returns>The maximal number of headstages</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetMaxChannelsPerHeadstage">
-            <summary>
-Gets the maximal number of channels a headstage can have
-</summary>
-            <returns>The maximal number of channels a headstage can have</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.GetAvailableHeadstages">
-            <summary>
-Gets a bitmap of available headstages
-</summary>
-            <returns>The bitmap of available headstages</returns>
-        </member>
-        <member name="M:Mcs.Usb.CME2100FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CME2100FunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CME2100FunctionNet">
-            <summary>
-CME2100FunctionNet is the class to control the ME2100 device
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
             <summary />
             <param name="NrChannel" />
@@ -467,6 +391,213 @@ Retrives version info from a Firmware update file.
 </summary>
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeMode(System.UInt32)">
+            <summary />
+            <param name="Headstage" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetReferenceElectrodeMode(System.UInt32,Mcs.Usb.ReferenceElectrodeModeEnumNet)">
+            <summary />
+            <param name="Headstage" />
+            <param name="NewValue" />
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeSwitchState(System.UInt32)">
+            <summary />
+            <param name="Headstage" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetReferenceElectrodeSwitchState(System.UInt32,Mcs.Usb.ReferenceElectrodeSwitchPositionEnumNet)">
+            <summary />
+            <param name="Headstage" />
+            <param name="NewSwitchPos" />
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetAnalogOutChannels(System.UInt32)">
+            <summary>
+Get the connected source channel number for a certain output channel
+</summary>
+            <param name="out_channel">Output channel number</param>
+            <returns>Source channel number</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetAnalogOutChannels(System.UInt32,System.UInt32)">
+            <summary>
+Set the source channel number for a certain output channel
+</summary>
+            <param name="out_channel">Output channel number</param>
+            <param name="source_channel">Source channel number</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.IsAutomaticAnalogOut">
+            <summary>
+Is Automatic source channel selection selected
+</summary>
+            <returns>Automatic</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.AutomaticAnalogOut(System.Boolean)">
+            <summary>
+Sets automatic source channel selection
+</summary>
+            <param name="automatic">Automatic</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetAnalogOutADCRange">
+            <summary>
+Gets the analog out ADC range
+</summary>
+            <returns>Range</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetAnalogOutADCRange(System.UInt32)">
+            <summary>
+Sets the analog out ADC range
+</summary>
+            <param name="range">Range</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetAnalogOutDACRange">
+            <summary>
+Gets the analog out DAC range
+</summary>
+            <returns>Range</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetAnalogOutDACRange(Mcs.Usb.AnalogOut_DAC_Range_EnumNet)">
+            <summary>
+Sets the analog out DAC range
+</summary>
+            <param name="range">Range</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.IsAnalogOutEnabled">
+            <summary>
+Is AnalogOut enabled
+</summary>
+            <returns>Enabled</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.EnableAnalogOut(System.Boolean)">
+            <summary>
+Enables AnalogOut globally
+</summary>
+            <param name="enable">Enable</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageDacBits(System.UInt32)">
+            <summary>
+Gets the Number of DAC bits for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The number of bits the DAC has for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageDacCurrentResolutionInNanoAmpere(System.UInt32)">
+            <summary>
+Gets the DAC Current Resolution in nA for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The DAC Current Resolution in nA for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageDacCurrentRangeInMicroAmpere(System.UInt32)">
+            <summary>
+Gets the DAC Current Range in uA for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The DAC Current Range in uA for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageDacVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the DAC Voltage Resolution in uV for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The DAC Voltage Resolution in uV for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageDacVoltageRangeInMilliVolt(System.UInt32)">
+            <summary>
+Gets the DAC Voltage Range in mV for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The DAC Voltage Range in mV for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageAdcBits(System.UInt32)">
+            <summary>
+Gets the Number of ADC bits for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The number of bits the ADC has for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageAdcRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the ADC Range in uV for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The ADC Range in uV for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageGainInPermille(System.UInt32)">
+            <summary>
+Gets the gain factor in permille for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The gain factor in permille for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageNumberOfStimulationChannels(System.UInt32)">
+            <summary>
+Gets the number of stimulation channels for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The number of stimulation channels the headstage has.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageNumberOfAnalogChannels(System.UInt32)">
+            <summary>
+Gets the number of analog channels for a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The number of analog channels the headstage has.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageSerialNumber(System.UInt32)">
+            <summary>
+Gets the serial number of a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The serial number of the headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.IsHeadstageAvailable(System.UInt32)">
+            <summary>
+Checks whether the given headstage is available.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>'true' if the headstage is connected.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageID(System.UInt32)">
+            <summary>
+Gets the headstage fpga ID.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The headstage fpga ID.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetMaxNumberOfHeadstages">
+            <summary>
+Gets the maximal number of headstages.
+</summary>
+            <returns>The maximal number of headstages.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetMaxStimulusChannelsPerHeadstage">
+            <summary>
+Gets the maximal number of stimulation channels a headstage can have.
+</summary>
+            <returns>The maximal number of stimulation channels a headstage can have.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetMaxMeasurementChannelsPerHeadstage">
+            <summary>
+Gets the maximal number of measurement channels a headstage can have.
+</summary>
+            <returns>The maximal number of measurement channels a headstage can have.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetAvailableHeadstages">
+            <summary>
+Gets a bitmap of available headstages.
+</summary>
+            <returns>The bitmap of available headstages.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CSCUFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CSCUFunctionNet">
+            <summary>
+CSCUFunctionNet is the class to control the ME2100 device
+</summary>
         </member>
         <member name="M:Mcs.Usb.CGilsonDeviceNet.#ctor">
             <summary>
@@ -1608,17 +1739,17 @@ Configures the trigger settings for the STG. Note that all memory segments have 
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetSyncoutMap(System.UInt32)">
             <summary>
-Gets the mapping between internal syncout and external outputs for a given syncout output.
+Gets the mapping between external syncout outputs and internal syncout channels.
 </summary>
-            <param name="channel">The syncout channel number.</param>
-            <returns>The current mapping.</returns>
+            <param name="channel">The external syncout output channel number (zero based).</param>
+            <returns>The bitmap of internal syncout channels mapped to channel.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetSyncoutMap(System.UInt32,System.UInt32)">
             <summary>
-Sets the mapping between internal syncout and external outputs for a given syncout output.
+Sets the mapping between external syncout outputs and internal syncout channels.
 </summary>
-            <param name="channel">The syncout channel number.</param>
-            <param name="digoutValue">The new value on the digital outputs.</param>
+            <param name="channel">The external syncout output channel number (zero based).</param>
+            <param name="syncoutMap">A bitmap of internal syncout channels to map to channel.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetDiginValue">
             <summary>
