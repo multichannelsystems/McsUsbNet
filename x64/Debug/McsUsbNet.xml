@@ -81,6 +81,29 @@ Gets the state of the Multiwell plate clamp.
 CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.SetLayoutConfiguration(Mcs.Usb.StimulationLayoutConfigurationEnumNet)">
+            <summary>
+Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
+</summary>
+            <param name="LayoutConfiguration">The new stimulation layout configuration.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.GetLayoutConfiguration">
+            <summary>
+Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
+</summary>
+            <returns>The currently active stimulation layout configuration.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CMEA2100x256FunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMEA2100x256FunctionNet">
+            <summary>
+CMEA2100x256FunctionNet is the class to control the MEA2100-256 device
+needs #include "Stg200xNet.h" to resolve documentation reference
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CProgramPressureCurveNet.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
     Initializes a new instance of the CPulseGeneratorFunctionNet class.
@@ -91,6 +114,21 @@ CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 CProgramPressureCurveNet is the class to program pressure curves
 </summary>
         </member>
+        <member name="T:_USB_NODE_CONNECTION_INFORMATION_EX">
+IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX *
+</member>
+        <member name="T:_USB_NODE_CONNECTION_ATTRIBUTES">
+IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES *
+</member>
+        <member name="T:_USB_NODE_CONNECTION_NAME">
+IOCTL_USB_GET_NODE_CONNECTION_NAME *
+</member>
+        <member name="T:_USB_NODE_CONNECTION_DRIVERKEY_NAME">
+IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME *
+</member>
+        <member name="T:_USB_NODE_CONNECTION_INFORMATION">
+IOCTL_USB_GET_NODE_CONNECTION_INFORMATION *
+</member>
         <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
             <summary>
 Reads the config string from the device.
@@ -212,28 +250,145 @@ Starts a MEA Clean run.
 CMeaCleanDeviceNet is the class to access the MEA Clean device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CWVCDeviceNet.SetValveState(System.UInt16,System.Int32)">
-            <summary>
-Writes the Valve State
-</summary>
-            <param name="channel">The Channel Number</param>
-            <param name="ValveState">The Speed Unit</param>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
+            <summary />
+            <param name="NrChannel" />
+            <returns />
         </member>
-        <member name="M:Mcs.Usb.CWVCDeviceNet.GetValveState(System.UInt16)">
-            <summary>
-Reads the Valve State
-</summary>
-            <param name="channel">The Channel Number</param>
-            <returns>The Speed Unit</returns>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacity(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
+            <summary />
+            <param name="NrChannel" />
+            <param name="NewRatedCapacity" />
         </member>
-        <member name="M:Mcs.Usb.CWVCDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
             <summary>
-    Initializes a new instance of the CWVCDeviceNet class.
+gets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
+            <summary>
+sets the pCoefficient for charging in mA/V / nominal charging current
+</summary>
+            <param name="pCoefficient" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
+            <summary>
+cancel charging and capacity test functions; check if battery is connected
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
+            <summary>
+start capacity test on channel
+</summary>
+            <param name="NrChannel" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
+            <summary>
+gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
+            <summary>
+gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
+            <summary>
+sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
+</summary>
+            <param name="NrChannel" />
+            <param name="NewOperatingMode" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacityVolatile(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
+            <summary>
+sets the rated capacity (i.e. charge current) without storing it persistently
+</summary>
+            <param name="NrChannel" />
+            <param name="NewRatedCapacity" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
+            <summary>
+gets number of channels
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
+            <summary>
+gets the battery voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
+            <summary>
+gets the charge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
+            <summary>
+gets the discharge capacity; unit: ?Ah
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
+            <summary>
+gets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
+            <summary>
+sets the final discharge voltage; unit: mV
+</summary>
+            <param name="NrChannel" />
+            <param name="FinalDischargeVoltage_mV" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
+            <summary>
+gets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
+            <summary>
+sets the setpoint for the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <param name="DischargeCurrent_mA" />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
+            <summary>
+gets the discharge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
+            <summary>
+gets the charge current; unit: mA
+</summary>
+            <param name="NrChannel" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CWVCDeviceNet">
+        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
             <summary>
-CWVCDeviceNet is the class to access the PPC (high precision Patch Peristalic patch Pump
+CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
@@ -765,6 +920,256 @@ Sets .
     CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearTableName(System.UInt16)">
+            <summary>
+Clear the name of a stored protocol table
+</summary>
+            <param name="index">The index of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableName(System.UInt16,System.String)">
+            <summary>
+Set the name of a stored protocol table
+</summary>
+            <param name="index">The index of the table</param>
+            <param name="tableName">The name of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableName(System.UInt16)">
+            <summary>
+Get the name of a stored protocol table
+</summary>
+            <param name="index">The index of the table</param>
+            <returns>The name of the table</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.StoreValveTable(System.UInt16)">
+            <summary>
+Store the current valve protocol table in permanent memory
+</summary>
+            <param name="index">The index of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.LoadValveTable(System.UInt16)">
+            <summary>
+Load a valve protocol table from permanent memory
+</summary>
+            <param name="index">The index of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearValveTable(System.UInt16)">
+            <summary>
+Clear the valve protocol table
+</summary>
+            <param name="valve">The valve number</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveTableEntry(System.UInt16,System.UInt16,System.UInt32,System.Boolean)">
+            <summary>
+Write an entry to the valve protocol table
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="index">The index in the table</param>
+            <param name="duration">the duration in ms</param>
+            <param name="state">the state</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveTableEntry(System.UInt16,System.UInt16,System.UInt32@,System.Boolean@)">
+            <summary>
+Read an entry from the valve protocol table
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="index">The index in the table</param>
+            <param name="duration">the duration in ms</param>
+            <param name="state">the state</param>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveTableEntryEvent">
+            <summary>
+Event fires when the duration in ms or the state has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogVoltage">
+            <summary>
+Reads the voltage on the analog in port
+</summary>
+            <returns>The voltage in mV</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogVoltageEvent">
+            <summary>
+Event fires when the voltage in mV has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInAnalogMode(System.UInt16)">
+            <summary>
+True, if the valve would be open when the device is in analog mode
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>is open</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInAnalogModeEvent">
+            <summary>
+Event fires when is open has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInDigitalMode(System.UInt16)">
+            <summary>
+True, if the valve would be open when the device is in digital mode
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>is open</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInDigitalModeEvent">
+            <summary>
+Event fires when is open has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpen(System.UInt16)">
+            <summary>
+Is valve open
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>is open</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenEvent">
+            <summary>
+Event fires when is open has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalOutPortValve(System.UInt16,System.UInt32)">
+            <summary>
+Map a valve to a digital out port
+</summary>
+            <param name="digitalOutPort">The digital out port</param>
+            <param name="value">The valve number</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalOutPortValve(System.UInt16)">
+            <summary>
+Gets the number of the valve which is mapped to a digital out port
+</summary>
+            <param name="digitalOutPort">The digital out port</param>
+            <returns>The valve number</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveDigitalInPort(System.UInt16,System.UInt32)">
+            <summary>
+Map a digital in port to a valve
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="digitalInPort">The digital in port</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveDigitalInPort(System.UInt16)">
+            <summary>
+Gets the number of the digital in port which is mapped to a valve
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The digital in port</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalPortInvert(System.UInt16,System.Boolean)">
+            <summary>
+Invert a digital port
+</summary>
+            <param name="port">The port number</param>
+            <param name="isInverted">True when port is to be inverted</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsDigitalPortInverted(System.UInt16)">
+            <summary>
+Is digital port inverted
+</summary>
+            <param name="port">The port number</param>
+            <returns>is inverted</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalPortDirection(System.UInt16,Mcs.Usb.PortDirectionEnumNet)">
+            <summary>
+Sets the direction of a digital port
+</summary>
+            <param name="port">The port number</param>
+            <param name="direction">the direction</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalPortDirection(System.UInt16)">
+            <summary>
+Gets the direction of a digital port
+</summary>
+            <param name="port">The port number</param>
+            <returns>the direction</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetAnalogThresholdHigh(System.UInt16,System.Int32)">
+            <summary>
+Sets the upper threshold for the analog in port per valve
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="threshold">The threshold in mV</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdHigh(System.UInt16)">
+            <summary>
+Gets the upper threshold for the analog in port per valve
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The threshold in mV</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdHighEvent">
+            <summary>
+Event fires when the threshold in mV has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetAnalogThresholdLow(System.UInt16,System.Int32)">
+            <summary>
+Sets the lower threshold for the analog in port per valve
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="threshold">The threshold in mV</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdLow(System.UInt16)">
+            <summary>
+Gets the lower threshold for the analog in port per valve
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The threshold in mV</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdLowEvent">
+            <summary>
+Event fires when the threshold in mV has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveMode(System.UInt16,Mcs.Usb.WvcValveModeEnumNet)">
+            <summary>
+Writes the valve mode
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="ValveMode">The valve mode</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveMode(System.UInt16)">
+            <summary>
+Reads the valve mode
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The valve mode</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveModeEvent">
+            <summary>
+Event fires when the valve mode has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveActive(System.UInt16,System.Int32)">
+            <summary>
+Sets the valve active/inactive state
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="valveActive">The valve state</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveActive(System.UInt16)">
+            <summary>
+Gets the valve active/inactive state
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The valve state</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveActiveEvent">
+            <summary>
+Event fires when the valve state has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CWarnerValveControllerDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CWarnerValveControllerDeviceNet">
+            <summary>
+CWarnerValveControllerDeviceNet is the class to access the Warner Valve Controller
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSamplingIntervalStepsize">
             <summary>
 Gets the Sampling Interval increase time in ns
@@ -866,29 +1271,6 @@ Dummy command to show how to use the DLL.
         <member name="T:Mcs.Usb.CLIH3DeviceNet">
             <summary>
 CLIH3DeviceNet is the class to access the HEKA LIH3 device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.SetLayoutConfiguration(Mcs.Usb.StimulationLayoutConfigurationEnumNet)">
-            <summary>
-Sets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
-</summary>
-            <param name="LayoutConfiguration">The new stimulation layout configuration.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.GetLayoutConfiguration">
-            <summary>
-Gets the stimulation layout configuration. Can be single well, 6-well or 9-well. The number of DAC channels available per well is  <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfAnalogChannels" />  divided by <see cref="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfStimulationSourcesPerElectrode" />.
-</summary>
-            <returns>The currently active stimulation layout configuration.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMEA2100x256FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
-            <summary>
-    Initializes a new instance of the CMEA2100x256FunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMEA2100x256FunctionNet">
-            <summary>
-CMEA2100x256FunctionNet is the class to control the MEA2100-256 device
-needs #include "Stg200xNet.h" to resolve documentation reference
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.GetDigitalIn(System.UInt16)">
@@ -2082,147 +2464,6 @@ Reads the generator period
         <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
             <summary>
 CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
-            <summary />
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacity(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
-            <summary />
-            <param name="NrChannel" />
-            <param name="NewRatedCapacity" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingPCoefficient">
-            <summary>
-gets the pCoefficient for charging in mA/V / nominal charging current
-</summary>
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingPCoefficient(System.UInt32)">
-            <summary>
-sets the pCoefficient for charging in mA/V / nominal charging current
-</summary>
-            <param name="pCoefficient" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.ChannelReset(System.UInt32)">
-            <summary>
-cancel charging and capacity test functions; check if battery is connected
-</summary>
-            <param name="NrChannel" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.CapacityTest(System.UInt32)">
-            <summary>
-start capacity test on channel
-</summary>
-            <param name="NrChannel" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannelState(System.UInt32)">
-            <summary>
-gets the channel state: IdleNoBattery, IdleChargeFinished, CapacityTestPreCharge, CapacityTestDischarge, StorageCharge, LowCurrentCharge, HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargingMode(System.UInt32)">
-            <summary>
-gets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetChargingMode(System.UInt32,Mcs.Usb.MbcChargingModeEnumNet)">
-            <summary>
-sets the charging mode: StorageCharge, LowCurrentCharge and HighCurrentCharge
-</summary>
-            <param name="NrChannel" />
-            <param name="NewOperatingMode" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetRatedCapacityVolatile(System.UInt32,Mcs.Usb.MbcRatedCapacityEnumNet)">
-            <summary>
-sets the rated capacity (i.e. charge current) without storing it persistently
-</summary>
-            <param name="NrChannel" />
-            <param name="NewRatedCapacity" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChannels">
-            <summary>
-gets number of channels
-</summary>
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetBatteryVoltage(System.UInt32)">
-            <summary>
-gets the battery voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
-            <summary>
-gets the charge capacity; unit: ?Ah
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
-            <summary>
-gets the discharge capacity; unit: ?Ah
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetFinalDischargeVoltage(System.UInt32)">
-            <summary>
-gets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetFinalDischargeVoltage(System.UInt32,System.UInt32)">
-            <summary>
-sets the final discharge voltage; unit: mV
-</summary>
-            <param name="NrChannel" />
-            <param name="FinalDischargeVoltage_mV" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrentSetPoint(System.UInt32)">
-            <summary>
-gets the setpoint for the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.SetDischargeCurrentSetPoint(System.UInt32,System.UInt32)">
-            <summary>
-sets the setpoint for the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <param name="DischargeCurrent_mA" />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCurrent(System.UInt32)">
-            <summary>
-gets the discharge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCurrent(System.UInt32)">
-            <summary>
-gets the charge current; unit: mA
-</summary>
-            <param name="NrChannel" />
-            <returns />
-        </member>
-        <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CMultiBatteryChargerDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
-            <summary>
-CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CDigOutStimulatorFunctionNet.GetStopTriggerSlope(System.Int32)">
@@ -4140,6 +4381,9 @@ enumerates the streams available as digital datastream
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs2Trigger">
             <summary> Headstage 2 trigger signals.</summary>
         </member>
+        <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs2Digital">
+            <summary> Headstage 2 digital signals.</summary>
+        </member>
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs1SidebandHigh">
             <summary> Headstage 1 upper 16 bits of sideband data.</summary>
         </member>
@@ -4148,6 +4392,9 @@ enumerates the streams available as digital datastream
         </member>
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs1Trigger">
             <summary> Headstage 1 trigger signals.</summary>
+        </member>
+        <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.Hs1Digital">
+            <summary> Headstage 1 digital signals.</summary>
         </member>
         <member name="F:Mcs.Usb.DigitalDatastreamEnableEnumNet.DigOutStim">
             <summary> The 16 bits of the Digital Out Stimulator.</summary>
@@ -4194,6 +4441,16 @@ enumerates the streams available as digital datastream
         <member name="T:Mcs.Usb.StimulationLayoutConfigurationEnumNet">
             <summary>
 enumerates the layout configuration for the MEA2100-256 device
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.PortDirectionEnumNet">
+            <summary>
+enumerates a port direction
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.WvcValveModeEnumNet">
+            <summary>
+enumerates Wvc valve mode
 </summary>
         </member>
         <member name="T:Mcs.Usb.CMOSMeaBathModeEnumNet">
@@ -4254,6 +4511,11 @@ Enumerations of CMOS MEA Units of Values in Data stream
         <member name="T:Mcs.Usb.DacqMeaGroupTypeEnumNet">
             <summary>
 Enumerations of CMOS MEA Groups to detect wether it is an Analog, Digital or Frame Context Group
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.TBSI_DACQ_DacqGroupChannelEnumNet">
+            <summary>
+Enumerates the TBSI Data Acquisition Channel Groups of Datastream
 </summary>
         </member>
         <member name="T:Mcs.Usb.MEA2100_256DacqGroupChannelEnumNet">
@@ -4422,6 +4684,11 @@ Enumerates the analog source of the MEA2100 device.
         <member name="T:Mcs.Usb.TriggerSourceEnumNet">
             <summary>
 Enumerates the trigger source of the MEA2100 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.TBSI_DACQDigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the TBSI-DACQ device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.MEA2100_256DigitalSourceEnumNet">
