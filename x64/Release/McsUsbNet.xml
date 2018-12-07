@@ -275,24 +275,34 @@ CDigOutStimulatorFunctionNet is the class of the DigOut stimulator function clas
         <member name="T:Mcs.Usb.CPedoterDeviceNet">
             <summary />
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearTableName(System.UInt16)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetNumberOfValves">
             <summary>
-Clear the name of a stored protocol table
+Get the number of valves in the system
 </summary>
-            <param name="index">The index of the table</param>
+            <returns>The number of valves</returns>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableName(System.UInt16,System.String)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearTableName">
             <summary>
-Set the name of a stored protocol table
+Clear the name of current protocol table
 </summary>
-            <param name="index">The index of the table</param>
-            <param name="tableName">The name of the table</param>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableName(System.UInt16)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableNameByIndex(System.UInt16)">
             <summary>
 Get the name of a stored protocol table
 </summary>
             <param name="index">The index of the table</param>
+            <returns>The name of the table</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableName(System.String)">
+            <summary>
+Set the name of the current protocol table
+</summary>
+            <param name="tableName">The name of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableName">
+            <summary>
+Get the name of the current protocol table
+</summary>
             <returns>The name of the table</returns>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.StoreValveTable(System.UInt16)">
@@ -383,6 +393,11 @@ Is valve open
 Event fires when is open has changed
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDefault">
+            <summary>
+Sets the settings of the valve controller to default
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalOutPortValve(System.UInt16,System.UInt32)">
             <summary>
 Map a valve to a digital out port
@@ -396,6 +411,30 @@ Gets the number of the valve which is mapped to a digital out port
 </summary>
             <param name="digitalOutPort">The digital out port</param>
             <returns>The valve number</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalOutPortValveEvent">
+            <summary>
+Event fires when the valve number has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalOutPortInvert(System.UInt16,System.Boolean)">
+            <summary>
+Map a valve to a digital out port
+</summary>
+            <param name="digitalOutPort">The digital out port</param>
+            <param name="isInverted">True if digital out is to be inverted</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsDigitalOutPortInverted(System.UInt16)">
+            <summary>
+Gets the number of the valve which is mapped to a digital out port
+</summary>
+            <param name="digitalOutPort">The digital out port</param>
+            <returns>is inverted</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsDigitalOutPortInvertedEvent">
+            <summary>
+Event fires when is inverted has changed
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveDigitalInPort(System.UInt16,System.UInt32)">
             <summary>
@@ -411,19 +450,29 @@ Gets the number of the digital in port which is mapped to a valve
             <param name="valve">The valve number</param>
             <returns>The digital in port</returns>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalPortInvert(System.UInt16,System.Boolean)">
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveDigitalInPortEvent">
             <summary>
-Invert a digital port
+Event fires when the digital in port has changed
 </summary>
-            <param name="port">The port number</param>
-            <param name="isInverted">True when port is to be inverted</param>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsDigitalPortInverted(System.UInt16)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveDigitalInInvert(System.UInt16,System.Boolean)">
             <summary>
-Is digital port inverted
+Invert digital in
 </summary>
-            <param name="port">The port number</param>
+            <param name="valve">The valve number</param>
+            <param name="isInverted">True if digital in is to be inverted</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveDigitalInInverted(System.UInt16)">
+            <summary>
+Is digital in inverted
+</summary>
+            <param name="valve">The valve number</param>
             <returns>is inverted</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveDigitalInInvertedEvent">
+            <summary>
+Event fires when is inverted has changed
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalPortDirection(System.UInt16,Mcs.Usb.PortDirectionEnumNet)">
             <summary>
@@ -438,6 +487,11 @@ Gets the direction of a digital port
 </summary>
             <param name="port">The port number</param>
             <returns>the direction</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalPortDirectionEvent">
+            <summary>
+Event fires when the direction has changed
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetAnalogThresholdHigh(System.UInt16,System.Int32)">
             <summary>
@@ -495,6 +549,18 @@ Reads the valve mode
             <summary>
 Event fires when the valve mode has changed
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValvesActiveMap(System.UInt32)">
+            <summary>
+Sets the valve active/inactive state
+</summary>
+            <param name="valvesActive">The valves states</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValvesActiveMap">
+            <summary>
+Gets the valves active/inactive states
+</summary>
+            <returns>The valves states</returns>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveActive(System.UInt16,System.Int32)">
             <summary>
