@@ -430,6 +430,18 @@ Retrives version info from a Firmware update file.
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
         </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.ME2100DacqGroupChannelEnumNet,System.Int32)">
+            <summary />
+            <param name="GroupID" />
+            <param name="filterConfigurations_Length" />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.ME2100DacqGroupChannelEnumNet,System.UInt32)">
+            <summary />
+            <param name="GroupID" />
+            <param name="FilterNumber" />
+            <returns />
+        </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeMode(System.UInt32)">
             <summary />
             <param name="Headstage" />
@@ -920,9 +932,56 @@ Sets .
     CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetNumberOfValves">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDisplayMode(Mcs.Usb.WvcDisplayModeEnumNet,System.Int32)">
             <summary>
-Get the number of valves in the system
+Writes the display mode
+</summary>
+            <param name="DisplayMode">The display mode</param>
+            <param name="lockTimeMs">Locks the display for ms</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDisplayMode">
+            <summary>
+Reads the display mode
+</summary>
+            <returns>The display mode</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDisplayModeEvent">
+            <summary>
+Event fires when the display mode has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetCurrentNumberOfValves">
+            <summary>
+Get the current number of valves connected to the system
+</summary>
+            <returns>The number of valves</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetCurrentNumberOfValvesEvent">
+            <summary>
+Event fires when the number of valves has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTotalNumberOfTables">
+            <summary>
+Get the total number of tables in the system
+</summary>
+            <returns>The number of tables</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTotalTableSize">
+            <summary>
+Get the total table size in the system
+</summary>
+            <returns>The table size</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTotalNumberOfDigitalPorts">
+            <summary>
+Get the total number of digital ports in the system
+</summary>
+            <returns>The number of digital ports</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTotalNumberOfValves">
+            <summary>
+Get the total number of valves in the system
 </summary>
             <returns>The number of valves</returns>
         </member>
@@ -931,12 +990,34 @@ Get the number of valves in the system
 Clear the name of current protocol table
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableNameByIndex(System.UInt16)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetCurrentEditTableNumber(System.UInt32)">
             <summary>
-Get the name of a stored protocol table
+Sets the number of the table that is current for editing
 </summary>
-            <param name="index">The index of the table</param>
-            <returns>The name of the table</returns>
+            <param name="tableNumber">The table number</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetCurrentEditTableNumber">
+            <summary>
+Gets the number of the table that is current for editing
+</summary>
+            <returns>The table number</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetActiveRunningTableNumber(System.UInt32)">
+            <summary>
+Sets the number of the tanle that is active for running
+</summary>
+            <param name="tableNumber">The table number</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetActiveRunningTableNumber">
+            <summary>
+Gets the number of the table that is active for running
+</summary>
+            <returns>The table number</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetActiveRunningTableNumberEvent">
+            <summary>
+Event fires when the table number has changed
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableName(System.String)">
             <summary>
@@ -950,17 +1031,27 @@ Get the name of the current protocol table
 </summary>
             <returns>The name of the table</returns>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.StoreValveTable(System.UInt16)">
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableNamebyIndex(System.UInt16)">
             <summary>
-Store the current valve protocol table in permanent memory
+Get the name of a protocol table
 </summary>
-            <param name="index">The index of the table</param>
+            <param name="tableNumber">The table number</param>
+            <returns>The name of the table</returns>
         </member>
-        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.LoadValveTable(System.UInt16)">
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetTableNamebyIndexEvent">
             <summary>
-Load a valve protocol table from permanent memory
+Event fires when the name of the table for the table number has changed
 </summary>
-            <param name="index">The index of the table</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.StoreValveTable">
+            <summary>
+Store the current table in permanent memory
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.LoadValveTable">
+            <summary>
+Load the current table from permanent memory
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearValveTable(System.UInt16)">
             <summary>
@@ -986,9 +1077,9 @@ Read an entry from the valve protocol table
             <param name="duration">the duration in ms</param>
             <param name="state">the state</param>
         </member>
-        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveTableEntryEvent">
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.TableEntryChangedEvent">
             <summary>
-Event fires when the duration in ms or the state has changed
+Event fires when an entry of a table changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogVoltage">
@@ -1011,7 +1102,7 @@ True, if the valve would be open when the device is in analog mode
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInAnalogModeEvent">
             <summary>
-Event fires when is open has changed
+Event fires when is open for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInDigitalMode(System.UInt16)">
@@ -1023,7 +1114,7 @@ True, if the valve would be open when the device is in digital mode
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenInDigitalModeEvent">
             <summary>
-Event fires when is open has changed
+Event fires when is open for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpen(System.UInt16)">
@@ -1035,7 +1126,7 @@ Is valve open
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveOpenEvent">
             <summary>
-Event fires when is open has changed
+Event fires when is open for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDefault">
@@ -1059,7 +1150,7 @@ Gets the number of the valve which is mapped to a digital out port
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalOutPortValveEvent">
             <summary>
-Event fires when the valve number has changed
+Event fires when the valve number for the digital out port has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalOutPortInvert(System.UInt16,System.Boolean)">
@@ -1078,7 +1169,7 @@ Gets the number of the valve which is mapped to a digital out port
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsDigitalOutPortInvertedEvent">
             <summary>
-Event fires when is inverted has changed
+Event fires when is inverted for the digital out port has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveDigitalInPort(System.UInt16,System.UInt32)">
@@ -1097,7 +1188,7 @@ Gets the number of the digital in port which is mapped to a valve
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveDigitalInPortEvent">
             <summary>
-Event fires when the digital in port has changed
+Event fires when the digital in port for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveDigitalInInvert(System.UInt16,System.Boolean)">
@@ -1116,7 +1207,7 @@ Is digital in inverted
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.IsValveDigitalInInvertedEvent">
             <summary>
-Event fires when is inverted has changed
+Event fires when is inverted for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetDigitalPortDirection(System.UInt16,Mcs.Usb.PortDirectionEnumNet)">
@@ -1135,7 +1226,7 @@ Gets the direction of a digital port
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetDigitalPortDirectionEvent">
             <summary>
-Event fires when the direction has changed
+Event fires when the direction for the port number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetAnalogThresholdHigh(System.UInt16,System.Int32)">
@@ -1154,7 +1245,7 @@ Gets the upper threshold for the analog in port per valve
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdHighEvent">
             <summary>
-Event fires when the threshold in mV has changed
+Event fires when the threshold in mV for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetAnalogThresholdLow(System.UInt16,System.Int32)">
@@ -1173,7 +1264,7 @@ Gets the lower threshold for the analog in port per valve
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetAnalogThresholdLowEvent">
             <summary>
-Event fires when the threshold in mV has changed
+Event fires when the threshold in mV for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveMode(System.UInt16,Mcs.Usb.WvcValveModeEnumNet)">
@@ -1192,7 +1283,38 @@ Reads the valve mode
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveModeEvent">
             <summary>
-Event fires when the valve mode has changed
+Event fires when the valve mode for the valve number has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValvesManualStateMap(System.UInt32)">
+            <summary>
+Sets the valve manual on/off state
+</summary>
+            <param name="valveaManualState">The manual valves states</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValvesManualStateMap">
+            <summary>
+Gets the valves manual on/off states
+</summary>
+            <returns>The manual valves states</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveManualState(System.UInt16,System.Int32)">
+            <summary>
+Sets the valve manual on/off state
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="valveManualState">The manual valve state</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveManualState(System.UInt16)">
+            <summary>
+Gets the valve manual on/off state
+</summary>
+            <param name="valve">The valve number</param>
+            <returns>The manual valve state</returns>
+        </member>
+        <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveManualStateEvent">
+            <summary>
+Event fires when the manual valve state for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValvesActiveMap(System.UInt32)">
@@ -1223,7 +1345,7 @@ Gets the valve active/inactive state
         </member>
         <member name="E:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveActiveEvent">
             <summary>
-Event fires when the valve state has changed
+Event fires when the valve state for the valve number has changed
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.#ctor">
@@ -4512,6 +4634,11 @@ enumerates the layout configuration for the MEA2100-256 device
         <member name="T:Mcs.Usb.PortDirectionEnumNet">
             <summary>
 enumerates a port direction
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.WvcDisplayModeEnumNet">
+            <summary>
+enumerates Wvc display mode
 </summary>
         </member>
         <member name="T:Mcs.Usb.WvcValveModeEnumNet">
