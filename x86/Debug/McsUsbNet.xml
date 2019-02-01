@@ -430,13 +430,13 @@ Event fires when the valve state for the valve number has changed
 CWarnerValveControllerDeviceNet is the class to access the Warner Valve Controller
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.ME2100DacqGroupChannelEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
             <summary />
             <param name="GroupID" />
             <param name="filterConfigurations_Length" />
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.ME2100DacqGroupChannelEnumNet,System.UInt32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
             <summary />
             <param name="GroupID" />
             <param name="FilterNumber" />
@@ -646,7 +646,7 @@ Gets a bitmap of available headstages.
         </member>
         <member name="T:Mcs.Usb.CSCUFunctionNet">
             <summary>
-CSCUFunctionNet is the class to control the ME2100 device
+CSCUFunctionNet is the class to control the SCU device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetRatedCapacity(System.UInt32)">
@@ -3589,7 +3589,7 @@ Start sampling.
 Start sampling.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelsInBlock">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelsInBlock(System.UInt32)">
             <summary>
 Get the number of 16 bit datawords which will be collected per sample frame, use after the device is configured.
 </summary>
@@ -3687,12 +3687,12 @@ This overload is for the MEA2100-256 device.
             <param name="source">The source/function assignd to the digital target.</param>
             <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.ME2100DigitalSourceEnumNet@,System.Int32@)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet@,System.Int32@)">
             <summary>
 Gets the function/source of an digital output bit.
 </summary>
             <remarks>
-This overload is for the ME2100 device.
+This overload is for the SCU device.
 </remarks>
             <param name="digitaltarget">The digital target to query.</param>
             <param name="NrChannel">The channel/bit of target to query.</param>
@@ -3747,12 +3747,12 @@ This overload is for the MEA2100-256 device.
             <param name="source">The source/function to assign to the digital target.</param>
             <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.ME2100DigitalSourceEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet,System.Int32)">
             <summary>
 Sets the function/source of an digital output bit.
 </summary>
             <remarks>
-This overload is for the ME2100 device.
+This overload is for the SCU device.
 </remarks>
             <param name="digitaltarget">The digital target to change.</param>
             <param name="NrChannel">The channel/bit of target to change.</param>
@@ -4716,9 +4716,9 @@ Enumerates the TBSI Data Acquisition Channel Groups of Datastream
 Enumerates the MEA2100-256 Channel Groups of Datastream
 </summary>
         </member>
-        <member name="T:Mcs.Usb.ME2100DacqGroupChannelEnumNet">
+        <member name="T:Mcs.Usb.SCUDacqGroupChannelEnumNet">
             <summary>
-Enumerates the ME2100 Channel Groups of Datastream
+Enumerates the SCU Channel Groups of Datastream
 </summary>
         </member>
         <member name="T:Mcs.Usb.W2100DacqGroupChannelEnumNet">
@@ -4889,9 +4889,9 @@ Enumerates the digital source of the TBSI-DACQ device.
 Enumerates the digital source of the MEA2100-256 device.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.ME2100DigitalSourceEnumNet">
+        <member name="T:Mcs.Usb.SCUDigitalSourceEnumNet">
             <summary>
-Enumerates the digital source of the ME2100 device.
+Enumerates the digital source of the SCU device.
 </summary>
         </member>
         <member name="T:Mcs.Usb.W2100DigitalSourceEnumNet">
