@@ -328,6 +328,19 @@ Get the total number of valves in the system
 </summary>
             <returns>The number of valves</returns>
         </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableStepAll(System.Int32)">
+            <summary>
+Skips the table protocol for all valves by steps
+</summary>
+            <param name="steps">Number of steps</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetTableStep(System.UInt16,System.Int32)">
+            <summary>
+Skips the table protocol for a valve by steps
+</summary>
+            <param name="valve">The valve number</param>
+            <param name="steps">Number of steps</param>
+        </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.ClearTableName">
             <summary>
 Clear the name of current protocol table
