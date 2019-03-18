@@ -51,198 +51,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:Mcs.UsbUpdateNetDll.IniFileHandler">
-            <summary>
-            Class to handle ini files
-            </summary>
-        </member>
-        <member name="P:Mcs.UsbUpdateNetDll.IniFileHandler.IsSectionNameCaseSensitive">
-            <summary>
-            Gets or sets a value indicating whether the section name is case sensitive.
-            </summary>
-        </member>
-        <member name="P:Mcs.UsbUpdateNetDll.IniFileHandler.WriteWithBlanks">
-            <summary>
-            Gets or sets a value indicating whether entries are written with blanks around the '='
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Mcs.UsbUpdateNetDll.IniFileHandler"/> class.
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Mcs.UsbUpdateNetDll.IniFileHandler"/> class.
-            </summary>
-            <param name="fileName">
-            The file name.
-            </param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.#ctor(System.IO.Stream)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Mcs.UsbUpdateNetDll.IniFileHandler"/> class.
-            Allows input of a stream instead of a file name, so that e.g. a string can be used
-            </summary>
-            <param name="stream">
-            The stream.
-            </param>
-        </member>
-        <member name="P:Mcs.UsbUpdateNetDll.IniFileHandler.Item(System.String)">
-            <summary>
-            The indexer for a section. Gets all entries of the section
-            </summary>
-            <param name="section">
-            The section name.
-            </param>
-            <returns>
-            The entries of the section <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
-            </returns>
-        </member>
-        <member name="P:Mcs.UsbUpdateNetDll.IniFileHandler.SectionNames">
-            <summary>
-            Gets the section names.
-            </summary>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.KeyNames(System.String)">
-            <summary>
-            The key names for a section
-            </summary>
-            <param name="section">
-            The section.
-            </param>
-            <returns>
-            The array of all keys of the section.
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.GetValue``1(System.String,System.String,``0)">
-            <summary>
-            Generic method to get a value, depending of the type of defaultValue
-            </summary>
-            <param name="section">
-            The section name
-            </param>
-            <param name="key">
-            The key.
-            </param>
-            <param name="defaultValue">
-            The default value.
-            </param>
-            <typeparam name="T">
-            the return type dends on the type of the defaultValue parameter
-            </typeparam>
-            <returns>
-            The value in the section with key "key", defaultValue if not found
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.GetString(System.String,System.String,System.String)">
-            <summary>
-            get value of type string
-            </summary>
-            <remarks>Makes move from Nini more convenient</remarks>
-            <param name="section">the section name</param>
-            <param name="key">the key name</param>
-            <param name="defaultValue">the default value</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.GetBoolean(System.String,System.String,System.Boolean)">
-            <summary>
-            same as GetBool()
-            </summary>
-            <remarks>Makes move from Nini more convenient</remarks>
-            <param name="section">the section name</param>
-            <param name="key">the key name</param>
-            <param name="defaultValue">the default value</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.GetShort(System.String,System.String,System.Int16)">
-            <summary>
-            Get value of type short with default if not existing
-            </summary>
-            <param name="section">
-            The section name.
-            </param>
-            <param name="key">
-            The key.
-            </param>
-            <param name="defaultValue">
-            The default value.
-            </param>
-            <returns>
-            The value for the key, default if section or key do not exist
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.AddSection(System.String)">
-            <summary>
-            Add a section
-            </summary>
-            <param name="section">
-            The section name
-            </param>
-            <returns>
-            false if section already existed, true if it was added
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.HasSection(System.String)">
-            <summary>
-            Check if section exists
-            </summary>
-            <param name="section">
-            The section name
-            </param>
-            <returns>
-            true if section was found
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.HasKey(System.String,System.String)">
-            <summary>
-            Check if section has entry kye
-            </summary>
-            <param name="section">
-            The section name
-            </param>
-            <param name="key">
-            The key name
-            </param>
-            <returns>
-            true if key was found in the section
-            </returns>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.Save">
-            <summary>
-            Save with the filename set in the constructor
-            </summary>
-            <exception cref="T:System.IO.FileNotFoundException">
-            thrown if the file name was not set (is string.empty)
-            </exception>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.Save(System.String)">
-            <summary>
-            Save the file.
-            </summary>
-            <param name="fileName">
-            The file name.
-            </param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.Save(System.String,System.Text.Encoding)">
-            <summary>
-            Save the file with the given encoding
-            </summary>
-            <param name="fileName">
-            The file name.
-            </param>
-            <param name="encoding">
-            The encoding.
-            </param>
-        </member>
-        <member name="M:Mcs.UsbUpdateNetDll.IniFileHandler.Save(System.IO.Stream)">
-            <summary>
-            Save ini file with default encoding UTF8
-            </summary>
-            <param name="stream">
-            The stream to save to, must not be null
-            </param>
-        </member>
         <member name="T:Mcs.UsbUpdateNetDll.PrepareForFirmwareUpdate">
             <summary>
             PrepareForFirmwareUpdate
@@ -336,6 +144,198 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="T:Mcs.ToolsSrc.IniFileHandler">
+            <summary>
+            Class to handle ini files
+            </summary>
+        </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.IsSectionNameCaseSensitive">
+            <summary>
+            Gets or sets a value indicating whether the section name is case sensitive.
+            </summary>
+        </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.WriteWithBlanks">
+            <summary>
+            Gets or sets a value indicating whether entries are written with blanks around the '='
+            </summary>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            </summary>
+            <param name="fileName">
+            The file name.
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            Allows input of a stream instead of a file name, so that e.g. a string can be used
+            </summary>
+            <param name="stream">
+            The stream.
+            </param>
+        </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.Item(System.String)">
+            <summary>
+            The indexer for a section. Gets all entries of the section
+            </summary>
+            <param name="section">
+            The section name.
+            </param>
+            <returns>
+            The entries of the section <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
+            </returns>
+        </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.SectionNames">
+            <summary>
+            Gets the section names.
+            </summary>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.KeyNames(System.String)">
+            <summary>
+            The key names for a section
+            </summary>
+            <param name="section">
+            The section.
+            </param>
+            <returns>
+            The array of all keys of the section.
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.GetValue``1(System.String,System.String,``0)">
+            <summary>
+            Generic method to get a value, depending of the type of defaultValue
+            </summary>
+            <param name="section">
+            The section name
+            </param>
+            <param name="key">
+            The key.
+            </param>
+            <param name="defaultValue">
+            The default value.
+            </param>
+            <typeparam name="T">
+            the return type dends on the type of the defaultValue parameter
+            </typeparam>
+            <returns>
+            The value in the section with key "key", defaultValue if not found
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.GetString(System.String,System.String,System.String)">
+            <summary>
+            get value of type string
+            </summary>
+            <remarks>Makes move from Nini more convenient</remarks>
+            <param name="section">the section name</param>
+            <param name="key">the key name</param>
+            <param name="defaultValue">the default value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.GetBoolean(System.String,System.String,System.Boolean)">
+            <summary>
+            same as GetBool()
+            </summary>
+            <remarks>Makes move from Nini more convenient</remarks>
+            <param name="section">the section name</param>
+            <param name="key">the key name</param>
+            <param name="defaultValue">the default value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.GetShort(System.String,System.String,System.Int16)">
+            <summary>
+            Get value of type short with default if not existing
+            </summary>
+            <param name="section">
+            The section name.
+            </param>
+            <param name="key">
+            The key.
+            </param>
+            <param name="defaultValue">
+            The default value.
+            </param>
+            <returns>
+            The value for the key, default if section or key do not exist
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.AddSection(System.String)">
+            <summary>
+            Add a section
+            </summary>
+            <param name="section">
+            The section name
+            </param>
+            <returns>
+            false if section already existed, true if it was added
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.HasSection(System.String)">
+            <summary>
+            Check if section exists
+            </summary>
+            <param name="section">
+            The section name
+            </param>
+            <returns>
+            true if section was found
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.HasKey(System.String,System.String)">
+            <summary>
+            Check if section has entry kye
+            </summary>
+            <param name="section">
+            The section name
+            </param>
+            <param name="key">
+            The key name
+            </param>
+            <returns>
+            true if key was found in the section
+            </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save">
+            <summary>
+            Save with the filename set in the constructor
+            </summary>
+            <exception cref="T:System.IO.FileNotFoundException">
+            thrown if the file name was not set (is string.empty)
+            </exception>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.String)">
+            <summary>
+            Save the file.
+            </summary>
+            <param name="fileName">
+            The file name.
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.String,System.Text.Encoding)">
+            <summary>
+            Save the file with the given encoding
+            </summary>
+            <param name="fileName">
+            The file name.
+            </param>
+            <param name="encoding">
+            The encoding.
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.IO.Stream)">
+            <summary>
+            Save ini file with default encoding UTF8
+            </summary>
+            <param name="stream">
+            The stream to save to, must not be null
+            </param>
         </member>
     </members>
 </doc>

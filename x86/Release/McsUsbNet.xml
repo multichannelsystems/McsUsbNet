@@ -288,6 +288,41 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         <member name="T:Mcs.Usb.CSafeISDeviceNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length" />
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid">
             <summary>
 Checks whether the plate type is valid, meaning all pins have contact.
@@ -1362,6 +1397,86 @@ Low level command, sets the internal state to "In Movement"
         <member name="T:Mcs.Usb.CRoboDeviceNet">
             <summary>
 CRoboDeviceNet is the base class for all Robo platform based devices
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorStr(System.UInt16,System.String)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="ColorString">LED color as string</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorRgb(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="ColorRGB">RGB-value of LED color</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetPermanentCurrentInMicroAmp(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="PermanentCurrent_uA">max. current the LED can stand when always switched on; unit: uA</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDutyCycleHighCurrent(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="MaxDutyCycleHighCurrent">max. duty cycle at max. current; unit: 100*%</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDurationHighCurrentInMicroSec(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="AbsoluteMaxDuration_us">max. duration the LED can stand the abs. max current; unit: us</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetAbsMaxCurrentInMicroAmp(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="AbsoluteMaxCurrent_uA">absolute max. current; unit: uA</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetWaveLengthInNanometer(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="WaveLength_nm">wavelength of this channel's LEDs; unit: nm</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorStr(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>LED color as string</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorRgb(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>RGB-value of LED color</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetPermanentCurrentInMicroAmp(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. current the LED can stand when always switched on; unit: uA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDutyCycleHighCurrent(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. duty cycle at max. current; unit: 100*%</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDurationHighCurrentInMicroSec(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. duration the LED can stand the abs. max current; unit: us</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetAbsMaxCurrentInMicroAmp(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>absolute max. current; unit: uA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetWaveLengthInNanometer(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>wavelength of this channel's LEDs; unit: nm</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet)">
+            <summary>
+    Initializes a new instance of the CMultiwellOptoStimFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellOptoStimFunctionNet">
+            <summary>
+CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
 </summary>
         </member>
         <member name="T:_USB_NODE_CONNECTION_INFORMATION_EX">
@@ -2993,41 +3108,6 @@ gets the charge current; unit: mA
         <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
             <summary>
 CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString_Length" />
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CExternDTesterDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
-            <summary>
-CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
 </summary>
         </member>
         <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.BurnDacOffset(System.UInt16)">
