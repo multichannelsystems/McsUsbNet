@@ -293,17 +293,124 @@ Gets a bitmap of available headstages.
 CSCUFunctionNet is the class to control the SCU device
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTEERFunctionNet.SetFrequency(System.Int32)">
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetBufferIndex(System.UInt32)">
             <summary>
-Sets the TEER measurement frequency
+pre-selects sample buffer to be tranferred by GetSampleVoltageBuffer_uV()
 </summary>
-            <param name="frequency">The frequency</param>
+            <param name="NewBufferIndex">0 - chamber voltage; 1 - compliance voltage</param>
         </member>
-        <member name="M:Mcs.Usb.CTEERFunctionNet.GetFrequency">
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetNumberOfAvailableSamples">
             <summary>
-Gets the TEER measurement frequency
+private function to be called internally only
 </summary>
-            <returns>The frequency</returns>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetBytesPerSample">
+            <summary>
+private function to be called internally only
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetMaxChunkSize_Byte">
+            <summary>
+private function to be called internally only
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetSampleVoltageBuffer_uV(System.Int32)">
+            <summary>
+returns voltage sample buffer (max. 500 values); unit: uV
+</summary>
+            <param name="Buffer_Length">The maximal length of Buffer.</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetSampleBufferChunk(System.Int32)">
+            <summary>
+private function to query max. 100 bytes of sample buffer; called internally
+</summary>
+            <param name="Buffer_Length">The maximal length of Buffer.</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetControllerParams(System.UInt32@,System.UInt32@,System.UInt32@)">
+            <summary>
+gets PID controller parameters for voltage clamp mode
+</summary>
+            <param name="P" />
+            <param name="I" />
+            <param name="D" />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetControllerParams(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+sets PID controller parameters for voltage clamp mode
+</summary>
+            <param name="P" />
+            <param name="I" />
+            <param name="D" />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.IsSamplingFinished">
+            <summary>
+returns false iff stimulation/sampling is going on, otherwise true
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.StopSampling">
+            <summary>
+stops TEER stimulation and sampling
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.StartSampling(System.UInt32)">
+            <summary>
+starts TEER stimulation (duration: n cycles) and samples during last cycle
+</summary>
+            <param name="NumberOfCycles">number of cycles (sine or rect) to output (0 - loop forever)</param>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetClampMode(Mcs.Usb.TeerClampModeEnumNet)">
+            <summary>
+sets TEER clamp mode (voltage/current)
+</summary>
+            <param name="ClampMode">new TEER clamp mode</param>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetClampMode">
+            <summary>
+gets TEER clamp mode (voltage/current)
+</summary>
+            <returns>current TEER clamp mode</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetWaveform(Mcs.Usb.TeerWaveformEnumNet)">
+            <summary>
+sets TEER stimulation waveform	(sine/rect)
+</summary>
+            <param name="Waveform">waveform enum</param>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetWaveform">
+            <summary>
+gets TEER stimulation waveform (sine/rect)
+</summary>
+            <returns>waveform enum</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetAmplitude_nA(System.UInt32)">
+            <summary>
+sets TEER stimulation amplitude in nA
+</summary>
+            <param name="Amplitude_nA">new stimulation amplitude in nA</param>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetAmplitude_nA">
+            <summary>
+gets TEER stimulation amplitude in nA
+</summary>
+            <returns>current stimulation amplitude in nA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetPeriod_us(System.UInt32)">
+            <summary>
+sets the period of TEER stimulation in us
+</summary>
+            <param name="period_us" />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetPeriod_us">
+            <summary>
+gets the period of TEER stimulation in us
+</summary>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CTEERFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
             <summary>
@@ -1810,6 +1917,34 @@ Low level command, sets the internal state to "In Movement"
         </member>
         <member name="F:Mcs.Usb.CRoboDeviceNet.McsBus_XY">
             <summary> McsBus address for the xy-plane </summary>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.Int32@)">
+            <summary>
+Reads 32 bit integer values stored persistently on motor controller
+<para>intention: provide free persistent user memory space on motor controller</para></summary>
+            <param name="index"> address offset of parameter; range: 0..15</param>
+            <param name="value"> data buffer</param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.UInt32@)">
+            <summary>
+Reads 32 bit integer values stored persistently on motor controller
+<para>intention: provide free persistent user memory space on motor controller</para></summary>
+            <param name="index"> address offset of parameter; range: 0..15</param>
+            <param name="value"> data buffer</param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.Int32)">
+            <summary>
+Stores *persistently* 32 bit integer values on motor controller
+<para>intention: provide free persistent user memory space on motor controller</para></summary>
+            <param name="index"> address offset of parameter; range: 0..15</param>
+            <param name="value"> data to be stored</param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.UInt32)">
+            <summary>
+Stores *persistently* 32 bit integer values on motor controller
+<para>intention: provide free persistent user memory space on motor controller</para></summary>
+            <param name="index"> address offset of parameter; range: 0..15</param>
+            <param name="value"> data to be stored</param>
         </member>
         <member name="T:Mcs.Usb.CRoboDeviceNet">
             <summary>
