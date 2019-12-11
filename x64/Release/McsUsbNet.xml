@@ -4,6 +4,41 @@
         "McsUsbNet"
     </assembly>
     <members>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <param name="configString_Length">The maximal length of configString.</param>
+            <returns>The config string.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CExternDTesterDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
+            <summary>
+CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CProgramPressureCurveNet.#ctor(Mcs.Usb.CMcsUsbNet)">
             <summary>
     Initializes a new instance of the CPulseGeneratorFunctionNet class.
@@ -726,18 +761,6 @@ special code %N expands to the device name and %S expands to the serial number o
 </summary>
             <param name="format">A String containing the format template. Default is "%N (%S)".</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbListNet.Initialize(Mcs.Usb.DeviceIdNet[])">
-            <summary>
-Initialize/Update the list of devices which are currently connected to the computer.
-</summary>
-            <param name="DeviceIdList">Specifies a list of devices to look for.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbListNet.Initialize(Mcs.Usb.DeviceEnumNet)">
-            <summary>
-Initialize/Update the list of devices which are currently connected to the computer.
-</summary>
-            <param name="McsUsbDevice">Specifies the type of devices to look for.</param>
-        </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.Finalize">
             <summary>
 Finalizer: called by GC before collecting
@@ -748,14 +771,12 @@ Finalizer: called by GC before collecting
 Destructor: called by Dispose()
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.OnDeviceArrivalRemoval,Mcs.Usb.OnDeviceArrivalRemoval)">
+        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceIdNet[])">
             <summary>
 Initializes a new instance of CMcsUsbListNet class.
 </summary>
-            <param name="devArrival">Callback to call when a new device is attached to the bus.</param>
-            <param name="devRemoval">Callback to call when a device is removed from the bus.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor">
+        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceEnumNet)">
             <summary>
 Initializes a new instance of CMcsUsbListNet class.
 </summary>
@@ -1427,42 +1448,14 @@ Starts a MEA Coat run.
 CMeaCoatDeviceNet is the class to access the MEA Coat device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write(System.Byte[])">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString">The config string.</param>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read2">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Read(System.Int32)">
-            <summary>
-Reads the config string from the device.
-</summary>
-            <param name="configString_Length">The maximal length of configString.</param>
-            <returns>The config string.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CExternDTesterDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CExternDTesterDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CExternDTesterDeviceNet">
-            <summary>
-CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
-</summary>
-        </member>
         <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
             <summary>
 Get the real number of data bits.
 </summary>
@@ -1628,11 +1621,17 @@ CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CPPCFunctionNet.MeasureReservoir">
+            <summary>
+Measures the reservoir pressure
+</summary>
+            <returns>The pressure</returns>
+        </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.FirePressurePulse(System.Int32,System.Int32)">
             <summary>
 Fire a pressure pulse from the reservoir
 </summary>
-            <param name="duration">The duration</param>
+            <param name="duration">The pulse duration (valves open)</param>
             <param name="nextpressure">The next pressure</param>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.IsBusy(System.Int16@,System.Int16@)">
@@ -1642,11 +1641,12 @@ Is the PPC busy with a task
             <param name="task">The task state</param>
             <param name="wait">The wait state</param>
         </member>
-        <member name="M:Mcs.Usb.CPPCFunctionNet.LoadPressure(System.Int32)">
+        <member name="M:Mcs.Usb.CPPCFunctionNet.LoadPressure(System.Int32,System.UInt32)">
             <summary>
 Loads the reservoir with a pressure
 </summary>
             <param name="pressure">The pressure</param>
+            <param name="options">The options: end with 0=regulate on patch 1=regulate on reservoir</param>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.SetPressureOffset">
             <summary>
@@ -1756,6 +1756,18 @@ Reads the Pump Speed Unit
             <summary>
 CPPCFunctionNet is the class to access the PPC (high precision Patch Peristalic patch Pump
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.SetExternalLED(System.UInt32)">
+            <summary />
+            <param name="NewState" />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetRotaryPositionCode">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetAdapterCode">
+            <summary />
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CTEERFunctionNet.SetBufferIndex(System.UInt32)">
             <summary>
@@ -1930,7 +1942,7 @@ Initializes a new instance of CMC_CardDeviceNet class.
 Class for data acquisition via MC_Card
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32,System.UInt32)">
             <summary>
 Defines a pattern on the digital dataword which will start a trigger when found.
 </summary>
@@ -1938,7 +1950,7 @@ Defines a pattern on the digital dataword which will start a trigger when found.
             <param name="value">Pattern which must match for the trigger to start.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32,System.UInt32)">
             <summary>
 Sets the maximum number of samples per trigger.
 </summary>
@@ -1953,7 +1965,15 @@ Sets the number of analog channels in the datastream for the MEA2100 device.
             <param name="NumberOfChannels_HS2">Number of analog channels from the Headstage 2.</param>
             <param name="NumberOfChannels_DSP">Number of data words from the DSP.</param>
             <param name="NumberOfChannels_IF">Number of analog channels from the Interfaceboard.</param>
-            <param name="VirtualDevice">VirtualDevice to use.</param>
+            <param name="virtualDevice">virtualDevice to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32,System.UInt32)">
+            <summary>
+Sets the number of analog channels in the datastream.
+</summary>
+            <param name="NumberOfChannels">Number of analog channels.</param>
+            <param name="virtualDevice">virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32)">
@@ -1970,32 +1990,36 @@ Generate a pulse on the digital output.
             <param name="digout_value">Bitmask to set on the digital out.</param>
             <param name="pulselength">Pulselength in ms.</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean,System.UInt32)">
             <summary>
 Enable the checksum data word in the datastream. The checksum is a 32 bit counter and 2x16 bit magic numbers.
 </summary>
             <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean,System.UInt32)">
             <summary>
 Enable the timestamp data word in the datastream. The timestamp is a 64 bit counter.
 </summary>
             <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(Mcs.Usb.DigitalDatastreamEnableEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(Mcs.Usb.DigitalDatastreamEnableEnumNet,System.UInt32)">
             <summary>
 Enable digital data words in the datastream.
 </summary>
             <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean,System.UInt32)">
             <summary>
 Enable the digital data word in the datastream.
 </summary>
             <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="P:Mcs.Usb.CMeaDeviceNet.AnalogGain">
@@ -2071,7 +2095,7 @@ Generate a value on the digital output.
 Gets the electrode to monitor and amplification for the audio channels.
 </summary>
             <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
-            <param name="VirtualDevice">Virtual device to use.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[]@)">
@@ -2086,7 +2110,7 @@ Gets the electrode to monitor and amplification for the audio channels.
 Sets the electrode to monitor and amplification for the audio channels.
 </summary>
             <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
-            <param name="VirtualDevice">Virtual device to use.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMeaAudioFunctionNet.SetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[])">
@@ -2648,7 +2672,7 @@ the number of sample frames in its own data format.
             <summary>
 Stop the data acquisition thread and sampling.
 </summary>
-            <param name="VirtualDevice">Virtual Device to start.</param>
+            <param name="virtualDevice">Virtual Device to start.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq">
             <summary>
@@ -2663,7 +2687,7 @@ Start the data acquisition thread and sampling.
             <param name="timeout">Timeout in ms.</param>
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
             <param name="packetsInUrb">Packets in each URB.</param>
-            <param name="VirtualDevice">Virtual Device to start.</param>
+            <param name="virtualDevice">Virtual Device to start.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -2693,7 +2717,7 @@ Start the data acquisition thread.
             <param name="timeout">Timeout in ms.</param>
             <param name="numUsbBuffers">Number of USB Buffers to use.</param>
             <param name="packetsInUrb">Packets in each URB.</param>
-            <param name="VirtualDevice">Virtual Device to start.</param>
+            <param name="virtualDevice">Virtual Device to start.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -2775,30 +2799,30 @@ Gets the maximal sampling frequency of the device.
 </summary>
             <returns>Sampling frequency in Hz.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.set_SampleRate(System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.set_Samplerate(System.Int32)">
             <summary>
 Sets the sampling frequency of the device.
 </summary>
             <param name="rate">Sampling frequency in Hz.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.get_SampleRate">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.get_Samplerate">
             <summary>
 Gets the sampling frequency of the device.
 </summary>
             <returns>Sampling frequency in Hz.</returns>
         </member>
-        <member name="P:Mcs.Usb.CMcsUsbDacqNet.SampleRate">
+        <member name="P:Mcs.Usb.CMcsUsbDacqNet.Samplerate">
             <summary>
 The sampling frequency of the device in Hz.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetSampleRate(System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetSamplerate(System.UInt32)">
             <summary>
 Gets the sampling frequency of the device.
 </summary>
             <returns>Sampling frequency in Hz.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSampleRate(System.Int32,System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSamplerate(System.Int32,System.UInt32,System.UInt32)">
             <summary>
 Sets the sampling frequency of the device.
 </summary>
@@ -2955,7 +2979,7 @@ This overload is for the MEA2100 device.
             <summary>
 Gets the data mode, can be 16, 24 or 32bit, all signed or unsigned on the MEA2100 device.
 </summary>
-            <param name="VirtualDevice">Virtual device to use.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
             <returns>DataModeEnumNet which enumerates the possible data modes.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDataMode(Mcs.Usb.DataModeEnumNet,System.UInt32)">
