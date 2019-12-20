@@ -5009,9 +5009,15 @@ Gets the USB port if an IFB that is used by this connection
 </summary>
             <returns>Sector index of image; range: 0..2</returns>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbNet.MultibootGetCypressImageId(System.UInt32)">
+            <summary>
+  Query the multiboot image id of the device located in specified sector (range: 0..9 0..9) of IFB2 Cypress.
+</summary>
+            <returns>The magic ident code of the image.</returns>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.MultibootGetImageId(System.UInt32)">
             <summary>
-  Query the multiboot image id of the device located in specified sector (range: 0..2) of IFB FPGA.
+  Query the multiboot image id of the device located in specified sector (range: 0..2 / 0..9) of IFB1 / IFB2 FPGA.
 </summary>
             <returns>The magic ident code of the image.</returns>
         </member>
