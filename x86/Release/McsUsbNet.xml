@@ -1848,101 +1848,21 @@ Gets the state of the Multiwell plate clamp.
 CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorStr(System.UInt16,System.String)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="ColorString">LED color as string</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorRgb(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="ColorRGB">RGB-value of LED color</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetPermanentCurrentInMicroAmp(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="PermanentCurrent_uA">max. current the LED can stand when always switched on; unit: uA</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDutyCycleHighCurrent(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="MaxDutyCycleHighCurrent">max. duty cycle at max. current; unit: 100*%</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDurationHighCurrentInMicroSec(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="AbsoluteMaxDuration_us">max. duration the LED can stand the abs. max current; unit: us</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetAbsMaxCurrentInMicroAmp(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="AbsoluteMaxCurrent_uA">absolute max. current; unit: uA</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetWaveLengthInNanometer(System.UInt16,System.UInt32)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <param name="WaveLength_nm">wavelength of this channel's LEDs; unit: nm</param>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorStr(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>LED color as string</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorRgb(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>RGB-value of LED color</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetPermanentCurrentInMicroAmp(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>max. current the LED can stand when always switched on; unit: uA</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDutyCycleHighCurrent(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>max. duty cycle at max. current; unit: 100*%</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDurationHighCurrentInMicroSec(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>max. duration the LED can stand the abs. max current; unit: us</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetAbsMaxCurrentInMicroAmp(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>absolute max. current; unit: uA</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetWaveLengthInNanometer(System.UInt16)">
-            <summary />
-            <param name="channel">the (analog) channel number</param>
-            <returns>wavelength of this channel's LEDs; unit: nm</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperties(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
             <summary>
-    Initializes a new instance of the CMultiwellOptoStimFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiwellOptoStimFunctionNet">
-            <summary>
-CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
-            <summary>
-Gets multiple filter configurations
+Gets multiple filter properties
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="filterConfigurations_Length">The maximal length of filterConfigurations.</param>
-            <returns>array of filter configurations</returns>
+            <returns>array of filter properties</returns>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperty(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
             <summary>
-Gets the filter configuration
+Gets the filter property
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="FilterNumber">The filter number</param>
-            <returns>The filter configuration</returns>
+            <returns>The filter property</returns>
         </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeMode(System.UInt32)">
             <summary>
@@ -2355,6 +2275,86 @@ Sets the ADC port of the tester
         <member name="T:Mcs.Usb.CWarnerValveControllerDeviceTesterFunctionNet">
             <summary>
 CWarnerValveControllerDeviceTesterFunctionNet is the class to access the functions for the Warner Valve Controller Device Tester
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorStr(System.UInt16,System.String)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="ColorString">LED color as string</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorRgb(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="ColorRGB">RGB-value of LED color</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetPermanentCurrentInMicroAmp(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="PermanentCurrent_uA">max. current the LED can stand when always switched on; unit: uA</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDutyCycleHighCurrent(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="MaxDutyCycleHighCurrent">max. duty cycle at max. current; unit: 100*%</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetMaxDurationHighCurrentInMicroSec(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="AbsoluteMaxDuration_us">max. duration the LED can stand the abs. max current; unit: us</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetAbsMaxCurrentInMicroAmp(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="AbsoluteMaxCurrent_uA">absolute max. current; unit: uA</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetWaveLengthInNanometer(System.UInt16,System.UInt32)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <param name="WaveLength_nm">wavelength of this channel's LEDs; unit: nm</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorStr(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>LED color as string</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetColorRgb(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>RGB-value of LED color</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetPermanentCurrentInMicroAmp(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. current the LED can stand when always switched on; unit: uA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDutyCycleHighCurrent(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. duty cycle at max. current; unit: 100*%</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetMaxDurationHighCurrentInMicroSec(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>max. duration the LED can stand the abs. max current; unit: us</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetAbsMaxCurrentInMicroAmp(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>absolute max. current; unit: uA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.GetWaveLengthInNanometer(System.UInt16)">
+            <summary />
+            <param name="channel">the (analog) channel number</param>
+            <returns>wavelength of this channel's LEDs; unit: nm</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CMultiwellOptoStimFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellOptoStimFunctionNet">
+            <summary>
+CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPositionImpDeviceNet.SetImpId(System.UInt32)">

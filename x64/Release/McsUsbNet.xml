@@ -353,21 +353,21 @@ Event fires when the plate state for the headstage number has changed
 CMultiwellCallbackFunctionNet is the class to access the Multiwell-Mini-Stimulator
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperties(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
             <summary>
-Gets multiple filter configurations
+Gets multiple filter properties
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="filterConfigurations_Length">The maximal length of filterConfigurations.</param>
-            <returns>array of filter configurations</returns>
+            <returns>array of filter properties</returns>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperty(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
             <summary>
-Gets the filter configuration
+Gets the filter property
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="FilterNumber">The filter number</param>
-            <returns>The filter configuration</returns>
+            <returns>The filter property</returns>
         </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeMode(System.UInt32)">
             <summary>
@@ -905,6 +905,16 @@ Class to handle a list of connected MCS USB devices.
         <member name="T:Mcs.Usb.OnDeviceArrivalRemoval">
             <summary>
 Delegate to show a device arrival or removal.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CWarnerUssingDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CWarnerUssingDeviceNet">
+            <summary>
+CWarnerUssingDeviceNet is the class to control the Ussing device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacIdleValue(System.UInt32)">
@@ -1708,6 +1718,22 @@ Starts a MEA Coat run.
 CMeaCoatDeviceNet is the class to access the MEA Coat device.
 </summary>
         </member>
+        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+        </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValidByHeadstage(System.UInt32)">
             <summary>
 Checks whether the plate type is valid, meaning all pins have contact.
@@ -1905,32 +1931,6 @@ CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
         <member name="T:Mcs.Usb.CMultiwellOptoStimFunctionNet">
             <summary>
 CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
-</summary>
-        </member>
-        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
-            <summary>
-Get the real number of data bits.
-</summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
-            <summary>
-Get the real number of data bits.
-</summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CWarnerUssingDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CWarnerUssingDeviceNet">
-            <summary>
-CWarnerUssingDeviceNet is the class to control the Ussing device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.MeasureReservoir">

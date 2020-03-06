@@ -56,21 +56,21 @@ Sets the ADC port of the tester
 CWarnerValveControllerDeviceTesterFunctionNet is the class to access the functions for the Warner Valve Controller Device Tester
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfigurations(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperties(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
             <summary>
-Gets multiple filter configurations
+Gets multiple filter properties
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="filterConfigurations_Length">The maximal length of filterConfigurations.</param>
-            <returns>array of filter configurations</returns>
+            <returns>array of filter properties</returns>
         </member>
-        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterConfiguration(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperty(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.UInt32)">
             <summary>
-Gets the filter configuration
+Gets the filter property
 </summary>
             <param name="GroupID">The group ID</param>
             <param name="FilterNumber">The filter number</param>
-            <returns>The filter configuration</returns>
+            <returns>The filter property</returns>
         </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetReferenceElectrodeMode(System.UInt32)">
             <summary>
