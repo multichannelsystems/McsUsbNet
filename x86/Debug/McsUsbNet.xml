@@ -14,6 +14,16 @@
 CWarnerUssingDeviceNet is the class to control the Ussing device
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLiquidResistance(System.Int32)">
+            <summary />
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLiquidResistance(System.Int32,System.Int32)">
+            <summary />
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="NewLiquidResistance_Ohm" />
+        </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsPulseEnabled(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
             <summary>
 returns true when pulse of given chamber and current mode (voltage/current clamp) of this chamber is ENABLED
@@ -24,7 +34,7 @@ returns true when pulse of given chamber and current mode (voltage/current clamp
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetEnablePulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Boolean)">
             <summary>
-enable pulse of given chamber and current mode (voltage/current clamp) of this chamber
+enable pulse of given chamber and mode (voltage/current clamp) of this chamber
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="ClampMode">voltage or current clamp stimulation</param>
@@ -36,7 +46,7 @@ gets the offset (voltage or current) that will be applied when clamping is DISAB
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="ClampMode">voltage or current clamp stimulation</param>
-            <returns>unit: pA or mV</returns>
+            <returns>unit: nA or mV</returns>
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetIdleModeOffset(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
             <summary>
@@ -44,7 +54,7 @@ sets the offset (voltage or current) that will be applied when clamping is DISAB
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="ClampMode">voltage or current clamp stimulation</param>
-            <param name="NewIdleOffset">unit: pA or mV</param>
+            <param name="NewIdleOffset">unit: nA or mV</param>
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUptimeSeconds(System.Int32)">
             <summary />
@@ -87,7 +97,7 @@ gets the channel's unit name
             <summary />
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="ChannelId">index of channel (zero-based)</param>
-            <returns>example: return value -12 means that amps/volts per digit is in pico</returns>
+            <returns>example: return value -9 means that amps/volts per digit is in nano</returns>
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitsPerDigit(System.Int32,System.Int32)">
             <summary>
@@ -135,28 +145,28 @@ explicitly sets device to high/low current mode
 - diagnostic function only -
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>conversion to Voltage/pV: U2_ref * PicoVoltsPerDigit</returns>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Reference(System.Int32)">
             <summary>
 - diagnostic function only -
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>conversion to Voltage/pV: U1_ref * PicoVoltsPerDigit</returns>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU2Offset(System.Int32)">
             <summary>
 - diagnostic function only -
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>conversion to Voltage/pV: U2_offset * PicoVoltsPerDigit</returns>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Offset(System.Int32)">
             <summary>
 - diagnostic function only -
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>conversion to Voltage/pV: U1_offset * PicoVoltsPerDigit</returns>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsInternalCalibrationFinished(System.Int32)">
             <summary>
@@ -221,6 +231,14 @@ sets P value of PID controller;
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="P">useful value: 130000</param>
         </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseRepetitions(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="NumberOfRepetitions">number of repetitions for pulse pattern; 0 for infinite</param>
+        </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseDurations(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
             <summary>
 PRIVATE function
@@ -235,15 +253,16 @@ PRIVATE function
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
             <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="Amplitudes">amplitude; unit in voltage clamp: mV; unit in current clamp: pA</param>
+            <param name="Amplitudes">amplitude; unit in voltage clamp: mV; unit in current clamp: nA</param>
         </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[],System.Int32[])">
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32,System.Int32[],System.Int32[])">
             <summary>
-defines stimulation pulse pattern for voltage or current stimulation; CAUTION: may update high/low current mode; CAUTION: zero-length amplitude will be briefly applied -&gt; choose matching to neighbour to avoid spikes
+defines stimulation pulse pattern for voltage or current stimulation; CAUTION: zero-length amplitude will be briefly applied -&gt; choose matching to neighbour to avoid spikes
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
             <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="Amplitudes">amplitude; unit in voltage clamp: mV; unit in current clamp: pA</param>
+            <param name="NumberOfRepetitions">number of repetitions for pulse pattern (-1 for infinite; n means pattern is applied n+1 times)</param>
+            <param name="Amplitudes">amplitude; unit in voltage clamp: mV; unit in current clamp: nA</param>
             <param name="Durations">duration in 100us; CAUTION: first element is applied only one; auto-loop back to second element after last one</param>
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsChamberAvailable(System.Int32)">
