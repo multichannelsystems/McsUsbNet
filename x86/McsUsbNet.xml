@@ -372,21 +372,35 @@ gets amps/volts per digit for specified chamber and channel
             <param name="ChannelId">index of channel (zero-based)</param>
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetHighCurrentRangeMax(System.Int32)">
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacNampsPerDigitHighCurrentRange(System.Int32)">
+            <summary>
+unit: nA/digit
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacPampsPerDigitLowCurrentRange(System.Int32)">
+            <summary>
+unit: pA/digit
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetHighCurrentRange(System.Int32)">
             <summary>
 unit: nA
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLowCurrentRangeMax(System.Int32)">
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLowCurrentRange(System.Int32)">
             <summary>
-unit: pA
+unit: nA
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <returns />
         </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetHighCurrentMode(System.Int32)">
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsHighCurrentMode(System.Int32)">
             <summary />
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <returns />
@@ -397,6 +411,14 @@ explicitly sets device to high/low current mode
 </summary>
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="NewHighCurrentMode" />
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLowCurrentMode(System.Int32)">
+            <summary />
+            <param name="ChamberId" />
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetHighCurrentMode(System.Int32)">
+            <summary />
+            <param name="ChamberId" />
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacZero(System.Int32)">
             <summary>
