@@ -1,4 +1,4 @@
-echo DEBUG_VERSION > DEBUG_VERSION
+echo DEBUG_VERSION_DO_NOT_COMMIT > DEBUG_VERSION_DO_NOT_COMMIT
 
 call :copynative x86 Debug
 call :copynative x64 Debug

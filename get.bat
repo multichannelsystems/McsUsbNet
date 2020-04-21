@@ -2,7 +2,7 @@ call :copynative x86 Release
 call :copynative x64 Release
 call :copynet Release
 
-del DEBUG_VERSION
+del DEBUG_VERSION_DO_NOT_COMMIT
 
 exit /B 0
 
