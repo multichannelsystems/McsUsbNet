@@ -2,6 +2,9 @@ call :copynative x86 Release
 call :copynative x64 Release
 call :copynet Release
 
+copy \Programming\MCS_USB_Lib\McsUsbDLL\McsUsbNet\Documentation\latex\McsUsbNet.pdf docu\
+copy \Programming\MCS_USB_Lib\McsUsbDLL\McsUsbNet\Documentation\html\McsUsbNet.chm docu\
+
 del DEBUG_VERSION_DO_NOT_COMMIT
 
 exit /B 0
