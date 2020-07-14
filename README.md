@@ -11,6 +11,7 @@ Check out one of the repositories:
 ### Prerequisites
 
 * .Net Framework 4.7.2
+* Microsoft Visual C++ Redistributable for Visual Studio 2019
 
 ### Authors
 See the [AUTHORS.md](https://github.com/multichannelsystems/McsUsbNet/blob/master/AUTHORS.md) for a list of contributors.
