@@ -879,6 +879,27 @@ Class to handle a list of connected MCS USB devices.
 Delegate to show a device arrival or removal.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetImplantResult(System.UInt16)">
+            <summary>
+gets the last result of the implant pulse trigger
+</summary>
+            <param name="coil">the coil</param>
+            <returns>the result</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.SetPowerStrength(System.UInt16,System.UInt32)">
+            <summary>
+gets the power for the trigger pulses
+</summary>
+            <param name="coil">the coil</param>
+            <param name="power">the power</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetPowerStrength(System.UInt16)">
+            <summary>
+sets the power for the trigger pulses
+</summary>
+            <param name="coil">the coil</param>
+            <returns>the power</returns>
+        </member>
         <member name="M:Mcs.Usb.CPositionIIDeviceNet.SetImplantCurrentSetpoint(System.UInt16,System.UInt32)">
             <summary>
 gets the implant current setpoint
