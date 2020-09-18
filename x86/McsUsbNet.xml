@@ -1800,6 +1800,20 @@ Sets .
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPowerMuxPlate(System.UInt32)">
+            <summary>
+On the Multiwell Mini device, Query if Power to the MUX Plate is On or Off.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>"true" Power is On, "false" Power is Off</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPowerMuxPlate(System.UInt32,System.Boolean)">
+            <summary>
+On the Multiwell Mini device, turn Power to the MUX Plate On or Off.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="powerOn">"true" to turn Power On, "false" to turn Power Off</param>
+        </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValidByHeadstage(System.UInt32)">
             <summary>
 Checks whether the plate type is valid, meaning all pins have contact.
@@ -1916,7 +1930,7 @@ Gets the state of the Multiwell plate clamp.
         </member>
         <member name="T:Mcs.Usb.CMultiwellDeviceNet">
             <summary>
-CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+CMultiwellDeviceNet is the class to access the Multiwell device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperties(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
@@ -2303,40 +2317,6 @@ Retrives version info from a Firmware update file.
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
         </member>
-        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.GetCardinalStgOutputrate">
-            <summary>
-Gets the fundamental/cardinal STG output rate of the Interfaceboard, default is 50 kHz
-</summary>
-            <returns>The output rate in Hz.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.SetCardinalStgOutputrate(System.UInt32)">
-            <summary>
-Sets the fundamental/cardinal STG output rate of the Interfaceboard, default is 50 kHz
-</summary>
-            <param name="outputrate">The output rate in Hz.</param>
-        </member>
-        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.GetCardinalDacqSamplerate">
-            <summary>
-Gets the fundamental/cardinal data aquisition samplerate of the Interfaceboard, default is 50 kHz
-</summary>
-            <returns>The samplerate in Hz.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.SetCardinalDacqSamplerate(System.UInt32)">
-            <summary>
-Sets the fundamental/cardinal data aquisition samplerate of the Interfaceboard, default is 50 kHz
-</summary>
-            <param name="samplerate">The samplerate in Hz.</param>
-        </member>
-        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
-            <summary>
-    Initializes a new instance of the CInterfaceboardFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CInterfaceboardFunctionNet">
-            <summary>
-CInterfaceboardFunctionNet is the class to control the Interfaceboard
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceTesterFunctionNet.SetIODirection(System.Int32)">
             <summary>
 Sets the direction of the IO test ports
@@ -2467,6 +2447,62 @@ CWarnerValveControllerDeviceTesterFunctionNet is the class to access the functio
         <member name="T:Mcs.Usb.CMultiwellOptoStimFunctionNet">
             <summary>
 CMultiwellOptoStimFunctionNet is the class to access the optical properties of the Multiwell Optostim device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.GetIoVoltage">
+            <summary>
+Gets the I/O Voltage level for the IFB2 digital and AUX ports, default is 3.3V.
+</summary>
+            <returns>Enum for the IO Voltage (3.3V or 5.0V).</returns>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.SetIoVoltage(Mcs.Usb.IoVoltageEnumNet)">
+            <summary>
+Sets the I/O Voltage level for the IFB2 digital and AUX ports, default is 3.3V.
+</summary>
+            <param name="ioVoltage">Enum for the I/O Voltage (3.3V or 5.0V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CInterfaceboard2FunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CInterfaceboard2FunctionNet">
+            <summary>
+CInterfaceboard2FunctionNet is the class to control the Interfaceboard
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.GetCardinalStgOutputrate">
+            <summary>
+Gets the fundamental/cardinal STG output rate of the Interfaceboard, default is 50 kHz
+</summary>
+            <returns>The output rate in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.SetCardinalStgOutputrate(System.UInt32)">
+            <summary>
+Sets the fundamental/cardinal STG output rate of the Interfaceboard, default is 50 kHz
+</summary>
+            <param name="outputrate">The output rate in Hz.</param>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.GetCardinalDacqSamplerate">
+            <summary>
+Gets the fundamental/cardinal data aquisition samplerate of the Interfaceboard, default is 50 kHz
+</summary>
+            <returns>The samplerate in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.SetCardinalDacqSamplerate(System.UInt32)">
+            <summary>
+Sets the fundamental/cardinal data aquisition samplerate of the Interfaceboard, default is 50 kHz
+</summary>
+            <param name="samplerate">The samplerate in Hz.</param>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CInterfaceboardFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CInterfaceboardFunctionNet">
+            <summary>
+CInterfaceboardFunctionNet is the class to control the Interfaceboard
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPositionImpDeviceNet.SetImpId(System.UInt32)">
@@ -4587,29 +4623,29 @@ Low level command, sets the internal state to "In Movement"
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.Int32@)">
             <summary>
-Reads 32 bit integer values stored persistently on motor controller
+Reads 32 bit integer values stored persistently on RoboMain
 <para>intention: provide free persistent user memory space on motor controller</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data buffer</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.UInt32@)">
             <summary>
-Reads 32 bit integer values stored persistently on motor controller
+Reads 32 bit integer values stored persistently on RoboMain
 <para>intention: provide free persistent user memory space on motor controller</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data buffer</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.Int32)">
             <summary>
-Stores *persistently* 32 bit integer values on motor controller
-<para>intention: provide free persistent user memory space on motor controller</para></summary>
+Stores *persistently* 32 bit integer values on RoboMain
+<para>intention: provide free persistent user memory space on RoboMain</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data to be stored</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.UInt32)">
             <summary>
-Stores *persistently* 32 bit integer values on motor controller
-<para>intention: provide free persistent user memory space on motor controller</para></summary>
+Stores *persistently* 32 bit integer values on RoboMain
+<para>intention: provide free persistent user memory space on RoboMain</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data to be stored</param>
         </member>
@@ -5980,6 +6016,11 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
         <member name="P:Mcs.Usb.CMcsUsbListEntryNet.Manufacturer">
             <summary>
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.IoVoltageEnumNet">
+            <summary>
+enumerates the I/O Voltages available on the IFB2
 </summary>
         </member>
         <member name="T:Mcs.Usb.DigitalDatastreamEnableEnumNet">

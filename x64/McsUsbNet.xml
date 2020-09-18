@@ -1054,135 +1054,90 @@ gets the base advertise frequency
 CRFFunctionNet is the class to control RF devices
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.IsUserTriggerEnabled">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
             <summary>
-Is the User Trigger enabled
+Gets the current cycle.
 </summary>
-            <returns>Enabled</returns>
+            <returns>The cycle number.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.EnableUserTrigger(System.Boolean)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
             <summary>
-Enables the User Trigger
+Gets the output voltage.
 </summary>
-            <param name="enable">Enable</param>
+            <returns>The output voltage in mV.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacIdleValue(System.UInt32)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
             <summary>
-Gets the DAC Idle value
+Gets the upper voltage level
 </summary>
-            <param name="DacChannel">The DAC channel</param>
-            <returns>The idle value</returns>
+            <returns>The upper voltage level in mV.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacIdleValue(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
             <summary>
-Sets the DAC Idle value
+Gets the lower voltage level.
 </summary>
-            <param name="DacChannel">The DAC channel</param>
-            <param name="IdleValue">The idle value</param>
+            <returns>The lower voltage level in mV.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacUseIdleValue(System.UInt32)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
             <summary>
-Gets if the DAC Idle value is used after stimulation
+Gets the number of cycles.
 </summary>
-            <param name="DacChannel">The DAC channel</param>
-            <returns>Use idle value</returns>
+            <returns>The number of cycles to run for.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacUseIdleValue(System.UInt32,System.Boolean)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
             <summary>
-Sets if the DAC Idle value is used after stimulation
+Gets the voltage slope.
 </summary>
-            <param name="DacChannel">The DAC channel</param>
-            <param name="UseIdle">Use idle value</param>
+            <returns>The voltage slope in mV/s.</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacqRunStatus">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
             <summary>
-Gets the data acquisition running status
+Gets if the MEA Clean device is running.
 </summary>
-            <returns>The status (1: running / 0: stopped)</returns>
+            <returns>"true" when a run is in progress, otherwise "false".</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SendCommand(Mcs.Usb.LIH30_EPC10_Bus_EnumNet,System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
             <summary>
-Send command to the EPC10
+Sets the upper voltage level.
 </summary>
-            <param name="epc10bus">The EPC10 bus</param>
-            <param name="Command">The command</param>
+            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDigInState">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
             <summary>
-Reads from the LIH30 digital input
+Sets the lower voltage level.
 </summary>
-            <returns>The bit mask defining the digital input state</returns>
+            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDigOutState(System.UInt16)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
             <summary>
-Writes to the LIH30 digital output
+Sets the number of cycles.
 </summary>
-            <param name="DigOutState">The bit mask defining the digital output state</param>
+            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.ReadClipping(Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
             <summary>
-Gets the clipping information
+Sets the voltage slope.
 </summary>
-            <param name="epc10bus">The EPC10 bus</param>
-            <returns>The clipping value</returns>
+            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
             <summary>
-Gets the ADC offset of the DACQ for a single channel
-</summary>
-            <param name="AdcChannel">The ADC channel</param>
-            <returns>The offset for the given channel number</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet,System.UInt32)">
-            <summary>
-Sets the ADC offset of the DACQ for a single channel
-</summary>
-            <param name="AdcChannel">The ADC channel</param>
-            <param name="Offset">The offset for the given channel number</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
-            <summary>
-Gets the Sample Interval for the DACQ and Stimulation
-</summary>
-            <returns>Sample Interval configured on the device</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetSampleInterval(System.UInt32)">
-            <summary>
-Sets the Sample Interval for the DACQ and Stimulation
-</summary>
-            <param name="SampleInterval">between the samples, Sample interval is available from 1 to 4194303</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromPage(System.UInt32,System.Int32,Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
-            <summary>
-Reads the requested amount of EEprom byte from the EPC10 EEPROM
-</summary>
-            <param name="EEpromStartAddress">start address of memory area to read from</param>
-            <param name="EEpromData_Length">The maximal length of EEpromData.</param>
-            <param name="epc10bus">The EPC10 bus</param>
-            <returns>pointer to internal memory for the requested amount of data</returns>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetEEpromPage(System.UInt32,System.SByte[],Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
-            <summary>
-Writes into EEprom on the EPC10 EEPROM
-</summary>
-            <param name="EEpromStartAddress">start address of memory area to write to</param>
-            <param name="EEpromData">pointer to internal memory for the supported amount of data</param>
-            <param name="epc10bus">The EPC10 bus</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
-            <summary>
-Dummy command to show how to use the DLL.
-</summary>
-            <param name="dummyParameter">parameter to send to the device</param>
-        </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CLIH3DeviceNet class.
+Stops a MEA Clean run.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CLIH3DeviceNet">
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
             <summary>
-CLIH3DeviceNet is the class to access the HEKA LIH3 device.
+Starts a MEA Clean run.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CMeaCleanDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+            <summary>
+CMeaCleanDeviceNet is the class to access the MEA Clean device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CFluidControlDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
@@ -1745,6 +1700,28 @@ clear stimulation pattern
 CDigOutStimulatorFunctionNet is the class of the DigOut stimulator function class.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.GetIoVoltage">
+            <summary>
+Gets the I/O Voltage level for the IFB2 digital and AUX ports, default is 3.3V.
+</summary>
+            <returns>Enum for the IO Voltage (3.3V or 5.0V).</returns>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.SetIoVoltage(Mcs.Usb.IoVoltageEnumNet)">
+            <summary>
+Sets the I/O Voltage level for the IFB2 digital and AUX ports, default is 3.3V.
+</summary>
+            <param name="ioVoltage">Enum for the I/O Voltage (3.3V or 5.0V).</param>
+        </member>
+        <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CInterfaceboard2FunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CInterfaceboard2FunctionNet">
+            <summary>
+CInterfaceboard2FunctionNet is the class to control the Interfaceboard
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CInterfaceboardFunctionNet.GetCardinalStgOutputrate">
             <summary>
 Gets the fundamental/cardinal STG output rate of the Interfaceboard, default is 50 kHz
@@ -1936,21 +1913,19 @@ Reads the config string from the device.
 CExternDTesterDeviceNet is the class to access the ExternD Tester (Handheld Device Tester D)
 </summary>
         </member>
-        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPowerMuxPlate(System.UInt32)">
             <summary>
-Get the real number of data bits.
+On the Multiwell Mini device, Query if Power to the MUX Plate is On or Off.
 </summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>"true" Power is On, "false" Power is Off</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPowerMuxPlate(System.UInt32,System.Boolean)">
             <summary>
-Get the real number of data bits.
+On the Multiwell Mini device, turn Power to the MUX Plate On or Off.
 </summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="powerOn">"true" to turn Power On, "false" to turn Power Off</param>
         </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValidByHeadstage(System.UInt32)">
             <summary>
@@ -2068,7 +2043,7 @@ Gets the state of the Multiwell plate clamp.
         </member>
         <member name="T:Mcs.Usb.CMultiwellDeviceNet">
             <summary>
-CMultiwellDeviceNet is the class to access the HEKA LIH3 device.
+CMultiwellDeviceNet is the class to access the Multiwell device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorStr(System.UInt16,System.String)">
@@ -2840,1114 +2815,6 @@ CTEERFunctionNet is the class to control the TEER device
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="channelData">Handler to call when new data is available.</param>
-            <param name="error">Handler to call when an error occurs.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMeaUSBDeviceNet">
-            <summary>
-Class for data acquisition via ME and MEA USB amplifiers
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CMC_CardDeviceNet class.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMC_CardDeviceNet class.
-</summary>
-            <param name="channelData">Handler to call when new data is available.</param>
-            <param name="error">Handler to call when an error occurs.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMC_CardDeviceNet">
-            <summary>
-Class for data acquisition via MC_Card
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32,System.UInt32)">
-            <summary>
-Defines a pattern on the digital dataword which will start a trigger when found.
-</summary>
-            <param name="mask">Bits in the digital dataword which are monitored for a match with value.</param>
-            <param name="value">Pattern which must match for the trigger to start.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32,System.UInt32)">
-            <summary>
-Sets the maximum number of samples per trigger.
-</summary>
-            <param name="samples">Number of samples to acquire after the trigger condition is met.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfAnalogChannels(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
-            <summary>
-Sets the number of analog channels in the datastream for the MEA2100 device.
-</summary>
-            <param name="NumberOfChannels_HS1">Number of analog channels from the Headstage 1.</param>
-            <param name="NumberOfChannels_HS2">Number of analog channels from the Headstage 2.</param>
-            <param name="NumberOfChannels_DSP">Number of data words from the DSP.</param>
-            <param name="NumberOfChannels_IF">Number of analog channels from the Interfaceboard.</param>
-            <param name="virtualDevice">virtualDevice to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32,System.UInt32)">
-            <summary>
-Sets the number of analog channels in the datastream.
-</summary>
-            <param name="NumberOfChannels">Number of analog channels.</param>
-            <param name="virtualDevice">virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32)">
-            <summary>
-Sets the number of analog channels in the datastream.
-</summary>
-            <param name="NumberOfChannels">Number of analog channels.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.SetDigitalOut(System.UInt32,System.Int32)">
-            <summary>
-Generate a pulse on the digital output.
-</summary>
-            <param name="digout_value">Bitmask to set on the digital out.</param>
-            <param name="pulselength">Pulselength in ms.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean,System.UInt32)">
-            <summary>
-Enable the checksum data word in the datastream. The checksum is a 32 bit counter and 2x16 bit magic numbers.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <param name="virtualDevice">virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean,System.UInt32)">
-            <summary>
-Enable the timestamp data word in the datastream. The timestamp is a 64 bit counter.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <param name="virtualDevice">virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(Mcs.Usb.DigitalDatastreamEnableEnumNet,System.UInt32)">
-            <summary>
-Enable digital data words in the datastream.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <param name="virtualDevice">virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean,System.UInt32)">
-            <summary>
-Enable the digital data word in the datastream.
-</summary>
-            <param name="enable">True to enable, False to disable.</param>
-            <param name="virtualDevice">virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="P:Mcs.Usb.CMeaDeviceNet.AnalogGain">
-            <summary>
-The gain of the analog inputs of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAnalogGain">
-            <summary>
-Gets the gain of the analog inputs of the device.
-</summary>
-            <returns>Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</returns>
-        </member>
-        <member name="P:Mcs.Usb.CMeaDeviceNet.Gain">
-            <summary>
-The amplifier gain of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.GetGain">
-            <summary>
-Gets the amplifier gain of the device.
-</summary>
-            <returns>Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet,Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="bustype">Type of device to use, either USB or PCI.</param>
-            <param name="channelData">Callback to call when new data is available.</param>
-            <param name="error">Callback to call when an error occurred.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
-            <summary>
-Initializes a new instance of CMeaDeviceNet class.
-</summary>
-            <param name="bustype">Type of device to use, either USB or PCI.</param>
-        </member>
-        <member name="T:Mcs.Usb.CMeaDeviceNet">
-            <summary>
-Base class for MEA data acquisition devices.
-</summary>
-            <remarks>
-There are two different device types for MEA data aquistion devices. There are the USB-MEA devices
-and the MC_Card. In .NET both classes can be accessed by the contructor of the base class CMeaDeviceNet,
-which contructs the correct underlying C++ class for the USB-MEA device on the one hand or the MC_Card device 
-on the other hand.
-Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
-</remarks>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.GetDigitalData">
-            <summary>
-Get the value of the digital output.
-</summary>
-            <returns>Value on the digital data register.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.SetDigitalData(System.UInt32,System.Boolean)">
-            <summary>
-Generate a value on the digital output.
-</summary>
-            <param name="bit_number">Bit number to change.</param>
-            <param name="value">Bit value.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.SetDigitalData(System.UInt32,System.UInt32)">
-            <summary>
-Generate a value on the digital output.
-</summary>
-            <param name="digital_value">Value to set.</param>
-            <param name="digital_value_mask">Mask for change.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[]@,System.UInt32)">
-            <summary>
-Gets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
-            <param name="virtualDevice">Virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[]@)">
-            <summary>
-Gets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.SetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[],System.UInt32)">
-            <summary>
-Sets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
-            <param name="virtualDevice">Virtual device to use.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.SetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[])">
-            <summary>
-Sets the electrode to monitor and amplification for the audio channels.
-</summary>
-            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetNumberOfAudioChannels">
-            <summary>
-Gets the number of available audio channels.
-</summary>
-            <returns>The number of audio channels available, 0 when there are none.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The time resolution in ns.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The DAC resolution in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
-            <summary>
-Delete a Stimulus Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-        </member>
-        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
-            <summary>
-Start (Trigger) the STG.
-The startup delay is in the range of a few ms.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be started.</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
-            <summary>
-Writes the generator mode
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
-            <summary>
-Reads the generator mode
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="mode">The generator mode</param>
-            <param name="digitalchannel">The digital in channel used as gate</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32,System.Int32)">
-            <summary>
-Writes the generator pulse length
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="pulselength_in_10us">The pulse length</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength(System.Int32)">
-            <summary>
-Reads the generator pulse length
-</summary>
-            <param name="generator_number">The generator number</param>
-            <returns>The pulse length</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32,System.Int32)">
-            <summary>
-Writes the generator period
-</summary>
-            <param name="generator_number">The generator number</param>
-            <param name="period_in_samples">The period</param>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod(System.Int32)">
-            <summary>
-Reads the generator period
-</summary>
-            <param name="generator_number">The generator number</param>
-            <returns>The period</returns>
-        </member>
-        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
-            <summary>
-    Initializes a new instance of the CPulseGeneratorFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
-            <summary>
-CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMeFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
-            <summary>
-    Initializes a new instance of the CDacCalibrationFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMeFunctionNet">
-            <summary />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="queue">Handle of the queue.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of data from the device.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.IsDigitalChannelDedicated">
-            <summary>
-Query if the digital channel replaces an analog channel when enabled (e.g. on MC_Card) or adds a channel link on USB devices.
-</summary>
-            <returns>false when the digital channel replaces an analog channel when enabled, true when the digital channels is appended to the analog channels when enabled.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWDigitalChannels(System.Int32@)">
-            <summary>
-Get the number of digital channels the device supports.
-</summary>
-            <param name="numberOfChannels">Number of digital channels the device supports.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWADCChannels(System.Int32@)">
-            <summary>
-Get the number of analog channels the device supports.
-</summary>
-            <param name="numberOfChannels">Number of analog channels the device supports.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="T:Mcs.Usb.CMcsUsbDacqNet.CHWInfo">
-            <summary>
-Class to provide hardware information about the device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int32_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="group">Group selector supported by the device.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="group">Group selector supported by the device.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int16_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="group">Group selector supported by the device.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint16_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="group">Group selector supported by the device.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int32_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int16_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint16_t data format, that contains subqueues,
-each populates an entry in the dictionary by hardware channel number
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="queue">Number of the sub queue.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of int32_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of int32_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="queue">Number of the sub queue.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of uint32_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of uint32_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="queue">Number of the sub queue.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of int16_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of int16_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="queue">Number of the sub queue.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of uint16_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue as array of uint16_t data frame arrays
-</summary>
-            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of uint16_t frame arrays.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32[],System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="buffer">Buffer to put the data from the device in.</param>
-            <param name="frames_pos">Position in buffer where to put the data.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.UInt32[],System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="buffer">Buffer to put the data from the device in.</param>
-            <param name="frames_pos">Position in buffer where to put the data.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint32_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int16[],System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="buffer">Buffer to put the data from the device in.</param>
-            <param name="frames_pos">Position in buffer where to put the data.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in int16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.UInt16[],System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="buffer">Buffer to put the data from the device in.</param>
-            <param name="frames_pos">Position in buffer where to put the data.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-Read data from a FIFO queue in uint16_t data format
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <param name="frames">Number of sample frames to read.</param>
-            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Array of data from the device.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_AvailFrames(System.Int32)">
-            <summary>
-Get the number of sample frames already available in the FIFO.
-</summary>
-            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
-            <returns>Number of sample frames available in the FIFO.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
-            <summary>
-Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="nByteOffset">Number of bytes to start with.</param>
-            <param name="nChannelOffset">Number of channel to start with (counted in samplesize bytes).</param>
-            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <returns>The handle to the Queue.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
-            <summary>
-Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="nByteOffset">Number of bytes to start with.</param>
-            <param name="nChannelOffset">Number of channel to start with (counted in samplesize bytes).</param>
-            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <returns>The handle to the Queue.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
-</summary>
-            <remarks>
-When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
-from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
-So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
-</remarks>
-            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
-</summary>
-            <remarks>
-When using a 32bit sample size, the number obtained from GetChannelsInBlock must be devided by 2 to be used here,
-since GetChannelsInBlock returns the number of 16 bit datapoints per sample frame, while this functions uses
-the number of sample frames in its own data format.
-</remarks>
-            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
-            <summary>
-Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
-</summary>
-            <remarks>
-When using a 32bit sample size, the number obtained from GetChannelsInBlock must be devided by 2 to be used here,
-since GetChannelsInBlock returns the number of 16 bit datapoints per sample frame, while this functions uses
-the number of sample frames in its own data format.
-</remarks>
-            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
-            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
-            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
-            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq(System.UInt32)">
-            <summary>
-Stop the data acquisition thread and sampling.
-</summary>
-            <param name="virtualDevice">Virtual Device to start.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq">
-            <summary>
-Stop the data acquisition thread and sampling.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
-            <summary>
-Start the data acquisition thread and sampling.
-</summary>
-            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
-            <param name="timeout">Timeout in ms.</param>
-            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
-            <param name="packetsInUrb">Packets in each URB.</param>
-            <param name="virtualDevice">Virtual Device to start.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Start the data acquisition thread and sampling.
-</summary>
-            <param name="timeout">Timeout in ms.</param>
-            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
-            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
-            <param name="packetsInUrb">Packets in each URB.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32)">
-            <summary>
-Start the data acquisition thread and sampling.
-</summary>
-            <param name="timeout">Timeout in ms.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq">
-            <summary>
-Start the data acquisition thread and sampling.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
-            <summary>
-Start the data acquisition thread.
-</summary>
-            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
-            <param name="timeout">Timeout in ms.</param>
-            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
-            <param name="packetsInUrb">Packets in each URB.</param>
-            <param name="virtualDevice">Virtual Device to start.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-Start the data acquisition thread.
-</summary>
-            <param name="timeout">Timeout in ms.</param>
-            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
-            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
-            <param name="packetsInUrb">Packets in each URB.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32)">
-            <summary>
-Start the data acquisition thread.
-</summary>
-            <param name="timeout">Timeout in ms.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop">
-            <summary>
-Start the data acquisition thread.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacqWithOptions(System.UInt32,System.Int32,System.Int32)">
-            <summary>
-Stop sampling together with the STG and options.
-</summary>
-            <param name="trigger_map" />
-            <param name="options" />
-            <param name="VirtualDacqMap" />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacq(System.UInt32,System.Int32)">
-            <summary>
-Stop sampling together with the STG.
-</summary>
-            <param name="trigger_map" />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq(System.Int32)">
-            <summary>
-Stop sampling.
-<param name="VirtualDacqMap" /></summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq">
-            <summary>
-Stop sampling.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartStgAndDacq(System.UInt32,System.Int32)">
-            <summary>
-Start sampling together with the STG.
-</summary>
-            <param name="trigger_map" />
-            <param name="VirtualDacqMap" />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq(System.Int32)">
-            <summary>
-Start sampling.
-</summary>
-            <param name="VirtualDacqMap" />
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq">
-            <summary>
-Start sampling.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelsInBlock(System.UInt32)">
-            <summary>
-Get the number of 16 bit datawords which will be collected per sample frame, use after the device is configured.
-</summary>
-            <returns>Number of 16 bit datawords per sample frame.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMinSamplingFrequencyStepsize">
-            <summary>
-Gets the minimal sampling frequency step size increment value of the device.
-</summary>
-            <returns>Sampling frequency step size in Hz.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMaxSamplingFrequency(System.Int32)">
-            <summary>
-Gets the maximal sampling frequency of the device.
-</summary>
-            <returns>Sampling frequency in Hz.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.set_Samplerate(System.Int32)">
-            <summary>
-Sets the sampling frequency of the device.
-</summary>
-            <param name="rate">Sampling frequency in Hz.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.get_Samplerate">
-            <summary>
-Gets the sampling frequency of the device.
-</summary>
-            <returns>Sampling frequency in Hz.</returns>
-        </member>
-        <member name="P:Mcs.Usb.CMcsUsbDacqNet.Samplerate">
-            <summary>
-The sampling frequency of the device in Hz.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetSamplerate(System.UInt32)">
-            <summary>
-Gets the sampling frequency of the device.
-</summary>
-            <returns>Sampling frequency in Hz.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSamplerate(System.Int32,System.UInt32,System.UInt32)">
-            <summary>
-Sets the sampling frequency of the device.
-</summary>
-            <param name="rate">Sampling frequency in Hz.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetNumberOfDataBits(System.UInt32,Mcs.Usb.DacqGroupChannelEnumNet,System.Int32@)">
-            <summary>
-Get the real number of data bits.
-</summary>
-            <remarks>
-This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
-so the real number is 14 while the data format is 16 bits
-</remarks>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdcDataFormat(System.UInt32)">
-            <summary>
-Gets the ADC data format, 16 means 16 bits, 24 means 24 bits, 32 means 32 bits.
-</summary>
-            <returns>The data format in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMeaLayout">
-            <summary>
-Gets the MEA layout which is connected to the MEA2100 device.
-</summary>
-            <returns>MeaLayoutEnumNet which enumerates the MEA types.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdapterType">
-            <summary>
-Gets the adapter which is connected to the MEA2100 device.
-</summary>
-            <returns>AdapterTypeEnumNet which enumerates the possible adapters.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource``1(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSource`1{``0}@,System.Int32@)">
-            <summary>
-Gets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This is the templated generic implementation.
-</remarks>
-            <param name="digitaltarget">The digital target to query.</param>
-            <param name="NrChannel">The channel/bit of target to query.</param>
-            <param name="source">The source/function assignd to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100_256DigitalSourceEnumNet@,System.Int32@)">
-            <summary>
-Gets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the MEA2100-256 device.
-</remarks>
-            <param name="digitaltarget">The digital target to query.</param>
-            <param name="NrChannel">The channel/bit of target to query.</param>
-            <param name="source">The source/function assignd to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet@,System.Int32@)">
-            <summary>
-Gets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the SCU device.
-</remarks>
-            <param name="digitaltarget">The digital target to query.</param>
-            <param name="NrChannel">The channel/bit of target to query.</param>
-            <param name="source">The source/function assignd to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
-            <summary>
-Gets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the W2100 device.
-</remarks>
-            <param name="digitaltarget">The digital target to query.</param>
-            <param name="NrChannel">The channel/bit of target to query.</param>
-            <param name="source">The source/function assignd to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
-            <summary>
-Gets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the MEA2100 device.
-</remarks>
-            <param name="digitaltarget">The digital target to query.</param>
-            <param name="NrChannel">The channel/bit of target to query.</param>
-            <param name="source">The source/function assignd to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource``1(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSource`1{``0},System.Int32)">
-            <summary>
-Sets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This is the templated generic implementation.
-</remarks>
-            <param name="digitaltarget">The digital target to change.</param>
-            <param name="NrChannel">The channel/bit of target to change.</param>
-            <param name="source">The source/function to assign to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100_256DigitalSourceEnumNet,System.Int32)">
-            <summary>
-Sets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the MEA2100-256 device.
-</remarks>
-            <param name="digitaltarget">The digital target to change.</param>
-            <param name="NrChannel">The channel/bit of target to change.</param>
-            <param name="source">The source/function to assign to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet,System.Int32)">
-            <summary>
-Sets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the SCU device.
-</remarks>
-            <param name="digitaltarget">The digital target to change.</param>
-            <param name="NrChannel">The channel/bit of target to change.</param>
-            <param name="source">The source/function to assign to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
-            <summary>
-Sets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the W2100 device.
-</remarks>
-            <param name="digitaltarget">The digital target to change.</param>
-            <param name="NrChannel">The channel/bit of target to change.</param>
-            <param name="source">The source/function to assign to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
-            <summary>
-Sets the function/source of an digital output bit.
-</summary>
-            <remarks>
-This overload is for the MEA2100 device.
-</remarks>
-            <param name="digitaltarget">The digital target to change.</param>
-            <param name="NrChannel">The channel/bit of target to change.</param>
-            <param name="source">The source/function to assign to the digital target.</param>
-            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDataMode(System.UInt32)">
-            <summary>
-Gets the data mode, can be 16, 24 or 32bit, all signed or unsigned on the MEA2100 device.
-</summary>
-            <param name="virtualDevice">Virtual device to use.</param>
-            <returns>DataModeEnumNet which enumerates the possible data modes.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDataMode(Mcs.Usb.DataModeEnumNet,System.UInt32)">
-            <summary>
-Sets the data mode, can be 16, 24 or 32bit, all signed or unsigned on the MEA2100 device.
-</summary>
-            <param name="dataMode">DataModeEnumNet enumerates the possible data modes.</param>
-            <param name="virtualDevice">Virtual device to use.</param>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMilliVolt">
-            <summary>
-Gets the currently selected voltage range on devices which support multiple voltage ranges.
-</summary>
-            <returns>The rounded Voltage Range in mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMicroVolt(System.UInt32)">
-            <summary>
-Gets the currently selected voltage range on devices which support multiple voltage ranges.
-</summary>
-            <returns>The Voltage Range in uV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetVoltageRangeInMicroVolt(System.Int32,System.UInt32)">
-            <summary>
-Sets the voltage range on devices which support multiple voltage ranges.
-</summary>
-            <param name="voltageRange">Voltage Range to use in ÂµV.</param>
-            <remarks>This replaces SetVoltageRange, where the value of the range was in mV!</remarks>
-        </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetVoltageRangeByIndex(System.Int32,System.UInt32)">
-            <summary>
-Sets the voltage range on devices which support multiple voltage ranges.
-</summary>
-            <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
-        </member>
         <member name="T:Mcs.Usb.CPatchServerDeviceNet">
             <summary>
 CPatchServerDeviceNet is the class to control the MCS PatchServer device
@@ -4075,29 +2942,29 @@ Low level command, sets the internal state to "In Movement"
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.Int32@)">
             <summary>
-Reads 32 bit integer values stored persistently on motor controller
+Reads 32 bit integer values stored persistently on RoboMain
 <para>intention: provide free persistent user memory space on motor controller</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data buffer</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.GetUserParameter(System.UInt16,System.UInt32@)">
             <summary>
-Reads 32 bit integer values stored persistently on motor controller
+Reads 32 bit integer values stored persistently on RoboMain
 <para>intention: provide free persistent user memory space on motor controller</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data buffer</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.Int32)">
             <summary>
-Stores *persistently* 32 bit integer values on motor controller
-<para>intention: provide free persistent user memory space on motor controller</para></summary>
+Stores *persistently* 32 bit integer values on RoboMain
+<para>intention: provide free persistent user memory space on RoboMain</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data to be stored</param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.RoboMainLowLevelCommands.SetUserParameter(System.UInt16,System.UInt32)">
             <summary>
-Stores *persistently* 32 bit integer values on motor controller
-<para>intention: provide free persistent user memory space on motor controller</para></summary>
+Stores *persistently* 32 bit integer values on RoboMain
+<para>intention: provide free persistent user memory space on RoboMain</para></summary>
             <param name="index"> address offset of parameter; range: 0..15</param>
             <param name="value"> data to be stored</param>
         </member>
@@ -4979,233 +3846,6 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetNumberOfAnalogChannels">
-            <summary>
-Get the number of STG channels.
-</summary>
-            <returns>The number of STG channels.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetAvailableMemory">
-            <summary>
-Get the amount of memory available in the currently selected segment of the STG.
-</summary>
-            <returns>The total memory available on the STG in bytes.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetTotalMemory">
-            <summary>
-Get the total amount of memory available on the STG (all segments).
-</summary>
-            <returns>The total memory available on the STG in bytes.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTriggerSingle(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
-            <summary>
-Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
-</summary>
-            <param name="trigger">The trigger to change.</param>
-            <param name="channelmap">A bitmap of channels that belong to this trigger.</param>
-            <param name="syncoutmap">A bitmap of syncouts that belong to this trigger.</param>
-            <param name="repeat">The number of times this trigger should be repeated.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
-            <summary>
-Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
-</summary>
-            <param name="first_trigger">The number of the first trigger to change.</param>
-            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
-            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
-            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
-            <summary>
-Gets the Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
-            <summary>
-Gets the Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
-            <summary>
-Gets number of bits of the DAC resolution.
-</summary>
-            <returns>The DAC resolution in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetMultiplexedDataChannelsInBlock">
-            <summary>
-Gets the number of stimulus data channels to send per time slice. Might be greater than the number of configured channels. Fill unused channels with dummy data in SendMultiplexedData
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendMultiplexedData(System.UInt16[])">
-            <summary>
-Sends stimulus data in multiplexed form. All 16 bits words for the enabled DAC and digital channels are muxed together per time slice.
-</summary>
-            <param name="data">Array of data to be sent.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearMultiplexedData">
-            <summary>
-Clears the Stimulation Memory in the STG device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.CreateSideband(System.Int32[],System.Int32[],System.UInt64[],System.UInt32,System.UInt32,System.UInt32)">
-            <summary>
-Creates the Sideband Channel for the MEA2100 device.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-A value 0 means that the stimulation is active during that time.
-A value 1 means that the stimulation is not active during that time.
-</para>
-
-The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
-</summary>
-            <param name="StimulusActive">A list of datapoints which define weather the Stimulus is active or idle at that time as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of Âµs.</param>
-            <param name="Bit0Time">Time in Âµs for which Bit 0 (Blanking) is to be extended.</param>
-            <param name="Bit3Time">Time in Âµs for which Bit 3 (Stimulus Enable) is to be extended.</param>
-            <param name="Bit4Time">Time in Âµs for which Bit 4 (Stimulus Selector) is to be extended.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and append data to a given channel on the STG.
-</summary>
-            <para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para>
-            <para>
-The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
-</para>
-            <para>
-Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
-The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
-times the block should run.
-Blocks can be nested.
-</para>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
-            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
-            <summary>
-Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
-
-<para>
-Each datapoint is 
-represented by an signed 32bit integer value.
-When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
-When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
-</para><para>
-The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
-</para>
-
-Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
-The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
-times the block should run.
-Blocks can be nested.
-</summary>
-            <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
-            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
-            <returns>Error Status. 0 on success.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
-            <summary>
-Delete a Syncout Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)">
-            <summary>
-Delete a Stimulus Pattern from STG memory
-</summary>
-            <param name="channel"> specifies the channel to clear.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32,System.Int32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-            <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32)">
-            <summary>
-Stop some or all triggers of the STG.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStart(System.UInt32)">
-            <summary>
-Start (Trigger) the STG.
-The startup delay is in the range of a few ms.
-</summary>
-            <param name="triggermap">A bitmap of triggers which will be started.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.ForceStatusEvent">
-            <summary>
-Force a status event.
-Force the DLL to create a PollMessage event and to call the
-pPollCallback function, even if no new status information is available.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StopPoll">
-            <summary>
-Stops the interrupt fetching thread and delivers events
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StartPoll">
-            <summary>
-Starts the interrupt fetching thread and delivers events
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Finalize">
-            <summary>
-Finalizer: called by GC before collecting
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Dispose">
-            <summary>
-Destructor: called by Dispose()
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Finalize">
-            <summary>
-Finalizer: called by GC before collecting
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Dispose">
-            <summary>
-Destructor: called by Dispose()
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveBoardRevisionString">
             <summary>
 Gets the revision name of the valve board
@@ -5681,91 +4321,1487 @@ Event fires when the valve state for the valve number has changed
 CWarnerValveControllerDeviceNet is the class to access the Warner Valve Controller
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycle">
+        <member name="M:CMeaUSBDevice.CHWInfo_MeaUSBDevice.GetAvailableSampleRateByIndex(System.Int32)">
             <summary>
-Gets the current cycle.
+Get the real number of data bits.
 </summary>
-            <returns>The cycle number.</returns>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetOutputVoltage">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.IsUserTriggerEnabled">
             <summary>
-Gets the output voltage.
+Is the User Trigger enabled
 </summary>
-            <returns>The output voltage in mV.</returns>
+            <returns>Enabled</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMaxVoltage">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.EnableUserTrigger(System.Boolean)">
             <summary>
-Gets the upper voltage level
+Enables the User Trigger
 </summary>
-            <returns>The upper voltage level in mV.</returns>
+            <param name="enable">Enable</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetMinVoltage">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacIdleValue(System.UInt32)">
             <summary>
-Gets the lower voltage level.
+Gets the DAC Idle value
 </summary>
-            <returns>The lower voltage level in mV.</returns>
+            <param name="DacChannel">The DAC channel</param>
+            <returns>The idle value</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetCycles">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacIdleValue(System.UInt32,System.Int32)">
             <summary>
-Gets the number of cycles.
+Sets the DAC Idle value
 </summary>
-            <returns>The number of cycles to run for.</returns>
+            <param name="DacChannel">The DAC channel</param>
+            <param name="IdleValue">The idle value</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.GetSlope">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacUseIdleValue(System.UInt32)">
             <summary>
-Gets the voltage slope.
+Gets if the DAC Idle value is used after stimulation
 </summary>
-            <returns>The voltage slope in mV/s.</returns>
+            <param name="DacChannel">The DAC channel</param>
+            <returns>Use idle value</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.IsRunning">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacUseIdleValue(System.UInt32,System.Boolean)">
             <summary>
-Gets if the MEA Clean device is running.
+Sets if the DAC Idle value is used after stimulation
 </summary>
-            <returns>"true" when a run is in progress, otherwise "false".</returns>
+            <param name="DacChannel">The DAC channel</param>
+            <param name="UseIdle">Use idle value</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMaxVoltage(System.Int32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacqRunStatus">
             <summary>
-Sets the upper voltage level.
+Gets the data acquisition running status
 </summary>
-            <param name="voltageMax">The upper voltage level in mV (-1.6 .. 1.6 V).</param>
+            <returns>The status (1: running / 0: stopped)</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetMinVoltage(System.Int32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SendCommand(Mcs.Usb.LIH30_EPC10_Bus_EnumNet,System.UInt16)">
             <summary>
-Sets the lower voltage level.
+Send command to the EPC10
 </summary>
-            <param name="voltageMin">The lower voltage level in mV (-1.6 .. 1.6 V).</param>
+            <param name="epc10bus">The EPC10 bus</param>
+            <param name="Command">The command</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetCycles(System.UInt32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDigInState">
             <summary>
-Sets the number of cycles.
+Reads from the LIH30 digital input
 </summary>
-            <param name="cycles">The number of cycles to run for (0 .. 99).</param>
+            <returns>The bit mask defining the digital input state</returns>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.SetSlope(System.UInt32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDigOutState(System.UInt16)">
             <summary>
-Sets the voltage slope.
+Writes to the LIH30 digital output
 </summary>
-            <param name="voltageSlope">The voltage slope in mV/s (range 0 .. 60 V/s).</param>
+            <param name="DigOutState">The bit mask defining the digital output state</param>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Stop">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.ReadClipping(Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
             <summary>
-Stops a MEA Clean run.
+Gets the clipping information
+</summary>
+            <param name="epc10bus">The EPC10 bus</param>
+            <returns>The clipping value</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+            <summary>
+Gets the ADC offset of the DACQ for a single channel
+</summary>
+            <param name="AdcChannel">The ADC channel</param>
+            <returns>The offset for the given channel number</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetADCOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet,System.UInt32)">
+            <summary>
+Sets the ADC offset of the DACQ for a single channel
+</summary>
+            <param name="AdcChannel">The ADC channel</param>
+            <param name="Offset">The offset for the given channel number</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetSampleInterval">
+            <summary>
+Gets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <returns>Sample Interval configured on the device</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetSampleInterval(System.UInt32)">
+            <summary>
+Sets the Sample Interval for the DACQ and Stimulation
+</summary>
+            <param name="SampleInterval">between the samples, Sample interval is available from 1 to 4194303</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromPage(System.UInt32,System.Int32,Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
+            <summary>
+Reads the requested amount of EEprom byte from the EPC10 EEPROM
+</summary>
+            <param name="EEpromStartAddress">start address of memory area to read from</param>
+            <param name="EEpromData_Length">The maximal length of EEpromData.</param>
+            <param name="epc10bus">The EPC10 bus</param>
+            <returns>pointer to internal memory for the requested amount of data</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetEEpromPage(System.UInt32,System.SByte[],Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
+            <summary>
+Writes into EEprom on the EPC10 EEPROM
+</summary>
+            <param name="EEpromStartAddress">start address of memory area to write to</param>
+            <param name="EEpromData">pointer to internal memory for the supported amount of data</param>
+            <param name="epc10bus">The EPC10 bus</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.DummyCommand(System.UInt32)">
+            <summary>
+Dummy command to show how to use the DLL.
+</summary>
+            <param name="dummyParameter">parameter to send to the device</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CLIH3DeviceNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.Start">
+        <member name="T:Mcs.Usb.CLIH3DeviceNet">
             <summary>
-Starts a MEA Clean run.
+CLIH3DeviceNet is the class to access the HEKA LIH3 device.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMeaCleanDeviceNet.#ctor">
+        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor">
             <summary>
-    Initializes a new instance of the CMeaCleanDeviceNet class.
+Initializes a new instance of CMeaDeviceNet class.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.CMeaCleanDeviceNet">
+        <member name="M:Mcs.Usb.CMeaUSBDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
             <summary>
-CMeaCleanDeviceNet is the class to access the MEA Clean device.
+Initializes a new instance of CMeaDeviceNet class.
 </summary>
+            <param name="channelData">Handler to call when new data is available.</param>
+            <param name="error">Handler to call when an error occurs.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMeaUSBDeviceNet">
+            <summary>
+Class for data acquisition via ME and MEA USB amplifiers
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CMC_CardDeviceNet class.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMC_CardDeviceNet.#ctor(Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
+            <summary>
+Initializes a new instance of CMC_CardDeviceNet class.
+</summary>
+            <param name="channelData">Handler to call when new data is available.</param>
+            <param name="error">Handler to call when an error occurs.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMC_CardDeviceNet">
+            <summary>
+Class for data acquisition via MC_Card
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Defines a pattern on the digital dataword which will start a trigger when found.
+</summary>
+            <param name="mask">Bits in the digital dataword which are monitored for a match with value.</param>
+            <param name="value">Pattern which must match for the trigger to start.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerPeriod(System.Int32,System.UInt32)">
+            <summary>
+Sets the maximum number of samples per trigger.
+</summary>
+            <param name="samples">Number of samples to acquire after the trigger condition is met.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfAnalogChannels(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Sets the number of analog channels in the datastream for the MEA2100 device.
+</summary>
+            <param name="NumberOfChannels_HS1">Number of analog channels from the Headstage 1.</param>
+            <param name="NumberOfChannels_HS2">Number of analog channels from the Headstage 2.</param>
+            <param name="NumberOfChannels_DSP">Number of data words from the DSP.</param>
+            <param name="NumberOfChannels_IF">Number of analog channels from the Interfaceboard.</param>
+            <param name="virtualDevice">virtualDevice to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32,System.UInt32)">
+            <summary>
+Sets the number of analog channels in the datastream.
+</summary>
+            <param name="NumberOfChannels">Number of analog channels.</param>
+            <param name="virtualDevice">virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetNumberOfChannels(System.Int32)">
+            <summary>
+Sets the number of analog channels in the datastream.
+</summary>
+            <param name="NumberOfChannels">Number of analog channels.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.SetDigitalOut(System.UInt32,System.Int32)">
+            <summary>
+Generate a pulse on the digital output.
+</summary>
+            <param name="digout_value">Bitmask to set on the digital out.</param>
+            <param name="pulselength">Pulselength in ms.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableChecksum(System.Boolean,System.UInt32)">
+            <summary>
+Enable the checksum data word in the datastream. The checksum is a 32 bit counter and 2x16 bit magic numbers.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableTimestamp(System.Boolean,System.UInt32)">
+            <summary>
+Enable the timestamp data word in the datastream. The timestamp is a 64 bit counter.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(Mcs.Usb.DigitalDatastreamEnableEnumNet,System.UInt32)">
+            <summary>
+Enable digital data words in the datastream.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.EnableDigitalIn(System.Boolean,System.UInt32)">
+            <summary>
+Enable the digital data word in the datastream.
+</summary>
+            <param name="enable">True to enable, False to disable.</param>
+            <param name="virtualDevice">virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="P:Mcs.Usb.CMeaDeviceNet.AnalogGain">
+            <summary>
+The gain of the analog inputs of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetAnalogGain">
+            <summary>
+Gets the gain of the analog inputs of the device.
+</summary>
+            <returns>Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</returns>
+        </member>
+        <member name="P:Mcs.Usb.CMeaDeviceNet.Gain">
+            <summary>
+The amplifier gain of the device. Value is gain times 1000, a value of 1000 corresponds to a gain of 1.0.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.GetGain">
+            <summary>
+Gets the amplifier gain of the device.
+</summary>
+            <returns>Gain times 1000, a value of 1000 corresponds to a gain of 1.0.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet,Mcs.Usb.OnChannelData,Mcs.Usb.OnError)">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+            <param name="bustype">Type of device to use, either USB or PCI.</param>
+            <param name="channelData">Callback to call when new data is available.</param>
+            <param name="error">Callback to call when an error occurred.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.#ctor(Mcs.Usb.McsBusTypeEnumNet)">
+            <summary>
+Initializes a new instance of CMeaDeviceNet class.
+</summary>
+            <param name="bustype">Type of device to use, either USB or PCI.</param>
+        </member>
+        <member name="T:Mcs.Usb.CMeaDeviceNet">
+            <summary>
+Base class for MEA data acquisition devices.
+</summary>
+            <remarks>
+There are two different device types for MEA data aquistion devices. There are the USB-MEA devices
+and the MC_Card. In .NET both classes can be accessed by the contructor of the base class CMeaDeviceNet,
+which contructs the correct underlying C++ class for the USB-MEA device on the one hand or the MC_Card device 
+on the other hand.
+Through this interface both device types USB-MEA devices and MC_Card devices can be accessed
+</remarks>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.GetDigitalData">
+            <summary>
+Get the value of the digital output.
+</summary>
+            <returns>Value on the digital data register.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.SetDigitalData(System.UInt32,System.Boolean)">
+            <summary>
+Generate a value on the digital output.
+</summary>
+            <param name="bit_number">Bit number to change.</param>
+            <param name="value">Bit value.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDigitalDataFunctionNet.SetDigitalData(System.UInt32,System.UInt32)">
+            <summary>
+Generate a value on the digital output.
+</summary>
+            <param name="digital_value">Value to set.</param>
+            <param name="digital_value_mask">Mask for change.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[]@,System.UInt32)">
+            <summary>
+Gets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[]@)">
+            <summary>
+Gets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which contains the electrode (channel) and amplification on return.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.SetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[],System.UInt32)">
+            <summary>
+Sets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.SetAudioChannels(Mcs.Usb.CMeaAudioFunctionNet.s_setaudionet[])">
+            <summary>
+Sets the electrode to monitor and amplification for the audio channels.
+</summary>
+            <param name="channels">Struct which defines the electrode (channel) and amplification.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaAudioFunctionNet.GetNumberOfAudioChannels">
+            <summary>
+Gets the number of available audio channels.
+</summary>
+            <returns>The number of audio channels available, 0 when there are none.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetTimeResolutionInNanoSeconds">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The time resolution in ns.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+        </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet,System.Int32)">
+            <summary>
+Writes the generator mode
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetModeSelect(System.Int32,Mcs.Usb.PulseGenerator_Mode_EnumNet@,System.Int32@)">
+            <summary>
+Reads the generator mode
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="mode">The generator mode</param>
+            <param name="digitalchannel">The digital in channel used as gate</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPulseLength(System.Int32,System.Int32)">
+            <summary>
+Writes the generator pulse length
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="pulselength_in_10us">The pulse length</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPulseLength(System.Int32)">
+            <summary>
+Reads the generator pulse length
+</summary>
+            <param name="generator_number">The generator number</param>
+            <returns>The pulse length</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.SetPeriod(System.Int32,System.Int32)">
+            <summary>
+Writes the generator period
+</summary>
+            <param name="generator_number">The generator number</param>
+            <param name="period_in_samples">The period</param>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.GetPeriod(System.Int32)">
+            <summary>
+Reads the generator period
+</summary>
+            <param name="generator_number">The generator number</param>
+            <returns>The period</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPulseGeneratorFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CPulseGeneratorFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CPulseGeneratorFunctionNet">
+            <summary>
+CPulseGeneratorFunctionNet is the class to control the pulse generator for video tracking
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetNumberOfAnalogChannels">
+            <summary>
+Get the number of STG channels.
+</summary>
+            <returns>The number of STG channels.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetAvailableMemory">
+            <summary>
+Get the amount of memory available in the currently selected segment of the STG.
+</summary>
+            <returns>The total memory available on the STG in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetTotalMemory">
+            <summary>
+Get the total amount of memory available on the STG (all segments).
+</summary>
+            <returns>The total memory available on the STG in bytes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTriggerSingle(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
+</summary>
+            <param name="trigger">The trigger to change.</param>
+            <param name="channelmap">A bitmap of channels that belong to this trigger.</param>
+            <param name="syncoutmap">A bitmap of syncouts that belong to this trigger.</param>
+            <param name="repeat">The number of times this trigger should be repeated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SetupTrigger(System.UInt32,System.UInt32[],System.UInt32[],System.UInt32[])">
+            <summary>
+Configures the trigger settings for the STG. Note that all memory segments have their own trigger setting.
+</summary>
+            <param name="first_trigger">The number of the first trigger to change.</param>
+            <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
+            <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
+            <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmp(System.UInt32)">
+            <summary>
+Gets the Current Range of the specified channel in Nanoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Range of the specified channel in Nanoamps.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Resolution of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the Voltage Range of the specified channel in Microvolts.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
+            <summary>
+Gets number of bits of the DAC resolution.
+</summary>
+            <returns>The DAC resolution in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetMultiplexedDataChannelsInBlock">
+            <summary>
+Gets the number of stimulus data channels to send per time slice. Might be greater than the number of configured channels. Fill unused channels with dummy data in SendMultiplexedData
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendMultiplexedData(System.UInt16[])">
+            <summary>
+Sends stimulus data in multiplexed form. All 16 bits words for the enabled DAC and digital channels are muxed together per time slice.
+</summary>
+            <param name="data">Array of data to be sent.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearMultiplexedData">
+            <summary>
+Clears the Stimulation Memory in the STG device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.CreateSideband(System.Int32[],System.Int32[],System.UInt64[],System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Creates the Sideband Channel for the MEA2100 device.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+A value 0 means that the stimulation is active during that time.
+A value 1 means that the stimulation is not active during that time.
+</para>
+
+The duration is given as a list of 64 bit integers. Durations
+are given in units of Âµs. The STG has a resolution of 20 Âµs.
+</summary>
+            <param name="StimulusActive">A list of datapoints which define weather the Stimulus is active or idle at that time as int32.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of Âµs.</param>
+            <param name="Bit0Time">Time in Âµs for which Bit 0 (Blanking) is to be extended.</param>
+            <param name="Bit3Time">Time in Âµs for which Bit 3 (Stimulus Enable) is to be extended.</param>
+            <param name="Bit4Time">Time in Âµs for which Bit 4 (Stimulus Selector) is to be extended.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and append data to a given channel on the STG.
+</summary>
+            <para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para>
+            <para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of Âµs. The STG has a resolution of 20 Âµs.
+</para>
+            <para>
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</para>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
+            <summary>
+Prepare and send data to a given channel on the STG. Previous data sent to that channel is erased first.
+
+<para>
+Each datapoint is 
+represented by an signed 32bit integer value.
+When using voltage stimulation, the values are in multiple of 1 uV, thus the possible range is += 2000 V.
+When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
+</para><para>
+The duration is given as a list of 64 bit integers. Durations
+are given in units of Âµs. The STG has a resolution of 20 Âµs.
+</para>
+
+Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
+The end of such an block is marked by an entry where the duration is set to zero and the amplitude beeing set to the number of
+times the block should run.
+Blocks can be nested.
+</summary>
+            <param name="channel">The channel number to send data to.</param>
+            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearSyncData(System.Int32)">
+            <summary>
+Delete a Syncout Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ClearChannelData(System.Int32)">
+            <summary>
+Delete a Stimulus Pattern from STG memory
+</summary>
+            <param name="channel"> specifies the channel to clear.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32,System.Int32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+            <param name="options">bitmap of options, currently only STOP_OPTION_SAVESTOP (0x80) is defined, which bypasses the stop commands when a syncout assossiated with a given sync-out has bit 1 (0x02) set. Can be used e.g. to  prevent a stop while a biphasic stimulation pulse is active..</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStop(System.UInt32)">
+            <summary>
+Stop some or all triggers of the STG.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be stopped.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SendStart(System.UInt32)">
+            <summary>
+Start (Trigger) the STG.
+The startup delay is in the range of a few ms.
+</summary>
+            <param name="triggermap">A bitmap of triggers which will be started.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.ForceStatusEvent">
+            <summary>
+Force a status event.
+Force the DLL to create a PollMessage event and to call the
+pPollCallback function, even if no new status information is available.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StopPoll">
+            <summary>
+Stops the interrupt fetching thread and delivers events
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StartPoll">
+            <summary>
+Starts the interrupt fetching thread and delivers events
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Finalize">
+            <summary>
+Finalizer: called by GC before collecting
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.SidebandData.Dispose">
+            <summary>
+Destructor: called by Dispose()
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Finalize">
+            <summary>
+Finalizer: called by GC before collecting
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.StimulusDeviceDataAndUnrolledData.Dispose">
+            <summary>
+Destructor: called by Dispose()
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CDacCalibrationFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMeFunctionNet">
+            <summary />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="queue">Handle of the queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of data from the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.IsDigitalChannelDedicated">
+            <summary>
+Query if the digital channel replaces an analog channel when enabled (e.g. on MC_Card) or adds a channel link on USB devices.
+</summary>
+            <returns>false when the digital channel replaces an analog channel when enabled, true when the digital channels is appended to the analog channels when enabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWDigitalChannels(System.Int32@)">
+            <summary>
+Get the number of digital channels the device supports.
+</summary>
+            <param name="numberOfChannels">Number of digital channels the device supports.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWADCChannels(System.Int32@)">
+            <summary>
+Get the number of analog channels the device supports.
+</summary>
+            <param name="numberOfChannels">Number of analog channels the device supports.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="T:Mcs.Usb.CMcsUsbDacqNet.CHWInfo">
+            <summary>
+Class to provide hardware information about the device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetGroupChannelDataUI16(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="group">Group selector supported by the device.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint32_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of int16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesDictUI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format, that contains subqueues,
+each populates an entry in the dictionary by hardware channel number
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedChannelsQueue call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Dictonary of uint16_t arrays and hardware channel as key.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint32_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of int16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="queue">Number of the sub queue.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadAsFrameArrayUI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue as array of uint16_t data frame arrays
+</summary>
+            <param name="handle">Handle of the FIFO queue. Zero when the SetSelectedData call was used.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of uint16_t frame arrays.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="buffer">Buffer to put the data from the device in.</param>
+            <param name="frames_pos">Position in buffer where to put the data.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.UInt32[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="buffer">Buffer to put the data from the device in.</param>
+            <param name="frames_pos">Position in buffer where to put the data.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint32_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int16[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="buffer">Buffer to put the data from the device in.</param>
+            <param name="frames_pos">Position in buffer where to put the data.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in int16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.UInt16[],System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="buffer">Buffer to put the data from the device in.</param>
+            <param name="frames_pos">Position in buffer where to put the data.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+Read data from a FIFO queue in uint16_t data format
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="frames">Number of sample frames to read.</param>
+            <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
+            <returns>Array of data from the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_AvailFrames(System.Int32)">
+            <summary>
+Get the number of sample frames already available in the FIFO.
+</summary>
+            <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <returns>Number of sample frames available in the FIFO.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
+            <summary>
+Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nByteOffset">Number of bytes to start with.</param>
+            <param name="nChannelOffset">Number of channel to start with (counted in samplesize bytes).</param>
+            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <returns>The handle to the Queue.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet)">
+            <summary>
+Adds a common FIFO queue for all channels. Data in callback will be a list per channel. Use ChannelBlock_ReadFramesDict... with handle = 0 to read the data.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nByteOffset">Number of bytes to start with.</param>
+            <param name="nChannelOffset">Number of channel to start with (counted in samplesize bytes).</param>
+            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <returns>The handle to the Queue.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedData(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a common FIFO queue for all channels. Use handle = 0 in the ChannelBlock_ReadFrames... functions.
+</summary>
+            <remarks>
+When using 32 bit data format, ChannelsInBlock is still the number of 16 bit channels per frame, as obtained 
+from GetChannelsInBlock, while nChannels is the number of 32 bit channels to be read from the device.
+So when all channels from a device are read in 32 bit data format nChannels = ChannelsInBlock/2
+</remarks>
+            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
+</summary>
+            <remarks>
+When using a 32bit sample size, the number obtained from GetChannelsInBlock must be devided by 2 to be used here,
+since GetChannelsInBlock returns the number of 16 bit datapoints per sample frame, while this functions uses
+the number of sample frames in its own data format.
+</remarks>
+            <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSelectedChannels(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,System.Int32)">
+            <summary>
+Create a FIFO queue per channel. Each channel will have its own FIFO and Callback function.
+</summary>
+            <remarks>
+When using a 32bit sample size, the number obtained from GetChannelsInBlock must be devided by 2 to be used here,
+since GetChannelsInBlock returns the number of 16 bit datapoints per sample frame, while this functions uses
+the number of sample frames in its own data format.
+</remarks>
+            <param name="nChannels">Number of channels to be collected in the FIFO.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq(System.UInt32)">
+            <summary>
+Stop the data acquisition thread and sampling.
+</summary>
+            <param name="virtualDevice">Virtual Device to start.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StopDacq">
+            <summary>
+Stop the data acquisition thread and sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+Start the data acquisition thread and sampling.
+</summary>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+            <param name="virtualDevice">Virtual Device to start.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Start the data acquisition thread and sampling.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq(System.Int32)">
+            <summary>
+Start the data acquisition thread and sampling.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartDacq">
+            <summary>
+Start the data acquisition thread and sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+Start the data acquisition thread.
+</summary>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+            <param name="virtualDevice">Virtual Device to start.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+Start the data acquisition thread.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+            <param name="numSubmittedUsbBuffers">Number of USB Buffers that are simultaniously submitted.</param>
+            <param name="numUsbBuffers">Number of USB Buffers to use.</param>
+            <param name="packetsInUrb">Packets in each URB.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop(System.Int32)">
+            <summary>
+Start the data acquisition thread.
+</summary>
+            <param name="timeout">Timeout in ms.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.StartLoop">
+            <summary>
+Start the data acquisition thread.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacqWithOptions(System.UInt32,System.Int32,System.Int32)">
+            <summary>
+Stop sampling together with the STG and options.
+</summary>
+            <param name="trigger_map" />
+            <param name="options" />
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopStgAndDacq(System.UInt32,System.Int32)">
+            <summary>
+Stop sampling together with the STG.
+</summary>
+            <param name="trigger_map" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq(System.Int32)">
+            <summary>
+Stop sampling.
+<param name="VirtualDacqMap" /></summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStopDacq">
+            <summary>
+Stop sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartStgAndDacq(System.UInt32,System.Int32)">
+            <summary>
+Start sampling together with the STG.
+</summary>
+            <param name="trigger_map" />
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq(System.Int32)">
+            <summary>
+Start sampling.
+</summary>
+            <param name="VirtualDacqMap" />
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SendStartDacq">
+            <summary>
+Start sampling.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelsInBlock(System.UInt32)">
+            <summary>
+Get the number of 16 bit datawords which will be collected per sample frame, use after the device is configured.
+</summary>
+            <returns>Number of 16 bit datawords per sample frame.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMinSamplingFrequencyStepsize">
+            <summary>
+Gets the minimal sampling frequency step size increment value of the device.
+</summary>
+            <returns>Sampling frequency step size in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMaxSamplingFrequency(System.Int32)">
+            <summary>
+Gets the maximal sampling frequency of the device.
+</summary>
+            <returns>Sampling frequency in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.set_Samplerate(System.Int32)">
+            <summary>
+Sets the sampling frequency of the device.
+</summary>
+            <param name="rate">Sampling frequency in Hz.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.get_Samplerate">
+            <summary>
+Gets the sampling frequency of the device.
+</summary>
+            <returns>Sampling frequency in Hz.</returns>
+        </member>
+        <member name="P:Mcs.Usb.CMcsUsbDacqNet.Samplerate">
+            <summary>
+The sampling frequency of the device in Hz.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetSamplerate(System.UInt32)">
+            <summary>
+Gets the sampling frequency of the device.
+</summary>
+            <returns>Sampling frequency in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetSamplerate(System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+Sets the sampling frequency of the device.
+</summary>
+            <param name="rate">Sampling frequency in Hz.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetNumberOfDataBits(System.UInt32,Mcs.Usb.DacqGroupChannelEnumNet,System.Int32@)">
+            <summary>
+Get the real number of data bits.
+</summary>
+            <remarks>
+This value may be different from the value returned by GetDataFormat, e.g. in MC_Card the data are shifted 2 bits
+so the real number is 14 while the data format is 16 bits
+</remarks>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdcDataFormat(System.UInt32)">
+            <summary>
+Gets the ADC data format, 16 means 16 bits, 24 means 24 bits, 32 means 32 bits.
+</summary>
+            <returns>The data format in bits.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetMeaLayout">
+            <summary>
+Gets the MEA layout which is connected to the MEA2100 device.
+</summary>
+            <returns>MeaLayoutEnumNet which enumerates the MEA types.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetAdapterType">
+            <summary>
+Gets the adapter which is connected to the MEA2100 device.
+</summary>
+            <returns>AdapterTypeEnumNet which enumerates the possible adapters.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource``1(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSource`1{``0}@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This is the templated generic implementation.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100_256DigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the MEA2100-256 device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the SCU device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the W2100 device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the MEA2100 device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource``1(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSource`1{``0},System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This is the templated generic implementation.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100_256DigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the MEA2100-256 device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.SCUDigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the SCU device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.W2100DigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the W2100 device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the MEA2100 device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDataMode(System.UInt32)">
+            <summary>
+Gets the data mode, can be 16, 24 or 32bit, all signed or unsigned on the MEA2100 device.
+</summary>
+            <param name="virtualDevice">Virtual device to use.</param>
+            <returns>DataModeEnumNet which enumerates the possible data modes.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDataMode(Mcs.Usb.DataModeEnumNet,System.UInt32)">
+            <summary>
+Sets the data mode, can be 16, 24 or 32bit, all signed or unsigned on the MEA2100 device.
+</summary>
+            <param name="dataMode">DataModeEnumNet enumerates the possible data modes.</param>
+            <param name="virtualDevice">Virtual device to use.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMilliVolt">
+            <summary>
+Gets the currently selected voltage range on devices which support multiple voltage ranges.
+</summary>
+            <returns>The rounded Voltage Range in mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetVoltageRangeInMicroVolt(System.UInt32)">
+            <summary>
+Gets the currently selected voltage range on devices which support multiple voltage ranges.
+</summary>
+            <returns>The Voltage Range in uV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetVoltageRangeInMicroVolt(System.Int32,System.UInt32)">
+            <summary>
+Sets the voltage range on devices which support multiple voltage ranges.
+</summary>
+            <param name="voltageRange">Voltage Range to use in ÂµV.</param>
+            <remarks>This replaces SetVoltageRange, where the value of the range was in mV!</remarks>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetVoltageRangeByIndex(System.Int32,System.UInt32)">
+            <summary>
+Sets the voltage range on devices which support multiple voltage ranges.
+</summary>
+            <param name="voltageRangeIndex">Voltage Range to use as index, smaller values are larger voltage ranges.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbNet.GetStatusOfLastCommand">
             <summary>
@@ -5980,6 +6016,11 @@ The Product ID of the device represented by this CMcsUsbListEntryNet.
         <member name="P:Mcs.Usb.CMcsUsbListEntryNet.Manufacturer">
             <summary>
 The Manufacturer ID of the device represented by this CMcsUsbListEntryNet.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.IoVoltageEnumNet">
+            <summary>
+enumerates the I/O Voltages available on the IFB2
 </summary>
         </member>
         <member name="T:Mcs.Usb.DigitalDatastreamEnableEnumNet">
