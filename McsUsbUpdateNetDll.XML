@@ -155,18 +155,33 @@
             Gets or sets a value indicating whether entries are written with blanks around the '='
             </summary>
         </member>
-        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor">
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
             </summary>
+            <param name="caseSensitive">If the section name should be case sensitive</param>
         </member>
-        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.String)">
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.Text.Encoding,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
             </summary>
-            <param name="fileName">
-            The file name.
-            </param>
+            <param name="encoding">The encoding of the file</param>
+            <param name="caseSensitive">If the section name should be case sensitive</param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            </summary>
+            <param name="fileName">The file name.</param>
+            <param name="caseSensitive">If the section name should be case sensitive</param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            </summary>
+            <param name="fileName">The file name.</param>
+            <param name="encoding">The encoding of the file</param>
+            <param name="caseSensitive">If the section name should be case sensitive</param>
         </member>
         <member name="P:Mcs.ToolsSrc.IniFileHandler.Item(System.String)">
             <summary>

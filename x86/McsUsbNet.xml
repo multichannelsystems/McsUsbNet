@@ -1814,7 +1814,7 @@ On the Multiwell Mini device, turn Power to the MUX Plate On or Off.
             <param name="Headstage">The headstage to query.</param>
             <param name="powerOn">"true" to turn Power On, "false" to turn Power Off</param>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValidByHeadstage(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.IsPlateTypeValid(System.UInt32)">
             <summary>
 Checks whether the plate type is valid, meaning all pins have contact.
 </summary>
@@ -1827,7 +1827,7 @@ Checks whether the plate type is valid, meaning all pins have contact.
 </summary>
             <returns>"true" when all pins have contact, otherwise "false".</returns>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateMuxByHeadstage(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateMux(System.UInt32)">
             <summary>
 Gets the selected quarter of the electrodes on a high density Multiwell plate.
 </summary>
@@ -1840,7 +1840,7 @@ Gets the selected quarter of the electrodes on a high density Multiwell plate.
 </summary>
             <returns>the selected quarter</returns>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMuxByHeadstage(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateMux(System.UInt32,System.UInt32)">
             <summary>
 Selects a one quarter of the electrodes on a high density Multiwell plate.
 </summary>
@@ -1853,7 +1853,7 @@ Selects a one quarter of the electrodes on a high density Multiwell plate.
 </summary>
             <param name="muxSelection">the selected quarter</param>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateTypeByHeadstage(System.UInt32,Mcs.Usb.MultiwellPlateTypeEnumNet)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(System.UInt32,Mcs.Usb.MultiwellPlateTypeEnumNet)">
             <summary>
 Sets the plate type.
 </summary>
@@ -1866,7 +1866,7 @@ Sets the plate type.
 </summary>
             <param name="plateType">the plate type</param>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateTypeByHeadstage(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateType(System.UInt32)">
             <summary>
 Gets the plate type.
 </summary>
@@ -1910,7 +1910,7 @@ Closes the plate clamp.
 Opens the plate clamp.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampStateByHeadstage(System.UInt32)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPlateClampState(System.UInt32)">
             <summary>
 Gets the state of the plate
 </summary>
@@ -2316,6 +2316,134 @@ Retrives version info from a Firmware update file.
 </summary>
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.UInt32,System.Int32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vds" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.Int32)">
+            <summary />
+            <param name="Vds" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.UInt32,System.Int32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vgs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.Int32)">
+            <summary />
+            <param name="Vgs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVs(System.UInt32,System.Int32,System.Int32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVs(System.Int32,System.Int32)">
+            <summary />
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.UInt32,System.Int16,System.Int16)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="offset_vd" />
+            <param name="offset_vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.Int16,System.Int16)">
+            <summary />
+            <param name="offset_vd" />
+            <param name="offset_vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetDACOffset(System.UInt32,System.Int16@,System.Int16@)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="offset_vd" />
+            <param name="offset_vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetDACOffset(System.Int16@,System.Int16@)">
+            <summary />
+            <param name="offset_vd" />
+            <param name="offset_vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageResolution(System.UInt32,System.Int32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="resolution" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageResolution(System.Int32)">
+            <summary />
+            <param name="resolution" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageResolution(System.UInt32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageResolution">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageRange(System.UInt32,System.Int32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="range" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageRange(System.Int32)">
+            <summary />
+            <param name="range" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageRange(System.UInt32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageRange">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageReached(System.UInt32)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageReached">
+            <summary />
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVsDAC(System.UInt32,System.Int16,System.Int16)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVsDAC(System.Int16,System.Int16)">
+            <summary />
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVsDAC(System.UInt32,System.Int16@,System.Int16@)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVsDAC(System.Int16@,System.Int16@)">
+            <summary />
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CGrapheneFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CGrapheneFunctionNet">
+            <summary>
+CGrapheneFunctionNet is the class to control the TEER device
+</summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceTesterFunctionNet.SetIODirection(System.Int32)">
             <summary>
