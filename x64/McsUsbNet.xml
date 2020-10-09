@@ -272,30 +272,6 @@ Connect to a Imp device with a certain ID
 CPositionImpDeviceNet is the class to access the Position/Imp devices
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.IsPlateTypeValidByHeadstage(System.UInt32)">
-            <summary>
-Checks whether the plate type is valid, meaning all pins have contact.
-</summary>
-            <param name="Headstage">The headstage to query.</param>
-            <returns>"true" when all pins have contact, otherwise "false".</returns>
-        </member>
-        <member name="E:Mcs.Usb.CMultiwellCallbackFunctionNet.IsPlateTypeValidByHeadstageEvent">
-            <summary>
-Event fires when "true" when all pins have contact, otherwise "false" for the headstage to query has changed
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateTypeByHeadstage(System.UInt32)">
-            <summary>
-Gets the plate type.
-</summary>
-            <param name="Headstage">The headstage to query.</param>
-            <returns>the plate type</returns>
-        </member>
-        <member name="E:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateTypeByHeadstageEvent">
-            <summary>
-Event fires when the plate type for the headstage to query has changed
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateClampStateByHeadstage(System.UInt32)">
             <summary>
 Gets the state of the plate
@@ -1006,6 +982,79 @@ Delegate to show a device arrival or removal.
             <summary>
 CGrapheneFunctionNet is the class to control the TEER device
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetEventData(System.UInt16@,System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.UInt16@,System.UInt16@,System.UInt16@)">
+            <summary>
+get the oldest event entry
+</summary>
+            <param name="index">the event index number</param>
+            <param name="year">the year</param>
+            <param name="month">the month</param>
+            <param name="day">the day</param>
+            <param name="hour">the hour</param>
+            <param name="minute">the minute</param>
+            <param name="second">the second</param>
+            <param name="coil">the coil</param>
+            <param name="type">the event type</param>
+            <param name="value">the even value</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.SetStateEventData(System.UInt32)">
+            <summary>
+clears/starts/stops the event queue for a certain coil
+</summary>
+            <param name="state">clear/start/stop</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetStateEventData">
+            <summary>
+get the event queue state
+</summary>
+            <returns>the state</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetDebugData(System.UInt16,System.UInt16@,System.UInt16@,System.UInt16@,System.UInt16@)">
+            <summary>
+get the oldest debug entry for a certain coil
+</summary>
+            <param name="coil">the coil</param>
+            <param name="index">the debug entry index number</param>
+            <param name="voltage">the voltage applied</param>
+            <param name="numberofpulses">the number of pulses detected</param>
+            <param name="mediantime">the median time between pulses</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.SetStateDebugData(System.UInt16,System.UInt32)">
+            <summary>
+clears/starts/stops the debug queue for a certain coil
+</summary>
+            <param name="coil">the coil</param>
+            <param name="state">clear/start/stop</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetStateDebugData(System.UInt16)">
+            <summary>
+get the debug queue state
+</summary>
+            <param name="coil">the coil</param>
+            <returns>the state</returns>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.SetRTC(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+Set the RTC
+</summary>
+            <param name="year">the year</param>
+            <param name="month">the month</param>
+            <param name="day">the day</param>
+            <param name="hour">the hour</param>
+            <param name="minute">the minute</param>
+            <param name="second">the second</param>
+        </member>
+        <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetRTC(System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+Get the RTC
+</summary>
+            <param name="year">the year</param>
+            <param name="month">the month</param>
+            <param name="day">the day</param>
+            <param name="hour">the hour</param>
+            <param name="minute">the minute</param>
+            <param name="second">the second</param>
         </member>
         <member name="M:Mcs.Usb.CPositionIIDeviceNet.GetImplantResult(System.UInt16)">
             <summary>
