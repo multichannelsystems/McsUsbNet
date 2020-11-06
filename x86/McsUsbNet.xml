@@ -2346,6 +2346,17 @@ Retrives version info from a Firmware update file.
             <param name="Vd" />
             <param name="Vs" />
         </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.UInt32,System.Int32@,System.Int32@)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.Int32@,System.Int32@)">
+            <summary />
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.UInt32,System.Int16,System.Int16)">
             <summary />
             <param name="Headstage">The headstage to query.</param>
@@ -4854,6 +4865,18 @@ Initializes a new instance of the <see cref="T:Mcs.Usb.CSafeISDeviceNet" /> clas
         </member>
         <member name="T:Mcs.Usb.CMeFunctionNet">
             <summary />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetSampleRate">
+            <summary>
+returns sample rate in Hz
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetFrameErrorCounter">
+            <summary>
+returns number of times (since bootup) sample memory got overwritten
+</summary>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CTEERFunctionNet.GetAdcOffsetU2">
             <summary>

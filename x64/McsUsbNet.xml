@@ -884,6 +884,17 @@ Delegate to show a device arrival or removal.
             <param name="Vd" />
             <param name="Vs" />
         </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.UInt32,System.Int32@,System.Int32@)">
+            <summary />
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.Int32@,System.Int32@)">
+            <summary />
+            <param name="Vd" />
+            <param name="Vs" />
+        </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.UInt32,System.Int16,System.Int16)">
             <summary />
             <param name="Headstage">The headstage to query.</param>
@@ -2768,6 +2779,18 @@ gets number of channels in datastream from chamber amp with given index
             <summary>
 CWarnerUssingFunctionNet is the class to control the Ussing device
 </summary>
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetSampleRate">
+            <summary>
+returns sample rate in Hz
+</summary>
+            <returns />
+        </member>
+        <member name="M:Mcs.Usb.CTEERFunctionNet.GetFrameErrorCounter">
+            <summary>
+returns number of times (since bootup) sample memory got overwritten
+</summary>
+            <returns />
         </member>
         <member name="M:Mcs.Usb.CTEERFunctionNet.GetAdcOffsetU2">
             <summary>
