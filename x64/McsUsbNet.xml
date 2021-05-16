@@ -412,6 +412,20 @@ Has galvanic isolated hardware
 </summary>
             <returns>Enabled</returns>
         </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetHeadstagePowerStateAtStart(System.UInt32,System.Boolean)">
+            <summary>
+Sets the Power Status at SCU Power on of a given headstage.
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <param name="Powerstatus">The Power State at startup for the given headstage: bool false -&gt; off, bool true -&gt; on.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstagePowerStateAtStart(System.UInt32)">
+            <summary>
+Gets the Power Status at SCU Power on of a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The Power State at startup for the given headstage: bool false -&gt; off, bool true -&gt; on.</returns>
+        </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageSamplerate(System.UInt32)">
             <summary>
 Gets the Samplerate of a given headstage.
@@ -2804,6 +2818,14 @@ sets P value of PID controller;
             <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
             <param name="P">useful value: 130000</param>
         </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseMarker(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
+        </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseRepetitions(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
             <summary>
 PRIVATE function
@@ -2828,7 +2850,7 @@ PRIVATE function
             <param name="StgMode">voltage or current clamp stimulation</param>
             <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
         </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32,System.Int32[],System.Int32[])">
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32,System.Int32[],System.Int32[],System.Int32[])">
             <summary>
 defines stimulation pulse pattern for voltage or current stimulation; CAUTION: zero-length amplitude will be briefly applied -&gt; choose matching to neighbour to avoid spikes
 </summary>
@@ -2837,6 +2859,7 @@ defines stimulation pulse pattern for voltage or current stimulation; CAUTION: z
             <param name="NumberOfRepetitions">number of repetitions for pulse pattern (-1 for infinite; n means pattern is applied n+1 times)</param>
             <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
             <param name="Durations">duration in 100us; CAUTION: first element is applied only one; auto-loop back to second element after last one</param>
+            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
         </member>
         <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsChamberAvailable(System.Int32)">
             <summary>
