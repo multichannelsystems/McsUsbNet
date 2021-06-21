@@ -2815,6 +2815,18 @@ Connect to a Imp device with a certain ID
 CPositionImpDeviceNet is the class to access the Position/Imp devices
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.WriteUARTData(System.String)">
+            <summary>
+Write the command string to the device.
+</summary>
+            <param name="commandString">The config string.</param>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.ReadUARTData">
+            <summary>
+Reads the config string from the device.
+</summary>
+            <returns>The config string.</returns>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetAudioOutDacParameter(System.UInt32@,System.UInt32@)">
             <summary>
 Gets the parameter of the audio DAC output.
@@ -4068,6 +4080,33 @@ Read data from a FIFO queue in uint16_t data format
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
             <returns>Array of data from the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetAvailableVoltageRangesInMicroVoltAndStringsInMilliVolt(System.Int32)">
+            <summary>
+Gets a List of voltage ranges the device supports.
+</summary>
+            <remarks>
+The List is scaled by the gain factor given as argument to this function.
+Use "1000" as scale factor for backwards compatibility.
+Each list entry contains the voltage range as an integer and as a string.
+To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
+To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
+</remarks>
+            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
+            <returns>List of voltage ranges in µV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetAvailableVoltageRangesInMicroVolt(System.Int32)">
+            <summary>
+Gets a List of voltage ranges the device supports.
+</summary>
+            <remarks>
+The List is scaled by the gain factor given as argument to this function.
+Use "1000" as scale factor for backwards compatibility.
+To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
+To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
+</remarks>
+            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
+            <returns>List of voltage ranges in µV.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.IsDigitalChannelDedicated">
             <summary>
