@@ -150,6 +150,11 @@
             Class to handle ini files
             </summary>
         </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.IsSectionNameCaseSensitive">
+            <summary>
+            Gets a value indicating whether the section name is case sensitive.
+            </summary>
+        </member>
         <member name="P:Mcs.ToolsSrc.IniFileHandler.WriteWithBlanks">
             <summary>
             Gets or sets a value indicating whether entries are written with blanks around the '='
@@ -183,16 +188,107 @@
             <param name="encoding">The encoding of the file</param>
             <param name="caseSensitive">If the section name should be case sensitive</param>
         </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.IO.Stream,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            Allows input of a stream instead of a file name, so that e.g. a string can be used.
+            Reads the ini file contents and fills the internal data structures
+            Default encoding is UTF8.
+            </summary>
+            <param name="stream">
+            The stream.
+            <param name="caseSensitive">If the section name should be case sensitive</param>
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.#ctor(System.IO.Stream,System.Text.Encoding,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mcs.ToolsSrc.IniFileHandler"/> class.
+            Allows input of a stream instead of a file name, so that e.g. a string can be used.
+            Default encoding is UTF8
+            </summary>
+            <param name="stream">
+            The stream.
+            </param>
+            <param name="encoding">The encoding of the stream</param>
+            <param name="caseSensitive">If the section name should be case sensitive</param>
+        </member>
         <member name="P:Mcs.ToolsSrc.IniFileHandler.Item(System.String)">
             <summary>
             The indexer for a section. Gets all entries of the section
             </summary>
-            <param name="section">
+            <param name="sectionName">
             The section name.
             </param>
             <returns>
             The entries of the section <see cref="T:Mcs.ToolsSrc.IniFileSection"/>.
             </returns>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.AddSection(System.String)">
+            <summary>
+            Inserts a section explicitly, if it does not exist.
+            Since the indexer only adds a section on writing a key to prevent empty section, this call allows to add explicitly a section that is initially empty
+            </summary>
+            <param name="sectionName">
+            The section name.
+            </param>
+            <returns>
+            The entries of the section <see cref="T:Mcs.ToolsSrc.IniFileSection"/>.
+            </returns>
+        </member>
+        <member name="P:Mcs.ToolsSrc.IniFileHandler.SectionNames">
+            <summary>
+            Gets the section names.
+            </summary>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save">
+            <summary>
+            Save with the filename set in the constructor. Also creates directories if they do not exist
+            </summary>
+            <exception cref="T:System.IO.FileNotFoundException">
+            thrown if the file name was not set (is string.empty)
+            </exception>
+            <remarks>other exceptions may be thrown and must be handled by the application
+            </remarks>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.String)">
+            <summary>
+            Save the file.
+            </summary>
+            <param name="fileName">
+            The file name.
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.String,System.Text.Encoding)">
+             <summary>
+             Save the file with the given encoding
+             </summary>
+             <param name="fileName">
+             The file name.
+             </param>
+             <param name="encoding">
+             The encoding.
+             </param>
+            
+             
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.IO.Stream)">
+            <summary>
+            Save ini file with default encoding UTF8
+            </summary>
+            <param name="stream">
+            The stream to save to, must not be null
+            </param>
+        </member>
+        <member name="M:Mcs.ToolsSrc.IniFileHandler.Save(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Save ini file with the given encoding
+            </summary>
+            <param name="stream">
+            The stream to save to, must not be null
+            </param>
+            <param name="encoding">
+            The encoding.
+            </param>
         </member>
     </members>
 </doc>
