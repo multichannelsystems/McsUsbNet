@@ -134,7 +134,7 @@ When using current stimulation, the values are in multiple of 1 nA, this the pos
 </para>
             <para>
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </para>
             <para>
 Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
@@ -143,8 +143,8 @@ times the block should run.
 Blocks can be nested.
 </para>
             <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
             <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
@@ -159,7 +159,7 @@ When using current stimulation, the values are in multiple of 1 nA, this the pos
 </para>
             <para>
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </para>
             <para>
 Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
@@ -168,8 +168,8 @@ times the block should run.
 Blocks can be nested.
 </para>
             <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
             <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.PrepareAndSendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
@@ -184,7 +184,7 @@ When using current stimulation, the values are in multiple of 1 nA, this the pos
 </para>
             <para>
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </para>
             <para>
 Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
@@ -193,8 +193,8 @@ times the block should run.
 Blocks can be nested.
 </para>
             <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
             <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadNet.#ctor(Mcs.Usb.OnStgPollStatus)">
@@ -854,11 +854,11 @@ Sends datapoints to a given channel on the STG.
  Bits 13 to 15 have to be zero.
 <para />
  The duration is given as a list of 64 bit integers. Durations
- are given in units of Âµs. The STG has a resolution of 20 Âµs.
+ are given in units of µs. The STG has a resolution of 20 µs.
 </summary>
             <param name="channel">Specifies the channel to append the data to.</param>
             <param name="pData">A list of datapoints.</param>
-            <param name="tData">A list of durations as int64_t. The time is given in units of Âµs.</param>
+            <param name="tData">A list of durations as int64_t. The time is given in units of µs.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ClearChannelData(System.UInt32)">
             <summary>
@@ -877,13 +877,13 @@ Sync output data previously sent to the channel is overwritten.
 Each datapoint is represented by an integer value and can be either 0 or 1.
 <para />
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 If your application can not handle 64 bit integers, use the
 STG200x_SendSyncData32() call instead.
 </summary>
             <param name="channel">Specifies the sync output channel to append the data to.</param>
             <param name="pData">A list of datapoints.</param>
-            <param name="tData">A list of durations as int64_t. The time is given in units of Âµs.</param>
+            <param name="tData">A list of durations as int64_t. The time is given in units of µs.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xDownloadBasicNet.ClearSyncData(System.UInt32)">
             <summary>
@@ -1025,6 +1025,61 @@ Set the amplification factor for a DAC.
 </summary>
             <param name="DacNumber">The number of the DAC.</param>
             <param name="Factor">the amplifcation factor for that DAC, range is from -1.99999 to +1.99999.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.ListModeSendStop(System.UInt32)">
+            <summary>
+Deactivate the Listmode for the selected electrode groups.
+</summary>
+            <param name="electrodeGroupMask">The bitmask of electrodegroups for which the listmode is deactivated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.ListModeSendStart(System.UInt32)">
+            <summary>
+Activate (arm) the Listmode for the selected electrode groups.
+</summary>
+            <param name="electrodeGroupMask">The bitmask of electrode groups for which the listmode is activated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetListmodeTriggerSource(System.UInt32)">
+            <summary>
+Query the currently active signal which triggers the transition from one list mode entry to the next.
+For triggersource use the Enum which corresponds to the device in use, for example use SCUDigitalSourceEnumNet and cast to TriggerSourceEnumNet if working with an SCU device.
+</summary>
+            <param name="electrodeGroup">The electrodegroup for which the triggersource is queried.</param>
+            <returns>One of the possible sources for the transition.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetListmodeTriggerSource(System.UInt32,Mcs.Usb.TriggerSourceEnumNet,System.Int32)">
+            <summary>
+Define the signal which triggers the transition from one list mode entry to the next. After reaching the last entry in the list, the first entry is selected.
+For triggersource use the Enum which corresponds to the device in use, for example use <typeparamref name="SCUDigitalSourceEnumNet" /> and cast to <typeparamref name="TriggerSourceEnumNet" /> if working with an SCU device.
+</summary>
+            <param name="electrodeGroup">The electrodegroup for which the triggersource is defined.</param>
+            <param name="triggersource">One of the possible sources for the transition.</param>
+            <param name="bitnumOffset">Number to add to the numeric value of the <paramref name="triggersource" /> enum.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetListmodeTriggerSource(System.UInt32,Mcs.Usb.TriggerSourceEnumNet)">
+            <summary>
+Define the signal which triggers the transition from one list mode entry to the next. After reaching the last entry in the list, the first entry is selected.
+For triggersource use the Enum which corresponds to the device in use, for example use <typeparamref name="SCUDigitalSourceEnumNet" /> and cast to <typeparamref name="TriggerSourceEnumNet" /> if working with an SCU device.
+</summary>
+            <param name="electrodeGroup">The electrodegroup for which the triggersource is defined.</param>
+            <param name="triggersource">One of the possible sources for the transition.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetListmodeIndexRange(System.UInt32,System.UInt32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt32*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+Query the range of list mode indexes to use for the given electrode group.
+</summary>
+            <param name="electrodeGroup">The electrodegroup for which the range is queried.</param>
+            <param name="startIndex">The index of the first active element in the listmode list.</param>
+            <param name="endIndex">The index of the last active element in the listmode list.</param>
+            <param name="mode">0 for "start with startIndex", 1 for "start with endIndex".</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetListmodeIndexRange(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+Define the range of list mode indexes to use for the given electrode group.
+</summary>
+            <param name="electrodeGroup">The electrodegroup for which the range is defined.</param>
+            <param name="startIndex">The index of the first active element in the listmode list.</param>
+            <param name="endIndex">The index of the last active element in the listmode list.</param>
+            <param name="mode">0 for "start with startIndex", 1 for "start with endIndex".</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetEnableAmplifierProtectionSwitch(System.UInt32,System.UInt32)">
             <summary>
@@ -2376,143 +2431,156 @@ Retrives version info from a Firmware update file.
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
         </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetCur2VolResistance(System.UInt32)">
+            <summary>
+Gets the resistance of the current to voltage converter
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The resistance in Ohm</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetCur2VolResistance">
+            <summary>
+Gets the resistance of the current to voltage converter
+</summary>
+            <returns>The resistance in Ohm</returns>
+        </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.UInt32,System.Int32)">
             <summary>
 Sets Vds
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vds">Vds</param>
+            <param name="Vds">Vds in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.Int32)">
             <summary>
 Sets Vds
 </summary>
-            <param name="Vds">Vds</param>
+            <param name="Vds">Vds in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.UInt32,System.Int32)">
             <summary>
 Sets Vgs
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vgs">Vgs</param>
+            <param name="Vgs">Vgs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.Int32)">
             <summary>
 Sets Vgs
 </summary>
-            <param name="Vgs">Vgs</param>
+            <param name="Vgs">Vgs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVs(System.UInt32,System.Int32,System.Int32)">
             <summary>
 Sets Vd and Vs
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in µV</param>
+            <param name="Vs">Vs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVs(System.Int32,System.Int32)">
             <summary>
 Sets Vd and Vs
 </summary>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in µV</param>
+            <param name="Vs">Vs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.UInt32,System.Int32@,System.Int32@)">
             <summary>
 Gets Vd and Vs
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in µV</param>
+            <param name="Vs">Vs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVs(System.Int32@,System.Int32@)">
             <summary>
 Gets Vd and Vs
 </summary>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in µV</param>
+            <param name="Vs">Vs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.UInt32,System.Int16,System.Int16)">
             <summary>
 Set the DAC offset
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="offset_vd">Vd</param>
-            <param name="offset_vs">Vs</param>
+            <param name="offset_vd">Vd offset in DAC Units</param>
+            <param name="offset_vs">Vs offset in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetDACOffset(System.Int16,System.Int16)">
             <summary>
 Sets the DAC offset
 </summary>
-            <param name="offset_vd">Vd</param>
-            <param name="offset_vs">Vs</param>
+            <param name="offset_vd">Vd offset in DAC Units</param>
+            <param name="offset_vs">Vs offset in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetDACOffset(System.UInt32,System.Int16@,System.Int16@)">
             <summary>
 Gets the DAC offset
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="offset_vd">Vd offset</param>
-            <param name="offset_vs">Vs offset</param>
+            <param name="offset_vd">Vd offset in DAC Units</param>
+            <param name="offset_vs">Vs offset in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetDACOffset(System.Int16@,System.Int16@)">
             <summary>
 Gets the DAC offset
 </summary>
-            <param name="offset_vd">Vd offset</param>
-            <param name="offset_vs">Vs offset</param>
+            <param name="offset_vd">Vd offset in DAC Units</param>
+            <param name="offset_vs">Vs offset in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageResolution(System.UInt32,System.Int32)">
             <summary>
 Sets the voltage resolution
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="resolution">The voltage resolution</param>
+            <param name="resolution">The voltage resolution in µV/digit</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageResolution(System.Int32)">
             <summary>
 Sets the voltage resolution
 </summary>
-            <param name="resolution">The voltage resolution</param>
+            <param name="resolution">The voltage resolution in µV/digit</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageResolution(System.UInt32)">
             <summary>
 Gets the voltage resolution
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <returns>The voltage resolution</returns>
+            <returns>The voltage resolution in µV/digit</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageResolution">
             <summary>
 Gets the voltage resolution
 </summary>
-            <returns>The voltage resolution</returns>
+            <returns>The voltage resolution in µV/digit</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageRange(System.UInt32,System.Int32)">
             <summary>
 Sets the voltage range
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="range">The voltage range</param>
+            <param name="range">The voltage range in mV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVoltageRange(System.Int32)">
             <summary>
 Sets the voltage range
 </summary>
-            <param name="range">The voltage range</param>
+            <param name="range">The voltage range in mV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageRange(System.UInt32)">
             <summary>
 Gets the voltage range
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <returns>The voltage range</returns>
+            <returns>The voltage range in mV</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageRange">
             <summary>
 Gets the voltage range
 </summary>
-            <returns>The voltage range</returns>
+            <returns>The voltage range in mV</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVoltageReached(System.UInt32)">
             <summary>
@@ -2532,30 +2600,30 @@ Gets the reached voltage
 Sets Vd and VS
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in DAC Units</param>
+            <param name="Vs">Vs in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVsDAC(System.Int16,System.Int16)">
             <summary>
 Sets Vd and Vs
 </summary>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in DAC Units</param>
+            <param name="Vs">Vs in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVsDAC(System.UInt32,System.Int16@,System.Int16@)">
             <summary>
 Gets Vd and Vs
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in DAC Units</param>
+            <param name="Vs">Vs in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdVsDAC(System.Int16@,System.Int16@)">
             <summary>
 Gets Vd and Vs
 </summary>
-            <param name="Vd">Vd</param>
-            <param name="Vs">Vs</param>
+            <param name="Vd">Vd in DAC Units</param>
+            <param name="Vs">Vs in DAC Units</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
             <summary>
@@ -2564,7 +2632,7 @@ Gets Vd and Vs
         </member>
         <member name="T:Mcs.Usb.CGrapheneFunctionNet">
             <summary>
-CGrapheneFunctionNet is the class to control the TEER device
+CGrapheneFunctionNet is the class to control Graphene device functions
 </summary>
         </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceTesterFunctionNet.SetIODirection(System.Int32)">
@@ -3782,13 +3850,13 @@ A value 1 means that the stimulation is not active during that time.
 </para>
 
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </summary>
             <param name="StimulusActive">A list of datapoints which define weather the Stimulus is active or idle at that time as int32.</param>
-            <param name="Duration">A list of durations as uint64. The time is given in units of Âµs.</param>
-            <param name="Bit0Time">Time in Âµs for which Bit 0 (Blanking) is to be extended.</param>
-            <param name="Bit3Time">Time in Âµs for which Bit 3 (Stimulus Enable) is to be extended.</param>
-            <param name="Bit4Time">Time in Âµs for which Bit 4 (Stimulus Selector) is to be extended.</param>
+            <param name="Duration">A list of durations as uint64. The time is given in units of µs.</param>
+            <param name="Bit0Time">Time in µs for which Bit 0 (Blanking) is to be extended.</param>
+            <param name="Bit3Time">Time in µs for which Bit 3 (Stimulus Enable) is to be extended.</param>
+            <param name="Bit4Time">Time in µs for which Bit 4 (Stimulus Selector) is to be extended.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.PrepareAndAppendData(System.UInt32,System.Int32[],System.UInt64[],Mcs.Usb.STG_DestinationEnumNet)">
@@ -3803,7 +3871,7 @@ When using current stimulation, the values are in multiple of 1 nA, this the pos
 </para>
             <para>
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </para>
             <para>
 Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
@@ -3812,8 +3880,8 @@ times the block should run.
 Blocks can be nested.
 </para>
             <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
             <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
@@ -3828,7 +3896,7 @@ When using voltage stimulation, the values are in multiple of 1 uV, thus the pos
 When using current stimulation, the values are in multiple of 1 nA, this the possible range is += 2000 mA.
 </para><para>
 The duration is given as a list of 64 bit integers. Durations
-are given in units of Âµs. The STG has a resolution of 20 Âµs.
+are given in units of µs. The STG has a resolution of 20 µs.
 </para>
 
 Blocks of data which should repeat can be defined by prepending such a block with an entry in the arrays where both amplitude and duration is zero.
@@ -3837,8 +3905,8 @@ times the block should run.
 Blocks can be nested.
 </summary>
             <param name="channel">The channel number to send data to.</param>
-            <param name="amplitude">A list of amplitudes in units of ÂµV and nA in voltage and current mode, respectively.</param>
-            <param name="duration">A list of durations in units of Âµs.</param>
+            <param name="amplitude">A list of amplitudes in units of µV and nA in voltage and current mode, respectively.</param>
+            <param name="duration">A list of durations in units of µs.</param>
             <param name="destType">specifies wheather the data is for syncout, current or voltage stimulation.</param>
             <returns>Error Status. 0 on success.</returns>
         </member>
@@ -4834,7 +4902,7 @@ Gets the currently selected voltage range on devices which support multiple volt
             <summary>
 Sets the voltage range on devices which support multiple voltage ranges.
 </summary>
-            <param name="voltageRange">Voltage Range to use in ÂµV.</param>
+            <param name="voltageRange">Voltage Range to use in µV.</param>
             <remarks>This replaces SetVoltageRange, where the value of the range was in mV!</remarks>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetVoltageRangeByIndex(System.Int32,System.UInt32)">
@@ -5020,7 +5088,7 @@ Gets the <see cref="T:Mcs.Usb.CRoboDeviceNet" />. Use this to control the syring
             <summary>
 Sets the DAC periode.
 </summary>
-            <param name="periode">The periode in units of 10Âµs.</param>
+            <param name="periode">The periode in units of 10µs.</param>
         </member>
         <member name="M:Mcs.Usb.CSafeISDeviceNet.SetDacPulseform(System.Int16[])">
             <summary>
@@ -5038,7 +5106,7 @@ Sets the DAC mode.
             <summary>
 Sets the sample position of the ADC.
 </summary>
-            <param name="positions">The positions in units of 0.1Âµs.</param>
+            <param name="positions">The positions in units of 0.1µs.</param>
         </member>
         <member name="M:Mcs.Usb.CSafeISDeviceNet.SetAdcChannels(System.Byte)">
             <summary>
