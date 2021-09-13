@@ -17,7 +17,7 @@ Gets the offset of a DAC channel.
             <param name="dacChannel">The DAC channel number.</param>
             <returns>The offset in digits.</returns>
         </member>
-        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.UInt32)">
+        <member name="M:Mcs.Usb.CDacCalibrationFunctionNet.SetDacOffset(System.UInt16,System.Int32)">
             <summary>
 Sets the offset of a DAC channel.
 </summary>
@@ -4973,6 +4973,23 @@ Stops the current movement
             <param name="axes"> Bit pattern of axes to drive </param>
             <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
         </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32[],System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="pos"> Positions of the axis 0 to 3, if pattern in axes is set </param>
+            <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32[])">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="pos"> Positions of the axis 0 to 3, if pattern in axes is set </param>
+        </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32,System.Int32)">
             <summary>
 Moves the motor to the new absolute position
@@ -4982,6 +4999,15 @@ Moves the motor to the new absolute position
             <param name="x"> Position of first axis, if pattern in axes is set </param>
             <param name="y"> Position of second axis if pattern in axes is set </param>
             <param name="timeout"> Timeout of maximal waiting for the end of the command (-1 is forever) </param>
+        </member>
+        <member name="M:Mcs.Usb.CRoboDeviceNet.MoveAbs(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32,System.Int32)">
+            <summary>
+Moves the motor to the new absolute position
+</summary>
+            <param name="busaddress"> Address of the McsBus </param>
+            <param name="axes"> Bit pattern of axes to drive </param>
+            <param name="x"> Position of first axis, if pattern in axes is set </param>
+            <param name="y"> Position of second axis if pattern in axes is set </param>
         </member>
         <member name="M:Mcs.Usb.CRoboDeviceNet.FindReference(System.Byte,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,System.Int32)">
             <summary>
