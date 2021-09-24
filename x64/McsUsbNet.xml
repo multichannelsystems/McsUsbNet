@@ -4267,6 +4267,20 @@ The destructor.
     CStg200xBasicNet is the base class to control MCS STG device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.SetValveCurrent(System.Int16,System.Int16)">
+            <summary>
+Sets the valve currents different from the default
+</summary>
+            <param name="switch_current">The switch current (in DAC units); -1 sets the device default current</param>
+            <param name="hold_current">The hold current (in DAC units); -1 sets the device default current</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveCurrent(System.Int16@,System.Int16@)">
+            <summary>
+Gets the valve currents
+</summary>
+            <param name="switch_current">The switch current (in DAC units)</param>
+            <param name="hold_current">The hold current (in DAC units)</param>
+        </member>
         <member name="M:Mcs.Usb.CWarnerValveControllerDeviceNet.GetValveBoardRevisionString">
             <summary>
 Gets the revision name of the valve board
@@ -5787,7 +5801,6 @@ Read data from a FIFO queue in uint32_t data format
             <param name="frames_pos">Position in buffer where to put the data.</param>
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI32(System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -5806,7 +5819,6 @@ Read data from a FIFO queue in uint32_t data format
             <param name="frames_pos">Position in buffer where to put the data.</param>
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI32(System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -5825,7 +5837,6 @@ Read data from a FIFO queue in int16_t data format
             <param name="frames_pos">Position in buffer where to put the data.</param>
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesI16(System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -5844,7 +5855,6 @@ Read data from a FIFO queue in uint16_t data format
             <param name="frames_pos">Position in buffer where to put the data.</param>
             <param name="frames">Number of sample frames to read.</param>
             <param name="frames_ret">Number of sample frames which were read, might be smaller than frames.</param>
-            <returns>Error Status. 0 on success.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlock_ReadFramesUI16(System.Int32,System.Int32,System.Int32@)">
             <summary>
