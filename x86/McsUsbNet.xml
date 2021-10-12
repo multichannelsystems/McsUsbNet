@@ -1364,6 +1364,20 @@ Sets a channel to measurement mode (STG3008-FA).
 </summary>
             <param name="channel">The channel to change.</param>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentRangeByIndex(System.UInt32,System.UInt32)">
+            <summary>
+Sets the range index for the current output (STG5 only).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <param name="rangeIndex">The new range index.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeByIndex(System.UInt32)">
+            <summary>
+Gets the currently selected range index for the current output (STG5 only).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <returns>The currently selected range index.</returns>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode">
             <summary>
 Sets all channels to current mode (STG3008-FA and STG400x only).
@@ -1640,14 +1654,14 @@ gets the battery voltage; unit: mV
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetChargeCapacity(System.UInt32)">
             <summary>
-gets the charge capacity; unit: ?Ah
+gets the charge capacity; unit: µAh
 </summary>
             <param name="NrChannel">the channel number</param>
             <returns>the capacity in uAh</returns>
         </member>
         <member name="M:Mcs.Usb.CMultiBatteryChargerDeviceNet.GetDischargeCapacity(System.UInt32)">
             <summary>
-gets the discharge capacity; unit: ?Ah
+gets the discharge capacity; unit: µAh
 </summary>
             <param name="NrChannel">the channel number</param>
             <returns>the capacity in uAh</returns>
@@ -2430,6 +2444,32 @@ Retrives version info from a Firmware update file.
 </summary>
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVds(System.UInt32)">
+            <summary>
+Gets Vds
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>Vds in µV</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVds">
+            <summary>
+Gets Vds
+</summary>
+            <returns>Vds in µV</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVgs(System.UInt32)">
+            <summary>
+Gets Vgs
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>Vgs in µV</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVgs">
+            <summary>
+Gets Vgs
+</summary>
+            <returns>Vgs in µV</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetCur2VolResistance(System.UInt32)">
             <summary>
