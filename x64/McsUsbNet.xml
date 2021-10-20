@@ -272,28 +272,6 @@ Connect to a Imp device with a certain ID
 CPositionImpDeviceNet is the class to access the Position/Imp devices
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateClampStateByHeadstage(System.UInt32)">
-            <summary>
-Gets the state of the plate
-</summary>
-            <param name="Headstage">The headstage number</param>
-            <returns>The plate state</returns>
-        </member>
-        <member name="E:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateClampStateByHeadstageEvent">
-            <summary>
-Event fires when the plate state for the headstage number has changed
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
-            <summary>
-    Initializes a new instance of the CMultiwellCallbackFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CMultiwellCallbackFunctionNet">
-            <summary>
-CMultiwellCallbackFunctionNet is the class to access the Multiwell-Mini-Stimulator
-</summary>
-        </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetFilterProperties(Mcs.Usb.SCUDacqGroupChannelEnumNet,System.Int32)">
             <summary>
 Gets multiple filter properties
@@ -2175,6 +2153,28 @@ Starts a MEA Coat run.
         <member name="T:Mcs.Usb.CMeaCoatDeviceNet">
             <summary>
 CMeaCoatDeviceNet is the class to access the MEA Coat device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateClampStateByHeadstage(System.UInt32)">
+            <summary>
+Gets the state of the plate
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <returns>The plate state</returns>
+        </member>
+        <member name="E:Mcs.Usb.CMultiwellCallbackFunctionNet.GetPlateClampStateByHeadstageEvent">
+            <summary>
+Event fires when the plate state for the headstage number has changed
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellCallbackFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CMultiwellCallbackFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CMultiwellCallbackFunctionNet">
+            <summary>
+CMultiwellCallbackFunctionNet is the class to access the Multiwell-Mini-Stimulator
 </summary>
         </member>
         <member name="M:Mcs.Usb.CExternDTesterDeviceNet.Write2(System.String)">
