@@ -1914,6 +1914,34 @@ Sets .
     CGilsonDeviceNet is the class to control a Gilson device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetVolatileClampOffset(System.UInt32)">
+            <summary>
+The distance travelled to clamp the plate can be reduced e.g. to compensate for a cover.
+</summary>
+            <param name="Headstage">The headstage to be affected.</param>
+            <returns>Clamp distance reduction in um.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetVolatileClampOffset(System.UInt32,System.Int32)">
+            <summary>
+The distance travelled to clamp the plate can be reduced e.g. to compensate for a cover.
+</summary>
+            <param name="Headstage">The headstage to be affected.</param>
+            <param name="CoverLipThickness_um">Clamp distance reduction in um. Range: 200um..400um; Typical value: 300um</param>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetTouchPadEnable(System.UInt32)">
+            <summary>
+Manual opening/closing of plate clamp via touch pad can be disabled.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>"true" when plate clamp can be driven manually, otherwise "false".</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetTouchPadEnable(System.UInt32,System.Boolean)">
+            <summary>
+Enables or disables manual opening/closing of plate clamp via touch pad.
+</summary>
+            <param name="Headstage">The headstage to be affected.</param>
+            <param name="Enable">"true" when plate clamp shall be driven manually, otherwise "false".</param>
+        </member>
         <member name="M:Mcs.Usb.CMultiwellDeviceNet.GetPowerMuxPlate(System.UInt32)">
             <summary>
 On the Multiwell Mini device, Query if Power to the MUX Plate is On or Off.
@@ -2445,31 +2473,20 @@ Retrives version info from a Firmware update file.
             <param name="destination">The destination to be queried.</param>
             <returns>The base address as a 32 bit number, only the lower 16 bit represent the address.</returns>
         </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVds(System.UInt32)">
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdsVgs(System.UInt32,System.Int32@,System.Int32@)">
             <summary>
-Gets Vds
+Gets Vds and Vgs
 </summary>
             <param name="Headstage">The headstage to query.</param>
-            <returns>Vds in µV</returns>
+            <param name="Vds">Vds in µV</param>
+            <param name="Vgs">Vgs in µV</param>
         </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVds">
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVdsVgs(System.Int32@,System.Int32@)">
             <summary>
-Gets Vds
+Gets Vds and Vgs
 </summary>
-            <returns>Vds in µV</returns>
-        </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVgs(System.UInt32)">
-            <summary>
-Gets Vgs
-</summary>
-            <param name="Headstage">The headstage to query.</param>
-            <returns>Vgs in µV</returns>
-        </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetVgs">
-            <summary>
-Gets Vgs
-</summary>
-            <returns>Vgs in µV</returns>
+            <param name="Vds">Vds in µV</param>
+            <param name="Vgs">Vgs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetCur2VolResistance(System.UInt32)">
             <summary>
@@ -2484,30 +2501,19 @@ Gets the resistance of the current to voltage converter
 </summary>
             <returns>The resistance in Ohm</returns>
         </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.UInt32,System.Int32)">
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdsVgs(System.UInt32,System.Int32,System.Int32)">
             <summary>
-Sets Vds
+Sets Vds and Vgs
 </summary>
             <param name="Headstage">The headstage to query.</param>
             <param name="Vds">Vds in µV</param>
-        </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVds(System.Int32)">
-            <summary>
-Sets Vds
-</summary>
-            <param name="Vds">Vds in µV</param>
-        </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.UInt32,System.Int32)">
-            <summary>
-Sets Vgs
-</summary>
-            <param name="Headstage">The headstage to query.</param>
             <param name="Vgs">Vgs in µV</param>
         </member>
-        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVgs(System.Int32)">
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdsVgs(System.Int32,System.Int32)">
             <summary>
-Sets Vgs
+Sets Vds and Vgs
 </summary>
+            <param name="Vds">Vds in µV</param>
             <param name="Vgs">Vgs in µV</param>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetVdVs(System.UInt32,System.Int32,System.Int32)">
