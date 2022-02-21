@@ -1364,19 +1364,87 @@ Sets a channel to measurement mode (STG3008-FA).
 </summary>
             <param name="channel">The channel to change.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentRangeByIndex(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentRangeSelectedIndex(System.UInt32,System.UInt32)">
             <summary>
 Sets the range index for the current output (STG5 only).
 </summary>
             <param name="channel">The channel to change.</param>
             <param name="rangeIndex">The new range index.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeByIndex(System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeSelectedIndex(System.UInt32)">
             <summary>
 Gets the currently selected range index for the current output (STG5 only).
 </summary>
             <param name="channel">The channel to change.</param>
             <returns>The currently selected range index.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmpByIndex(System.UInt32,System.UInt32)">
+            <summary>
+Gets the current resolution for the given channel and index (STG5 only).
+</summary>
+            <param name="channel">The channel.</param>
+            <param name="index">The channel.</param>
+            <returns>The current resolution in nA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInMicroAmpByIndex(System.UInt32,System.UInt32)">
+            <summary>
+Gets the current range for the given channel and index (STG5 only).
+</summary>
+            <param name="channel">The channel.</param>
+            <param name="index">The channel.</param>
+            <returns>The current range in uA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfCurrentRangeIndexes">
+            <summary>
+Gets the number of current ranges (STG5 only).
+</summary>
+            <returns>The number of current ranges available on the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeListInMicroAmp(System.UInt32)">
+            <summary>
+Gets a list of current ranges supported by the device (STG5 only).
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetVoltageRangeSelectedIndex(System.UInt32,System.UInt32)">
+            <summary>
+Sets the range index for the voltage output (not used yet).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <param name="rangeIndex">The new range index.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeSelectedIndex(System.UInt32)">
+            <summary>
+Gets the currently selected range index for the voltage output (not used yet).
+</summary>
+            <param name="channel">The channel to change.</param>
+            <returns>The currently selected range index.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageResolutionInMicroVoltByIndex(System.UInt32,System.UInt32)">
+            <summary>
+Gets the voltage resolution for the given channel and index (STG5 only).
+</summary>
+            <param name="channel">The channel.</param>
+            <param name="index">The channel.</param>
+            <returns>The voltage resolution.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMilliVoltByIndex(System.UInt32,System.UInt32)">
+            <summary>
+Gets the voltage range for the given channel and index (STG5 only).
+</summary>
+            <param name="channel">The channel.</param>
+            <param name="index">The channel.</param>
+            <returns>The voltage range.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetNumberOfVoltageRangeIndexes">
+            <summary>
+Gets the number of voltage ranges (STG5 only).
+</summary>
+            <returns>The number of voltage ranges available on the device.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeListInMilliVolt(System.UInt32)">
+            <summary>
+Gets a list of current ranges supported by the device (STG5 only).
+</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetCurrentMode">
             <summary>
@@ -2207,6 +2275,41 @@ Gets the Power Status at SCU Power on of a given headstage.
             <param name="Headstage">The headstage to query.</param>
             <returns>The Power State at startup for the given headstage: bool false -&gt; off, bool true -&gt; on.</returns>
         </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetHeadstageFrameCyclesToComparePermanent(System.UInt32,System.UInt32)">
+            <summary>
+Sets the frame cycles to compare permanent on a given headstage.
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <param name="FrameCycles">The samplerate in Hz for the given headstage.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageFrameCyclesToCompare(System.UInt32)">
+            <summary>
+Gets the frame cycles to compare of a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The samplerate in Hz for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetHeadstageLinkSpeedPermanent(System.UInt32,System.UInt32)">
+            <summary>
+Sets the Link speed permanent on a given headstage.
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <param name="LinkSpeed">The samplerate in Hz for the given headstage.</param>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageLinkSpeed(System.UInt32)">
+            <summary>
+Gets the Link speed of a given headstage.
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <returns>The samplerate in Hz for the given headstage.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetHeadstageSampleratePermanent(System.UInt32,System.UInt32)">
+            <summary>
+Sets the samplerate permanent on a given headstage.
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <param name="Samplerate">The samplerate in Hz for the given headstage.</param>
+        </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageSamplerate(System.UInt32)">
             <summary>
 Gets the Samplerate of a given headstage.
@@ -2276,6 +2379,13 @@ Gets the number of stimulation channels for a given headstage.
 </summary>
             <param name="Headstage">The headstage to query.</param>
             <returns>The number of stimulation channels the headstage has.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CSCUFunctionNet.SetHeadstageNumberOfAnalogChannelsPermanent(System.UInt32,System.UInt32)">
+            <summary>
+Sets the number of analog channels permanent for a given headstage.
+</summary>
+            <param name="Headstage">The headstage number</param>
+            <param name="NumberOfchannels">The number of analog channels the headstage has to transmit</param>
         </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetHeadstageNumberOfAnalogChannels(System.UInt32)">
             <summary>
