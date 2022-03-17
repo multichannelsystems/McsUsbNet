@@ -1386,7 +1386,7 @@ Gets the current resolution for the given channel and index (STG5 only).
             <param name="index">The channel.</param>
             <returns>The current resolution in nA.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInMicroAmpByIndex(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInNanoAmpByIndex(System.UInt32,System.UInt32)">
             <summary>
 Gets the current range for the given channel and index (STG5 only).
 </summary>
@@ -1400,7 +1400,7 @@ Gets the number of current ranges (STG5 only).
 </summary>
             <returns>The number of current ranges available on the device.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeListInMicroAmp(System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeListInNanoAmp(System.UInt32)">
             <summary>
 Gets a list of current ranges supported by the device (STG5 only).
 </summary>
@@ -1427,7 +1427,7 @@ Gets the voltage resolution for the given channel and index (STG5 only).
             <param name="index">The channel.</param>
             <returns>The voltage resolution.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMilliVoltByIndex(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMicroVoltByIndex(System.UInt32,System.UInt32)">
             <summary>
 Gets the voltage range for the given channel and index (STG5 only).
 </summary>
@@ -1441,7 +1441,7 @@ Gets the number of voltage ranges (STG5 only).
 </summary>
             <returns>The number of voltage ranges available on the device.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeListInMilliVolt(System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeListInMicroVolt(System.UInt32)">
             <summary>
 Gets a list of current ranges supported by the device (STG5 only).
 </summary>
@@ -1567,6 +1567,12 @@ Gets the Voltage Range of the specified channel in Microvolts.
 </summary>
             <param name="channel"> Channel which is queried.</param>
             <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetTimeResolutionInNanoSeconds">
+            <summary>
+Gets the time resolution of the STG.
+</summary>
+            <returns>The time resolution in nanoseconds.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetDACResolution">
             <summary>
@@ -2597,6 +2603,36 @@ Gets Vds and Vgs
 </summary>
             <param name="Vds">Vds in µV</param>
             <param name="Vgs">Vgs in µV</param>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetADCOffset(System.UInt32,System.UInt32,System.Int32)">
+            <summary>
+Sets the ADC offset
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Channel">The channel to query.</param>
+            <param name="offset">The offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetADCOffset(System.UInt32,System.Int32)">
+            <summary>
+Sets the ADC offset
+</summary>
+            <param name="Channel">The channel to query.</param>
+            <param name="offset">The offset</param>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetADCOffset(System.UInt32,System.UInt32)">
+            <summary>
+Gets the ADC offset
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Channel">The channel to query.</param>
+            <returns>The offset</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetADCOffset(System.UInt32)">
+            <summary>
+Gets the ADC offset
+</summary>
+            <param name="Channel">The channel to query.</param>
+            <returns>The offset</returns>
         </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetCur2VolResistance(System.UInt32)">
             <summary>
