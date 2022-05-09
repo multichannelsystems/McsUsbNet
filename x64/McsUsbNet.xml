@@ -904,6 +904,36 @@ Gets Vds and Vgs
             <param name="Vds">Vds in µV</param>
             <param name="Vgs">Vgs in µV</param>
         </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetADCGain(System.UInt32,System.UInt32,System.Int32)">
+            <summary>
+Sets the ADC offset
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Channel">The channel to query.</param>
+            <param name="gain">The gain</param>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetADCGain(System.UInt32,System.Int32)">
+            <summary>
+Sets the ADC offset
+</summary>
+            <param name="Channel">The channel to query.</param>
+            <param name="gain">The gain</param>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetADCGain(System.UInt32,System.UInt32)">
+            <summary>
+Gets the ADC offset
+</summary>
+            <param name="Headstage">The headstage to query.</param>
+            <param name="Channel">The channel to query.</param>
+            <returns>The gain</returns>
+        </member>
+        <member name="M:Mcs.Usb.CGrapheneFunctionNet.GetADCGain(System.UInt32)">
+            <summary>
+Gets the ADC offset
+</summary>
+            <param name="Channel">The channel to query.</param>
+            <returns>The gain</returns>
+        </member>
         <member name="M:Mcs.Usb.CGrapheneFunctionNet.SetADCOffset(System.UInt32,System.UInt32,System.Int32)">
             <summary>
 Sets the ADC offset
@@ -1657,7 +1687,7 @@ Switch the STG back to normal mode.
 In this mode, trigger inputs are assigned to channels, not to segments. 
 </para></summary>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableMultiFileMode(System.UInt32)">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.EnableMultiFileMode(Mcs.Usb.Stg200xMultiFileSubmodeEnumNet)">
             <summary>
 Enable the Multi-File mode of the STG.
 <para>
@@ -1678,14 +1708,14 @@ mode, where the segment is selected based on the digital pattern on the digital 
 segments can be defined and used.
 </param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentSelect(System.UInt32,Mcs.Usb.Stg200xSegmentFlagsEnumNet)">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SegmentSelect(System.UInt32,Mcs.Usb.Stg200xSegmentFlagsEnumNet)">
             <summary>
 Switchs segment.
 </summary>
             <param name="segment">The number of the segment to select.</param>
             <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentStart(System.UInt32,System.UInt32,Mcs.Usb.Stg200xSegmentFlagsEnumNet)">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SegmentStart(System.UInt32,System.UInt32,Mcs.Usb.Stg200xSegmentFlagsEnumNet)">
             <summary>
 Switchs segment and starts trigger.
 </summary>
@@ -1693,7 +1723,7 @@ Switchs segment and starts trigger.
             <param name="segment">The number of the segment to select.</param>
             <param name="segmentflags">A bitmap of flags, bit 1: assign all channels to the trigger number equal to the segment.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xDownloadNet.SendSegmentDefine(System.UInt32[])">
+        <member name="M:Mcs.Usb.CStg200xDownloadNet.SegmentDefine(System.UInt32[])">
             <summary>
 Defines the segment memory layout of the STG.
 <para>
@@ -3780,6 +3810,24 @@ Configures the trigger settings for the STG. Note that all memory segments have 
     CStg200xDownloadBasicNet is the base class to control the download mode of the MCS STG device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.LegacyHasOutputMap">
+            <summary>
+Queries if the device can map its stimulation channels. Legacy command, do not use.
+</summary>
+            <returns>true if the device can map its stimulation channels.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.HasFilterAmp">
+            <summary>
+Queries if the device has a filter amplifier. Currently the STG3008-FA supports this feature.
+</summary>
+            <returns>true if the device has a a filter amplifier.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.HasDigitalPort">
+            <summary>
+Queries if the device has a digital port.
+</summary>
+            <returns>true if the device has a digital port.</returns>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetSyncoutMap(System.UInt32)">
             <summary>
 Gets the mapping between external syncout outputs and internal syncout channels.
@@ -4169,6 +4217,38 @@ Sets the autocalibration configuration.
             <param name="channel">The channel number.</param>
             <param name="disable">
                 <c>true</c> if autocalibration is to be disabled.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetHasLowCurrentswitchLatency(System.UInt32)">
+            <summary>
+Gets whether the channel has a low latency current switch.
+</summary>
+            <param name="channel">The channel which is queried.</param>
+            <returns>True if the channel has a low latency current switch.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCanDisableCurrentswitch(System.UInt32)">
+            <summary>
+Gets whether the channel can disable its current switch.
+</summary>
+            <param name="channel">The channel which is queried.</param>
+            <returns>True if the current switch can be disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCanDisableCalibration(System.UInt32)">
+            <summary>
+Gets whether the channel can disable autocalibration.
+</summary>
+            <param name="channel">The channel which is queried.</param>
+            <returns>True if autocalibration can be disabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetFAAmplification">
+            <summary>
+Gets the currently selected amplification of the filter amplifier (STG3008-FA).
+</summary>
+            <returns>True the currently selected amplification.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetFAAmplification(Mcs.Usb.Stg3008FilterAmpAmplificationEnumNet)">
+            <summary>
+Sets the amplification of the filter amplifier (STG3008-FA).
+</summary>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetMeasurementMode(System.UInt32)">
             <summary>
@@ -6423,7 +6503,31 @@ This overload is for the W2100 device.
             <param name="source">The source/function assignd to the digital target.</param>
             <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet@,System.Int32@)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.CMOSMEA5000DigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the CMOSMEA5000 device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MultiwellDigitalSourceEnumNet@,System.Int32@)">
+            <summary>
+Gets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the Multiwell device.
+</remarks>
+            <param name="digitaltarget">The digital target to query.</param>
+            <param name="NrChannel">The channel/bit of target to query.</param>
+            <param name="source">The source/function assignd to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.GetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100DigitalSourceEnumNet@,System.Int32@)">
             <summary>
 Gets the function/source of an digital output bit.
 </summary>
@@ -6483,7 +6587,31 @@ This overload is for the W2100 device.
             <param name="source">The source/function to assign to the digital target.</param>
             <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.DigitalSourceEnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.CMOSMEA5000DigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the CMOSMEA5000 device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MultiwellDigitalSourceEnumNet,System.Int32)">
+            <summary>
+Sets the function/source of an digital output bit.
+</summary>
+            <remarks>
+This overload is for the Multiwell device.
+</remarks>
+            <param name="digitaltarget">The digital target to change.</param>
+            <param name="NrChannel">The channel/bit of target to change.</param>
+            <param name="source">The source/function to assign to the digital target.</param>
+            <param name="bitnumber_offset">An offset / bit number with the source/function.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.SetDigitalSource(Mcs.Usb.DigitalTargetEnumNet,System.Int32,Mcs.Usb.MEA2100DigitalSourceEnumNet,System.Int32)">
             <summary>
 Sets the function/source of an digital output bit.
 </summary>
@@ -7032,13 +7160,24 @@ Enumerates the DigoutMode on STG400x devices.
         <member name="F:Mcs.Usb.Stg200xDigoutModeEnumNet.Monitor">
             <summary>Monitor digital input pins. Digital out is a mirror of the digital input pins.</summary>
         </member>
+        <member name="T:Mcs.Usb.Stg200xMultiFileSubmodeEnumNet">
+            <summary>
+Enumerates EnableMultifileMode submodes for STG devices.
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.Stg200xMultiFileSubmodeEnumNet.ExtendedMultiFileMode">
+            <summary> Assign all channels to the trigger which number is the given segment number.</summary>
+        </member>
+        <member name="F:Mcs.Usb.Stg200xMultiFileSubmodeEnumNet.MultiFileMode">
+            <summary> No Flags.</summary>
+        </member>
         <member name="T:Mcs.Usb.Stg200xSegmentFlagsEnumNet">
             <summary>
 Enumerates Segmentflag options for STG400x devices.
 </summary>
         </member>
         <member name="F:Mcs.Usb.Stg200xSegmentFlagsEnumNet.SyncStart">
-            <summary> Delay the start the new segment with SendSegmentStart() until the next sweep has finished.</summary>
+            <summary> Delay the start the new segment with SegmentStart() until the next sweep has finished.</summary>
         </member>
         <member name="F:Mcs.Usb.Stg200xSegmentFlagsEnumNet.TriggerOnly">
             <summary> Only switch the segment for the next sweep, keep current downlaod segment.</summary>
@@ -7055,6 +7194,11 @@ Enumerates Segmentflag options for STG400x devices.
         <member name="T:Mcs.Usb.RetriggerActionEnumNet">
             <summary>
 Enumerates possible retrigger actions for STG200x devices.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.Stg3008FilterAmpAmplificationEnumNet">
+            <summary>
+Enumerates the STG3008FA filter amplifier gains
 </summary>
         </member>
         <member name="T:Mcs.Usb.Stg200xTriggerStatusEnumNet">
@@ -7093,7 +7237,17 @@ Enumerates the digital source of the SCU device.
 Enumerates the digital source of the W2100 device.
 </summary>
         </member>
-        <member name="T:Mcs.Usb.DigitalSourceEnumNet">
+        <member name="T:Mcs.Usb.CMOSMEA5000DigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the CMOSMEA5000 device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.MultiwellDigitalSourceEnumNet">
+            <summary>
+Enumerates the digital source of the Multiwell device.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.MEA2100DigitalSourceEnumNet">
             <summary>
 Enumerates the digital source of the MEA2100 device.
 </summary>
