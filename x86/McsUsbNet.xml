@@ -1428,14 +1428,6 @@ Gets the currently selected range index for the current output (STG5 only).
             <param name="channel">The channel to change.</param>
             <returns>The currently selected range index.</returns>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmpByIndex(System.UInt32,System.UInt32)">
-            <summary>
-Gets the current resolution for the given channel and index (STG5 only).
-</summary>
-            <param name="channel">The channel.</param>
-            <param name="index">The channel.</param>
-            <returns>The current resolution in nA.</returns>
-        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInNanoAmpByIndex(System.UInt32,System.UInt32)">
             <summary>
 Gets the current range for the given channel and index (STG5 only).
@@ -1468,14 +1460,6 @@ Gets the currently selected range index for the voltage output (not used yet).
 </summary>
             <param name="channel">The channel to change.</param>
             <returns>The currently selected range index.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageResolutionInMicroVoltByIndex(System.UInt32,System.UInt32)">
-            <summary>
-Gets the voltage resolution for the given channel and index (STG5 only).
-</summary>
-            <param name="channel">The channel.</param>
-            <param name="index">The channel.</param>
-            <returns>The voltage resolution.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMicroVoltByIndex(System.UInt32,System.UInt32)">
             <summary>
@@ -1590,6 +1574,13 @@ If download information was stored by the use of <see cref="M:Mcs.Usb.CStg200xBa
             <param name="timestamp">The timestamp of last download.</param>
             <param name="filename">The filename of the downlaoded waveform.</param>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Picoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Nanoamps.
@@ -1629,22 +1620,6 @@ Gets the time resolution of the STG.
 Gets number of bits of the DAC resolution.
 </summary>
             <returns>The DAC resolution in bits.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetAnalogResolution(System.Int32,System.Int32@,System.Int32@)">
-            <summary>
-Gets the resolution of the analog outputs.
-</summary>
-            <param name="channel">The channel which is queried.</param>
-            <param name="URes">The Voltage resolution in mV.</param>
-            <param name="IRes">The Current resolution in uA.</param>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetAnalogRanges(System.Int32,System.Int32@,System.Int32@)">
-            <summary>
-Gets the range of the analog outputs.
-</summary>
-            <param name="channel">The channel which is queried.</param>
-            <param name="URange">The Voltage range in mV.</param>
-            <param name="IRange">The Current range in uA.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetStgVersionInfo(System.String@,System.String@)">
             <summary>
@@ -4350,6 +4325,13 @@ Gets the number of available audio channels.
 </summary>
             <returns>The number of audio channels available, 0 when there are none.</returns>
         </member>
+        <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Picoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
+        </member>
         <member name="M:Mcs.Usb.CW2100_StimulatorFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Nanoamps.
@@ -4444,6 +4426,13 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="channelmap">For each trigger, a bitmap of channels that belong to this trigger.</param>
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
+            <summary>
+Gets the Current Resolution of the specified channel in Picoamps.
+</summary>
+            <param name="channel"> Channel which is queried.</param>
+            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmp(System.UInt32)">
             <summary>
