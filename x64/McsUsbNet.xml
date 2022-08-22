@@ -5036,6 +5036,18 @@ This value may be different from the value returned by GetDataFormat, e.g. in MC
 so the real number is 14 while the data format is 16 bits
 </remarks>
         </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetCardinalStgOutputrate">
+            <summary>
+Gets the fundamental/cardinal STG output rate of the LIH3.X, default is 2 MHz
+</summary>
+            <returns>The output rate in Hz.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetCardinalDacqSamplerate">
+            <summary>
+Gets the fundamental/cardinal data aquisition samplerate of the LIH 3.X, default is 2 MHz
+</summary>
+            <returns>The samplerate in Hz.</returns>
+        </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.WriteUARTData(System.String)">
             <summary>
 Write the command string to the device.
@@ -5062,26 +5074,26 @@ Sets the parameter of the audio DAC output.
             <param name="Frequency">Frequency(1 - 25000 Hz)</param>
             <param name="Amplification">Amplification(0 - 0xFFFF)</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.ErasePermanentDacOffset(Mcs.Usb.LIH30_DAC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.ErasePermanentDacOffset(System.UInt32)">
             <summary>
 Delets the DAC offset of the STG for a single channel in permanent EEProm memory
 </summary>
             <param name="DacChannel">The DAC channel</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacOffsetPermanent(Mcs.Usb.LIH30_DAC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacOffsetPermanent(System.UInt32)">
             <summary>
 Writes the DAC offset of the STG for a single channel to permanent EEProm memory
 </summary>
             <param name="DacChannel">The DAC channel</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacOffset(Mcs.Usb.LIH30_DAC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetDacOffset(System.UInt32)">
             <summary>
 Gets the offset of a DAC channel.
 </summary>
             <param name="DacChannel">The DAC channel</param>
             <returns>The offset for the given channel number</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacOffset(Mcs.Usb.LIH30_DAC_Channel_EnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetDacOffset(System.UInt32,System.Int32)">
             <summary>
 Sets the offset of a DAC channel.
 </summary>
@@ -5160,26 +5172,26 @@ Gets the clipping information
             <param name="epc10bus">The EPC10 bus</param>
             <returns>The clipping value</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.ErasePermanentAdcOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.ErasePermanentAdcOffset(System.UInt32)">
             <summary>
 Delets the ADC offset of the DACQ for a single channel in permanent EEProm memory
 </summary>
             <param name="AdcChannel">The ADC channel</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetAdcOffsetPermanent(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetAdcOffsetPermanent(System.UInt32)">
             <summary>
 Writes the ADC offset of the DACQ for a single channel to permanent EEProm memory
 </summary>
             <param name="AdcChannel">The ADC channel</param>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetAdcOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.GetAdcOffset(System.UInt32)">
             <summary>
 Gets the ADC offset of the DACQ for a single channel
 </summary>
             <param name="AdcChannel">The ADC channel</param>
             <returns>The offset for the given channel number</returns>
         </member>
-        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetAdcOffset(Mcs.Usb.LIH30_ADC_Channel_EnumNet,System.Int32)">
+        <member name="M:Mcs.Usb.CLIH3DeviceNet.SetAdcOffset(System.UInt32,System.Int32)">
             <summary>
 Sets the ADC offset of the DACQ for a single channel
 </summary>
