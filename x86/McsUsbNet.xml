@@ -2601,9 +2601,19 @@ Finalizer: called by GC before collecting
 Destructor: called by Dispose()
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceIdNet[],System.String)">
+            <summary>
+Initializes a new instance of CMcsUsbListNet class and connect to Server.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceIdNet[])">
             <summary>
 Initializes a new instance of CMcsUsbListNet class.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceEnumNet,System.String)">
+            <summary>
+Initializes a new instance of CMcsUsbListNet class and connect to Server.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbListNet.#ctor(Mcs.Usb.DeviceEnumNet)">
@@ -2619,6 +2629,176 @@ Class to handle a list of connected MCS USB devices.
         <member name="T:Mcs.Usb.OnDeviceArrivalRemoval">
             <summary>
 Delegate to show a device arrival or removal.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+            <summary>
+ Sets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
+            <summary>
+ Gets the proportional constant for the thermocouple.
+</summary>
+            <param name="channel">Thermocouple channel number.</param>
+            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetPOut(System.UInt32)">
+            <summary>
+Gets the output power of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The resistance in units of mW.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetROut(System.UInt32)">
+            <summary>
+Gets the resistance of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The resistance in units of 0.1 Ohm.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetIOut(System.UInt32)">
+            <summary>
+Gets the current through the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The current in units of mA.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetUOut(System.UInt32)">
+            <summary>
+Gets the voltage on the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The voltage in units of mV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetDuty(System.UInt32)">
+            <summary>
+Gets the duty cycle of the heating element.
+</summary>
+            <param name="channel">The channel number.</param>
+            <returns>The duty cycle in percent, the value of 320 * 64 corresponds to 100 %.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
+            <summary>
+Gets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
+            <summary>
+Gets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
+            <summary>
+Gets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
+            <summary>
+Gets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
+            <summary>
+Gets if the specified channel is on or off.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
+            <summary>
+Gets the target temperate of specified channel in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
+            <summary>
+Sets the maximum heater power of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
+            <summary>
+Sets the D-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
+            <summary>
+Sets the I-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
+            <summary>
+Sets the P-coefficient of the specified device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Boolean)">
+            <summary>
+Switches the specified channel on or off.
+</summary>
+            <param name="channel">The channel number.</param>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
+            <summary>
+Sets the target temperate of specified channel in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
+            <summary>
+Gets the temperate of the mainboard in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
+            <summary>
+Gets weather the device supports a thermocouple.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxHeaterPowerMultiwell(System.Double)">
+            <summary>
+sets the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxHeaterPowerMultiwell">
+            <summary>
+queries the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
+            <summary>
+Gets the temperate limit of the specified heater in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
+            <summary>
+Gets the temperate of the specified heater in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.01Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
+            <summary>
+Gets the temperate of the specified channel in units of 0.1Â°C.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
+            <summary>
+Gets the number of channels the device can measure.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
+            <summary>
+Gets the number of channels the device can control/regulate.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
+            <summary>
+Initializes a new instance of CTcxDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CTcxDeviceNet">
+            <summary>
+Class to control a Temperature Controller (TCX)
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbFactoryNet.UpdateFirmware(System.String,Mcs.Usb.CMcsUsbListEntryNet,Mcs.Usb.CFirmwareDestinationNet,System.Boolean)">
@@ -3594,174 +3774,14 @@ CMeaCoatDeviceNet is the class to access the MEA Coat device.
     CPeristalticPumpDeviceNet is the class to control a Persistaltic Pump.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetThermocoupleNanovoltPerKelvin(System.UInt32,System.UInt32)">
+        <member name="M:Mcs.Usb.CMcsUsb_ServerNet.#ctor">
             <summary>
- Sets the proportional constant for the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <param name="value">Proportinal constant in Nanovolt per Kelvin.</param>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetThermocoupleNanovoltPerKelvin(System.UInt32)">
-            <summary>
- Gets the proportional constant for the thermocouple.
-</summary>
-            <param name="channel">Thermocouple channel number.</param>
-            <returns>The proportional constant in Nanovolt per Kelvin.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetPOut(System.UInt32)">
-            <summary>
-Gets the output power of the heating element.
-</summary>
-            <param name="channel">The channel number.</param>
-            <returns>The resistance in units of mW.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetROut(System.UInt32)">
-            <summary>
-Gets the resistance of the heating element.
-</summary>
-            <param name="channel">The channel number.</param>
-            <returns>The resistance in units of 0.1 Ohm.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetIOut(System.UInt32)">
-            <summary>
-Gets the current through the heating element.
-</summary>
-            <param name="channel">The channel number.</param>
-            <returns>The current in units of mA.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetUOut(System.UInt32)">
-            <summary>
-Gets the voltage on the heating element.
-</summary>
-            <param name="channel">The channel number.</param>
-            <returns>The voltage in units of mV.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetDuty(System.UInt32)">
-            <summary>
-Gets the duty cycle of the heating element.
-</summary>
-            <param name="channel">The channel number.</param>
-            <returns>The duty cycle in percent, the value of 320 * 64 corresponds to 100 %.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxP(System.UInt32)">
-            <summary>
-Gets the maximum heater power of the specified device.
+    Initializes a new instance of the CMcsUsb_ServerNet class.
 </summary>
         </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetD(System.UInt32)">
+        <member name="T:Mcs.Usb.CMcsUsb_ServerNet">
             <summary>
-Gets the D-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetI(System.UInt32)">
-            <summary>
-Gets the I-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetP(System.UInt32)">
-            <summary>
-Gets the P-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetOnOff(System.UInt32)">
-            <summary>
-Gets if the specified channel is on or off.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetSetpoint(System.UInt32)">
-            <summary>
-Gets the target temperate of specified channel in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxP(System.UInt32,System.Int32)">
-            <summary>
-Sets the maximum heater power of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetD(System.UInt32,System.Int32)">
-            <summary>
-Sets the D-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetI(System.UInt32,System.Int32)">
-            <summary>
-Sets the I-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetP(System.UInt32,System.Int32)">
-            <summary>
-Sets the P-coefficient of the specified device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetOnOff(System.UInt32,System.Boolean)">
-            <summary>
-Switches the specified channel on or off.
-</summary>
-            <param name="channel">The channel number.</param>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetSetpoint(System.UInt32,System.Int32)">
-            <summary>
-Sets the target temperate of specified channel in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetBoardTemp">
-            <summary>
-Gets the temperate of the mainboard in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHasThermocouple">
-            <summary>
-Gets weather the device supports a thermocouple.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.SetMaxHeaterPowerMultiwell(System.Double)">
-            <summary>
-sets the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetMaxHeaterPowerMultiwell">
-            <summary>
-queries the max. heater power that the Multiwell temperature controller will apply; unit: W; useful range: 5.2W..7.6W
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterLimit(System.UInt32)">
-            <summary>
-Gets the temperate limit of the specified heater in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetHeaterTemp(System.UInt32)">
-            <summary>
-Gets the temperate of the specified heater in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValueHires(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.01Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetValue(System.UInt32)">
-            <summary>
-Gets the temperate of the specified channel in units of 0.1Â°C.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumMeasureChannels">
-            <summary>
-Gets the number of channels the device can measure.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.GetNumControlChannels">
-            <summary>
-Gets the number of channels the device can control/regulate.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CTcxDeviceNet.#ctor">
-            <summary>
-Initializes a new instance of CTcxDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CTcxDeviceNet">
-            <summary>
-Class to control a Temperature Controller (TCX)
+CMcsUSb_ServerNet is the class to run a USB over IP Server
 </summary>
         </member>
         <member name="M:Mcs.Usb.CPPCFunctionNet.MeasureReservoir">
@@ -4197,6 +4217,58 @@ Initializes a new instance of CMC_CardDeviceNet class.
         <member name="T:Mcs.Usb.CMC_CardDeviceNet">
             <summary>
 Class for data acquisition via MC_Card
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.CHWInfo.GetAvailableVoltageRangesInMicroVoltAndStringsInMilliVolt(System.Int32)">
+            <summary>
+Gets a List of voltage ranges the device supports.
+</summary>
+            <remarks>
+The List is scaled by the gain factor given as argument to this function.
+Use "1000" as scale factor for backwards compatibility.
+Each list entry contains the voltage range as an integer and as a string.
+To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
+To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
+</remarks>
+            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
+            <returns>List of voltage ranges in µV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.CHWInfo.GetAvailableVoltageRangesInMicroVolt(System.Int32)">
+            <summary>
+Gets a List of voltage ranges the device supports.
+</summary>
+            <remarks>
+The List is scaled by the gain factor given as argument to this function.
+Use "1000" as scale factor for backwards compatibility.
+To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
+To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
+</remarks>
+            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
+            <returns>List of voltage ranges in µV.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.CHWInfo.IsDigitalChannelDedicated">
+            <summary>
+Query if the digital channel replaces an analog channel when enabled (e.g. on MC_Card) or adds a channel link on USB devices.
+</summary>
+            <returns>false when the digital channel replaces an analog channel when enabled, true when the digital channels is appended to the analog channels when enabled.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.CHWInfo.GetNumberOfHWDigitalChannels(System.Int32@)">
+            <summary>
+Get the number of digital channels the device supports.
+</summary>
+            <param name="numberOfChannels">Number of digital channels the device supports.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMeaDeviceNet.CHWInfo.GetNumberOfHWADCChannels(System.Int32@)">
+            <summary>
+Get the number of analog channels the device supports.
+</summary>
+            <param name="numberOfChannels">Number of analog channels the device supports.</param>
+            <returns>Error Status. 0 on success.</returns>
+        </member>
+        <member name="T:Mcs.Usb.CMeaDeviceNet.CHWInfo">
+            <summary>
+Class to provide hardware information about the device.
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMeaDeviceNet.SetTriggerMaskValue(System.UInt32,System.UInt32,System.UInt32)">
@@ -4692,57 +4764,73 @@ Destructor: called by Dispose()
         <member name="T:Mcs.Usb.CMeFunctionNet">
             <summary />
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetAvailableVoltageRangesInMicroVoltAndStringsInMilliVolt(System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.GetNListTrue(System.Collections.Generic.List`1{System.Boolean})">
             <summary>
-Gets a List of voltage ranges the device supports.
+Counts the number of "true" entries in a list of bools.
 </summary>
-            <remarks>
-The List is scaled by the gain factor given as argument to this function.
-Use "1000" as scale factor for backwards compatibility.
-Each list entry contains the voltage range as an integer and as a string.
-To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
-To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
-</remarks>
-            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
-            <returns>List of voltage ranges in µV.</returns>
+            <param name="enabled_channels">The handle to query.</param>
+            <returns>The number of elements in the list which are "true".</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetAvailableVoltageRangesInMicroVolt(System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetCheckChecksum(System.UInt32,System.UInt32)">
             <summary>
-Gets a List of voltage ranges the device supports.
+Set the postition of the checksum in the datastream and enable the checksum check.
 </summary>
-            <remarks>
-The List is scaled by the gain factor given as argument to this function.
-Use "1000" as scale factor for backwards compatibility.
-To get a list of voltage ranges for the headstage, obtain the gain of the headstage with the GetGain() call and use the result in the milliGain parameter.
-To get a list of voltage ranges for the analog inputs of the interfaceboard, obtain the gain of the analog inputs with the GetAnalogGain() call and use the result in the milliGain parameter.
-</remarks>
-            <param name="milliGain">The gain factor (in milliGain) used to scale the list of voltage ranges.</param>
-            <returns>List of voltage ranges in µV.</returns>
+            <param name="checksumchannels">Number of 16 bit channels which are used for the checksum. Can be zero to disable checksum check, to enable set to either 2 or 4.</param>
+            <param name="checksumoffset_from_end">Position of the checksum channels.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.IsDigitalChannelDedicated">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetCommonThreshold(System.Int32)">
             <summary>
-Query if the digital channel replaces an analog channel when enabled (e.g. on MC_Card) or adds a channel link on USB devices.
+Sets a common threshold of for all queues.
 </summary>
-            <returns>false when the digital channel replaces an analog channel when enabled, true when the digital channels is appended to the analog channels when enabled.</returns>
+            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWDigitalChannels(System.Int32@)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.GetNumberOfQueues(System.Int32)">
             <summary>
-Get the number of digital channels the device supports.
+Queries the number of queues for a handle.
 </summary>
-            <param name="numberOfChannels">Number of digital channels the device supports.</param>
-            <returns>Error Status. 0 on success.</returns>
+            <param name="handle">The handle to query.</param>
+            <returns>The number of queues for this handle.</returns>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.CHWInfo.GetNumberOfHWADCChannels(System.Int32@)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddChannel(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
-Get the number of analog channels the device supports.
+Add a FIFO queue to a handle.
 </summary>
-            <param name="numberOfChannels">Number of analog channels the device supports.</param>
-            <returns>Error Status. 0 on success.</returns>
+            <param name="handle">The handle to which the queues are added.</param>
+            <param name="queue">An identifier for the new queue.</param>
+            <param name="byte_offset">Number of bytes to start with.</param>
+            <param name="channel_offset">Number of channel to start with (counted in samplesize bytes).</param>
+            <param name="channels">Number of channels to be collected in the FIFO.</param>
         </member>
-        <member name="T:Mcs.Usb.CMcsUsbDacqNet.CHWInfo">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetQueueSizeAll(System.Int32,System.Int32)">
             <summary>
-Class to provide hardware information about the device.
+Change the queue size of for all queues.
 </summary>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetQueueSize(System.Int32,System.Int32,System.Int32)">
+            <summary>
+Change the queue size of a singe queue.
+</summary>
+            <param name="handle">The handle of the queue to be changed.</param>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddBlock(System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet)">
+            <summary>
+Create a new handle for FIFO queues.
+</summary>
+            <param name="queuesize">Size of sample frames the FIFO can hold.</param>
+            <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
+            <returns>The handle which is created.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.Init(System.Int32)">
+            <summary>
+Initializes the ChannelQueue, removes all existing blocks and queues. Must be called before adding handles and queues.
+</summary>
+            <param name="words_per_sample">As obtained from <see cref="M:Mcs.Usb.CMcsUsbDacqNet.GetChannelLayout(System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.UInt32)" />.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.GetGroupChannelDataI32(Mcs.Usb.DacqGroupChannelEnumNet,System.Int32,System.Int32@)">
             <summary>
@@ -4917,7 +5005,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
@@ -4932,7 +5021,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="nChannels">Number of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet)">
@@ -4949,7 +5039,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <returns>The handle to the Queue.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddSelectedChannelsQueue(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet)">
@@ -4966,7 +5057,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="nChannels">Number of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <returns>The handle to the Queue.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedData(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
@@ -4981,7 +5073,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedData(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
@@ -4996,7 +5089,8 @@ So when all channels from a device are read in 32 bit data format nChannels = Ch
             <param name="nChannels">Number of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedChannels(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
@@ -5011,7 +5105,8 @@ the number of sample frames in its own data format.
             <param name="selectedChannels">List of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of sample frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedChannels(System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
@@ -5026,10 +5121,11 @@ the number of sample frames in its own data format.
             <param name="nChannels">Number of channels to be collected in the FIFO.</param>
             <param name="queuesize">Size of sample frames the FIFO can hold.</param>
             <param name="threshold">Number of samples frames the FIFO must acquire before the callback function is called.</param>
-            <param name="samplesize">size of the datawords, either 16 or 32bit.</param>
+            <param name="samplesize">size of the datawords, either 16, 24 or 32bit.</param>
+            <param name="sampleDstSize">size of the destination datawords, either 16 or 32bit.</param>
             <param name="ChannelsInBlock">value obtained from GetChannelsInBlock.</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddBlocksAndChannels(Mcs.Usb.ChannelBlockTypeNet,System.Boolean[],System.Int32,System.Int32,SampleSize,SampleDstSize,System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddBlocksAndChannels(Mcs.Usb.ChannelBlockTypeNet,System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32,System.Int32)">
             <summary>
 Create FIFO queues. ChannelBlockTypeNet determines if multiple handles, multiples queues or one queue and and channel will be used.
 </summary>
@@ -5047,7 +5143,7 @@ the number of sample frames in its own data format.
             <param name="nByteOffset">Number of bytes to start with.</param>
             <param name="nChannelOffset">Number of channel to start with (counted in samplesize bytes).</param>
         </member>
-        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddBlocksAndChannels(Mcs.Usb.ChannelBlockTypeNet,System.Int32,System.Int32,System.Int32,SampleSize,SampleDstSize,System.Int32,System.Int32)">
+        <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.AddBlocksAndChannels(Mcs.Usb.ChannelBlockTypeNet,System.Int32,System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32,System.Int32)">
             <summary>
 Create FIFO queues. ChannelBlockTypeNet determines if multiple handles, multiples queues or one queue and and channel will be used.
 </summary>
@@ -7077,6 +7173,21 @@ Enumerates the destination data format for ChannelBlock functions.
         <member name="T:Mcs.Usb.ChannelBlockTypeNet">
             <summary>
 Enumerates the type of ChannelBlock functions.
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.ChannelBlockTypeNet.MultipleHandlesOneQueues">
+            <summary>
+Each channels is grouped in its own handle, that handle has one channel in one queue. Use to replace the SetSelectedChannels call.
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.ChannelBlockTypeNet.OneHandleMultipleQueues">
+            <summary>
+All channels are grouped one in handle, that handle has all channels in a seperate queue with one channel per queue. Use to replace the SelectedChannelQueue call.
+</summary>
+        </member>
+        <member name="F:Mcs.Usb.ChannelBlockTypeNet.OneHandleOneQueue">
+            <summary>
+All channels are grouped in in handle, that handle has all channels in a single queue. When using together with selectedChannels array, all bits have to be set to "true". Use to replace the SetSelectedData call.
 </summary>
         </member>
         <member name="T:Mcs.Usb.SampleSizeNet">
