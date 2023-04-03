@@ -2454,14 +2454,14 @@ Selects a one quarter of the electrodes on a high density Multiwell plate.
 </summary>
             <param name="muxSelection">the selected quarter</param>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(System.UInt32,Mcs.Usb.MultiwellPlateTypeEnumNet)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(System.UInt32,System.UInt32)">
             <summary>
 Sets the plate type.
 </summary>
             <param name="Headstage">The headstage to query.</param>
             <param name="plateType">the plate type</param>
         </member>
-        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(Mcs.Usb.MultiwellPlateTypeEnumNet)">
+        <member name="M:Mcs.Usb.CMultiwellDeviceNet.SetPlateType(System.UInt32)">
             <summary>
 Sets the plate type.
 </summary>
@@ -4268,6 +4268,18 @@ Puts an electrode in either automatic or manual mode.
             <param name="electrode">The electrode number.</param>
             <returns>0 for automatic and 3 for manual mode.</returns>
         </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.SetDarkmode(System.Boolean)">
+            <summary>
+Enables/disables the darkmode.
+</summary>
+            <param name="enable">True to enable the darkmode.</param>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetDarkmode">
+            <summary>
+Gets the current darkmode setting.
+</summary>
+            <returns>Returns True if the darkmode is enabled.</returns>
+        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetAutocalibrationDisabled(System.UInt32)">
             <summary>
 Gets the autocalibration configuration.
@@ -5274,7 +5286,7 @@ Gets the Sample Interval for the DACQ and Stimulation
             <summary>
 Sets the Sample Interval for the DACQ and Stimulation
 </summary>
-            <param name="SampleInterval">between the samples, Sample interval is available from 1 to 4194303</param>
+            <param name="SampleInterval">between the samples, Sample interval is available from 1 to 4194303 in units of 0.5 µs</param>
         </member>
         <member name="M:Mcs.Usb.CLIH3DeviceNet.GetEEpromPage(System.UInt32,System.Int32,Mcs.Usb.LIH30_EPC10_Bus_EnumNet)">
             <summary>
@@ -6169,6 +6181,7 @@ Read data from a FIFO queue in uint16_t data format
 Get the number of sample frames already available in the FIFO.
 </summary>
             <param name="handle">Handle of the FIFO queue. Either zero when the SetSelectedData call was used or the channel number.</param>
+            <param name="queue">Handle of the queue.</param>
             <returns>Number of sample frames available in the FIFO.</returns>
         </member>
         <member name="M:Mcs.Usb.CMcsUsbDacqNet.ChannelBlockNet.SetSelectedChannelsQueue(System.Boolean[],System.Int32,System.Int32,Mcs.Usb.SampleSizeNet,Mcs.Usb.SampleDstSizeNet,System.Int32)">
