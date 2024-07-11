@@ -1558,6 +1558,75 @@ CGrapheneFunctionNet is the class to control Graphene device functions
 CMEA4PDDDeviceNet is the class to control the Ussing device
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.GetCurrentState">
+            <summary>
+Query the state of the cyclic voltametry measurement
+</summary>
+            <returns>the currently active ramp number from 1 to n. 0: Loop not active. -1: in PreRamp. -2: in PostRamp</returns>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesStop">
+            <summary>
+Stop the cyclic voltammetry after the current loop has finished, use RampPost to return to the holding potential
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesBreak">
+            <summary>
+Stop the cyclic voltammetry immediately, jump to the holding potential
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesStart">
+            <summary>
+Start the cyclic voltammetry according to the parameters defined
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefinePostRamp(System.Int32,System.UInt32)">
+            <summary>
+Define the ramp to use after cyclic measurement, used to return to the holding potential
+</summary>
+            <param name="holdingDacValue">the target voltage for the holding potential in DAC units</param>
+            <param name="duration">the duration of the ramp in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefinePreRamp(System.Int32,System.UInt32)">
+            <summary>
+Define the ramp to use before the cyclic measurement, used to get from the holding potential to the start potential
+</summary>
+            <param name="destinationDacValue">the target voltage for the next ramp segment in DAC units</param>
+            <param name="duration">the duration of the ramp in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefineNumberCycles(System.UInt32)">
+            <summary>
+Defines how many cycles the loop should run for
+</summary>
+            <param name="cycles">the number of cycles</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.AddRamp(System.Int32,System.UInt32)">
+            <summary>
+Add ramp to the list of segments in a cycle
+</summary>
+            <param name="destinationDacValue">target voltage for the ramp segment in DAC units</param>
+            <param name="duration">duration of the ramp segment in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.ClearRamps">
+            <summary>
+Clear the list of ramp segments, use before adding new segments to a list.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.SetPotential(System.Int32)">
+            <summary>
+Immediately jump to a new holding potential
+</summary>
+            <param name="holdingDacValue">the target voltage for the holding potential in dac units</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CCyclicVoltammetryFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CCyclicVoltammetryFunctionNet">
+            <summary>
+CCyclicVoltammetryFunctionNet is the class to control the Cyclic Voltammetry
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CSCUFunctionNet.GetDockSmartMultiwellPlateWellMux(System.UInt32,System.UInt32)">
             <summary>
 Gets the well multiplexer of the selected smart multiwell plate in the selected dock
@@ -2082,376 +2151,6 @@ gets the charge current; unit: mA
         <member name="T:Mcs.Usb.CMultiBatteryChargerDeviceNet">
             <summary>
 CMultiBatteryChargerDeviceNet is the class to access the MBC-08 device.
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingDeviceNet.#ctor">
-            <summary>
-    Initializes a new instance of the CWarnerUssingDeviceNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CWarnerUssingDeviceNet">
-            <summary>
-CWarnerUssingDeviceNet is the class to control the Ussing device
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WaitForAllChambers">
-            <summary>
-blocking call that waits for ALL chambers' boot-up calibration to complete
-</summary>
-            <returns>returns false when at least one chamber's calibration fails (e.g. timeout...)</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WaitForChamber(System.Int32)">
-            <summary>
-blocking call that waits for chamber boot-up calibration to complete
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>returns false when calibration fails (e.g. timeout...)</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.CompensateElectrodeOffset(System.Int32)">
-            <summary>
-blocking call to compensate electrode offset of one chamber; returns true when successful
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if compensation succeeded</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsElectrodeOffsetCompensationFinished(System.Int32)">
-            <summary>
-checks whether electrode offset compensation is finished
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if offset compensation is finished</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetComplianceVoltageThreshold(System.Int32)">
-            <summary>
-returns compliance voltage threshold in uV; when Uc is above, current source is overloaded
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the compliance voltage threshold in uV</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLiquidResistance(System.Int32)">
-            <summary>
-gets the resistance of the liquid
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the liquid restistance in ohm</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLiquidResistance(System.Int32,System.Int32)">
-            <summary>
-sets the resistance of the liquid
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="NewLiquidResistance_Ohm">the liquid resistiance in ohm</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsPulseEnabled(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
-            <summary>
-returns true when pulse of given chamber and current mode (voltage/current clamp) of this chamber is ENABLED
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ClampMode">voltage or current clamp stimulation</param>
-            <returns>when ENABLED, previously defined pulse pattern will be applied, otherwise the chamber current/voltage will be kept at specified offset level</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetEnablePulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Boolean)">
-            <summary>
-enable pulse of given chamber and mode (voltage/current clamp) of this chamber
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ClampMode">voltage or current clamp stimulation</param>
-            <param name="Enable">when ENABLED, previously defined pulse pattern will be applied, otherwise the chamber current/voltage will be kept at specified offset level</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetIdleModeOffset(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
-            <summary>
-gets the offset (voltage or current) that will be applied when clamping is DISABLED
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ClampMode">voltage or current clamp stimulation</param>
-            <returns>unit: nA or uV</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetIdleModeOffset(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
-            <summary>
-sets the offset (voltage or current) that will be applied when clamping is DISABLED
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ClampMode">voltage or current clamp stimulation</param>
-            <param name="NewIdleOffset">unit: nA or uV</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUptimeSeconds(System.Int32)">
-            <summary>
-gets the uptime in seconds
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>seconds since power-on</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetAvailableChambers">
-            <summary>
-returns array with (zero-based) ChamberIds of all available chambers
-</summary>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitDescription(System.Int32,System.Int32)">
-            <summary>
-gets the description for the unit
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ChannelId">index of channel (zero-based)</param>
-            <returns>the description of the unix</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitName(System.Int32,System.Int32)">
-            <summary>
-gets the channel's unit name
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ChannelId">index of channel (zero-based)</param>
-            <returns>the name of the unit</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitExponent(System.Int32,System.Int32)">
-            <summary>
-gets the unit exponent for specified chamber and channel
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ChannelId">index of channel (zero-based)</param>
-            <returns>example: return value -9 means that amps/volts per digit is in nano</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitsPerDigit(System.Int32,System.Int32)">
-            <summary>
-gets amps/volts per digit for specified chamber and channel
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="ChannelId">index of channel (zero-based)</param>
-            <returns>amps/volts per digit</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacPampsPerDigitHighCurrentRange(System.Int32)">
-            <summary>
-get the resolution of the high current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>unit: pA/digit in high current mode</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacPampsPerDigitLowCurrentRange(System.Int32)">
-            <summary>
-get the resolution of the low current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>pA/digit in low current mode</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetHighCurrentRange(System.Int32)">
-            <summary>
-query the range of the high current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>low current range in nA</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLowCurrentRange(System.Int32)">
-            <summary>
-query the range of the low current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>low current range in nA</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsHighCurrentMode(System.Int32)">
-            <summary />
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if in hight current mode</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetHighCurrentMode(System.Int32,System.Boolean)">
-            <summary>
-explicitly sets device to high/low current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="NewHighCurrentMode">true for high current mode</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLowCurrentMode(System.Int32)">
-            <summary>
-switch to low-current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetHighCurrentMode(System.Int32)">
-            <summary>
-switch to high-current mode
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacZero(System.Int32)">
-            <summary>
-- diagnostic function only - ; gets real zero value of DAC in digits (0 -&gt; neg. current; 32767 -&gt; near zero; 65535 -&gt; pos. current)
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the zero value of the DAC</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU2Reference(System.Int32)">
-            <summary>
-- diagnostic function only -
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>U2 reference</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Reference(System.Int32)">
-            <summary>
-- diagnostic function only -
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>U1 reference</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU2Offset(System.Int32)">
-            <summary>
-- diagnostic function only -
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>U2 offset</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Offset(System.Int32)">
-            <summary>
-- diagnostic function only -
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>U1 offset</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WasInternalCalibrationSuccessful(System.Int32)">
-            <summary>
-checks whether internal calibration was successful, i.e. no strange reference voltage readings etc...
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if successful</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsInternalCalibrationFinished(System.Int32)">
-            <summary>
-when internal calibration is finished, values for U1,2_offset and U1,2_reference and DAC_offset are available
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if finished</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetClampMode(System.Int32)">
-            <summary>
-gets clamp mode (voltage, current or open clamp; do not use when device is in internal calibration mode)
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the current clamp mode</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetClampMode(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
-            <summary>
-sets clamp mode (voltage, current or open clamp)
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="NewClampMode">the clamp mode to use</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_D(System.Int32)">
-            <summary>
-gets D value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the D value</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_I(System.Int32)">
-            <summary>
-gets I value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the I value</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_P(System.Int32)">
-            <summary>
-gets P value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>the P value</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_D(System.Int32,System.UInt32)">
-            <summary>
-sets D value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="D">useful range: 0..700</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_I(System.Int32,System.UInt32)">
-            <summary>
-sets I value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="I">useful range: 80000..120000</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_P(System.Int32,System.UInt32)">
-            <summary>
-sets P value of PID controller;
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <param name="P">useful value: 130000</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseMarker(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
-            <summary>
-PRIVATE function
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
-            <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseRepetitions(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
-            <summary>
-PRIVATE function
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
-            <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="NumberOfRepetitions">number of repetitions for pulse pattern; 0 for infinite</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseDurations(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
-            <summary>
-PRIVATE function
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
-            <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="Durations">duration in 100us</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseAmplitudes(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
-            <summary>
-PRIVATE function
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
-            <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32,System.Int32[],System.Int32[],System.Int32[])">
-            <summary>
-defines stimulation pulse pattern for voltage or current stimulation; CAUTION: zero-length amplitude will be briefly applied -&gt; choose matching to neighbour to avoid spikes
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
-            <param name="StgMode">voltage or current clamp stimulation</param>
-            <param name="NumberOfRepetitions">number of repetitions for pulse pattern (-1 for infinite; n means pattern is applied n+1 times)</param>
-            <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
-            <param name="Durations">duration in 100us; CAUTION: first element is applied only one; auto-loop back to second element after last one</param>
-            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsChamberAvailable(System.Int32)">
-            <summary>
-checks whether chamber amp is connected to slot
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>true if the chamber is available</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetNumberOfAvailableChambers">
-            <summary>
-gets number of actually connected chamber amps
-</summary>
-            <returns>the number of actually connected chambers</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetNumberOfHardwareSlotsForChambers">
-            <summary>
-gets number of physical hardware slots for chambers amps
-</summary>
-            <returns>the number of hardware chamber slots on the backplane</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetChannelsCountOfChamber(System.Int32)">
-            <summary>
-gets number of channels in datastream from chamber amp with given index
-</summary>
-            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
-            <returns>return value of zero means that amp is not placed</returns>
-        </member>
-        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
-            <summary>
-    Initializes a new instance of the CWarnerUssingFunctionNet class.
-</summary>
-        </member>
-        <member name="T:Mcs.Usb.CWarnerUssingFunctionNet">
-            <summary>
-CWarnerUssingFunctionNet is the class to control the Ussing device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CUsbDeviceConfigurationFunctionNet.SetDeviceId(Mcs.Usb.ProductIdEnumNet)">
@@ -3310,6 +3009,376 @@ Initializes a new instance of CTcxDeviceNet class.
         <member name="T:Mcs.Usb.CTcxDeviceNet">
             <summary>
 Class to control a Temperature Controller (TCX)
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingDeviceNet.#ctor">
+            <summary>
+    Initializes a new instance of the CWarnerUssingDeviceNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CWarnerUssingDeviceNet">
+            <summary>
+CWarnerUssingDeviceNet is the class to control the Ussing device
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WaitForAllChambers">
+            <summary>
+blocking call that waits for ALL chambers' boot-up calibration to complete
+</summary>
+            <returns>returns false when at least one chamber's calibration fails (e.g. timeout...)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WaitForChamber(System.Int32)">
+            <summary>
+blocking call that waits for chamber boot-up calibration to complete
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>returns false when calibration fails (e.g. timeout...)</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.CompensateElectrodeOffset(System.Int32)">
+            <summary>
+blocking call to compensate electrode offset of one chamber; returns true when successful
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if compensation succeeded</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsElectrodeOffsetCompensationFinished(System.Int32)">
+            <summary>
+checks whether electrode offset compensation is finished
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if offset compensation is finished</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetComplianceVoltageThreshold(System.Int32)">
+            <summary>
+returns compliance voltage threshold in uV; when Uc is above, current source is overloaded
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the compliance voltage threshold in uV</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLiquidResistance(System.Int32)">
+            <summary>
+gets the resistance of the liquid
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the liquid restistance in ohm</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLiquidResistance(System.Int32,System.Int32)">
+            <summary>
+sets the resistance of the liquid
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="NewLiquidResistance_Ohm">the liquid resistiance in ohm</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsPulseEnabled(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
+            <summary>
+returns true when pulse of given chamber and current mode (voltage/current clamp) of this chamber is ENABLED
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ClampMode">voltage or current clamp stimulation</param>
+            <returns>when ENABLED, previously defined pulse pattern will be applied, otherwise the chamber current/voltage will be kept at specified offset level</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetEnablePulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Boolean)">
+            <summary>
+enable pulse of given chamber and mode (voltage/current clamp) of this chamber
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ClampMode">voltage or current clamp stimulation</param>
+            <param name="Enable">when ENABLED, previously defined pulse pattern will be applied, otherwise the chamber current/voltage will be kept at specified offset level</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetIdleModeOffset(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
+            <summary>
+gets the offset (voltage or current) that will be applied when clamping is DISABLED
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ClampMode">voltage or current clamp stimulation</param>
+            <returns>unit: nA or uV</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetIdleModeOffset(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
+            <summary>
+sets the offset (voltage or current) that will be applied when clamping is DISABLED
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ClampMode">voltage or current clamp stimulation</param>
+            <param name="NewIdleOffset">unit: nA or uV</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUptimeSeconds(System.Int32)">
+            <summary>
+gets the uptime in seconds
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>seconds since power-on</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetAvailableChambers">
+            <summary>
+returns array with (zero-based) ChamberIds of all available chambers
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitDescription(System.Int32,System.Int32)">
+            <summary>
+gets the description for the unit
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ChannelId">index of channel (zero-based)</param>
+            <returns>the description of the unix</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitName(System.Int32,System.Int32)">
+            <summary>
+gets the channel's unit name
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ChannelId">index of channel (zero-based)</param>
+            <returns>the name of the unit</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitExponent(System.Int32,System.Int32)">
+            <summary>
+gets the unit exponent for specified chamber and channel
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ChannelId">index of channel (zero-based)</param>
+            <returns>example: return value -9 means that amps/volts per digit is in nano</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetUnitsPerDigit(System.Int32,System.Int32)">
+            <summary>
+gets amps/volts per digit for specified chamber and channel
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="ChannelId">index of channel (zero-based)</param>
+            <returns>amps/volts per digit</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacPampsPerDigitHighCurrentRange(System.Int32)">
+            <summary>
+get the resolution of the high current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>unit: pA/digit in high current mode</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacPampsPerDigitLowCurrentRange(System.Int32)">
+            <summary>
+get the resolution of the low current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>pA/digit in low current mode</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetHighCurrentRange(System.Int32)">
+            <summary>
+query the range of the high current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>low current range in nA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetLowCurrentRange(System.Int32)">
+            <summary>
+query the range of the low current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>low current range in nA</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsHighCurrentMode(System.Int32)">
+            <summary />
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if in hight current mode</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetHighCurrentMode(System.Int32,System.Boolean)">
+            <summary>
+explicitly sets device to high/low current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="NewHighCurrentMode">true for high current mode</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetLowCurrentMode(System.Int32)">
+            <summary>
+switch to low-current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetHighCurrentMode(System.Int32)">
+            <summary>
+switch to high-current mode
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetDacZero(System.Int32)">
+            <summary>
+- diagnostic function only - ; gets real zero value of DAC in digits (0 -&gt; neg. current; 32767 -&gt; near zero; 65535 -&gt; pos. current)
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the zero value of the DAC</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU2Reference(System.Int32)">
+            <summary>
+- diagnostic function only -
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>U2 reference</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Reference(System.Int32)">
+            <summary>
+- diagnostic function only -
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>U1 reference</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU2Offset(System.Int32)">
+            <summary>
+- diagnostic function only -
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>U2 offset</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetU1Offset(System.Int32)">
+            <summary>
+- diagnostic function only -
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>U1 offset</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.WasInternalCalibrationSuccessful(System.Int32)">
+            <summary>
+checks whether internal calibration was successful, i.e. no strange reference voltage readings etc...
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if successful</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsInternalCalibrationFinished(System.Int32)">
+            <summary>
+when internal calibration is finished, values for U1,2_offset and U1,2_reference and DAC_offset are available
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if finished</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetClampMode(System.Int32)">
+            <summary>
+gets clamp mode (voltage, current or open clamp; do not use when device is in internal calibration mode)
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the current clamp mode</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetClampMode(System.Int32,Mcs.Usb.UssingClampModeEnumNet)">
+            <summary>
+sets clamp mode (voltage, current or open clamp)
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="NewClampMode">the clamp mode to use</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_D(System.Int32)">
+            <summary>
+gets D value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the D value</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_I(System.Int32)">
+            <summary>
+gets I value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the I value</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetVoltageClampControllerParam_P(System.Int32)">
+            <summary>
+gets P value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>the P value</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_D(System.Int32,System.UInt32)">
+            <summary>
+sets D value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="D">useful range: 0..700</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_I(System.Int32,System.UInt32)">
+            <summary>
+sets I value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="I">useful range: 80000..120000</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetVoltageClampControllerParam_P(System.Int32,System.UInt32)">
+            <summary>
+sets P value of PID controller;
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <param name="P">useful value: 130000</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseMarker(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseRepetitions(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32)">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="NumberOfRepetitions">number of repetitions for pulse pattern; 0 for infinite</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseDurations(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="Durations">duration in 100us</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulseAmplitudes(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32[])">
+            <summary>
+PRIVATE function
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.SetPulse(System.Int32,Mcs.Usb.UssingClampModeEnumNet,System.Int32,System.Int32[],System.Int32[],System.Int32[])">
+            <summary>
+defines stimulation pulse pattern for voltage or current stimulation; CAUTION: zero-length amplitude will be briefly applied -&gt; choose matching to neighbour to avoid spikes
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based); send pattern to connected amp</param>
+            <param name="StgMode">voltage or current clamp stimulation</param>
+            <param name="NumberOfRepetitions">number of repetitions for pulse pattern (-1 for infinite; n means pattern is applied n+1 times)</param>
+            <param name="Amplitudes">amplitude; unit in voltage clamp: uV; unit in current clamp: nA</param>
+            <param name="Durations">duration in 100us; CAUTION: first element is applied only one; auto-loop back to second element after last one</param>
+            <param name="PulseMarker">defines values on digital channel for each step (positive: digital channel "01", neg: "10", zero: "00")</param>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.IsChamberAvailable(System.Int32)">
+            <summary>
+checks whether chamber amp is connected to slot
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>true if the chamber is available</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetNumberOfAvailableChambers">
+            <summary>
+gets number of actually connected chamber amps
+</summary>
+            <returns>the number of actually connected chambers</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetNumberOfHardwareSlotsForChambers">
+            <summary>
+gets number of physical hardware slots for chambers amps
+</summary>
+            <returns>the number of hardware chamber slots on the backplane</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.GetChannelsCountOfChamber(System.Int32)">
+            <summary>
+gets number of channels in datastream from chamber amp with given index
+</summary>
+            <param name="ChamberId">index of hardware chamber slot (zero-based)</param>
+            <returns>return value of zero means that amp is not placed</returns>
+        </member>
+        <member name="M:Mcs.Usb.CWarnerUssingFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CWarnerUssingFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CWarnerUssingFunctionNet">
+            <summary>
+CWarnerUssingFunctionNet is the class to control the Ussing device
 </summary>
         </member>
         <member name="M:Mcs.Usb.CInterfaceboard2FunctionNet.GetIoVoltage">
@@ -4699,7 +4768,7 @@ Defines whether an electrode should be blanked while stimulation is in progress.
             <summary>
 Gets weather an electrode is enabled or disabled for stimulation.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
             <returns>true if the electrode is enabled, false if it is disabled.</returns>
         </member>
@@ -4707,17 +4776,17 @@ Gets weather an electrode is enabled or disabled for stimulation.
             <summary>
 Enables or disables the stimulation switch for an external electrode.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
-            <param name="enable">1 to enable the electrode, 0 to disable.</param>
+            <param name="enable">true to enable the electrode, false to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetExternalElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
             <summary>
 Enables or disables the stimulation switch for an external electrode.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
-            <param name="enable">1 to enable the electrode, 0 to disable.</param>
+            <param name="enable">true to enable the electrode, false to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32,System.UInt32)">
             <summary>
@@ -5092,41 +5161,6 @@ If download information was stored by the use of <see cref="M:Mcs.Usb.CStg200xBa
             <param name="timestamp">The timestamp of last download.</param>
             <param name="filename">The filename of the downlaoded waveform.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInPicoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Picoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageResolutionInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Picoamps.
@@ -5161,6 +5195,12 @@ Gets the Voltage Range of the specified channel in Microvolts.
 </summary>
             <param name="channel"> Channel which is queried.</param>
             <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetOutputIsUnipolar(System.UInt32)">
+            <summary>
+Gets whether is output of a channel is bipolar or unipolar.
+<param name="channel"> Channel which is queried.</param></summary>
+            <returns>true is the output is unipolar, false is the output is bipolar.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetTimeResolutionInNanoSeconds">
             <summary>
@@ -5828,41 +5868,6 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
         </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInPicoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Picoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Picoamps.
@@ -5897,6 +5902,12 @@ Gets the Voltage Range of the specified channel in Microvolts.
 </summary>
             <param name="channel"> Channel which is queried.</param>
             <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetOutputIsUnipolar(System.UInt32)">
+            <summary>
+Gets whether is output of a channel is bipolar or unipolar.
+<param name="channel"> Channel which is queried.</param></summary>
+            <returns>true is the output is unipolar, false is the output is bipolar.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
             <summary>

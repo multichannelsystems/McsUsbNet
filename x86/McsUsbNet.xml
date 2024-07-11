@@ -2495,6 +2495,75 @@ Sets .
     CGenericDevelopDeviceNet is the class to use during development of a new device.
 </summary>
         </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.GetCurrentState">
+            <summary>
+Query the state of the cyclic voltametry measurement
+</summary>
+            <returns>the currently active ramp number from 1 to n. 0: Loop not active. -1: in PreRamp. -2: in PostRamp</returns>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesStop">
+            <summary>
+Stop the cyclic voltammetry after the current loop has finished, use RampPost to return to the holding potential
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesBreak">
+            <summary>
+Stop the cyclic voltammetry immediately, jump to the holding potential
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.CyclesStart">
+            <summary>
+Start the cyclic voltammetry according to the parameters defined
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefinePostRamp(System.Int32,System.UInt32)">
+            <summary>
+Define the ramp to use after cyclic measurement, used to return to the holding potential
+</summary>
+            <param name="holdingDacValue">the target voltage for the holding potential in DAC units</param>
+            <param name="duration">the duration of the ramp in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefinePreRamp(System.Int32,System.UInt32)">
+            <summary>
+Define the ramp to use before the cyclic measurement, used to get from the holding potential to the start potential
+</summary>
+            <param name="destinationDacValue">the target voltage for the next ramp segment in DAC units</param>
+            <param name="duration">the duration of the ramp in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.DefineNumberCycles(System.UInt32)">
+            <summary>
+Defines how many cycles the loop should run for
+</summary>
+            <param name="cycles">the number of cycles</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.AddRamp(System.Int32,System.UInt32)">
+            <summary>
+Add ramp to the list of segments in a cycle
+</summary>
+            <param name="destinationDacValue">target voltage for the ramp segment in DAC units</param>
+            <param name="duration">duration of the ramp segment in number of DAC sample intervals</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.ClearRamps">
+            <summary>
+Clear the list of ramp segments, use before adding new segments to a list.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.SetPotential(System.Int32)">
+            <summary>
+Immediately jump to a new holding potential
+</summary>
+            <param name="holdingDacValue">the target voltage for the holding potential in dac units</param>
+        </member>
+        <member name="M:Mcs.Usb.CCyclicVoltammetryFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CCyclicVoltammetryFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CCyclicVoltammetryFunctionNet">
+            <summary>
+CCyclicVoltammetryFunctionNet is the class to control the Cyclic Voltammetry
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CUsbDeviceConfigurationFunctionNet.SetDeviceId(Mcs.Usb.ProductIdEnumNet)">
             <summary>
 sets the USB device name for configurable devices
@@ -4028,7 +4097,7 @@ Defines whether an electrode should be blanked while stimulation is in progress.
             <summary>
 Gets weather an electrode is enabled or disabled for stimulation.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
             <returns>true if the electrode is enabled, false if it is disabled.</returns>
         </member>
@@ -4036,17 +4105,17 @@ Gets weather an electrode is enabled or disabled for stimulation.
             <summary>
 Enables or disables the stimulation switch for an external electrode.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
-            <param name="enable">1 to enable the electrode, 0 to disable.</param>
+            <param name="enable">true to enable the electrode, false to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.SetExternalElectrodeEnable(System.UInt32,System.UInt32,System.Boolean[])">
             <summary>
 Enables or disables the stimulation switch for an external electrode.
 </summary>
-            <param name="electrode">The electrode number.</param>
+            <param name="stgChannel">The STG channel. The internal STG channels are directly mapped to the external stimulation outputs.</param>
             <param name="listmodeIndex">The index for listmode.</param>
-            <param name="enable">1 to enable the electrode, 0 to disable.</param>
+            <param name="enable">true to enable the electrode, false to disable.</param>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetElectrodeEnable(System.UInt32,System.UInt32,System.UInt32)">
             <summary>
@@ -4421,41 +4490,6 @@ If download information was stored by the use of <see cref="M:Mcs.Usb.CStg200xBa
             <param name="timestamp">The timestamp of last download.</param>
             <param name="filename">The filename of the downlaoded waveform.</param>
         </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInPicoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Picoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentRangeInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageResolutionInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStg200xBasicNet.GetVoltageRangeInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Picoamps.
@@ -4490,6 +4524,12 @@ Gets the Voltage Range of the specified channel in Microvolts.
 </summary>
             <param name="channel"> Channel which is queried.</param>
             <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStg200xBasicNet.GetOutputIsUnipolar(System.UInt32)">
+            <summary>
+Gets whether is output of a channel is bipolar or unipolar.
+<param name="channel"> Channel which is queried.</param></summary>
+            <returns>true is the output is unipolar, false is the output is bipolar.</returns>
         </member>
         <member name="M:Mcs.Usb.CStg200xBasicNet.GetTimeResolutionInNanoSeconds">
             <summary>
@@ -5729,41 +5769,6 @@ Configures the trigger settings for the STG. Note that all memory segments have 
             <param name="syncoutmap">For each trigger, a bitmap of syncouts that belong to this trigger.</param>
             <param name="repeat">For each trigger, define the number of times this trigger should be repeated.</param>
         </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInPicoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Picoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Picoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Resolution of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Resolution of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentRangeInNanoAmpNegative(System.UInt32)">
-            <summary>
-Gets the Negative Current Range of the specified channel in Nanoamps.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Current Range of the specified channel in Nanoamps.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageResolutionInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Resolution of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Resolution of the specified channel in Microvolts.</returns>
-        </member>
-        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetVoltageRangeInMicroVoltNegative(System.UInt32)">
-            <summary>
-Gets the Negative Voltage Range of the specified channel in Microvolts.
-</summary>
-            <param name="channel"> Channel which is queried.</param>
-            <returns>The Voltage Range of the specified channel in Microvolts.</returns>
-        </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetCurrentResolutionInPicoAmp(System.UInt32)">
             <summary>
 Gets the Current Resolution of the specified channel in Picoamps.
@@ -5798,6 +5803,12 @@ Gets the Voltage Range of the specified channel in Microvolts.
 </summary>
             <param name="channel"> Channel which is queried.</param>
             <returns>The Voltage Range of the specified channel in Microvolts.</returns>
+        </member>
+        <member name="M:Mcs.Usb.CStimulusFunctionNet.GetOutputIsUnipolar(System.UInt32)">
+            <summary>
+Gets whether is output of a channel is bipolar or unipolar.
+<param name="channel"> Channel which is queried.</param></summary>
+            <returns>true is the output is unipolar, false is the output is bipolar.</returns>
         </member>
         <member name="M:Mcs.Usb.CStimulusFunctionNet.GetDACResolution">
             <summary>
