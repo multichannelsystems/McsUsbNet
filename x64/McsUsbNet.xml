@@ -212,6 +212,56 @@ Sets the offset of a DAC channel.
         <member name="T:Mcs.Usb.CDacCalibrationFunctionNet">
             <summary />
         </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.StopPumps(System.UInt32)">
+            <summary>
+Stop the pumps
+</summary>
+            <param name="PumpsToStop">Pumps to stop with a bit mask</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.StartPumps(System.UInt32)">
+            <summary>
+Start the pumps
+</summary>
+            <param name="PumpsToStart">Pumps to start with a bit mask</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.SetPumpParameterCapacity(System.UInt32,System.UInt32)">
+            <summary>
+Capacity of the certain pump system
+</summary>
+            <param name="PumpSelect">The Pump to modity</param>
+            <param name="Capacity">Pump capacity in pF</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.SetPumpParameterNegAmplitude(System.UInt32,System.Int32)">
+            <summary>
+Negative amplitude of the signal
+</summary>
+            <param name="PumpSelect">The Pump to modity</param>
+            <param name="NegAmplitude">Set negative amplitude</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.SetPumpParameterPosAmplitude(System.UInt32,System.Int32)">
+            <summary>
+Poitive amplitude of the signal
+</summary>
+            <param name="PumpSelect">The Pump to modity</param>
+            <param name="PosAmplitude">Set positive amplitude</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.SetPumpParameterFrequency(System.UInt32,System.UInt32)">
+            <summary>
+Sine frequency of the signal
+</summary>
+            <param name="PumpSelect">The Pump to modity</param>
+            <param name="Frequency">Set parameter frequency</param>
+        </member>
+        <member name="M:Mcs.Usb.CUnloocFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CUnloocFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CUnloocFunctionNet">
+            <summary>
+CUnloocFunctionNet is the class to access the Unlooc device.
+</summary>
+        </member>
         <member name="M:Mcs.Usb.CPositionImpDeviceNet.SetImpId(System.UInt32)">
             <summary>
 Sets the ID of the impedance measure device
@@ -2509,6 +2559,28 @@ Gets the state of the Multiwell plate clamp.
         <member name="T:Mcs.Usb.CMultiwellDeviceNet">
             <summary>
 CMultiwellDeviceNet is the class to access the Multiwell device.
+</summary>
+        </member>
+        <member name="M:Mcs.Usb.CCrossDeviceFunctionNet.GetRealtiveHumidity">
+            <summary>
+Gets the humidity in %RH
+</summary>
+            <returns>The humidity in percent</returns>
+        </member>
+        <member name="M:Mcs.Usb.CCrossDeviceFunctionNet.GetTemperatureInMilliDegreeCelsius">
+            <summary>
+Gets the temperature in milli degree Celsius
+</summary>
+            <returns>The temperature in milli degree Celsius</returns>
+        </member>
+        <member name="M:Mcs.Usb.CCrossDeviceFunctionNet.#ctor(Mcs.Usb.CMcsUsbNet,Mcs.Usb.CMcsUsbFunctionPointerContainer)">
+            <summary>
+    Initializes a new instance of the CCrossDeviceFunctionNet class.
+</summary>
+        </member>
+        <member name="T:Mcs.Usb.CCrossDeviceFunctionNet">
+            <summary>
+CCrossDeviceFunctionNet is the class to control the functions across devices
 </summary>
         </member>
         <member name="M:Mcs.Usb.CMultiwellOptoStimFunctionNet.SetColorStr(System.UInt16,System.String)">
